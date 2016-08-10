@@ -50,6 +50,22 @@
         </Style>
         <Style TargetType="TreeViewItem">
             <Setter Property="Padding" Value="8"/>
+            <EventSetter Event="Expanded" Handler="TreeViewItem_Expanded"/>
+            <Style.Triggers>
+                <Trigger Property="HasItems" Value="True">
+                    <Setter Property="Foreground" Value="#e31d3b"/>
+                </Trigger>
+                <Trigger Property="HasItems" Value="False">
+                    <Setter Property="FontWeight" Value="Normal"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="SelectedTreeViewItemParentStyle" TargetType="TreeViewItem" BasedOn="{StaticResource {x:Type TreeViewItem}}">
+            <Style.Triggers>
+                <Trigger Property="HasItems" Value="True">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Window.Resources>
     <DockPanel>
@@ -97,7 +113,7 @@
                             <StackPanel Orientation="Horizontal" IsItemsHost="True"/>
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
-                    <ListBoxItem Content="RUN" Foreground="#e31d3b" Margin="20,0"/>
+                    <ListBoxItem Content="RUN" Foreground="#e31d3b" Margin="20,0" IsSelected="True"/>
                     <ListBoxItem Content="MAINWINDOW.XAML" />
                     <ListBoxItem Content="MAINWINDOW.XAML.CS" />
                     <ListBoxItem Content="TEMPLATES.XAML" />
@@ -125,9 +141,9 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="4*"/>
                     </Grid.ColumnDefinitions>
-                    <TreeView Grid.Column="0">
-                        <TreeViewItem Header="GANTTCHARTDATAGRID" IsExpanded="True">
-                            <TreeViewItem Header="Main features" IsSelected="True"/>
+                    <TreeView Grid.Column="0" Name="TreeView" Loaded="TreeView_Loaded" SelectedItemChanged="TreeView_SelectedItemChanged">
+                        <TreeViewItem Header="GANTTCHARTDATAGRID">
+                            <TreeViewItem Header="Main features"/>
                             <TreeViewItem Header="Assigning resources (with multi-selector combo box) "/>
                             <TreeViewItem Header="Automatic scheduling (time constraints)"/>
                             <TreeViewItem Header="Grid columns (built-in and custom) "/>
