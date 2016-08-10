@@ -1,0 +1,163 @@
+﻿<Window x:Class="Demos.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demos"
+        mc:Ignorable="d"
+        Title="Demos - Gantt Chart Light Library - DlhSoft"
+        Width="1200" Height="800"
+        WindowState="Maximized">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="16,0"/>
+        </Style>
+        <Style TargetType="Hyperlink">
+            <Setter Property="Foreground" Value="{Binding Foreground, RelativeSource={RelativeSource AncestorType=TextBlock}}"/>
+            <Setter Property="TextDecorations" Value="None"/>
+            <EventSetter Event="RequestNavigate" Handler="Hyperlink_RequestNavigate"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="Margin" Value="0,6"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Margin" Value="4,0"/>
+            <Setter Property="Padding" Value="10,4"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="16,8"/>
+            <Setter Property="Padding" Value="10,2"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="Padding" Value="10,11"/>
+        </Style>
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Foreground" Value="{Binding Path=(TextElement.Foreground), RelativeSource={RelativeSource AncestorType=Panel}}"/>
+            <Setter Property="Padding" Value="8"/>
+        </Style>
+        <Style TargetType="TreeView">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+        </Style>
+        <Style TargetType="TreeViewItem">
+            <Setter Property="Padding" Value="8"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Background="#292929" TextElement.Foreground="#e0e0e0" Height="55">
+            <TextBlock DockPanel.Dock="Left" Margin="32,0" VerticalAlignment="Center">
+                <Hyperlink NavigateUri="http://DlhSoft.com">
+                    <Image Source="http://DlhSoft.com/Images/Logo-light.png" Height="33"/>
+                </Hyperlink>
+            </TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="16,0">
+                <TextBlock>
+                    <Span>DEMOS</Span>
+                    <Span> – </Span>
+                    <Hyperlink NavigateUri="http://DlhSoft.com/GanttChartLightLibrary">
+                        GANTT CHART LIGHT LIBRARY
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock>
+                    <Hyperlink NavigateUri="http://DlhSoft.com/Goto.aspx?Url=GanttChartLightLibrary/Documentation/index.html">
+                        DOCUMENTATION
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock>
+                    <Hyperlink NavigateUri="http://DlhSoft.com/GanttChartLightLibrary/Download.aspx">
+                        DOWNLOADS
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock>
+                    <Hyperlink NavigateUri="http://DlhSoft.com/GanttChartLightLibrary/Purchase.aspx">
+                        ORDER LICENSES
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock>
+                    <Hyperlink NavigateUri="http://DlhSoft.com/GanttChartLightLibrary/Support.aspx">
+                        SUPPORT
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </DockPanel>
+        <ScrollViewer DockPanel.Dock="Top" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="16,0" Height="55">
+                <ListBox SelectionMode="Single">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" IsItemsHost="True"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBoxItem Content="RUN" Foreground="#e31d3b" Margin="20,0"/>
+                    <ListBoxItem Content="MAINWINDOW.XAML" />
+                    <ListBoxItem Content="MAINWINDOW.XAML.CS" />
+                    <ListBoxItem Content="TEMPLATES.XAML" />
+                    <ListBoxItem Content="THEMES.XAML" />
+                </ListBox>
+                <Button Content=".ZIP"/>
+                <ComboBox Foreground="#e31d3b">
+                    <ComboBoxItem Content="DEFAULT"/>
+                    <ComboBoxItem Content="GENERIC-BRIGHT THEME" IsSelected="True"/>
+                    <ComboBoxItem Content="GENERIC-BLUE THEME"/>
+                </ComboBox>
+                <ComboBox HorizontalContentAlignment="Right">
+                    <ComboBoxItem Content="WPF – C#" IsSelected="True"/>
+                    <ComboBoxItem Content="WPF – VISUAL BASIC®"/>
+                    <ComboBoxItem Content="SILVERLIGHT™ – C#"/>
+                    <ComboBoxItem Content="SILVERLIGHT™ – VISUAL BASIC®"/>
+                </ComboBox>
+            </StackPanel>
+        </ScrollViewer>
+        <Border BorderBrush="#ccc" BorderThickness="0,1,0,0">
+            <DockPanel>
+                <Grid DockPanel.Dock="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <TreeView Grid.Column="0">
+                        <TreeViewItem Header="GANTTCHARTDATAGRID" IsExpanded="True">
+                            <TreeViewItem Header="Main features" IsSelected="True"/>
+                            <TreeViewItem Header="Assigning resources (with multi-selector combo box) "/>
+                            <TreeViewItem Header="Automatic scheduling (time constraints)"/>
+                            <TreeViewItem Header="Grid columns (built-in and custom) "/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="GANTTCHARTVIEW">
+                            <TreeViewItem Header="Main features"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="SCHEDULECHARTDATAGRID">
+                            <TreeViewItem Header="Main features"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="SCHEDULECHARTVIEW">
+                            <TreeViewItem Header="Main features"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="LOADCHARTDATAGRID">
+                            <TreeViewItem Header="Main features"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="LOADCHARTVIEW">
+                            <TreeViewItem Header="Main features"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="PERTCHARTVIEW">
+                            <TreeViewItem Header="Main features"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="NETWORKDIAGRAMVIEW">
+                            <TreeViewItem Header="Main features"/>
+                        </TreeViewItem>
+                    </TreeView>
+                    <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Stretch" Background="Transparent"/>
+                    <Border Grid.Column="2" BorderThickness="1,0,0,0" BorderBrush="#ccc"/>
+                </Grid>
+            </DockPanel>
+        </Border>
+    </DockPanel>
+</Window>
