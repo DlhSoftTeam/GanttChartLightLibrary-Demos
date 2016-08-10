@@ -104,6 +104,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml.cs">
+      <DependentUpon>EditItemDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -124,6 +133,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </None>
+    <Page Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Templates.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -178,6 +199,47 @@
     <Resource Include="Properties\Icon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\AddNew.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\Baseline.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\Copy.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\CriticalPath.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\DecreaseIndentation.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\DecreaseTimelinePage.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\Delete.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\DependencyConstraints.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\Edit.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\ExportImage.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\FitToTimelinePage.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\IncreaseIndentation.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\IncreaseTimelinePage.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\InsertNew.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\LevelResources.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\LoadChart.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\LoadProjectXml.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\MoveDown.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\MoveUp.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\NetworkDiagram.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\Paste.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\PertChart.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\Print.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\ProjectStatistics.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\Redo.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\Resources.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\SaveProjectXml.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\ScheduleChart.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\SetColor.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\ShowWeekends.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\SplitRemainingWork.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\Task.Icon.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\Undo.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\WorkOnWeekends.png" />
+    <Resource Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\Images\ZoomIn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tools\ArchiveBuilder.exe" />
+    <None Include="Tools\Interop.Shell32.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Samples\Silverlight-CSharp\GanttChartDataGrid\" />
     <Folder Include="Samples\Silverlight-VisualBasic\GanttChartDataGrid\" />
     <Folder Include="Samples\WPF-CSharp\GanttChartView\" />
@@ -189,17 +251,15 @@
     <Folder Include="Samples\WPF-CSharp\ScheduleChartView\" />
     <Folder Include="Samples\WPF-VisualBasic\GanttChartDataGrid\" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Tools\ArchiveBuilder.exe" />
-    <None Include="Tools\Interop.Shell32.dll" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>for /d %25%25t in ("$(ProjectDir)\Samples\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in ("%25%25c\*") do xcopy /y "$(ProjectDir)\Samples\*.*" "%25%25f\"
 </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>for /d %25%25t in ("$(ProjectDir)\Samples\*") do for /d %25%25c in ("%25%25t\*") do cd "%25%25c" &amp; for /d %25%25f in (*) do "$(ProjectDir)\Tools\ArchiveBuilder.exe" %25%25f.zip %25%25f
+    <PostBuildEvent>for /d %25%25t in ("$(ProjectDir)\Samples\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\obj
+for /d %25%25t in ("$(ProjectDir)\Samples\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\bin
+for /d %25%25t in ("$(ProjectDir)\Samples\*") do for /d %25%25c in ("%25%25t\*") do cd "%25%25c" &amp; for /d %25%25f in (*) do "$(ProjectDir)\Tools\ArchiveBuilder.exe" %25%25f.zip %25%25f
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

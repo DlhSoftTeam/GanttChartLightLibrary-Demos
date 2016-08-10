@@ -4,6 +4,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demos", "Demos\Demos.csproj", "{167861E1-341B-4D34-A6AB-6DA591CA675C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{326967B5-0AF7-4AA0-A4B9-70ABB105142D} = {326967B5-0AF7-4AA0-A4B9-70ABB105142D}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF-CSharp", "WPF-CSharp", "{C3ABAD00-06EF-449A-A933-DB09A8B1BB75}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GanttChartDataGrid", "GanttChartDataGrid", "{D05B379C-DDDC-4996-BA59-E2F131F19B7E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{382E81F1-9E86-4D43-98D7-CF5AD0A653C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures", "Demos\Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainFeatures.csproj", "{326967B5-0AF7-4AA0-A4B9-70ABB105142D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF-VisualBasic", "WPF-VisualBasic", "{FAE5EB80-476B-469C-85AB-0FBE8BEECFFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +28,18 @@ Global
 		{167861E1-341B-4D34-A6AB-6DA591CA675C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{167861E1-341B-4D34-A6AB-6DA591CA675C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{167861E1-341B-4D34-A6AB-6DA591CA675C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{326967B5-0AF7-4AA0-A4B9-70ABB105142D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{326967B5-0AF7-4AA0-A4B9-70ABB105142D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{326967B5-0AF7-4AA0-A4B9-70ABB105142D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{326967B5-0AF7-4AA0-A4B9-70ABB105142D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C3ABAD00-06EF-449A-A933-DB09A8B1BB75} = {382E81F1-9E86-4D43-98D7-CF5AD0A653C9}
+		{D05B379C-DDDC-4996-BA59-E2F131F19B7E} = {C3ABAD00-06EF-449A-A933-DB09A8B1BB75}
+		{326967B5-0AF7-4AA0-A4B9-70ABB105142D} = {D05B379C-DDDC-4996-BA59-E2F131F19B7E}
+		{FAE5EB80-476B-469C-85AB-0FBE8BEECFFF} = {382E81F1-9E86-4D43-98D7-CF5AD0A653C9}
 	EndGlobalSection
 EndGlobal
