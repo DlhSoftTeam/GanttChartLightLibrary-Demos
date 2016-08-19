@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -69,6 +70,40 @@ namespace Demos
                 if (item.HasItems && item.IsExpanded && item != expandedItem)
                     item.IsExpanded = false;
             }
+        }
+
+        private void FilesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedFileItem = FilesListBox.SelectedItem as ListBoxItem;
+            if (selectedFileItem == null)
+            {
+                FilesListBox.SelectedIndex = 0;
+                return;
+            }
+            Dispatcher.BeginInvoke((Action)LoadContent);
+        }
+
+        private void LoadContent()
+        {
+            var selectedFileItem = FilesListBox.SelectedItem as ListBoxItem;
+            if (selectedFileItem.Tag == null)
+            {
+                if (containerWindow != null)
+                    containerWindow.Close();
+                var selectedThemeItem = ThemeComboBox.SelectedItem as ComboBoxItem;
+                var theme = selectedThemeItem?.Tag as string;
+                containerWindow = new WPF.CSharp.GanttChartDataGrid.MainFeatures.MainWindow(theme);
+                ContentPresenter.Content = containerWindow.Content;
+                return;
+            }
+        }
+
+        private Window containerWindow;
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            if (containerWindow != null)
+                containerWindow.Close();
         }
     }
 }

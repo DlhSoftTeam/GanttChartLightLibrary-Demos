@@ -18,7 +18,7 @@ using Microsoft.Win32;
 using System.IO;
 using System.Collections.ObjectModel;
 
-namespace GanttChartDataGridSample
+namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -167,7 +167,15 @@ namespace GanttChartDataGridSample
             BaselineCheckBox.IsChecked = true;
             EnableDependencyConstraintsCheckBox.IsChecked = true;
         }
-         
+
+        public MainWindow(string theme) : this()
+        {
+            if (theme == null || theme == "Default" || theme == "Aero")
+                return;
+            var themeResourceDictionary = new ResourceDictionary { Source = new Uri("/" + GetType().Assembly.GetName().Name + ";component/Themes/" + theme + ".xaml", UriKind.Relative) };
+            GanttChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary);
+        }
+
         // Control area commands.
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
@@ -177,7 +185,7 @@ namespace GanttChartDataGridSample
                 MessageBox.Show("Cannot edit as the selection is empty; you should select an item first.", "Information", MessageBoxButton.OK);
                 return;
             }
-            EditItemDialog editItemDialog = new EditItemDialog { Owner = this, DataContext = selectedItem, AssignableResources = GanttChartDataGrid.AssignableResources };
+            EditItemDialog editItemDialog = new EditItemDialog { Owner = Application.Current.MainWindow, DataContext = selectedItem, AssignableResources = GanttChartDataGrid.AssignableResources };
             editItemDialog.ShowDialog();
         }
         private void AddNewButton_Click(object sender, RoutedEventArgs e)
@@ -528,7 +536,7 @@ namespace GanttChartDataGridSample
             Window scheduleChartWindow =
                 new Window
                 {
-                    Owner = this, Title = "Schedule Chart", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 640, Height = 480, ResizeMode = ResizeMode.CanResize,
+                    Owner = Application.Current.MainWindow, Title = "Schedule Chart", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 640, Height = 480, ResizeMode = ResizeMode.CanResize,
                     Content = new ScheduleChartDataGrid
                     {
                         Items = scheduleChartItems, DataGridWidth = new GridLength(0.2, GridUnitType.Star),
@@ -561,7 +569,7 @@ namespace GanttChartDataGridSample
             Window loadChartWindow =
                 new Window
                 {
-                    Owner = this, Title = "Load Chart", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 640, Height = 300, ResizeMode = ResizeMode.CanMinimize,
+                    Owner = Application.Current.MainWindow, Title = "Load Chart", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 640, Height = 300, ResizeMode = ResizeMode.CanMinimize,
                     Content = dockPanel
                 };
             loadChartWindow.ShowDialog();
@@ -607,7 +615,7 @@ namespace GanttChartDataGridSample
             Window resourceWindow =
                 new Window
                 {
-                    Owner = this, Title = "Resources", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 640, Height = 300, ResizeMode = ResizeMode.CanMinimize,
+                    Owner = Application.Current.MainWindow, Title = "Resources", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 640, Height = 300, ResizeMode = ResizeMode.CanMinimize,
                     Content = dockPanel
                 };
             resourceWindow.ShowDialog();
@@ -623,7 +631,7 @@ namespace GanttChartDataGridSample
             Window pertChartWindow =
                 new Window
                 {
-                    Owner = this, Title = "PERT Chart", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 640, Height = 480, ResizeMode = ResizeMode.CanResize,
+                    Owner = Application.Current.MainWindow, Title = "PERT Chart", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 640, Height = 480, ResizeMode = ResizeMode.CanResize,
                     Content = pertChartView
                 };
             pertChartView.AsyncPresentationCompleted += delegate(object senderCompleted, EventArgs eCompleted)
@@ -654,7 +662,7 @@ namespace GanttChartDataGridSample
             Window networkDiagramWindow =
                 new Window
                 {
-                    Owner = this, Title = "Network Diagram", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 960, Height = 600, ResizeMode = ResizeMode.CanResize,
+                    Owner = Application.Current.MainWindow, Title = "Network Diagram", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 960, Height = 600, ResizeMode = ResizeMode.CanResize,
                     Content = networkDiagramView
                 };
             networkDiagramView.AsyncPresentationCompleted += delegate(object senderCompleted, EventArgs eCompleted)

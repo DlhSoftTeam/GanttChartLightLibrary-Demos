@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Demos - Gantt Chart Light Library - DlhSoft"
         Width="1200" Height="800"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        Closing="Window_Closing">
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="16,0"/>
@@ -107,7 +108,7 @@
         </DockPanel>
         <ScrollViewer DockPanel.Dock="Top" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="16,0" Height="55">
-                <ListBox SelectionMode="Single">
+                <ListBox Name="FilesListBox" SelectionMode="Single" SelectionChanged="FilesListBox_SelectionChanged">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal" IsItemsHost="True"/>
@@ -120,10 +121,10 @@
                     <ListBoxItem Content="THEMES.XAML" />
                 </ListBox>
                 <Button Content=".ZIP"/>
-                <ComboBox Foreground="#e31d3b">
-                    <ComboBoxItem Content="DEFAULT"/>
-                    <ComboBoxItem Content="GENERIC-BRIGHT THEME" IsSelected="True"/>
-                    <ComboBoxItem Content="GENERIC-BLUE THEME"/>
+                <ComboBox Name="ThemeComboBox" Foreground="#e31d3b">
+                    <ComboBoxItem Content="DEFAULT" Tag="Default"/>
+                    <ComboBoxItem Content="GENERIC-BRIGHT THEME" Tag="Generic-bright" IsSelected="True"/>
+                    <ComboBoxItem Content="GENERIC-BLUE THEME" Tag="Generic-blue"/>
                 </ComboBox>
                 <ComboBox HorizontalContentAlignment="Right">
                     <ComboBoxItem Content="WPF – C#" IsSelected="True"/>
@@ -171,7 +172,9 @@
                         </TreeViewItem>
                     </TreeView>
                     <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Stretch" Background="Transparent"/>
-                    <Border Grid.Column="2" BorderThickness="1,0,0,0" BorderBrush="#ccc"/>
+                    <Border Grid.Column="2" BorderThickness="1,0,0,0" BorderBrush="#ccc">
+                        <ContentPresenter Name="ContentPresenter"/>
+                    </Border>
                 </Grid>
             </DockPanel>
         </Border>

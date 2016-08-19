@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 
-namespace GanttChartDataGridSample
+namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
 {
     /// <summary>
     /// Interaction logic for App.xaml
