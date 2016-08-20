@@ -115,10 +115,10 @@
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
                     <ListBoxItem Content="RUN" Foreground="#e31d3b" Margin="20,0" IsSelected="True"/>
-                    <ListBoxItem Content="MAINWINDOW.XAML" />
-                    <ListBoxItem Content="MAINWINDOW.XAML.CS" />
-                    <ListBoxItem Content="TEMPLATES.XAML" />
-                    <ListBoxItem Content="THEMES.XAML" />
+                    <ListBoxItem Content="MAINWINDOW.XAML" Tag="MainWindow.xaml" />
+                    <ListBoxItem Content="MAINWINDOW.XAML.CS" Tag="MainWindow.xaml.cs" />
+                    <ListBoxItem Content="COMMON.XAML" Tag="Themes/Common.xaml" />
+                    <ListBoxItem Content="GENERIC-BLUE.XAML" Tag="Themes/Generic-blue.xaml" />
                 </ListBox>
                 <Button Content=".ZIP"/>
                 <ComboBox Name="ThemeComboBox" Foreground="#e31d3b">
@@ -173,7 +173,13 @@
                     </TreeView>
                     <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Stretch" Background="Transparent"/>
                     <Border Grid.Column="2" BorderThickness="1,0,0,0" BorderBrush="#ccc">
-                        <ContentPresenter Name="ContentPresenter"/>
+                        <Grid>
+                            <ContentPresenter Name="ContentPresenter"/>
+                            <TextBox Name="ContentTextBox" IsReadOnly="True" FontFamily="Courier New" 
+                                     BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                     HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                                     Visibility="Hidden"/>
+                        </Grid>
                     </Border>
                 </Grid>
             </DockPanel>

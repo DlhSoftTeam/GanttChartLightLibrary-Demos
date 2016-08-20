@@ -1,0 +1,57 @@
+﻿<Window x:Class="Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures.EditItemDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:pdgccConverters="clr-namespace:DlhSoft.Windows.Converters;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        Title="Item editor" SizeToContent="WidthAndHeight" WindowStyle="ToolWindow" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <pdgccConverters:NumberStringConverter x:Key="NumberStringConverter"/>
+        <pdgccConverters:FinishDateConverter x:Key="FinishDateConverter"/>
+        <!-- Assignable resources are set in code behind. -->
+    </Window.Resources>
+    <Grid Margin="4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TabControl Width="260" Height="220">
+            <TabItem Header="Definition">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Task: " VerticalAlignment="Center" Margin="2"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Content, Mode=TwoWay}" VerticalAlignment="Center" Margin="2"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Start: " VerticalAlignment="Center" Margin="2"/>
+                    <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding Start, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" VerticalAlignment="Center" Margin="2"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Finish: " VerticalAlignment="Center" Margin="2"/>
+                    <DatePicker Grid.Row="2" Grid.Column="1" SelectedDate="{Binding Finish, Mode=TwoWay, Converter={StaticResource FinishDateConverter}}" IsEnabled="{Binding IsLeaf}" VerticalAlignment="Center" Margin="2"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Is milestone: " VerticalAlignment="Center" Margin="2"/>
+                    <CheckBox Grid.Row="3" Grid.Column="1" IsChecked="{Binding IsMilestone, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" VerticalAlignment="Center" Margin="2"/>
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Completion: " VerticalAlignment="Center" Margin="2"/>
+                    <Slider Grid.Row="4" Grid.Column="1" Minimum="0" Maximum="1" SmallChange="0.25" LargeChange="0.5" Value="{Binding Completion, Mode=TwoWay}" ToolTipService.ToolTip="{Binding Completion, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%}" IsEnabled="{Binding IsLeaf}" VerticalAlignment="Center" Margin="2"/>
+                    <TextBlock Grid.Row="5" Grid.Column="0" Text="Estimated start: " VerticalAlignment="Center" Margin="2"/>
+                    <DatePicker Grid.Row="5" Grid.Column="1" SelectedDate="{Binding BaselineStart, Mode=TwoWay}" VerticalAlignment="Center" Margin="2"/>
+                    <TextBlock Grid.Row="6" Grid.Column="0" Text="Estimated finish: " VerticalAlignment="Center" Margin="2"/>
+                    <DatePicker Grid.Row="6" Grid.Column="1" SelectedDate="{Binding BaselineFinish, Mode=TwoWay, Converter={StaticResource FinishDateConverter}}" VerticalAlignment="Center" Margin="2"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Assignments">
+                <pdgcc:AssignmentListBox AvailableItemsSource="{Binding AssignableResources, RelativeSource={RelativeSource AncestorType=Window}}" SelectedContent="{Binding AssignmentsContent, Mode=TwoWay}"/>
+                <!-- Alternatively you may use a simple ListBox with single selection mode instead as indicated in the next line of markup. -->
+                <!-- <ListBox ItemsSource="{Binding AssignableResources, RelativeSource={RelativeSource AncestorType=Window}}" SelectedItem="{Binding AssignmentsContent, Mode=TwoWay}" SelectionMode="Single"/> -->
+            </TabItem>
+        </TabControl>
+        <Button x:Name="CloseButton" Grid.Row="1" Content="Close" Width="75" HorizontalAlignment="Right" Margin="0,4,0,0" IsDefault="True" Click="CloseButton_Click"/>
+    </Grid>
+</Window>

@@ -4,35 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{167861E1-341B-4D34-A6AB-6DA591CA675C}</ProjectGuid>
+    <ProjectGuid>{326967B5-0AF7-4AA0-A4B9-70ABB105142D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Demos</RootNamespace>
-    <AssemblyName>Demos</AssemblyName>
+    <RootNamespace>Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures</RootNamespace>
+    <AssemblyName>Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Web</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://DlhSoft.com/GanttChartLightLibrary/Demos/</InstallUrl>
-    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
-    <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>1.0.0.1</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <PublishWizardCompleted>true</PublishWizardCompleted>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,24 +35,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Properties\Icon.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Properties\GanttChrartLightLibraryDemos.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignManifests>true</SignManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestCertificateThumbprint>624879771A2DCA2C0DE5CF0D98682E002702B6BC</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <AssemblyOriginatorKeyFile>GanttChrartLightLibraryDemos.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DlhSoft.HierarchicalData.LightWPF.Controls, Version=4.0.8.5, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\packages\DlhSoft.HierarchicalDataLightLibrary.4.0.9\lib\net45\DlhSoft.HierarchicalData.LightWPF.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DlhSoft.OrganizationalChartLibrary.Controls, Version=4.0.8.5, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\packages\DlhSoft.HierarchicalDataLightLibrary.4.0.9\lib\net45\DlhSoft.OrganizationalChartLibrary.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DlhSoft.ProjectData.GanttChart.LightWPF.Controls, Version=4.3.36.0, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.36\lib\net45\DlhSoft.ProjectData.GanttChart.LightWPF.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DlhSoft.ProjectData.PertChart.LightWPF.Controls, Version=4.3.36.0, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.36\lib\net45\DlhSoft.ProjectData.PertChart.LightWPF.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -92,21 +77,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <None Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml.cs">
-      <DependentUpon>EditItemDialog.xaml</DependentUpon>
-    </None>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\Themes\Common.xaml">
+    <Page Include="AppResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\Themes\Generic-blue.xaml">
+    </Page>
+    <Page Include="EditItemDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml">
+    </Page>
+    <Page Include="Themes\Generic-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
+    </Page>
+    <Page Include="Themes\Generic-bright.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -115,13 +101,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EditItemDialog.xaml.cs">
+      <DependentUpon>EditItemDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainWindow.xaml">
+    <Page Include="Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Resource>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -141,7 +131,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Properties\GanttChrartLightLibraryDemos.snk" />
+    <None Include="GanttChrartLightLibraryDemos.snk" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -151,43 +142,45 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Properties\Icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Tools\ArchiveBuilder.exe" />
-    <None Include="Tools\Interop.Shell32.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainFeatures.csproj">
-      <Project>{326967b5-0af7-4aa0-a4b9-70abb105142d}</Project>
-      <Name>MainFeatures</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\AddNew.png" />
+    <Resource Include="Images\Baseline.png" />
+    <Resource Include="Images\Copy.png" />
+    <Resource Include="Images\CriticalPath.png" />
+    <Resource Include="Images\DecreaseIndentation.png" />
+    <Resource Include="Images\DecreaseTimelinePage.png" />
+    <Resource Include="Images\Delete.png" />
+    <Resource Include="Images\DependencyConstraints.png" />
+    <Resource Include="Images\Edit.png" />
+    <Resource Include="Images\ExportImage.png" />
+    <Resource Include="Images\FitToTimelinePage.png" />
+    <Resource Include="Images\IncreaseIndentation.png" />
+    <Resource Include="Images\IncreaseTimelinePage.png" />
+    <Resource Include="Images\InsertNew.png" />
+    <Resource Include="Images\LevelResources.png" />
+    <Resource Include="Images\LoadChart.png" />
+    <Resource Include="Images\LoadProjectXml.png" />
+    <Resource Include="Images\MoveDown.png" />
+    <Resource Include="Images\MoveUp.png" />
+    <Resource Include="Images\NetworkDiagram.png" />
+    <Resource Include="Images\Paste.png" />
+    <Resource Include="Images\PertChart.png" />
+    <Resource Include="Images\Print.png" />
+    <Resource Include="Images\ProjectStatistics.png" />
+    <Resource Include="Images\Redo.png" />
+    <Resource Include="Images\Resources.png" />
+    <Resource Include="Images\SaveProjectXml.png" />
+    <Resource Include="Images\ScheduleChart.png" />
+    <Resource Include="Images\SetColor.png" />
+    <Resource Include="Images\ShowWeekends.png" />
+    <Resource Include="Images\SplitRemainingWork.png" />
+    <Resource Include="Images\Task.Icon.png" />
+    <Resource Include="Images\Undo.png" />
+    <Resource Include="Images\WorkOnWeekends.png" />
+    <Resource Include="Images\ZoomIn.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>xcopy /s /y "$(ProjectDir)\Samples" "$(ProjectDir)\Samples.Resources"
-</PreBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <PostBuildEvent>for /d %25%25t in ("$(ProjectDir)\Samples\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\obj
-for /d %25%25t in ("$(ProjectDir)\Samples\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\bin
-for /d %25%25t in ("$(ProjectDir)\Samples\*") do for /d %25%25c in ("%25%25t\*") do cd "%25%25c" &amp; for /d %25%25f in (*) do "$(ProjectDir)\Tools\ArchiveBuilder.exe" %25%25f.zip %25%25f
-</PostBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

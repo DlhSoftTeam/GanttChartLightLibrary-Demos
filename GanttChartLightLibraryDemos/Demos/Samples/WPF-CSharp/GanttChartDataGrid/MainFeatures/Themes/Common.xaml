@@ -4,4 +4,6 @@
     <Style x:Key="GanttChartDataGridTemplates" TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:GanttChartDataGrid}}">
         <Setter Property="ItemHeight" Value="40"/>
     </Style>
+    <Style x:Key="ScheduleChartDataGridTemplates" TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:ScheduleChartDataGrid}}">
+    </Style>
 </ResourceDictionary>

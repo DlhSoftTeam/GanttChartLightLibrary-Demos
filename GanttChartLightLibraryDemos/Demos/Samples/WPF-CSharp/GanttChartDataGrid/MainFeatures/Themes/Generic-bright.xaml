@@ -7,4 +7,7 @@
     <Style TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource GanttChartDataGridTemplates}">
         <Setter Property="StandardBarFill" Value="Green"/>
     </Style>
+    <Style TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource ScheduleChartDataGridTemplates}">
+        <Setter Property="StandardBarFill" Value="Green"/>
+    </Style>
 </ResourceDictionary>

@@ -1,0 +1,525 @@
+﻿<Window x:Class="Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:pdgccConverters="clr-namespace:DlhSoft.Windows.Converters;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        Title="GanttChartDataGrid Sample" Width="1024" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate x:Key="ScaleHeaderContentTemplate">
+                <ContentControl Content="{Binding}" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="2" IsTabStop="False"/>
+            </DataTemplate>
+            <pdgcc:ScaleCollection x:Key="WeeksScales">
+                <!-- Optionally set ScaleType to WeeksStartingMonday to display weeks as starting on Monday, as by default they are displayed as starting on Sunday. -->
+                <pdgcc:Scale ScaleType="Weeks" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+                <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayOfWeekInitial" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+            </pdgcc:ScaleCollection>
+            <pdgcc:ScaleCollection x:Key="MonthsScales">
+                <pdgcc:Scale ScaleType="Months" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+                <pdgcc:Scale ScaleType="Weeks" HeaderContentFormat="Day" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+            </pdgcc:ScaleCollection>
+            <pdgcc:ScaleCollection x:Key="YearsScales">
+                <pdgcc:Scale ScaleType="Years" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+                <pdgcc:Scale ScaleType="Months" HeaderContentFormat="Month" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+            </pdgcc:ScaleCollection>
+            <LinearGradientBrush x:Key="CustomStandardBarFill" StartPoint="0.5,0" EndPoint="0.5,1">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="Transparent" Offset="0"/>
+                    <GradientStop Color="Tomato" Offset="0.25"/>
+                    <GradientStop Color="DarkRed" Offset="1"/>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <SolidColorBrush x:Key="CustomStandardBarStroke" Color="DarkRed"/>
+            <pdgccConverters:NumberStringConverter x:Key="NumberStringConverter"/>
+            <DataTemplate x:Key="PertChartPredecessorToolTipTemplate">
+                <StackPanel>
+                    <ContentControl Content="{Binding Content}" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Effort.TotalDays, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##d}" Visibility="{Binding EffortValueVisibility}"/>
+                </StackPanel>
+            </DataTemplate>
+            <PopupAnimation x:Key="{x:Static SystemParameters.ToolTipPopupAnimationKey}">None</PopupAnimation>
+            <!-- Assignable resources are set in code behind. -->
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <!-- Control area is displayed at the top of the screen. -->
+        <Border DockPanel.Dock="Top" Style="{StaticResource RibbonContainerStyle}">
+            <Border.Resources>
+                <Style TargetType="Image">
+                    <Setter Property="Width" Value="16"/>
+                    <Setter Property="Height" Value="16"/>
+                </Style>
+            </Border.Resources>
+            <StackPanel Style="{StaticResource RibbonStyle}">
+                <Border Style="{StaticResource RibbonPanelStyle}">
+                    <StackPanel>
+                        <ContentControl Content="Items" Style="{StaticResource RibbonHeaderStyle}"/>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <Button x:Name="AddNewButton" ToolTipService.ToolTip="Add new item" Click="AddNewButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/AddNew.png"/>
+                            </Button>
+                            <Button x:Name="InsertNewButton" ToolTipService.ToolTip="Insert new item before selection" Click="InsertNewButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/InsertNew.png"/>
+                            </Button>
+                            <Button x:Name="EditButton" ToolTipService.ToolTip="Edit selected item" Click="EditButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/Edit.png"/>
+                            </Button>
+                            <Button x:Name="DeleteButton" ToolTipService.ToolTip="Delete selected item(s)" Click="DeleteButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/Delete.png"/>
+                            </Button>
+                            <Border Style="{StaticResource RibbonCommandSeparatorStyle}"/>
+                            <Button x:Name="DecreaseIndentationButton" ToolTipService.ToolTip="Decrease selected item(s) indentation" Click="DecreaseIndentationButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/DecreaseIndentation.png"/>
+                            </Button>
+                            <Button x:Name="IncreaseIndentationButton" ToolTipService.ToolTip="Increase selected item(s) indentation" Click="IncreaseIndentationButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/IncreaseIndentation.png"/>
+                            </Button>
+                            <Border Style="{StaticResource RibbonCommandSeparatorStyle}"/>
+                            <Button x:Name="SetColorButton" ToolTipService.ToolTip="Set custom bar color to selected item(s)" Click="SetColorButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/SetColor.png"/>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <Button x:Name="CopyButton" ToolTipService.ToolTip="Copy selected item(s) to clipboard" Click="CopyButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/Copy.png"/>
+                            </Button>
+                            <Button x:Name="PasteButton" ToolTipService.ToolTip="Paste item(s) from clipboard" Click="PasteButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/Paste.png"/>
+                            </Button>
+                            <Border Style="{StaticResource RibbonCommandSeparatorStyle}"/>
+                            <Button x:Name="MoveUpButton" ToolTipService.ToolTip="Move selected item(s) up" Click="MoveUpButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/MoveUp.png"/>
+                            </Button>
+                            <Button x:Name="MoveDownButton" ToolTipService.ToolTip="Move selected item(s) down" Click="MoveDownButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/MoveDown.png"/>
+                            </Button>
+                            <Border Style="{StaticResource RibbonCommandSeparatorStyle}"/>
+                            <Button x:Name="UndoButton" ToolTipService.ToolTip="Undo previously recorded action" Click="UndoButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/Undo.png"/>
+                            </Button>
+                            <Button x:Name="RedoButton" ToolTipService.ToolTip="Redo previously undone action" Click="RedoButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/Redo.png"/>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource RibbonPanelStyle}">
+                    <StackPanel>
+                        <ContentControl Content="Timeline" Style="{StaticResource RibbonHeaderStyle}"/>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <ComboBox x:Name="ScalesComboBox" ToolTipService.ToolTip="Select scales" Width="100" SelectionChanged="ScaleTypeComboBox_SelectionChanged" Style="{StaticResource RibbonComboBoxStyle}">
+                                <ComboBoxItem Content="Weeks/days" Tag="WeeksScales"/>
+                                <ComboBoxItem Content="Months/weeks" Tag="MonthsScales"/>
+                                <ComboBoxItem Content="Years/months" Tag="YearsScales"/>
+                            </ComboBox>
+                            <ToggleButton x:Name="ZoomCheckBox" ToolTipService.ToolTip="Zoom 200%" Checked="ZoomCheckBox_Checked" Unchecked="ZoomCheckBox_Unchecked" Style="{StaticResource RibbonToggleButtonStyle}">
+                                <Image Source="Images/ZoomIn.png"/>
+                            </ToggleButton>
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <ToggleButton x:Name="ShowWeekendsCheckBox" ToolTipService.ToolTip="Show weekends" Checked="ShowWeekendsCheckBox_Checked" Unchecked="ShowWeekendsCheckBox_Unchecked" Style="{StaticResource RibbonToggleButtonStyle}">
+                                <Image Source="Images/ShowWeekends.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="WorkOnWeekendsCheckBox" ToolTipService.ToolTip="Weekends are working time" Checked="WorkOnWeekendsCheckBox_Checked" Unchecked="WorkOnWeekendsCheckBox_Unchecked" Style="{StaticResource RibbonToggleButtonStyle}">
+                                <Image Source="Images/WorkOnWeekends.png"/>
+                            </ToggleButton>
+                            <Border Style="{StaticResource RibbonCommandSeparatorStyle}"/>
+                            <Button x:Name="DecreaseTimelinePageButton" ToolTipService.ToolTip="Move towards past" Click="DecreaseTimelinePageButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/DecreaseTimelinePage.png"/>
+                            </Button>
+                            <Button x:Name="IncreaseTimelinePageButton" ToolTipService.ToolTip="Move towards future" Click="IncreaseTimelinePageButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/IncreaseTimelinePage.png"/>
+                            </Button>
+                            <Border Style="{StaticResource RibbonCommandSeparatorStyle}"/>
+                            <ToggleButton x:Name="FitToTimelinePageCheckBox" ToolTipService.ToolTip="Fit to timeline page" Checked="FitToTimelinePageCheckBox_Checked" Unchecked="FitToTimelinePageCheckBox_Unchecked" Style="{StaticResource RibbonToggleButtonStyle}">
+                                <Image Source="Images/FitToTimelinePage.png"/>
+                            </ToggleButton>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource RibbonPanelStyle}">
+                    <StackPanel>
+                        <ContentControl Content="Project tools" Style="{StaticResource RibbonHeaderStyle}"/>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <ToggleButton x:Name="BaselineCheckBox" ToolTipService.ToolTip="Presents estimation task bars in the chart for items that have estimated start and finish values available." Checked="BaselineCheckBox_Checked" Unchecked="BaselineCheckBox_Unchecked" Style="{StaticResource RibbonToggleButtonStyle}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Images/Baseline.png"/>
+                                    <TextBlock Text="Display baseline" Style="{StaticResource RibbonCommandTextStyle}"/>
+                                </StackPanel>
+                            </ToggleButton>
+                            <ToggleButton x:Name="CriticalPathCheckBox" ToolTipService.ToolTip="Temporarily highlights critical task items in the chart using red." Checked="CriticalPathCheckBox_Checked" Unchecked="CriticalPathCheckBox_Unchecked" Style="{StaticResource RibbonToggleButtonStyle}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Images/CriticalPath.png"/>
+                                    <TextBlock Text="Highlight critical path" Style="{StaticResource RibbonCommandTextStyle}"/>
+                                </StackPanel>
+                            </ToggleButton>
+                            <Button x:Name="SplitRemainingWorkButton" ToolTipService.ToolTip="Split work upon completion point in order to be able to reschedule remaining work separately." Click="SplitRemainingWorkButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/SplitRemainingWork.png"/>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <ToggleButton x:Name="EnableDependencyConstraintsCheckBox" ToolTipService.ToolTip="Enables dependency constraints so that when predecessor items are rescheduled their dependent items are also rescheduled accordingly." Checked="EnableDependencyConstraintsCheckBox_Checked" Unchecked="EnableDependencyConstraintsCheckBox_Unchecked" Style="{StaticResource RibbonToggleButtonStyle}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Images/DependencyConstraints.png"/>
+                                    <TextBlock Text="Use automatic scheduling" Style="{StaticResource RibbonCommandTextStyle}"/>
+                                </StackPanel>
+                            </ToggleButton>
+                            <Button x:Name="LevelResourcesButton" ToolTipService.ToolTip="Updates item scheduling values based on the availability of the assigned resources." Click="LevelResourcesButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Images/LevelResources.png"/>
+                                    <TextBlock Text="Level resources" Style="{StaticResource RibbonCommandTextStyle}"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource RibbonPanelStyle}">
+                    <StackPanel>
+                        <ContentControl Content="Other views" Style="{StaticResource RibbonHeaderStyle}"/>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <Button x:Name="ScheduleChartButton" ToolTipService.ToolTip="Displays and allows updating task assignments for the available project resources in the Gantt Chart." Click="ScheduleChartButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Images/ScheduleChart.png"/>
+                                    <TextBlock Text="Schedule chart" Style="{StaticResource RibbonCommandTextStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="LoadChartButton" ToolTipService.ToolTip="Displays an allocation load chart for a selected resource from the Gantt Chart." Click="LoadChartButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Images/LoadChart.png"/>
+                                    <TextBlock Text="Load chart" Style="{StaticResource RibbonCommandTextStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Border Style="{StaticResource RibbonCommandSeparatorStyle}"/>
+                            <Button x:Name="EditResourcesButton" ToolTipService.ToolTip="Edit resources" Click="EditResourcesButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/Resources.png"/>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <Button x:Name="PertChartButton" ToolTipService.ToolTip="Displays an event-based PERT chart for the tasks defined in the Gantt Chart." Click="PertChartButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Images/PertChart.png"/>
+                                    <TextBlock Text="PERT chart" Style="{StaticResource RibbonCommandTextStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="NetworkDiagramButton" ToolTipService.ToolTip="Displays a network diagram for the tasks defined in the Gantt Chart." Click="NetworkDiagramButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Images/NetworkDiagram.png"/>
+                                    <TextBlock Text="Network diagram" Style="{StaticResource RibbonCommandTextStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="ProjectStatisticsButton" ToolTipService.ToolTip="Displays statistics for the project defined in the Gantt Chart." Click="ProjectStatisticsButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/ProjectStatistics.png"/>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource RibbonPanelStyle}">
+                    <StackPanel>
+                        <ContentControl Content="Files and printing" Style="{StaticResource RibbonHeaderStyle}"/>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <Button x:Name="LoadProjectXmlButton" ToolTipService.ToolTip="Load existing Project XML file" Click="LoadProjectXmlButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/LoadProjectXml.png"/>
+                            </Button>
+                            <Button x:Name="SaveProjectXmlButton" ToolTipService.ToolTip="Save as Project XML file" Click="SaveProjectXmlButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/SaveProjectXml.png"/>
+                            </Button>
+                            <Border Style="{StaticResource RibbonCommandSeparatorStyle}"/>
+                            <Button x:Name="ExportImageButton" ToolTipService.ToolTip="Export image" Click="ExportImageButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/ExportImage.png"/>
+                            </Button>
+                            <Button x:Name="PrintButton" ToolTipService.ToolTip="Print" Click="PrintButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/Print.png"/>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+        <!-- Optionally, set IsUndoEnabled to true to enable undo queue recording; you may call Undo and Redo methods for undoing and redoing recorded actions (see code behind). -->
+        <!-- Optionally, set AreSummaryRowsBold to true to automatically set FontWeight property values of summary grid rows to Bold. -->
+        <!-- Optionally, set AreTaskDependencyConstraintsDisabledWhileDragging to true to improve performance when AreTaskDependencyConstraintsEnabled would be set to true. -->
+        <!-- Optionally, set IsMouseWheelZoomEnabledUpdatingScales and/or IsFittingToTimelinePageEnabledUpdatingScales to true to automatically update scales based on the actual zoom level of the chart. -->
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" IsUndoEnabled="True" AreSummaryRowsBold="True" AreTaskDependencyConstraintsDisabledWhileDragging="True" IsMouseWheelZoomEnabledUpdatingScales="True" IsFittingToTimelinePageEnabledUpdatingScales="True">
+            <pdgcc:GanttChartDataGrid.Items>
+                <!-- Some item properties are set in code behind. -->
+                <!-- Alternatively, you may data bind items to your custom data source using a preconfigured pdgcc:TaskItemsConverter instance. -->
+                <pdgcc:GanttChartItem Content="Task 1"/>
+                <pdgcc:GanttChartItem Content="Task 1.1" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 1.2" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2"/>
+                <pdgcc:GanttChartItem Content="Task 2.1" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2.2" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2.2.1" Indentation="2"/>
+                <pdgcc:GanttChartItem Content="Task 2.2.2" Indentation="2"/>
+                <pdgcc:GanttChartItem Content="Task 3"/>
+                <pdgcc:GanttChartItem Content="Task 4"/>
+            </pdgcc:GanttChartDataGrid.Items>
+            <!-- Optionally, set up grid columns. -->
+            <pdgcc:GanttChartDataGrid.Columns>
+                <pdgcc:DataGridColumnCollection>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <!-- Display an icon to represent the task item. -->
+                                    <Image Source="Images/Task.Icon.png" Width="16" Height="16"/>
+                                    <!-- Optionally, use a DragTaskThumb object with Role set to UpdateIndex to allow moving the task item in the hierarchy using drag and drop operations. -->
+                                    <!-- Optionally, specify true for RoleParameter property of DragTaskThumb object to further encapsulate children when moving the task item in the hierarchy. -->
+                                    <pdgcc:DragTaskThumb Role="UpdateIndex"/>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Binding="{Binding IndexString}" IsReadOnly="True">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Right"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <hdc:DataTreeGridColumn Header="Task" MinWidth="160"/>
+                    <DataGridTemplateColumn Header="Start" MinWidth="140">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding Start, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Start, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Effort" MinWidth="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding TotalEffort, Converter={StaticResource DurationStringConverter}, ConverterParameter=0.##h}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding TotalEffort, Converter={StaticResource DurationStringConverter}, ConverterParameter=0.##h, Mode=TwoWay}" IsReadOnly="{Binding HasChildren}" BorderThickness="0" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Duration" MinWidth="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <!-- Optionally, use ConverterParameter=0.##d/8 for DurationStringConverter to display the value in working days of 8 hours.-->
+                                <ContentControl Content="{Binding Duration, Converter={StaticResource DurationStringConverter}, ConverterParameter=0.##d/8}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Duration, Converter={StaticResource DurationStringConverter}, ConverterParameter=0.##d/8, Mode=TwoWay}" IsReadOnly="{Binding HasChildren}" BorderThickness="0" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Finish" MinWidth="140">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding Finish, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Finish, Converter={StaticResource FinishDateConverter}, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Milestone">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Name="TextBlock" Text="✓" Visibility="Hidden" HorizontalAlignment="Center" Padding="4,4,10,4"/>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding IsMilestone}" Value="True">
+                                        <Setter TargetName="TextBlock" Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsMilestone, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Compl.">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Name="TextBlock" Text="✓" Visibility="Hidden" HorizontalAlignment="Center" Padding="4,4,10,4"/>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding IsCompleted}" Value="True">
+                                        <Setter TargetName="TextBlock" Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsCompleted, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="%" MinWidth="40">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding Completion, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Completion, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%, Mode=TwoWay}" IsReadOnly="{Binding HasChildren}" BorderThickness="0" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Predecessors" MinWidth="80">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <!-- Optionally you may set GanttChartDataGrid.PredecessorsString{DependencyTypeAbbreviations|LagFormat|LagScale} properties to further control bound PredecessorsString values. -->
+                                <ContentControl Content="{Binding PredecessorsString}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding PredecessorsString, Mode=TwoWay}" BorderThickness="0" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Assignments" MinWidth="160">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding AssignmentsContent}" VerticalAlignment="Center" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <pdgcc:AssignmentComboBox AvailableItemsSource="{Binding AssignableResources, RelativeSource={RelativeSource AncestorType=pdgcc:GanttChartDataGrid}}" SelectedContent="{Binding AssignmentsContent, Mode=TwoWay}"/>
+                                <!-- Alternatively you may use a simple editable ComboBox instead as indicated in the next line of markup. -->
+                                <!-- <ComboBox ItemsSource="{Binding AssignableResources, RelativeSource={RelativeSource AncestorType=pdgcc:GanttChartDataGrid}}" Text="{Binding AssignmentsContent, Mode=TwoWay}" IsEditable="True"/> -->
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Cost" Binding="{Binding Cost, Converter={StaticResource NumberStringConverter}, ConverterParameter=$0.##}" MinWidth="80"/>
+                    <DataGridTemplateColumn Header="Est. start" MinWidth="140">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding BaselineStart, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding BaselineStart, Mode=TwoWay}" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Est. effort" MinWidth="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding BaselineEffort, Converter={StaticResource DurationStringConverter}, ConverterParameter=0.##h}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding BaselineEffort, Converter={StaticResource DurationStringConverter}, ConverterParameter=0.##h, Mode=TwoWay}" IsReadOnly="{Binding HasChildren}" BorderThickness="0" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Est. finish" MinWidth="140">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding BaselineFinish, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding BaselineFinish, Converter={StaticResource FinishDateConverter}, Mode=TwoWay}" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                </pdgcc:DataGridColumnCollection>
+            </pdgcc:GanttChartDataGrid.Columns>
+            <!-- Optionally, define the tool tip templates. -->
+            <pdgcc:GanttChartDataGrid.ToolTipTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.ColumnSpan="2" Grid.Row="0" FontWeight="Bold" Text="{Binding Content}" Margin="0,0,0,1"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Foreground="Gray" Text="Start date: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Start, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="2" Foreground="Gray" Text="Finish date: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding Finish, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="3" Foreground="Gray" Text="Effort: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding TotalEffort, Converter={StaticResource DurationStringConverter}, ConverterParameter=0.##h}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="4" Foreground="Gray" Text="Completed: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding Completion, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="5" Foreground="Gray" Text="Est. start date: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="5" Text="{Binding BaselineStart, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="6" Foreground="Gray" Text="Est. finish date: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="6" Text="{Binding BaselineFinish, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}"/>
+                    </Grid>
+                </DataTemplate>
+            </pdgcc:GanttChartDataGrid.ToolTipTemplate>
+            <pdgcc:GanttChartDataGrid.PredecessorToolTipTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.ColumnSpan="2" Grid.Row="0" FontWeight="Bold" Text="Dependency" Margin="0,0,0,1"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Foreground="Gray" Text="Predecessor: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Item.Content}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="2" Foreground="Gray" Text="Successor: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding DependentItem.Content}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="3" Foreground="Gray" Text="Type: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding DependencyType}"/>
+                    </Grid>
+                </DataTemplate>
+            </pdgcc:GanttChartDataGrid.PredecessorToolTipTemplate>
+            <!-- Optionally, define the printing template. -->
+            <pdgcc:GanttChartDataGrid.PrintingTemplate>
+                <DataTemplate>
+                    <Grid Margin="32">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="Bold" Text="GanttChartDataGrid Sample"/>
+                        <Border Grid.Row="1" Margin="0,16" BorderBrush="DarkGray" BorderThickness="1">
+                            <ContentPresenter Content="{Binding Content}"/>
+                        </Border>
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock Text="{Binding PageIndex}"/>
+                            <TextBlock Text="/"/>
+                            <TextBlock Text="{Binding PageCount}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </pdgcc:GanttChartDataGrid.PrintingTemplate>
+        </pdgcc:GanttChartDataGrid>
+    </DockPanel>
+</Window>

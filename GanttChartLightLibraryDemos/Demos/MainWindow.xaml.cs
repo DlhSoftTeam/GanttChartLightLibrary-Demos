@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -94,7 +95,20 @@ namespace Demos
                 var theme = selectedThemeItem?.Tag as string;
                 containerWindow = new WPF.CSharp.GanttChartDataGrid.MainFeatures.MainWindow(theme);
                 ContentPresenter.Content = containerWindow.Content;
-                return;
+                ContentPresenter.Visibility = Visibility.Visible;
+                ContentTextBox.Visibility = Visibility.Hidden;
+                ContentTextBox.Text = null;
+            }
+            else
+            {
+                var resourceStreamInfo = Application.GetResourceStream(new Uri("/Samples.Resources/WPF-CSharp/GanttChartDataGrid/MainFeatures/" + selectedFileItem.Tag, UriKind.Relative));
+                using (var resourceStreamReader = new StreamReader(resourceStreamInfo.Stream))
+                {
+                    ContentTextBox.Text = resourceStreamReader.ReadToEnd();
+                }
+                ContentTextBox.Visibility = Visibility.Visible;
+                ContentPresenter.Visibility = Visibility.Hidden;
+                ContentPresenter.Content = null;
             }
         }
 
