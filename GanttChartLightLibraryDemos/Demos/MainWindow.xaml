@@ -179,6 +179,7 @@
                                      BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                      HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
                                      Visibility="Hidden"/>
+                            <WebBrowser Name="ContentBrowser" Visibility="Hidden"/>
                         </Grid>
                     </Border>
                 </Grid>

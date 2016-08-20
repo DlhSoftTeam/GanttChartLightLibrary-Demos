@@ -98,6 +98,8 @@ namespace Demos
                 ContentPresenter.Visibility = Visibility.Visible;
                 ContentTextBox.Visibility = Visibility.Hidden;
                 ContentTextBox.Text = null;
+                ContentBrowser.Visibility = Visibility.Hidden;
+                ContentBrowser.Source = null;
             }
             else
             {
@@ -109,6 +111,8 @@ namespace Demos
                 ContentTextBox.Visibility = Visibility.Visible;
                 ContentPresenter.Visibility = Visibility.Hidden;
                 ContentPresenter.Content = null;
+                ContentBrowser.Visibility = Visibility.Hidden;
+                ContentBrowser.Source = null;
             }
         }
 
