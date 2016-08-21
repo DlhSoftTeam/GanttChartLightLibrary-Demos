@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -42,6 +43,8 @@ namespace Demos
         private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             var selectedItem = e.NewValue as TreeViewItem;
+            if (selectedItem == null)
+                return;
             if (selectedItem.HasItems)
             {
                 var firstChildItem = selectedItem.Items[0] as TreeViewItem;
@@ -78,8 +81,78 @@ namespace Demos
 
         private void TechnologyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Dispatcher.BeginInvoke((Action)LoadTreeView);
             Dispatcher.BeginInvoke((Action)LoadFiles);
             Dispatcher.BeginInvoke((Action)LoadContent);
+        }
+
+        private void LoadTreeView()
+        {
+            TreeView.Items.Clear();
+            var selectedTechnologyItem = TechnologyComboBox?.SelectedItem as ComboBoxItem;
+            if (selectedTechnologyItem == null)
+                return;
+            var technology = selectedTechnologyItem.Tag as string;
+            var technologySeparatorIndex = technology.IndexOf('-');
+            var platform = technology.Substring(0, technologySeparatorIndex);
+            var programmingLanguage = technology.Substring(technologySeparatorIndex + 1);
+            ComponentInfo[] components = null;
+            switch (platform)
+            {
+                case "WPF":
+                    switch (programmingLanguage)
+                    {
+                        case "CSharp":
+                            components = new[]
+                            {
+                                new ComponentInfo
+                                {
+                                    Name = "GanttChartDataGrid",
+                                    Features = new[]
+                                    {
+                                        new FeatureInfo { Tag = "MainFeatures", Title = "Main features" }
+                                    }
+                                }
+                            };
+                            break;
+                        case "VisualBasic":
+                            break;
+                    }
+                    break;
+                case "Silverlight":
+                    switch (programmingLanguage)
+                    {
+                        case "CSharp":
+                            break;
+                        case "VisualBasic":
+                            break;
+                    }
+                    break;
+            }
+            if (components == null)
+                return;
+            bool isFirst = true;
+            foreach (var component in components.Where(c => c.Features != null))
+            {
+                var componentItem = new TreeViewItem { Header = component.Name, Tag = component.Name, IsExpanded = isFirst };
+                foreach (var feature in component.Features)
+                {
+                    componentItem.Items.Add(new TreeViewItem { Header = feature.Title, Tag = feature.Tag, IsSelected = isFirst });
+                    isFirst = false;
+                }
+                TreeView.Items.Add(componentItem);
+            }
+        }
+
+        internal class ComponentInfo
+        {
+            public string Name { get; set; }
+            public FeatureInfo[] Features { get; set; }
+        }
+        internal class FeatureInfo
+        {
+            public string Tag { get; set; }
+            public string Title { get; set; }
         }
 
         private void LoadFiles()
@@ -152,6 +225,17 @@ namespace Demos
 
         private void LoadContent()
         {
+            var selectedTreeViewItem = TreeView.SelectedItem as TreeViewItem;
+            var selectedTreeViewParentItem = selectedTreeViewItem?.Parent as TreeViewItem;
+            var selectedTechnologyItem = TechnologyComboBox?.SelectedItem as ComboBoxItem;
+            if (selectedTreeViewItem == null || selectedTreeViewParentItem == null || selectedTechnologyItem == null)
+                return;
+            var component = selectedTreeViewParentItem.Tag as string;
+            var feature = selectedTreeViewItem.Tag as string;
+            var technology = selectedTechnologyItem.Tag as string;
+            var technologySeparatorIndex = technology.IndexOf('-');
+            var platform = technology.Substring(0, technologySeparatorIndex);
+            var programmingLanguage = technology.Substring(technologySeparatorIndex + 1);
             var selectedFileItem = FilesListBox.SelectedItem as ListBoxItem;
             if (selectedFileItem == null || selectedFileItem.Visibility != Visibility.Visible)
             {
@@ -166,7 +250,8 @@ namespace Demos
                     containerWindow.Close();
                 var selectedThemeItem = ThemeComboBox.SelectedItem as ComboBoxItem;
                 var theme = selectedThemeItem?.Tag as string;
-                containerWindow = new WPF.CSharp.GanttChartDataGrid.MainFeatures.MainWindow(theme);
+                var path = "Demos." + platform + "." + programmingLanguage + "." + component + "." + feature;
+                containerWindow = Activator.CreateInstance(path, path + ".MainWindow", false, BindingFlags.Default, null, new[] { theme }, null, null).Unwrap() as Window;
                 ContentPresenter.Content = containerWindow.Content;
                 ContentPresenter.Visibility = Visibility.Visible;
                 ContentTextBox.Visibility = Visibility.Hidden;
@@ -174,9 +259,10 @@ namespace Demos
             }
             else
             {
+                var file = selectedFileItem.Tag as string;
                 try
                 {
-                    var resourceStreamInfo = Application.GetResourceStream(new Uri("/Samples.Resources/WPF-CSharp/GanttChartDataGrid/MainFeatures/" + selectedFileItem.Tag, UriKind.Relative));
+                    var resourceStreamInfo = Application.GetResourceStream(new Uri("/Samples.Resources/" + technology + "/" + component + "/" + feature + "/" + selectedFileUrl, UriKind.Relative));
                     using (var resourceStreamReader = new StreamReader(resourceStreamInfo.Stream))
                     {
                         ContentTextBox.Text = resourceStreamReader.ReadToEnd();

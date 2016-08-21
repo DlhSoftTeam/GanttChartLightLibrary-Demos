@@ -209,35 +209,7 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="4*"/>
                     </Grid.ColumnDefinitions>
-                    <TreeView Name="TreeView" Grid.Column="0" Loaded="TreeView_Loaded" SelectedItemChanged="TreeView_SelectedItemChanged">
-                        <TreeViewItem Header="GanttChartDataGrid" Tag="GanttChartDataGrid">
-                            <TreeViewItem Header="Main features" Tag="MainFeatures"/>
-                            <TreeViewItem Header="Assigning resources (with multi-selector combo box)" Tag="AssigningResources"/>
-                            <TreeViewItem Header="Automatic scheduling (time constraints)" Tag="AutomaticScheduling"/>
-                            <TreeViewItem Header="Grid columns (built-in and custom)" Tag="Columns"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="GanttChartView" Tag="GanttChartView">
-                            <TreeViewItem Header="Main features" Tag="MainFeatures"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="ScheduleChartDataGrid" Tag="ScheduleChartDataGrid">
-                            <TreeViewItem Header="Main features" Tag="MainFeatures"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="ScheduleChartView" Tag="ScheduleChartView">
-                            <TreeViewItem Header="Main features" Tag="MainFeatures"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="LoadChartDataGrid" Tag="LoadChartDataGrid">
-                            <TreeViewItem Header="Main features" Tag="MainFeatures"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="LoadChartView" Tag="LoadChartView">
-                            <TreeViewItem Header="Main features" Tag="MainFeatures"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="PertChartView" Tag="PertChartView">
-                            <TreeViewItem Header="Main features" Tag="MainFeatures"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="NetworkDiagramView" Tag="NetworkDiagramView">
-                            <TreeViewItem Header="Main features" Tag="MainFeatures"/>
-                        </TreeViewItem>
-                    </TreeView>
+                    <TreeView Name="TreeView" Grid.Column="0" Loaded="TreeView_Loaded" SelectedItemChanged="TreeView_SelectedItemChanged"/>
                     <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Stretch" Background="Transparent"/>
                     <Border Grid.Column="2" BorderThickness="1,0,0,0" BorderBrush="#ccc">
                         <Grid>
