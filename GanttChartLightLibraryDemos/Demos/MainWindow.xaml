@@ -42,15 +42,15 @@
         </Style>
         <Style x:Key="RunListBoxItemStyle" TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=TechnologyComboBox}" Value="Silverlight.CSharp">
+                <DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=TechnologyComboBox}" Value="Silverlight-CSharp">
                     <Setter Property="Visibility" Value="Collapsed"/>
                 </DataTrigger>
-                <DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=TechnologyComboBox}" Value="Silverlight.VisualBasic">
+                <DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=TechnologyComboBox}" Value="Silverlight-VisualBasic">
                     <Setter Property="Visibility" Value="Collapsed"/>
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-        <Style x:Key="ThemeListBoxItemStyle" TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+        <Style x:Key="ThemeListBoxItemStyle" TargetType="ListBoxItem" BasedOn="{StaticResource RunListBoxItemStyle}">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=ThemeComboBox}" Value="Default">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -88,9 +88,19 @@
             <Style.Triggers>
                 <Trigger Property="HasItems" Value="True">
                     <Setter Property="Foreground" Value="#e31d3b"/>
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <ContentPresenter Content="{Binding Converter={StaticResource UppercaseConverter}}"/>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
                 </Trigger>
                 <Trigger Property="HasItems" Value="False">
                     <Setter Property="FontWeight" Value="Normal"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -148,13 +158,23 @@
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
                     <ListBoxItem Content="Run" Foreground="#e31d3b" Margin="20,0" Style="{StaticResource RunListBoxItemStyle}"/>
-                    <ListBoxItem Content="MainWindow.xaml" Tag="MainWindow.xaml" />
-                    <ListBoxItem Content="MainWindow.xaml.cs" Tag="MainWindow.xaml.cs" />
                     <ListBoxItem Content="Common.xaml" Tag="Themes/Common.xaml" Style="{StaticResource ThemeListBoxItemStyle}"/>
                     <ListBoxItem Content="{Binding SelectedItem.Tag, ElementName=ThemeComboBox, Converter={StaticResource FileNameConverter}, ConverterParameter=.xaml}" Tag="{Binding SelectedItem.Tag, ElementName=ThemeComboBox, Converter={StaticResource FileNameConverter}, ConverterParameter=Themes/*.xaml}" Style="{StaticResource ThemeListBoxItemStyle}"/>
                 </ListBox>
                 <Button Content=".ZIP"/>
-                <ComboBox Name="ThemeComboBox" Foreground="#e31d3b">
+                <ComboBox Name="ThemeComboBox" Foreground="#e31d3b" SelectionChanged="ThemeComboBox_SelectionChanged">
+                    <ComboBox.Style>
+                        <Style TargetType="ComboBox" BasedOn="{StaticResource {x:Type ComboBox}}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=TechnologyComboBox}" Value="Silverlight-CSharp">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=TechnologyComboBox}" Value="Silverlight-VisualBasic">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ComboBox.Style>
                     <ComboBox.Resources>
                         <Style TargetType="ComboBoxItem" BasedOn="{StaticResource {x:Type ComboBoxItem}}">
                             <Setter Property="ContentTemplate">
@@ -162,13 +182,7 @@
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
                                             <ContentPresenter Content="{Binding Converter={StaticResource UppercaseConverter}}"/>
-                                            <ContentPresenter Content="Theme" Margin="4,0,0,0">
-                                                <ContentPresenter.ContentTemplate>
-                                                    <DataTemplate>
-                                                        <ContentPresenter Content="{Binding Converter={StaticResource UppercaseConverter}}"/>
-                                                    </DataTemplate>
-                                                </ContentPresenter.ContentTemplate>
-                                            </ContentPresenter>
+                                            <ContentPresenter Content=" THEME"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </Setter.Value>
@@ -179,11 +193,11 @@
                     <ComboBoxItem Content="Generic-bright" Tag="Generic-bright" IsSelected="True"/>
                     <ComboBoxItem Content="Generic-blue" Tag="Generic-blue"/>
                 </ComboBox>
-                <ComboBox Name="TechnologyComboBox" HorizontalContentAlignment="Right">
-                    <ComboBoxItem Content="WPF – C#" Tag="WPF.CSharp" IsSelected="True"/>
-                    <ComboBoxItem Content="WPF – Visual basic®" Tag="WPF.VisualBasic"/>
-                    <ComboBoxItem Content="Silverlight™ – C#" Tag="Silverlight.CSharp"/>
-                    <ComboBoxItem Content="Silverlight™ – Visual Basic®" Tag="Silverlight.VisualBasic"/>
+                <ComboBox Name="TechnologyComboBox" HorizontalContentAlignment="Right" SelectionChanged="TechnologyComboBox_SelectionChanged">
+                    <ComboBoxItem Content="WPF – C#" Tag="WPF-CSharp" IsSelected="True"/>
+                    <ComboBoxItem Content="WPF – Visual basic®" Tag="WPF-VisualBasic"/>
+                    <ComboBoxItem Content="Silverlight™ – C#" Tag="Silverlight-CSharp"/>
+                    <ComboBoxItem Content="Silverlight™ – Visual Basic®" Tag="Silverlight-VisualBasic"/>
                 </ComboBox>
             </StackPanel>
         </ScrollViewer>
@@ -195,33 +209,33 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="4*"/>
                     </Grid.ColumnDefinitions>
-                    <TreeView Grid.Column="0" Name="TreeView" Loaded="TreeView_Loaded" SelectedItemChanged="TreeView_SelectedItemChanged">
-                        <TreeViewItem Header="GANTTCHARTDATAGRID">
-                            <TreeViewItem Header="Main features"/>
-                            <TreeViewItem Header="Assigning resources (with multi-selector combo box) "/>
-                            <TreeViewItem Header="Automatic scheduling (time constraints)"/>
-                            <TreeViewItem Header="Grid columns (built-in and custom) "/>
+                    <TreeView Name="TreeView" Grid.Column="0" Loaded="TreeView_Loaded" SelectedItemChanged="TreeView_SelectedItemChanged">
+                        <TreeViewItem Header="GanttChartDataGrid" Tag="GanttChartDataGrid">
+                            <TreeViewItem Header="Main features" Tag="MainFeatures"/>
+                            <TreeViewItem Header="Assigning resources (with multi-selector combo box)" Tag="AssigningResources"/>
+                            <TreeViewItem Header="Automatic scheduling (time constraints)" Tag="AutomaticScheduling"/>
+                            <TreeViewItem Header="Grid columns (built-in and custom)" Tag="Columns"/>
                         </TreeViewItem>
-                        <TreeViewItem Header="GANTTCHARTVIEW">
-                            <TreeViewItem Header="Main features"/>
+                        <TreeViewItem Header="GanttChartView" Tag="GanttChartView">
+                            <TreeViewItem Header="Main features" Tag="MainFeatures"/>
                         </TreeViewItem>
-                        <TreeViewItem Header="SCHEDULECHARTDATAGRID">
-                            <TreeViewItem Header="Main features"/>
+                        <TreeViewItem Header="ScheduleChartDataGrid" Tag="ScheduleChartDataGrid">
+                            <TreeViewItem Header="Main features" Tag="MainFeatures"/>
                         </TreeViewItem>
-                        <TreeViewItem Header="SCHEDULECHARTVIEW">
-                            <TreeViewItem Header="Main features"/>
+                        <TreeViewItem Header="ScheduleChartView" Tag="ScheduleChartView">
+                            <TreeViewItem Header="Main features" Tag="MainFeatures"/>
                         </TreeViewItem>
-                        <TreeViewItem Header="LOADCHARTDATAGRID">
-                            <TreeViewItem Header="Main features"/>
+                        <TreeViewItem Header="LoadChartDataGrid" Tag="LoadChartDataGrid">
+                            <TreeViewItem Header="Main features" Tag="MainFeatures"/>
                         </TreeViewItem>
-                        <TreeViewItem Header="LOADCHARTVIEW">
-                            <TreeViewItem Header="Main features"/>
+                        <TreeViewItem Header="LoadChartView" Tag="LoadChartView">
+                            <TreeViewItem Header="Main features" Tag="MainFeatures"/>
                         </TreeViewItem>
-                        <TreeViewItem Header="PERTCHARTVIEW">
-                            <TreeViewItem Header="Main features"/>
+                        <TreeViewItem Header="PertChartView" Tag="PertChartView">
+                            <TreeViewItem Header="Main features" Tag="MainFeatures"/>
                         </TreeViewItem>
-                        <TreeViewItem Header="NETWORKDIAGRAMVIEW">
-                            <TreeViewItem Header="Main features"/>
+                        <TreeViewItem Header="NetworkDiagramView" Tag="NetworkDiagramView">
+                            <TreeViewItem Header="Main features" Tag="MainFeatures"/>
                         </TreeViewItem>
                     </TreeView>
                     <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Stretch" Background="Transparent"/>

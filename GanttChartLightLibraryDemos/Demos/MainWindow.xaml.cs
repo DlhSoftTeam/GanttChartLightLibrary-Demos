@@ -57,6 +57,7 @@ namespace Demos
                 previousSelectedParentItem = parentItem;
                 previousSelectedParentItemStyle = parentItem.Style;
                 parentItem.Style = Resources["SelectedTreeViewItemParentStyle"] as Style;
+                Dispatcher.BeginInvoke((Action)LoadFiles);
                 Dispatcher.BeginInvoke((Action)LoadContent);
             }
         }
@@ -75,6 +76,75 @@ namespace Demos
             }
         }
 
+        private void TechnologyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Dispatcher.BeginInvoke((Action)LoadFiles);
+            Dispatcher.BeginInvoke((Action)LoadContent);
+        }
+
+        private void LoadFiles()
+        {
+            var fileItemCount = FilesListBox.Items.Count;
+            var remainingItems = new[] { FilesListBox.Items[0], FilesListBox.Items[fileItemCount - 2], FilesListBox.Items[fileItemCount - 1] };
+            var removingItems = new List<ListBoxItem>();
+            foreach (ListBoxItem item in FilesListBox.Items)
+            {
+                if (!remainingItems.Contains(item))
+                    removingItems.Add(item);
+            }
+            foreach (var item in removingItems)
+                FilesListBox.Items.Remove(item);
+            var selectedTreeViewItem = TreeView.SelectedItem as TreeViewItem;
+            var selectedTreeViewParentItem = selectedTreeViewItem?.Parent as TreeViewItem;
+            var selectedTechnologyItem = TechnologyComboBox?.SelectedItem as ComboBoxItem;
+            if (selectedTreeViewItem == null || selectedTreeViewParentItem == null || selectedTechnologyItem == null)
+                return;
+            var component = selectedTreeViewParentItem.Tag as string;
+            var feature = selectedTreeViewItem.Tag as string;
+            var technology = selectedTechnologyItem.Tag as string;
+            var isSilverlight = technology.StartsWith("Silverlight");
+            var isVisualBasic = technology.EndsWith("VisualBasic");
+            string[] fileItems = null;
+            switch (component)
+            {
+                case "GanttChartDataGrid":
+                    switch (feature)
+                    {
+                        case "MainFeatures":
+                            fileItems = new[] {
+                                "Main" + (!isSilverlight ? "Window" : "Page") + ".xaml",
+                                "Main" + (!isSilverlight ? "Window" : "Page") + ".xaml" + (!isVisualBasic ? ".cs" : ".vb")
+                            };
+                            break;
+                    }
+                    break;
+                case "GanttChartView":
+                    break;
+                case "ScheduleChartDataGrid":
+                    break;
+                case "ScheduleChartView":
+                    break;
+                case "LoadChartDataGrid":
+                    break;
+                case "LoadChartView":
+                    break;
+                case "PertChartView":
+                    break;
+                case "NetworkDiagramView":
+                    break;
+            }
+            if (fileItems == null)
+                return;
+            int index = 1;
+            foreach (var fileItem in fileItems)
+                FilesListBox.Items.Insert(index++, new ListBoxItem { Content = fileItem, Tag = fileItem });
+        }
+
+        private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Dispatcher.BeginInvoke((Action)LoadContent);
+        }
+
         private void FilesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Dispatcher.BeginInvoke((Action)LoadContent);
@@ -83,7 +153,7 @@ namespace Demos
         private void LoadContent()
         {
             var selectedFileItem = FilesListBox.SelectedItem as ListBoxItem;
-            if (selectedFileItem == null)
+            if (selectedFileItem == null || selectedFileItem.Visibility != Visibility.Visible)
             {
                 var runListBoxItem = FilesListBox.Items[0] as ListBoxItem;
                 FilesListBox.SelectedIndex = runListBoxItem.Visibility == Visibility.Visible ? 0 : 1;
@@ -104,11 +174,15 @@ namespace Demos
             }
             else
             {
-                var resourceStreamInfo = Application.GetResourceStream(new Uri("/Samples.Resources/WPF-CSharp/GanttChartDataGrid/MainFeatures/" + selectedFileItem.Tag, UriKind.Relative));
-                using (var resourceStreamReader = new StreamReader(resourceStreamInfo.Stream))
+                try
                 {
-                    ContentTextBox.Text = resourceStreamReader.ReadToEnd();
+                    var resourceStreamInfo = Application.GetResourceStream(new Uri("/Samples.Resources/WPF-CSharp/GanttChartDataGrid/MainFeatures/" + selectedFileItem.Tag, UriKind.Relative));
+                    using (var resourceStreamReader = new StreamReader(resourceStreamInfo.Stream))
+                    {
+                        ContentTextBox.Text = resourceStreamReader.ReadToEnd();
+                    }
                 }
+                catch (IOException) { }
                 ContentTextBox.Visibility = Visibility.Visible;
                 ContentPresenter.Visibility = Visibility.Hidden;
                 ContentPresenter.Content = null;
