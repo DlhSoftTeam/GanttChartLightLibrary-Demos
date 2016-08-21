@@ -10,6 +10,8 @@
         WindowState="Maximized"
         Closing="Window_Closing">
     <Window.Resources>
+        <local:UppercaseConverter x:Key="UppercaseConverter"/>
+        <local:FileNameConverter x:Key="FileNameConverter"/>
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="16,0"/>
         </Style>
@@ -30,6 +32,30 @@
         <Style TargetType="ListBoxItem">
             <Setter Property="Margin" Value="4,0"/>
             <Setter Property="Padding" Value="10,4"/>
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <ContentPresenter Content="{Binding Converter={StaticResource UppercaseConverter}}"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="RunListBoxItemStyle" TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=TechnologyComboBox}" Value="Silverlight.CSharp">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=TechnologyComboBox}" Value="Silverlight.VisualBasic">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ThemeListBoxItemStyle" TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=ThemeComboBox}" Value="Default">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="16,8"/>
@@ -44,6 +70,13 @@
         <Style TargetType="ComboBoxItem">
             <Setter Property="Foreground" Value="{Binding Path=(TextElement.Foreground), RelativeSource={RelativeSource AncestorType=Panel}}"/>
             <Setter Property="Padding" Value="8"/>
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <ContentPresenter Content="{Binding Converter={StaticResource UppercaseConverter}}"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="TreeView">
             <Setter Property="BorderThickness" Value="0"/>
@@ -114,23 +147,43 @@
                             <StackPanel Orientation="Horizontal" IsItemsHost="True"/>
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
-                    <ListBoxItem Content="RUN" Foreground="#e31d3b" Margin="20,0" IsSelected="True"/>
-                    <ListBoxItem Content="MAINWINDOW.XAML" Tag="MainWindow.xaml" />
-                    <ListBoxItem Content="MAINWINDOW.XAML.CS" Tag="MainWindow.xaml.cs" />
-                    <ListBoxItem Content="COMMON.XAML" Tag="Themes/Common.xaml" />
-                    <ListBoxItem Content="GENERIC-BLUE.XAML" Tag="Themes/Generic-blue.xaml" />
+                    <ListBoxItem Content="Run" Foreground="#e31d3b" Margin="20,0" Style="{StaticResource RunListBoxItemStyle}"/>
+                    <ListBoxItem Content="MainWindow.xaml" Tag="MainWindow.xaml" />
+                    <ListBoxItem Content="MainWindow.xaml.cs" Tag="MainWindow.xaml.cs" />
+                    <ListBoxItem Content="Common.xaml" Tag="Themes/Common.xaml" Style="{StaticResource ThemeListBoxItemStyle}"/>
+                    <ListBoxItem Content="{Binding SelectedItem.Tag, ElementName=ThemeComboBox, Converter={StaticResource FileNameConverter}, ConverterParameter=.xaml}" Tag="{Binding SelectedItem.Tag, ElementName=ThemeComboBox, Converter={StaticResource FileNameConverter}, ConverterParameter=Themes/*.xaml}" Style="{StaticResource ThemeListBoxItemStyle}"/>
                 </ListBox>
                 <Button Content=".ZIP"/>
                 <ComboBox Name="ThemeComboBox" Foreground="#e31d3b">
-                    <ComboBoxItem Content="DEFAULT" Tag="Default"/>
-                    <ComboBoxItem Content="GENERIC-BRIGHT THEME" Tag="Generic-bright" IsSelected="True"/>
-                    <ComboBoxItem Content="GENERIC-BLUE THEME" Tag="Generic-blue"/>
+                    <ComboBox.Resources>
+                        <Style TargetType="ComboBoxItem" BasedOn="{StaticResource {x:Type ComboBoxItem}}">
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <ContentPresenter Content="{Binding Converter={StaticResource UppercaseConverter}}"/>
+                                            <ContentPresenter Content="Theme" Margin="4,0,0,0">
+                                                <ContentPresenter.ContentTemplate>
+                                                    <DataTemplate>
+                                                        <ContentPresenter Content="{Binding Converter={StaticResource UppercaseConverter}}"/>
+                                                    </DataTemplate>
+                                                </ContentPresenter.ContentTemplate>
+                                            </ContentPresenter>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ComboBox.Resources>
+                    <ComboBoxItem Content="Default" Tag="Default"/>
+                    <ComboBoxItem Content="Generic-bright" Tag="Generic-bright" IsSelected="True"/>
+                    <ComboBoxItem Content="Generic-blue" Tag="Generic-blue"/>
                 </ComboBox>
-                <ComboBox HorizontalContentAlignment="Right">
-                    <ComboBoxItem Content="WPF – C#" IsSelected="True"/>
-                    <ComboBoxItem Content="WPF – VISUAL BASIC®"/>
-                    <ComboBoxItem Content="SILVERLIGHT™ – C#"/>
-                    <ComboBoxItem Content="SILVERLIGHT™ – VISUAL BASIC®"/>
+                <ComboBox Name="TechnologyComboBox" HorizontalContentAlignment="Right">
+                    <ComboBoxItem Content="WPF – C#" Tag="WPF.CSharp" IsSelected="True"/>
+                    <ComboBoxItem Content="WPF – Visual basic®" Tag="WPF.VisualBasic"/>
+                    <ComboBoxItem Content="Silverlight™ – C#" Tag="Silverlight.CSharp"/>
+                    <ComboBoxItem Content="Silverlight™ – Visual Basic®" Tag="Silverlight.VisualBasic"/>
                 </ComboBox>
             </StackPanel>
         </ScrollViewer>
@@ -179,7 +232,6 @@
                                      BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                      HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
                                      Visibility="Hidden"/>
-                            <WebBrowser Name="ContentBrowser" Visibility="Hidden"/>
                         </Grid>
                     </Border>
                 </Grid>

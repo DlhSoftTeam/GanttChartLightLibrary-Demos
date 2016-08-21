@@ -47,6 +47,7 @@ namespace Demos
                 var firstChildItem = selectedItem.Items[0] as TreeViewItem;
                 firstChildItem.IsSelected = true;
                 selectedItem.IsExpanded = true;
+                return;
             }
             else
             {
@@ -56,6 +57,7 @@ namespace Demos
                 previousSelectedParentItem = parentItem;
                 previousSelectedParentItemStyle = parentItem.Style;
                 parentItem.Style = Resources["SelectedTreeViewItemParentStyle"] as Style;
+                Dispatcher.BeginInvoke((Action)LoadContent);
             }
         }
         private TreeViewItem previousSelectedParentItem;
@@ -75,19 +77,20 @@ namespace Demos
 
         private void FilesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var selectedFileItem = FilesListBox.SelectedItem as ListBoxItem;
-            if (selectedFileItem == null)
-            {
-                FilesListBox.SelectedIndex = 0;
-                return;
-            }
             Dispatcher.BeginInvoke((Action)LoadContent);
         }
 
         private void LoadContent()
         {
             var selectedFileItem = FilesListBox.SelectedItem as ListBoxItem;
-            if (selectedFileItem.Tag == null)
+            if (selectedFileItem == null)
+            {
+                var runListBoxItem = FilesListBox.Items[0] as ListBoxItem;
+                FilesListBox.SelectedIndex = runListBoxItem.Visibility == Visibility.Visible ? 0 : 1;
+                return;
+            }
+            var selectedFileUrl = selectedFileItem.Tag as string;
+            if (selectedFileUrl == null)
             {
                 if (containerWindow != null)
                     containerWindow.Close();
@@ -98,8 +101,6 @@ namespace Demos
                 ContentPresenter.Visibility = Visibility.Visible;
                 ContentTextBox.Visibility = Visibility.Hidden;
                 ContentTextBox.Text = null;
-                ContentBrowser.Visibility = Visibility.Hidden;
-                ContentBrowser.Source = null;
             }
             else
             {
@@ -111,8 +112,6 @@ namespace Demos
                 ContentTextBox.Visibility = Visibility.Visible;
                 ContentPresenter.Visibility = Visibility.Hidden;
                 ContentPresenter.Content = null;
-                ContentBrowser.Visibility = Visibility.Hidden;
-                ContentBrowser.Source = null;
             }
         }
 

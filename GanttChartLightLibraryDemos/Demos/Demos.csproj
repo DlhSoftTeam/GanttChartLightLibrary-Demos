@@ -92,9 +92,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FileNameConverter.cs" />
+    <Compile Include="UppercaseConverter.cs" />
     <None Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml.cs">
       <DependentUpon>EditItemDialog.xaml</DependentUpon>
     </None>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\Themes\Generic-bright.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\Themes\Common.xaml">
       <SubType>Designer</SubType>
     </Resource>
