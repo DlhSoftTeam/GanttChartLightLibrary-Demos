@@ -39,6 +39,7 @@ namespace Demos
         {
             var firstItem = TreeView.Items[0] as TreeViewItem;
             firstItem.IsSelected = true;
+            TreeView.Focus();
         }
         private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
@@ -273,6 +274,20 @@ namespace Demos
                 ContentPresenter.Visibility = Visibility.Hidden;
                 ContentPresenter.Content = null;
             }
+        }
+
+        private void GetZipButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedTreeViewItem = TreeView.SelectedItem as TreeViewItem;
+            var selectedTreeViewParentItem = selectedTreeViewItem?.Parent as TreeViewItem;
+            var selectedTechnologyItem = TechnologyComboBox?.SelectedItem as ComboBoxItem;
+            if (selectedTreeViewItem == null || selectedTreeViewParentItem == null || selectedTechnologyItem == null)
+                return;
+            var component = selectedTreeViewParentItem.Tag as string;
+            var feature = selectedTreeViewItem.Tag as string;
+            var technology = selectedTechnologyItem.Tag as string;
+            string url = "http://DlhSoft.com/GanttChartLightLibrary/Demos/Samples.Resources/" + technology + "/" + component + "/" + feature + ".zip";
+            Process.Start(new ProcessStartInfo(url));
         }
 
         private Window containerWindow;

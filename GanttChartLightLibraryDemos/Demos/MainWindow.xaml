@@ -161,7 +161,7 @@
                     <ListBoxItem Content="Common.xaml" Tag="Themes/Common.xaml" Style="{StaticResource ThemeListBoxItemStyle}"/>
                     <ListBoxItem Content="{Binding SelectedItem.Tag, ElementName=ThemeComboBox, Converter={StaticResource FileNameConverter}, ConverterParameter=.xaml}" Tag="{Binding SelectedItem.Tag, ElementName=ThemeComboBox, Converter={StaticResource FileNameConverter}, ConverterParameter=Themes/*.xaml}" Style="{StaticResource ThemeListBoxItemStyle}"/>
                 </ListBox>
-                <Button Content=".ZIP"/>
+                <Button Name="GetZipButton" Content=".ZIP" Click="GetZipButton_Click"/>
                 <ComboBox Name="ThemeComboBox" Foreground="#e31d3b" SelectionChanged="ThemeComboBox_SelectionChanged">
                     <ComboBox.Style>
                         <Style TargetType="ComboBox" BasedOn="{StaticResource {x:Type ComboBox}}">
