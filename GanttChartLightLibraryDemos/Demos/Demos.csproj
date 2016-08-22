@@ -16,7 +16,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
+    <Install>false</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
@@ -52,6 +52,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Properties\Icon.ico</ApplicationIcon>
@@ -188,9 +189,11 @@
 </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>for /d %25%25t in ("$(ProjectDir)\Samples\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\obj
+    <PostBuildEvent>::goto end ::Enable upon Publish
+for /d %25%25t in ("$(ProjectDir)\Samples\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\obj
 for /d %25%25t in ("$(ProjectDir)\Samples\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\bin
 for /d %25%25t in ("$(ProjectDir)\Samples\*") do for /d %25%25c in ("%25%25t\*") do cd "%25%25c" &amp; for /d %25%25f in (*) do "$(ProjectDir)\Tools\ArchiveBuilder.exe" %25%25f.zip %25%25f
+:end
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
