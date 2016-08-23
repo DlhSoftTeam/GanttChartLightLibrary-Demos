@@ -94,25 +94,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="FileNameConverter.cs" />
-    <Compile Include="UppercaseConverter.cs" />
-    <None Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml.cs">
-      <DependentUpon>EditItemDialog.xaml</DependentUpon>
-    </None>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\Themes\Generic-bright.xaml">
-      <SubType>Designer</SubType>
-    </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\Themes\Common.xaml">
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\Themes\Generic-blue.xaml">
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml">
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\Themes\Generic-bright.xaml">
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainWindow.xaml.cs" />
+    <Compile Include="UppercaseConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -125,6 +118,12 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Resource>
@@ -177,9 +176,9 @@
     <None Include="Tools\Interop.Shell32.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainFeatures.csproj">
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainFeatures.Library.csproj">
       <Project>{326967b5-0af7-4aa0-a4b9-70abb105142d}</Project>
-      <Name>MainFeatures</Name>
+      <Name>MainFeatures.Library</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
@@ -189,11 +188,14 @@
 </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>::goto end ::Enable upon Publish
-for /d %25%25t in ("$(ProjectDir)\Samples\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\obj
-for /d %25%25t in ("$(ProjectDir)\Samples\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\bin
-for /d %25%25t in ("$(ProjectDir)\Samples\*") do for /d %25%25c in ("%25%25t\*") do cd "%25%25c" &amp; for /d %25%25f in (*) do "$(ProjectDir)\Tools\ArchiveBuilder.exe" %25%25f.zip %25%25f
-:end
+    <PostBuildEvent>for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\obj
+for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\bin
+for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do del "%25%25f\*.Library.*proj"
+
+md "$(ProjectDir)\publish\Samples"
+xcopy /s /y "$(ProjectDir)\Samples.Resources" "$(ProjectDir)\publish\Samples"
+for /d %25%25t in ("$(ProjectDir)\publish\Samples\*") do for /d %25%25c in ("%25%25t\*") do cd "%25%25c" &amp; for /d %25%25f in (*) do "$(ProjectDir)\Tools\ArchiveBuilder.exe" %25%25f.zip %25%25f
+for /d %25%25t in ("$(ProjectDir)\publish\Samples\*") do for /d %25%25c in ("%25%25t\*") do cd "%25%25c" &amp; for /d %25%25f in (*) do rd /s /q %25%25f
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

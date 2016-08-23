@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{326967B5-0AF7-4AA0-A4B9-70ABB105142D}</ProjectGuid>
+    <ProjectGuid>{9CF2F424-97A9-4FC3-B90C-480392519987}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures</RootNamespace>

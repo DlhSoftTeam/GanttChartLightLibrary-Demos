@@ -212,6 +212,8 @@ namespace Demos
             int index = 1;
             foreach (var fileItem in fileItems)
                 FilesListBox.Items.Insert(index++, new ListBoxItem { Content = fileItem, Tag = fileItem });
+            if (!isSilverlight)
+                FilesListBox.Items.Insert(index++, new ListBoxItem { Content = "AppResources.xaml", Tag = "AppResources.xaml" });
         }
 
         private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -286,7 +288,7 @@ namespace Demos
             var component = selectedTreeViewParentItem.Tag as string;
             var feature = selectedTreeViewItem.Tag as string;
             var technology = selectedTechnologyItem.Tag as string;
-            string url = "http://DlhSoft.com/GanttChartLightLibrary/Demos/Samples.Resources/" + technology + "/" + component + "/" + feature + ".zip";
+            string url = "http://DlhSoft.com/GanttChartLightLibrary/Demos/Samples/" + technology + "/" + component + "/" + feature + ".zip";
             Process.Start(new ProcessStartInfo(url));
         }
 
