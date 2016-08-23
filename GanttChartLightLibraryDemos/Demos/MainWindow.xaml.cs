@@ -111,7 +111,7 @@ namespace Demos
                                     Name = "GanttChartDataGrid",
                                     Features = new[]
                                     {
-                                        new FeatureInfo { Tag = "MainFeatures", Title = "Main features" }
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
                                     }
                                 }
                             };
@@ -138,7 +138,7 @@ namespace Demos
                 var componentItem = new TreeViewItem { Header = component.Name, Tag = component.Name, IsExpanded = isFirst };
                 foreach (var feature in component.Features)
                 {
-                    componentItem.Items.Add(new TreeViewItem { Header = feature.Title, Tag = feature.Tag, IsSelected = isFirst });
+                    componentItem.Items.Add(new TreeViewItem { Header = feature.Title, Tag = feature.Tag, ToolTip = feature.Description, IsSelected = isFirst });
                     isFirst = false;
                 }
                 TreeView.Items.Add(componentItem);
@@ -148,12 +148,13 @@ namespace Demos
         internal class ComponentInfo
         {
             public string Name { get; set; }
-            public FeatureInfo[] Features { get; set; }
+            public SampleInfo[] Features { get; set; }
         }
-        internal class FeatureInfo
+        internal class SampleInfo
         {
             public string Tag { get; set; }
             public string Title { get; set; }
+            public string Description { get; set; }
         }
 
         private void LoadFiles()
