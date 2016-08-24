@@ -117,6 +117,17 @@ namespace Demos
                             };
                             break;
                         case "VisualBasic":
+                            components = new[]
+                            {
+                                new ComponentInfo
+                                {
+                                    Name = "GanttChartDataGrid",
+                                    Features = new[]
+                                    {
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
+                                    }
+                                }
+                            };
                             break;
                     }
                     break;

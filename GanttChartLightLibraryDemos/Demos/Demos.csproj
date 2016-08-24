@@ -94,6 +94,30 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="FileNameConverter.cs" />
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\MainFeatures\AppResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\MainFeatures\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\MainFeatures\Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\MainFeatures\Themes\Generic-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\MainFeatures\Themes\Generic-bright.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\Themes\Common.xaml">
       <SubType>Designer</SubType>
     </Resource>
@@ -180,8 +204,15 @@
       <Project>{326967b5-0af7-4aa0-a4b9-70abb105142d}</Project>
       <Name>MainFeatures.Library</Name>
     </ProjectReference>
+    <ProjectReference Include="Samples\WPF-VisualBasic\GanttChartDataGrid\MainFeatures\MainFeatures.Library.VisualBasic.vbproj">
+      <Project>{3742fd40-eb79-4306-b785-56254db4f986}</Project>
+      <Name>MainFeatures.Library.VisualBasic</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml.vb" />
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\MainFeatures\MainWindow.xaml.vb" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>xcopy /s /y "$(ProjectDir)\Samples" "$(ProjectDir)\Samples.Resources"

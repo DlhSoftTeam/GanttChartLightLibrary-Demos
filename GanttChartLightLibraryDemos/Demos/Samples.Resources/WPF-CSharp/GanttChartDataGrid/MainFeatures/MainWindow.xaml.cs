@@ -575,6 +575,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
                     Owner = Application.Current.MainWindow, Title = "Load Chart", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 640, Height = 300, ResizeMode = ResizeMode.CanMinimize,
                     Content = dockPanel
                 };
+            (loadChartWindow.Content as FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary);
             loadChartWindow.ShowDialog();
             GanttChartDataGrid.DisposeLoadChartItems(loadChartItems);
             Opacity = originalOpacity;
@@ -651,6 +652,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
                     DlhSoft.Windows.Controls.Pert.PertChartView.SetDependencyTextForeground(predecessorItem, Brushes.Red);
                 }
             };
+            (pertChartWindow.Content as FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary);
             pertChartWindow.ShowDialog();
             GanttChartDataGrid.DisposePertChartItems(pertChartItems);
             Opacity = originalOpacity;
@@ -678,6 +680,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
                 foreach (var predecessorItem in networkDiagramView.GetCriticalDependencies())
                     DlhSoft.Windows.Controls.Pert.NetworkDiagramView.SetDependencyLineStroke(predecessorItem, Brushes.Red);
             };
+            (networkDiagramWindow.Content as FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary);
             networkDiagramWindow.ShowDialog();
             GanttChartDataGrid.DisposeNetworkDiagramItems(networkDiagramItems);
             Opacity = originalOpacity;
