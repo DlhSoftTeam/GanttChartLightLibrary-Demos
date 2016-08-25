@@ -62,7 +62,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>for /d %25%25t in ("$(SolutionDir)\Demos\Samples\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in ("%25%25c\*") do xcopy /y "$(ProjectDir)*.xaml" "%25%25f\Themes\"
+    <PreBuildEvent>for /d %25%25t in ("$(SolutionDir)\Demos\Samples\WPF-*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in ("%25%25c\*") do xcopy /y "$(ProjectDir)*.xaml" "%25%25f\Themes\"
 </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -94,6 +94,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="FileNameConverter.cs" />
+    <Resource Include="Samples.Resources\Silverlight-CSharp\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\Silverlight-CSharp\GanttChartDataGrid\MainFeatures\MainPage.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\Silverlight-VisualBasic\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\Silverlight-VisualBasic\GanttChartDataGrid\MainFeatures\MainPage.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\MainFeatures\AppResources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -129,6 +141,8 @@
     </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainWindow.xaml.cs" />
+    <Resource Include="Samples.Resources\Silverlight-CSharp\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml.cs" />
+    <Resource Include="Samples.Resources\Silverlight-CSharp\GanttChartDataGrid\MainFeatures\MainPage.xaml.cs" />
     <Compile Include="UppercaseConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -212,6 +226,11 @@
   <ItemGroup>
     <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml.vb" />
     <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\MainFeatures\MainWindow.xaml.vb" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Samples.Resources\Silverlight-VisualBasic\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml.vb" />
+    <Resource Include="Samples.Resources\Silverlight-VisualBasic\GanttChartDataGrid\MainFeatures\MainPage.xaml.vb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
