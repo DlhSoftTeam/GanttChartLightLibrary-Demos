@@ -365,7 +365,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellEditingTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="%" MinWidth="40">
+                    <DataGridTemplateColumn Header="%" MinWidth="45">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <ContentControl Content="{Binding Completion, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%}" Padding="4"/>
