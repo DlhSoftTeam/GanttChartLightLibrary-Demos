@@ -92,11 +92,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="DlhSoft.ProjectData.GanttChart.Silverlight.Controls, Version=4.3.36.0, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.36.1\lib\sl50\DlhSoft.ProjectData.GanttChart.Silverlight.Controls.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.36.2\lib\sl50\DlhSoft.ProjectData.GanttChart.Silverlight.Controls.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DlhSoft.ProjectData.PertChart.Silverlight.Controls, Version=4.3.36.0, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.36.1\lib\sl50\DlhSoft.ProjectData.PertChart.Silverlight.Controls.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.36.2\lib\sl50\DlhSoft.ProjectData.PertChart.Silverlight.Controls.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
