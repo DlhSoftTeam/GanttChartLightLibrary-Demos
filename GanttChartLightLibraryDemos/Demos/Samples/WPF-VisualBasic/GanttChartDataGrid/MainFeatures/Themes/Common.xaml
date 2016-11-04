@@ -2,6 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
                     xmlns:pdpcc="clr-namespace:DlhSoft.Windows.Controls.Pert;assembly=DlhSoft.ProjectData.PertChart.LightWPF.Controls">
+    <Style x:Key="GanttChartViewTemplates" TargetType="pdgcc:GanttChartView" BasedOn="{StaticResource {x:Type pdgcc:GanttChartView}}">
+    </Style>
     <Style x:Key="GanttChartDataGridTemplates" TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:GanttChartDataGrid}}">
         <Setter Property="HeaderHeight" Value="56"/>
         <Setter Property="ScaleHeaderHeight" Value="28"/>
@@ -12,14 +14,18 @@
         <Setter Property="StandardCompletedBarCornerRadius" Value="0"/>
         <Setter Property="HourWidth" Value="5"/>
         <Setter Property="CurrentTimeLineStroke" Value="Red"/>
-        <Setter Property="HeaderBackground" Value="#f4f5f7"/>
-        <Setter Property="ColumnHeaderStyle">
+        <Setter Property="SummaryBarFill">
             <Setter.Value>
-                <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="Background" Value="#f4f5f7"/>
-                </Style>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#666" Offset="0"/>
+                        <GradientStop Color="Gray" Offset="0.2"/>
+                        <GradientStop Color="#666" Offset="0.6"/>
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
             </Setter.Value>
         </Setter>
+        <Setter Property="MilestoneBarFill" Value="#666"/>
         <Setter Property="CellStyle">
             <Setter.Value>
                 <Style TargetType="DataGridCell">
@@ -29,7 +35,11 @@
         </Setter>
         <Setter Property="FontSize" Value="16"/>
     </Style>
+    <Style x:Key="ScheduleChartViewTemplates" TargetType="pdgcc:ScheduleChartView" BasedOn="{StaticResource {x:Type pdgcc:ScheduleChartView}}">
+    </Style>
     <Style x:Key="ScheduleChartDataGridTemplates" TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:ScheduleChartDataGrid}}">
+    </Style>
+    <Style x:Key="LoadChartViewTemplates" TargetType="pdgcc:LoadChartView" BasedOn="{StaticResource {x:Type pdgcc:LoadChartView}}">
     </Style>
     <Style x:Key="LoadChartDataGridTemplates" TargetType="pdgcc:LoadChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:LoadChartDataGrid}}">
     </Style>
