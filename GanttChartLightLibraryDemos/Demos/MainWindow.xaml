@@ -66,6 +66,7 @@
         <Style TargetType="ComboBox">
             <Setter Property="Margin" Value="8"/>
             <Setter Property="Padding" Value="10,11"/>
+            <Setter Property="MaxDropDownHeight" Value="Infinity"/>
         </Style>
         <Style TargetType="ComboBoxItem">
             <Setter Property="Foreground" Value="{Binding Path=(TextElement.Foreground), RelativeSource={RelativeSource AncestorType=Panel}}"/>
@@ -192,6 +193,16 @@
                     <ComboBoxItem Content="Default" Tag="Default"/>
                     <ComboBoxItem Content="Generic-bright" Tag="Generic-bright" IsSelected="True"/>
                     <ComboBoxItem Content="Generic-blue" Tag="Generic-blue"/>
+                    <ComboBoxItem Content="DlhSoft-gray" Tag="DlhSoft-gray"/>
+                    <ComboBoxItem Content="Purple-green" Tag="Purple-green"/>
+                    <ComboBoxItem Content="Steel-blue" Tag="Steel-blue"/>
+                    <ComboBoxItem Content="Dark-black" Tag="Dark-black"/>
+                    <ComboBoxItem Content="Cyan-green" Tag="Cyan-green"/>
+                    <ComboBoxItem Content="Blue-navy" Tag="Blue-navy"/>
+                    <ComboBoxItem Content="Orange-brown" Tag="Orange-brown"/>
+                    <ComboBoxItem Content="Teal-green" Tag="Teal-green"/>
+                    <ComboBoxItem Content="Purple-beige" Tag="Purple-beige"/>
+                    <ComboBoxItem Content="Gray-blue" Tag="Gray-blue"/>
                 </ComboBox>
                 <ComboBox Name="TechnologyComboBox" HorizontalContentAlignment="Right" SelectionChanged="TechnologyComboBox_SelectionChanged">
                     <ComboBoxItem Content="WPF – C#" Tag="WPF-CSharp" IsSelected="True"/>
