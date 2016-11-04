@@ -2,7 +2,22 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls">
     <Style x:Key="GanttChartDataGridTemplates" TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:GanttChartDataGrid}}">
+        <Setter Property="HeaderHeight" Value="80"/>
+        <Setter Property="CurrentTimeLineStroke" Value="Red"/>
+        <Setter Property="ScaleHeaderHeight" Value="40"/>
         <Setter Property="ItemHeight" Value="40"/>
+        <Setter Property="BarHeight" Value="30"/>
+        <Setter Property="CompletedBarHeight" Value="30"/>
+        <Setter Property="StandardBarCornerRadius" Value="1"/>
+        <Setter Property="StandardCompletedBarCornerRadius" Value="0"/>
+        <Setter Property="HourWidth" Value="5"/>
+        <Setter Property="CellStyle">
+            <Setter.Value>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
     </Style>
     <Style x:Key="ScheduleChartDataGridTemplates" TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:ScheduleChartDataGrid}}">
     </Style>
