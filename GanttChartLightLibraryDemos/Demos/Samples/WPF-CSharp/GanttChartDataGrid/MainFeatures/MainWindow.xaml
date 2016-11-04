@@ -334,7 +334,7 @@
                     <DataGridTemplateColumn Header="Milestone">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Name="TextBlock" Text="✓" Visibility="Hidden" HorizontalAlignment="Center" Padding="4,4,10,4"/>
+                                <TextBlock Name="TextBlock" Text="✓" Visibility="Hidden" HorizontalAlignment="Center" Padding="4,0,10,8"/>
                                 <DataTemplate.Triggers>
                                     <DataTrigger Binding="{Binding IsMilestone}" Value="True">
                                         <Setter TargetName="TextBlock" Property="Visibility" Value="Visible"/>
@@ -351,7 +351,7 @@
                     <DataGridTemplateColumn Header="Compl.">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Name="TextBlock" Text="✓" Visibility="Hidden" HorizontalAlignment="Center" Padding="4,4,10,4"/>
+                                <TextBlock Name="TextBlock" Text="✓" Visibility="Hidden" HorizontalAlignment="Center" Padding="4,0,10,8"/>
                                 <DataTemplate.Triggers>
                                     <DataTrigger Binding="{Binding IsCompleted}" Value="True">
                                         <Setter TargetName="TextBlock" Property="Visibility" Value="Visible"/>

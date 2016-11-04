@@ -54,7 +54,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>GanttChrartLightLibraryDemos.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>GanttChartLightLibraryDemos.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DlhSoft.HierarchicalData.LightWPF.Controls, Version=4.0.8.5, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
@@ -206,7 +206,7 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="GanttChrartLightLibraryDemos.snk" />
+    <None Include="GanttChartLightLibraryDemos.snk" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
