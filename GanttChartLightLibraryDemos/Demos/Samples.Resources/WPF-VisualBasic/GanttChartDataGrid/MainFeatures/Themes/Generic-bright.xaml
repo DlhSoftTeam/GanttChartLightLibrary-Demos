@@ -40,12 +40,10 @@
     <Style TargetType="pdgcc:LoadChartView" BasedOn="{StaticResource LoadChartViewTemplates}">
         <Setter Property="NormalAllocationBarFill" Value="#005c9e"/>
         <Setter Property="UnderAllocationBarFill" Value="#005c9e"/>
-        <Setter Property="OverAllocationBarFill" Value="#e31d3b"/>
     </Style>
     <Style TargetType="pdgcc:LoadChartDataGrid" BasedOn="{StaticResource LoadChartDataGridTemplates}">
         <Setter Property="NormalAllocationBarFill" Value="#005c9e"/>
         <Setter Property="UnderAllocationBarFill" Value="#005c9e"/>
-        <Setter Property="OverAllocationBarFill" Value="#e31d3b"/>
     </Style>
     <Style TargetType="pdpcc:PertChartView" BasedOn="{StaticResource PertChartViewTemplates}"/>
     <Style TargetType="pdpcc:NetworkDiagramView" BasedOn="{StaticResource NetworkDiagramViewTemplates}"/>

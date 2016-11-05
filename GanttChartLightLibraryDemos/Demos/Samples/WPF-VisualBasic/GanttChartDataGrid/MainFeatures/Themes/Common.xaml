@@ -13,6 +13,10 @@
         <Setter Property="StandardCompletedBarCornerRadius" Value="0"/>
         <Setter Property="HourWidth" Value="5"/>
         <Setter Property="CurrentTimeLineStroke" Value="Red"/>
+        <Setter Property="StandardBarStroke" Value="#8abbed"/>
+        <Setter Property="StandardBarFill" Value="#8abbed"/>
+        <Setter Property="StandardCompletedBarStroke" Value="#8abbed"/>
+        <Setter Property="StandardCompletedBarFill" Value="#3b87d9"/>
         <Setter Property="SummaryBarFill">
             <Setter.Value>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -37,6 +41,10 @@
         <Setter Property="StandardCompletedBarCornerRadius" Value="0"/>
         <Setter Property="HourWidth" Value="5"/>
         <Setter Property="CurrentTimeLineStroke" Value="Red"/>
+        <Setter Property="StandardBarStroke" Value="#8abbed"/>
+        <Setter Property="StandardBarFill" Value="#8abbed"/>
+        <Setter Property="StandardCompletedBarStroke" Value="#8abbed"/>
+        <Setter Property="StandardCompletedBarFill" Value="#3b87d9"/>
         <Setter Property="SummaryBarFill">
             <Setter.Value>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -68,6 +76,10 @@
         <Setter Property="StandardCompletedBarCornerRadius" Value="0"/>
         <Setter Property="HourWidth" Value="5"/>
         <Setter Property="CurrentTimeLineStroke" Value="Red"/>
+        <Setter Property="StandardBarStroke" Value="#8abbed"/>
+        <Setter Property="StandardBarFill" Value="#8abbed"/>
+        <Setter Property="StandardCompletedBarStroke" Value="#8abbed"/>
+        <Setter Property="StandardCompletedBarFill" Value="#3b87d9"/>
         <Setter Property="MilestoneBarFill" Value="#666"/>
     </Style>
     <Style x:Key="ScheduleChartDataGridTemplates" TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:ScheduleChartDataGrid}}">
@@ -81,6 +93,10 @@
         <Setter Property="StandardCompletedBarCornerRadius" Value="0"/>
         <Setter Property="HourWidth" Value="5"/>
         <Setter Property="CurrentTimeLineStroke" Value="Red"/>
+        <Setter Property="StandardBarStroke" Value="#8abbed"/>
+        <Setter Property="StandardBarFill" Value="#8abbed"/>
+        <Setter Property="StandardCompletedBarStroke" Value="#8abbed"/>
+        <Setter Property="StandardCompletedBarFill" Value="#3b87d9"/>
         <Setter Property="MilestoneBarFill" Value="#666"/>
         <Setter Property="CellStyle">
             <Setter.Value>
@@ -98,6 +114,9 @@
         <Setter Property="BarHeight" Value="20"/>
         <Setter Property="HourWidth" Value="5"/>
         <Setter Property="CurrentTimeLineStroke" Value="Red"/>
+        <Setter Property="NormalAllocationBarFill" Value="#8abbed"/>
+        <Setter Property="UnderAllocationBarFill" Value="#8abbed"/>
+        <Setter Property="OverAllocationBarFill" Value="#e31d3b"/>
     </Style>
     <Style x:Key="LoadChartDataGridTemplates" TargetType="pdgcc:LoadChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:LoadChartDataGrid}}">
         <Setter Property="FontSize" Value="16"/>
@@ -107,6 +126,9 @@
         <Setter Property="BarHeight" Value="20"/>
         <Setter Property="HourWidth" Value="5"/>
         <Setter Property="CurrentTimeLineStroke" Value="Red"/>
+        <Setter Property="NormalAllocationBarFill" Value="#8abbed"/>
+        <Setter Property="UnderAllocationBarFill" Value="#8abbed"/>
+        <Setter Property="OverAllocationBarFill" Value="#e31d3b"/>
         <Setter Property="CellStyle">
             <Setter.Value>
                 <Style TargetType="DataGridCell">
