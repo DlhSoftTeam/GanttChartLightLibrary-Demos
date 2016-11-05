@@ -569,7 +569,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             DockPanel dockPanel = new DockPanel();
             dockPanel.Children.Add(resourceComboBox);
             DockPanel.SetDock(resourceComboBox, Dock.Top);
-            dockPanel.Children.Add(new LoadChartView { Items = selectedLoadChartItemContainer, ItemHeight = 176, BarHeight = 172, Height = 230, Margin = new Thickness(4, 0, 4, 4), VerticalAlignment = VerticalAlignment.Top });
+            dockPanel.Children.Add(new LoadChartView { Items = selectedLoadChartItemContainer, ItemHeight = 170, BarHeight = 166, Height = 230, Margin = new Thickness(4, 0, 4, 4), VerticalAlignment = VerticalAlignment.Top });
             Window loadChartWindow =
                 new Window
                 {
@@ -580,8 +580,8 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             {
                 var loadChartView = dockPanel.Children[dockPanel.Children.Count - 1] as LoadChartView;
                 loadChartView.Resources.MergedDictionaries.Add(themeResourceDictionary);
-                loadChartView.BarHeight -= 21;
-                loadChartView.ItemHeight -= 21;
+                loadChartView.BarHeight -= 15;
+                loadChartView.ItemHeight -= 15;
             }
             loadChartWindow.ShowDialog();
             GanttChartDataGrid.DisposeLoadChartItems(loadChartItems);

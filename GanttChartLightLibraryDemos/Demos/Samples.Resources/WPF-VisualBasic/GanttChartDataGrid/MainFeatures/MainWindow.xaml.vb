@@ -482,7 +482,7 @@ Class MainWindow
         dockPanel.SetDock(loadChartResourceComboBox, Dock.Top)
         dockPanel.Children.Add(New LoadChartView() With {
           .Items = selectedLoadChartItemContainer,
-          .ItemHeight = 176, .BarHeight = 172, .Height = 230, .Margin = New Thickness(4, 0, 4, 4), .VerticalAlignment = VerticalAlignment.Top
+          .ItemHeight = 170, .BarHeight = 166, .Height = 230, .Margin = New Thickness(4, 0, 4, 4), .VerticalAlignment = VerticalAlignment.Top
         })
         Dim loadChartWindow As New Window() With {
          .Owner = Application.Current.MainWindow, .Title = "Load Chart",
@@ -493,8 +493,8 @@ Class MainWindow
         If Not themeResourceDictionary Is Nothing Then
             Dim loadChartView = CType(dockPanel.Children(dockPanel.Children.Count - 1), LoadChartView)
             loadChartView.Resources.MergedDictionaries.Add(themeResourceDictionary)
-            loadChartView.BarHeight = loadChartView.BarHeight - 21
-            loadChartView.ItemHeight = loadChartView.ItemHeight - 21
+            loadChartView.BarHeight = loadChartView.BarHeight - 15
+            loadChartView.ItemHeight = loadChartView.ItemHeight - 15
         End If
         loadChartWindow.ShowDialog()
         GanttChartDataGrid.DisposeLoadChartItems(loadChartItems)
