@@ -6,19 +6,53 @@
         <ResourceDictionary Source="Common.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     <Style TargetType="pdgcc:GanttChartView" BasedOn="{StaticResource GanttChartViewTemplates}">
+        <Setter Property="StandardBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardBarFill" Value="#a68b99"/>
+        <Setter Property="StandardCompletedBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardCompletedBarFill" Value="#bfb8a4"/>
+        <Setter Property="MilestoneBarStroke" Value="#005c9e"/>
+        <Setter Property="MilestoneBarFill" Value="#bfb8a4"/>
+        <Setter Property="AlternatingItemBackground" Value="#f0eeeb"/>
     </Style>
     <Style TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource GanttChartDataGridTemplates}">
+        <Setter Property="StandardBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardBarFill" Value="#a68b99"/>
+        <Setter Property="StandardCompletedBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardCompletedBarFill" Value="#bfb8a4"/>
+        <Setter Property="MilestoneBarStroke" Value="#005c9e"/>
+        <Setter Property="MilestoneBarFill" Value="#bfb8a4"/>
+        <Setter Property="AlternatingItemBackground" Value="#f0eeeb"/>
     </Style>
     <Style TargetType="pdgcc:ScheduleChartView" BasedOn="{StaticResource ScheduleChartViewTemplates}">
+        <Setter Property="StandardBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardBarFill" Value="#a68b99"/>
+        <Setter Property="StandardCompletedBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardCompletedBarFill" Value="#bfb8a4"/>
+        <Setter Property="MilestoneBarStroke" Value="#005c9e"/>
+        <Setter Property="MilestoneBarFill" Value="#bfb8a4"/>
+        <Setter Property="AlternatingItemBackground" Value="#f0eeeb"/>
+        <Setter Property="MultipleLinesPerRowAlternatingItemBackground" Value="#f0eeeb"/>
     </Style>
     <Style TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource ScheduleChartDataGridTemplates}">
+        <Setter Property="StandardBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardBarFill" Value="#a68b99"/>
+        <Setter Property="StandardCompletedBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardCompletedBarFill" Value="#bfb8a4"/>
+        <Setter Property="MilestoneBarStroke" Value="#005c9e"/>
+        <Setter Property="MilestoneBarFill" Value="#bfb8a4"/>
+        <Setter Property="AlternatingItemBackground" Value="#f0eeeb"/>
+        <Setter Property="MultipleLinesPerRowAlternatingItemBackground" Value="#f0eeeb"/>
     </Style>
     <Style TargetType="pdgcc:LoadChartView" BasedOn="{StaticResource LoadChartViewTemplates}">
+        <Setter Property="NormalAllocationBarFill" Value="#a68b99"/>
+        <Setter Property="UnderAllocationBarFill" Value="#a68b99"/>
+        <Setter Property="AlternatingItemBackground" Value="#f0eeeb"/>
     </Style>
     <Style TargetType="pdgcc:LoadChartDataGrid" BasedOn="{StaticResource LoadChartDataGridTemplates}">
+        <Setter Property="NormalAllocationBarFill" Value="#a68b99"/>
+        <Setter Property="UnderAllocationBarFill" Value="#a68b99"/>
+        <Setter Property="AlternatingItemBackground" Value="#f0eeeb"/>
     </Style>
-    <Style TargetType="pdpcc:PertChartView" BasedOn="{StaticResource PertChartViewTemplates}">
-    </Style>
-    <Style TargetType="pdpcc:NetworkDiagramView" BasedOn="{StaticResource NetworkDiagramViewTemplates}">
-    </Style>
+    <Style TargetType="pdpcc:PertChartView" BasedOn="{StaticResource PertChartViewTemplates}"/>
+    <Style TargetType="pdpcc:NetworkDiagramView" BasedOn="{StaticResource NetworkDiagramViewTemplates}"/>
 </ResourceDictionary>

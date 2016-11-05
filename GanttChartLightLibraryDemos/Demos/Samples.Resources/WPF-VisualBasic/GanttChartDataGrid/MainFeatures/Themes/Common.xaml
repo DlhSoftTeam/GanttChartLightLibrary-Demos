@@ -6,6 +6,7 @@
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="HeaderHeight" Value="56"/>
         <Setter Property="ScaleHeaderHeight" Value="28"/>
+        <Setter Property="HeaderBackground" Value="#f0f0f0"/>
         <Setter Property="ItemHeight" Value="30"/>
         <Setter Property="BarHeight" Value="20"/>
         <Setter Property="CompletedBarHeight" Value="20"/>
@@ -29,11 +30,23 @@
             </Setter.Value>
         </Setter>
         <Setter Property="MilestoneBarFill" Value="#666"/>
+        <Setter Property="DependencyLineStroke" Value="{Binding StandardBarStroke, RelativeSource={RelativeSource Self}}"/>
     </Style>
     <Style x:Key="GanttChartDataGridTemplates" TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:GanttChartDataGrid}}">
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="HeaderHeight" Value="56"/>
         <Setter Property="ScaleHeaderHeight" Value="28"/>
+        <Setter Property="HeaderBackground" Value="#f0f0f0"/>
+        <Setter Property="ColumnHeaderStyle">
+            <Setter.Value>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#f0f0f0"/>
+                    <Setter Property="BorderBrush" Value="Silver"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                    <Setter Property="Padding" Value="4"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
         <Setter Property="ItemHeight" Value="30"/>
         <Setter Property="BarHeight" Value="20"/>
         <Setter Property="CompletedBarHeight" Value="20"/>
@@ -64,18 +77,20 @@
                 </Style>
             </Setter.Value>
         </Setter>
+        <Setter Property="DependencyLineStroke" Value="{Binding StandardBarStroke, RelativeSource={RelativeSource Self}}"/>
     </Style>
     <Style x:Key="ScheduleChartViewTemplates" TargetType="pdgcc:ScheduleChartView" BasedOn="{StaticResource {x:Type pdgcc:ScheduleChartView}}">
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="HeaderHeight" Value="56"/>
         <Setter Property="ScaleHeaderHeight" Value="28"/>
+        <Setter Property="HeaderBackground" Value="#f0f0f0"/>
         <Setter Property="ItemHeight" Value="30"/>
         <Setter Property="BarHeight" Value="20"/>
         <Setter Property="CompletedBarHeight" Value="20"/>
         <Setter Property="StandardBarCornerRadius" Value="1"/>
         <Setter Property="StandardCompletedBarCornerRadius" Value="0"/>
         <Setter Property="HourWidth" Value="5"/>
-        <Setter Property="CurrentTimeLineStroke" Value="Red"/>
+        <Setter Property="CurrentTimeLineStroke" Value="#e31d3b"/>
         <Setter Property="StandardBarStroke" Value="#8abbed"/>
         <Setter Property="StandardBarFill" Value="#8abbed"/>
         <Setter Property="StandardCompletedBarStroke" Value="#8abbed"/>
@@ -86,6 +101,17 @@
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="HeaderHeight" Value="56"/>
         <Setter Property="ScaleHeaderHeight" Value="28"/>
+        <Setter Property="HeaderBackground" Value="#f0f0f0"/>
+        <Setter Property="ColumnHeaderStyle">
+            <Setter.Value>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#f0f0f0"/>
+                    <Setter Property="BorderBrush" Value="Silver"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                    <Setter Property="Padding" Value="4"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
         <Setter Property="ItemHeight" Value="30"/>
         <Setter Property="BarHeight" Value="20"/>
         <Setter Property="CompletedBarHeight" Value="20"/>
@@ -110,6 +136,7 @@
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="HeaderHeight" Value="56"/>
         <Setter Property="ScaleHeaderHeight" Value="28"/>
+        <Setter Property="HeaderBackground" Value="#f0f0f0"/>
         <Setter Property="ItemHeight" Value="30"/>
         <Setter Property="BarHeight" Value="20"/>
         <Setter Property="HourWidth" Value="5"/>
@@ -122,6 +149,17 @@
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="HeaderHeight" Value="56"/>
         <Setter Property="ScaleHeaderHeight" Value="28"/>
+        <Setter Property="HeaderBackground" Value="#f0f0f0"/>
+        <Setter Property="ColumnHeaderStyle">
+            <Setter.Value>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#f0f0f0"/>
+                    <Setter Property="BorderBrush" Value="Silver"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                    <Setter Property="Padding" Value="4"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
         <Setter Property="ItemHeight" Value="30"/>
         <Setter Property="BarHeight" Value="20"/>
         <Setter Property="HourWidth" Value="5"/>

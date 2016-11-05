@@ -490,7 +490,12 @@ Class MainWindow
          .WindowStartupLocation = WindowStartupLocation.CenterOwner, .ResizeMode = ResizeMode.CanMinimize,
          .Content = dockPanel
         }
-        If Not themeResourceDictionary Is Nothing Then CType(dockPanel.Children(dockPanel.Children.Count - 1), FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary)
+        If Not themeResourceDictionary Is Nothing Then
+            Dim loadChartView = CType(dockPanel.Children(dockPanel.Children.Count - 1), LoadChartView)
+            loadChartView.Resources.MergedDictionaries.Add(themeResourceDictionary)
+            loadChartView.BarHeight = loadChartView.BarHeight - 21
+            loadChartView.ItemHeight = loadChartView.ItemHeight - 21
+        End If
         loadChartWindow.ShowDialog()
         GanttChartDataGrid.DisposeLoadChartItems(loadChartItems)
         Opacity = originalOpacity

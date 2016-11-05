@@ -6,19 +6,97 @@
         <ResourceDictionary Source="Common.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     <Style TargetType="pdgcc:GanttChartView" BasedOn="{StaticResource GanttChartViewTemplates}">
+        <Setter Property="Background" Value="#222222"/>
+        <Setter Property="Foreground" Value="#eeeeee"/>
+        <Setter Property="HeaderBackground" Value="#111111"/>
+        <Setter Property="NonworkingTimeBackground" Value="#333333"/>
+        <Setter Property="CurrentTimeLineStroke" Value="#289451"/>
+        <Setter Property="StandardBarStroke" Value="Gray"/>
+        <Setter Property="StandardCompletedBarStroke" Value="Gray"/>
+        <Setter Property="StandardCompletedBarFill" Value="#ffbb00"/>
+        <Setter Property="MilestoneBarStroke" Value="Gray"/>
+        <Setter Property="MilestoneBarFill" Value="#ffbb00"/>
     </Style>
     <Style TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource GanttChartDataGridTemplates}">
+        <Setter Property="Background" Value="#222222"/>
+        <Setter Property="Foreground" Value="#eeeeee"/>
+        <Setter Property="HeaderBackground" Value="#111111"/>
+        <Setter Property="ColumnHeaderStyle">
+            <Setter.Value>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#111111"/>
+                    <Setter Property="BorderBrush" Value="Silver"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                    <Setter Property="Padding" Value="4"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="NonworkingTimeBackground" Value="#333333"/>
+        <Setter Property="CurrentTimeLineStroke" Value="#289451"/>
+        <Setter Property="StandardBarStroke" Value="Gray"/>
+        <Setter Property="StandardCompletedBarStroke" Value="Gray"/>
+        <Setter Property="StandardCompletedBarFill" Value="#ffbb00"/>
+        <Setter Property="MilestoneBarStroke" Value="Gray"/>
+        <Setter Property="MilestoneBarFill" Value="#ffbb00"/>
     </Style>
     <Style TargetType="pdgcc:ScheduleChartView" BasedOn="{StaticResource ScheduleChartViewTemplates}">
+        <Setter Property="Background" Value="#222222"/>
+        <Setter Property="Foreground" Value="#eeeeee"/>
+        <Setter Property="HeaderBackground" Value="#111111"/>
+        <Setter Property="NonworkingTimeBackground" Value="#333333"/>
+        <Setter Property="CurrentTimeLineStroke" Value="#289451"/>
+        <Setter Property="StandardBarStroke" Value="Gray"/>
+        <Setter Property="StandardCompletedBarStroke" Value="Gray"/>
+        <Setter Property="StandardCompletedBarFill" Value="#ffbb00"/>
+        <Setter Property="MilestoneBarStroke" Value="Gray"/>
+        <Setter Property="MilestoneBarFill" Value="#ffbb00"/>
     </Style>
     <Style TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource ScheduleChartDataGridTemplates}">
+        <Setter Property="Background" Value="#222222"/>
+        <Setter Property="Foreground" Value="#eeeeee"/>
+        <Setter Property="HeaderBackground" Value="#111111"/>
+        <Setter Property="ColumnHeaderStyle">
+            <Setter.Value>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#111111"/>
+                    <Setter Property="BorderBrush" Value="Silver"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                    <Setter Property="Padding" Value="4"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="NonworkingTimeBackground" Value="#333333"/>
+        <Setter Property="CurrentTimeLineStroke" Value="#289451"/>
+        <Setter Property="StandardBarStroke" Value="Gray"/>
+        <Setter Property="StandardCompletedBarStroke" Value="Gray"/>
+        <Setter Property="StandardCompletedBarFill" Value="#ffbb00"/>
+        <Setter Property="MilestoneBarStroke" Value="Gray"/>
+        <Setter Property="MilestoneBarFill" Value="#ffbb00"/>
     </Style>
     <Style TargetType="pdgcc:LoadChartView" BasedOn="{StaticResource LoadChartViewTemplates}">
+        <Setter Property="Background" Value="#222222"/>
+        <Setter Property="Foreground" Value="#eeeeee"/>
+        <Setter Property="HeaderBackground" Value="#111111"/>
+        <Setter Property="NonworkingTimeBackground" Value="#333333"/>
+        <Setter Property="CurrentTimeLineStroke" Value="#289451"/>
     </Style>
     <Style TargetType="pdgcc:LoadChartDataGrid" BasedOn="{StaticResource LoadChartDataGridTemplates}">
+        <Setter Property="Background" Value="#222222"/>
+        <Setter Property="Foreground" Value="#eeeeee"/>
+        <Setter Property="HeaderBackground" Value="#111111"/>
+        <Setter Property="ColumnHeaderStyle">
+            <Setter.Value>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#111111"/>
+                    <Setter Property="BorderBrush" Value="Silver"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                    <Setter Property="Padding" Value="4"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="NonworkingTimeBackground" Value="#333333"/>
+        <Setter Property="CurrentTimeLineStroke" Value="#289451"/>
     </Style>
-    <Style TargetType="pdpcc:PertChartView" BasedOn="{StaticResource PertChartViewTemplates}">
-    </Style>
-    <Style TargetType="pdpcc:NetworkDiagramView" BasedOn="{StaticResource NetworkDiagramViewTemplates}">
-    </Style>
+    <Style TargetType="pdpcc:PertChartView" BasedOn="{StaticResource PertChartViewTemplates}"/>
+    <Style TargetType="pdpcc:NetworkDiagramView" BasedOn="{StaticResource NetworkDiagramViewTemplates}"/>
 </ResourceDictionary>

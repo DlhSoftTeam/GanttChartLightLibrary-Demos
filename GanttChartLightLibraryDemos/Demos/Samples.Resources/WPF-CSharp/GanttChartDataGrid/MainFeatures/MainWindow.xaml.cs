@@ -577,7 +577,12 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
                     Content = dockPanel
                 };
             if (themeResourceDictionary != null)
-                (dockPanel.Children[dockPanel.Children.Count - 1] as FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary);
+            {
+                var loadChartView = dockPanel.Children[dockPanel.Children.Count - 1] as LoadChartView;
+                loadChartView.Resources.MergedDictionaries.Add(themeResourceDictionary);
+                loadChartView.BarHeight -= 21;
+                loadChartView.ItemHeight -= 21;
+            }
             loadChartWindow.ShowDialog();
             GanttChartDataGrid.DisposeLoadChartItems(loadChartItems);
             Opacity = originalOpacity;
