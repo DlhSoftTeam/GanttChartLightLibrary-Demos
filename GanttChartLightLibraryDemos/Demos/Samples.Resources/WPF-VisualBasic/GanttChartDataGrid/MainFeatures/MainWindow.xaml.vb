@@ -463,7 +463,7 @@ Class MainWindow
           .UseMultipleLinesPerRow = True, .AreIndividualItemAppearanceSettingsApplied = True, .IsAlternatingItemBackgroundInverted = True, .UnassignedScheduleChartItemContent = GanttChartDataGrid.UnassignedScheduleChartItemContent _
          } _
         }
-        CType(scheduleChartWindow.Content, FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary)
+        If Not themeResourceDictionary Is Nothing Then CType(scheduleChartWindow.Content, FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary)
         scheduleChartWindow.ShowDialog()
         GanttChartDataGrid.UpdateChangesFromScheduleChartItems(scheduleChartItems)
         GanttChartDataGrid.DisposeScheduleChartItems(scheduleChartItems)
@@ -480,9 +480,9 @@ Class MainWindow
         Dim dockPanel As New DockPanel()
         dockPanel.Children.Add(loadChartResourceComboBox)
         dockPanel.SetDock(loadChartResourceComboBox, Dock.Top)
-        dockPanel.Children.Add(New LoadChartView() With { _
-          .Items = selectedLoadChartItemContainer, _
-          .ItemHeight = 176, .BarHeight = 172, .Height = 240, .Margin = New Thickness(4, 0, 4, 4), .VerticalAlignment = VerticalAlignment.Top
+        dockPanel.Children.Add(New LoadChartView() With {
+          .Items = selectedLoadChartItemContainer,
+          .ItemHeight = 176, .BarHeight = 172, .Height = 230, .Margin = New Thickness(4, 0, 4, 4), .VerticalAlignment = VerticalAlignment.Top
         })
         Dim loadChartWindow As New Window() With {
          .Owner = Application.Current.MainWindow, .Title = "Load Chart",
@@ -490,7 +490,7 @@ Class MainWindow
          .WindowStartupLocation = WindowStartupLocation.CenterOwner, .ResizeMode = ResizeMode.CanMinimize,
          .Content = dockPanel
         }
-        CType(loadChartWindow.Content, FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary)
+        If Not themeResourceDictionary Is Nothing Then CType(dockPanel.Children(dockPanel.Children.Count - 1), FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary)
         loadChartWindow.ShowDialog()
         GanttChartDataGrid.DisposeLoadChartItems(loadChartItems)
         Opacity = originalOpacity
@@ -565,7 +565,7 @@ Class MainWindow
         }
         ' Optionally, highlight the critical path.
         AddHandler pertChartView.AsyncPresentationCompleted, TryCast(AddressOf PertChartViewHighlightCriticalPathInternal, EventHandler)
-        CType(pertChartWindow.Content, FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary)
+        If Not themeResourceDictionary Is Nothing Then CType(pertChartWindow.Content, FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary)
         pertChartWindow.ShowDialog()
         GanttChartDataGrid.DisposePertChartItems(pertChartItems)
         Opacity = originalOpacity
@@ -599,7 +599,7 @@ Class MainWindow
         AddHandler networkDiagramView.AsyncPresentationCompleted, TryCast(AddressOf NetworkDiagramViewRepositionEndsInternal, EventHandler)
         ' Optionally, highlight the critical path.
         AddHandler networkDiagramView.AsyncPresentationCompleted, TryCast(AddressOf NetworkDiagramViewHighlightCriticalPathInternal, EventHandler)
-        CType(networkDiagramWindow.Content, FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary)
+        If Not themeResourceDictionary Is Nothing Then CType(networkDiagramWindow.Content, FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary)
         networkDiagramWindow.ShowDialog()
         GanttChartDataGrid.DisposeNetworkDiagramItems(networkDiagramItems)
         Opacity = originalOpacity

@@ -545,7 +545,8 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
                         UseMultipleLinesPerRow = true, AreIndividualItemAppearanceSettingsApplied = true, IsAlternatingItemBackgroundInverted = true, UnassignedScheduleChartItemContent = GanttChartDataGrid.UnassignedScheduleChartItemContent // Optional
                     }
                 };
-            (scheduleChartWindow.Content as FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary);
+            if (themeResourceDictionary != null)
+                (scheduleChartWindow.Content as FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary);
             scheduleChartWindow.ShowDialog();
             GanttChartDataGrid.UpdateChangesFromScheduleChartItems(scheduleChartItems);
             GanttChartDataGrid.DisposeScheduleChartItems(scheduleChartItems);
@@ -568,14 +569,15 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             DockPanel dockPanel = new DockPanel();
             dockPanel.Children.Add(resourceComboBox);
             DockPanel.SetDock(resourceComboBox, Dock.Top);
-            dockPanel.Children.Add(new LoadChartView { Items = selectedLoadChartItemContainer, ItemHeight = 176, BarHeight = 172, Height = 240, Margin = new Thickness(4, 0, 4, 4), VerticalAlignment = VerticalAlignment.Top });
+            dockPanel.Children.Add(new LoadChartView { Items = selectedLoadChartItemContainer, ItemHeight = 176, BarHeight = 172, Height = 230, Margin = new Thickness(4, 0, 4, 4), VerticalAlignment = VerticalAlignment.Top });
             Window loadChartWindow =
                 new Window
                 {
                     Owner = Application.Current.MainWindow, Title = "Load Chart", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 640, Height = 300, ResizeMode = ResizeMode.CanMinimize,
                     Content = dockPanel
                 };
-            (loadChartWindow.Content as FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary);
+            if (themeResourceDictionary != null)
+                (dockPanel.Children[dockPanel.Children.Count - 1] as FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary);
             loadChartWindow.ShowDialog();
             GanttChartDataGrid.DisposeLoadChartItems(loadChartItems);
             Opacity = originalOpacity;
@@ -652,7 +654,8 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
                     DlhSoft.Windows.Controls.Pert.PertChartView.SetDependencyTextForeground(predecessorItem, Brushes.Red);
                 }
             };
-            (pertChartWindow.Content as FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary);
+            if (themeResourceDictionary != null)
+                (pertChartWindow.Content as FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary);
             pertChartWindow.ShowDialog();
             GanttChartDataGrid.DisposePertChartItems(pertChartItems);
             Opacity = originalOpacity;
@@ -680,7 +683,8 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
                 foreach (var predecessorItem in networkDiagramView.GetCriticalDependencies())
                     DlhSoft.Windows.Controls.Pert.NetworkDiagramView.SetDependencyLineStroke(predecessorItem, Brushes.Red);
             };
-            (networkDiagramWindow.Content as FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary);
+            if (themeResourceDictionary != null)
+                (networkDiagramWindow.Content as FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary);
             networkDiagramWindow.ShowDialog();
             GanttChartDataGrid.DisposeNetworkDiagramItems(networkDiagramItems);
             Opacity = originalOpacity;
