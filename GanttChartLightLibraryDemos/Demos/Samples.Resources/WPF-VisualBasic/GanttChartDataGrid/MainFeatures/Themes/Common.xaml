@@ -2,6 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
                     xmlns:pdpcc="clr-namespace:DlhSoft.Windows.Controls.Pert;assembly=DlhSoft.ProjectData.PertChart.LightWPF.Controls">
+    <DataTemplate x:Key="ScaleHeaderContentTemplate">
+        <ContentControl Content="{Binding}" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="2" IsTabStop="False"/>
+    </DataTemplate>
     <Style x:Key="GanttChartViewTemplates" TargetType="pdgcc:GanttChartView" BasedOn="{StaticResource {x:Type pdgcc:GanttChartView}}">
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="HeaderHeight" Value="56"/>
@@ -31,6 +34,14 @@
         </Setter>
         <Setter Property="MilestoneBarFill" Value="#666"/>
         <Setter Property="DependencyLineStroke" Value="{Binding StandardBarStroke, RelativeSource={RelativeSource Self}}"/>
+        <Setter Property="Scales">
+            <Setter.Value>
+                <pdgcc:ScaleCollection>
+                    <pdgcc:Scale ScaleType="Weeks" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayOfWeekInitial" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                </pdgcc:ScaleCollection>
+            </Setter.Value>
+        </Setter>
     </Style>
     <Style x:Key="GanttChartDataGridTemplates" TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:GanttChartDataGrid}}">
         <Setter Property="FontSize" Value="16"/>
@@ -78,6 +89,14 @@
             </Setter.Value>
         </Setter>
         <Setter Property="DependencyLineStroke" Value="{Binding StandardBarStroke, RelativeSource={RelativeSource Self}}"/>
+        <Setter Property="Scales">
+            <Setter.Value>
+                <pdgcc:ScaleCollection>
+                    <pdgcc:Scale ScaleType="Weeks" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayOfWeekInitial" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                </pdgcc:ScaleCollection>
+            </Setter.Value>
+        </Setter>
     </Style>
     <Style x:Key="ScheduleChartViewTemplates" TargetType="pdgcc:ScheduleChartView" BasedOn="{StaticResource {x:Type pdgcc:ScheduleChartView}}">
         <Setter Property="FontSize" Value="16"/>
@@ -96,6 +115,14 @@
         <Setter Property="StandardCompletedBarStroke" Value="#8abbed"/>
         <Setter Property="StandardCompletedBarFill" Value="#3b87d9"/>
         <Setter Property="MilestoneBarFill" Value="#666"/>
+        <Setter Property="Scales">
+            <Setter.Value>
+                <pdgcc:ScaleCollection>
+                    <pdgcc:Scale ScaleType="Weeks" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayOfWeekInitial" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                </pdgcc:ScaleCollection>
+            </Setter.Value>
+        </Setter>
     </Style>
     <Style x:Key="ScheduleChartDataGridTemplates" TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:ScheduleChartDataGrid}}">
         <Setter Property="FontSize" Value="16"/>
@@ -131,6 +158,14 @@
                 </Style>
             </Setter.Value>
         </Setter>
+        <Setter Property="Scales">
+            <Setter.Value>
+                <pdgcc:ScaleCollection>
+                    <pdgcc:Scale ScaleType="Weeks" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayOfWeekInitial" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                </pdgcc:ScaleCollection>
+            </Setter.Value>
+        </Setter>
     </Style>
     <Style x:Key="LoadChartViewTemplates" TargetType="pdgcc:LoadChartView" BasedOn="{StaticResource {x:Type pdgcc:LoadChartView}}">
         <Setter Property="FontSize" Value="16"/>
@@ -144,6 +179,14 @@
         <Setter Property="NormalAllocationBarFill" Value="#8abbed"/>
         <Setter Property="UnderAllocationBarFill" Value="#8abbed"/>
         <Setter Property="OverAllocationBarFill" Value="#e31d3b"/>
+        <Setter Property="Scales">
+            <Setter.Value>
+                <pdgcc:ScaleCollection>
+                    <pdgcc:Scale ScaleType="Weeks" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayOfWeekInitial" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                </pdgcc:ScaleCollection>
+            </Setter.Value>
+        </Setter>
     </Style>
     <Style x:Key="LoadChartDataGridTemplates" TargetType="pdgcc:LoadChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:LoadChartDataGrid}}">
         <Setter Property="FontSize" Value="16"/>
@@ -172,6 +215,14 @@
                 <Style TargetType="DataGridCell">
                     <Setter Property="Margin" Value="0,3"/>
                 </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Scales">
+            <Setter.Value>
+                <pdgcc:ScaleCollection>
+                    <pdgcc:Scale ScaleType="Weeks" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayOfWeekInitial" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                </pdgcc:ScaleCollection>
             </Setter.Value>
         </Setter>
     </Style>
