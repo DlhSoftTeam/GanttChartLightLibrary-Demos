@@ -13,7 +13,7 @@
         <Setter Property="StandardBarCornerRadius" Value="1"/>
         <Setter Property="StandardCompletedBarCornerRadius" Value="0"/>
         <Setter Property="HourWidth" Value="5"/>
-        <Setter Property="CurrentTimeLineStroke" Value="Red"/>
+        <Setter Property="CurrentTimeLineStroke" Value="#e31d3b"/>
         <Setter Property="StandardBarStroke" Value="#8abbed"/>
         <Setter Property="StandardBarFill" Value="#8abbed"/>
         <Setter Property="StandardCompletedBarStroke" Value="#8abbed"/>
@@ -53,7 +53,7 @@
         <Setter Property="StandardBarCornerRadius" Value="1"/>
         <Setter Property="StandardCompletedBarCornerRadius" Value="0"/>
         <Setter Property="HourWidth" Value="5"/>
-        <Setter Property="CurrentTimeLineStroke" Value="Red"/>
+        <Setter Property="CurrentTimeLineStroke" Value="#e31d3b"/>
         <Setter Property="StandardBarStroke" Value="#8abbed"/>
         <Setter Property="StandardBarFill" Value="#8abbed"/>
         <Setter Property="StandardCompletedBarStroke" Value="#8abbed"/>
@@ -118,7 +118,7 @@
         <Setter Property="StandardBarCornerRadius" Value="1"/>
         <Setter Property="StandardCompletedBarCornerRadius" Value="0"/>
         <Setter Property="HourWidth" Value="5"/>
-        <Setter Property="CurrentTimeLineStroke" Value="Red"/>
+        <Setter Property="CurrentTimeLineStroke" Value="#e31d3b"/>
         <Setter Property="StandardBarStroke" Value="#8abbed"/>
         <Setter Property="StandardBarFill" Value="#8abbed"/>
         <Setter Property="StandardCompletedBarStroke" Value="#8abbed"/>
@@ -140,7 +140,7 @@
         <Setter Property="ItemHeight" Value="30"/>
         <Setter Property="BarHeight" Value="20"/>
         <Setter Property="HourWidth" Value="5"/>
-        <Setter Property="CurrentTimeLineStroke" Value="Red"/>
+        <Setter Property="CurrentTimeLineStroke" Value="#e31d3b"/>
         <Setter Property="NormalAllocationBarFill" Value="#8abbed"/>
         <Setter Property="UnderAllocationBarFill" Value="#8abbed"/>
         <Setter Property="OverAllocationBarFill" Value="#e31d3b"/>
@@ -163,7 +163,7 @@
         <Setter Property="ItemHeight" Value="30"/>
         <Setter Property="BarHeight" Value="20"/>
         <Setter Property="HourWidth" Value="5"/>
-        <Setter Property="CurrentTimeLineStroke" Value="Red"/>
+        <Setter Property="CurrentTimeLineStroke" Value="#e31d3b"/>
         <Setter Property="NormalAllocationBarFill" Value="#8abbed"/>
         <Setter Property="UnderAllocationBarFill" Value="#8abbed"/>
         <Setter Property="OverAllocationBarFill" Value="#e31d3b"/>
