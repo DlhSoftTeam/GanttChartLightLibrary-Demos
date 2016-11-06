@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Deployment.Application;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -27,7 +28,16 @@ namespace Demos
         public MainWindow()
         {
             InitializeComponent();
+
+            try
+            {
+                var queryString = ApplicationDeployment.CurrentDeployment.ActivationUri.Query;
+                initialSelection = !string.IsNullOrEmpty(queryString) ? queryString.Substring(1).Replace('-', ' ') : null;
+            }
+            catch (DeploymentException) { }
         }
+
+        private string initialSelection;
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
@@ -37,8 +47,22 @@ namespace Demos
 
         private void TreeView_Loaded(object sender, RoutedEventArgs e)
         {
-            var firstItem = TreeView.Items[0] as TreeViewItem;
-            firstItem.IsSelected = true;
+            if (!string.IsNullOrEmpty(initialSelection))
+            {
+                foreach (TreeViewItem item in TreeView.Items)
+                {
+                    if (item.HasItems && item.Tag as string == initialSelection)
+                    {
+                        item.IsSelected = true;
+                        break;
+                    }
+                }
+            }
+            if (TreeView.SelectedItem == null)
+            {
+                var firstItem = TreeView.Items[0] as TreeViewItem;
+                firstItem.IsSelected = true;
+            }
             TreeView.Focus();
         }
         private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
@@ -48,9 +72,7 @@ namespace Demos
                 return;
             if (selectedItem.HasItems)
             {
-                var firstChildItem = selectedItem.Items[0] as TreeViewItem;
-                firstChildItem.IsSelected = true;
-                selectedItem.IsExpanded = true;
+                SelectComponent(selectedItem);
                 return;
             }
             else
@@ -64,6 +86,12 @@ namespace Demos
                 Dispatcher.BeginInvoke((Action)LoadFiles);
                 Dispatcher.BeginInvoke((Action)LoadContent);
             }
+        }
+        private void SelectComponent(TreeViewItem selectedItem)
+        {
+            var firstChildItem = selectedItem.Items[0] as TreeViewItem;
+            firstChildItem.IsSelected = true;
+            selectedItem.IsExpanded = true;
         }
         private TreeViewItem previousSelectedParentItem;
         private Style previousSelectedParentItemStyle;

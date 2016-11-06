@@ -88,7 +88,6 @@
             <EventSetter Event="Expanded" Handler="TreeViewItem_Expanded"/>
             <Style.Triggers>
                 <Trigger Property="HasItems" Value="True">
-                    <Setter Property="Foreground" Value="#e31d3b"/>
                     <Setter Property="HeaderTemplate">
                         <Setter.Value>
                             <DataTemplate>
@@ -108,7 +107,7 @@
         <Style x:Key="SelectedTreeViewItemParentStyle" TargetType="TreeViewItem" BasedOn="{StaticResource {x:Type TreeViewItem}}">
             <Style.Triggers>
                 <Trigger Property="HasItems" Value="True">
-                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="Foreground" Value="#e31d3b"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
