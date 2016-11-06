@@ -243,7 +243,8 @@
         <!-- Optionally, set AreSummaryRowsBold to true to automatically set FontWeight property values of summary grid rows to Bold. -->
         <!-- Optionally, set AreTaskDependencyConstraintsDisabledWhileDragging to true to improve performance when AreTaskDependencyConstraintsEnabled would be set to true. -->
         <!-- Optionally, set IsMouseWheelZoomEnabledUpdatingScales and/or IsFittingToTimelinePageEnabledUpdatingScales to true to automatically update scales based on the actual zoom level of the chart. -->
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" IsUndoEnabled="True" AreSummaryRowsBold="True" AreTaskDependencyConstraintsDisabledWhileDragging="True" IsMouseWheelZoomEnabledUpdatingScales="True" IsFittingToTimelinePageEnabledUpdatingScales="True">
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" IsUndoEnabled="True" AreSummaryRowsBold="True" AreTaskDependencyConstraintsDisabledWhileDragging="True" IsMouseWheelZoomEnabledUpdatingScales="True" IsFittingToTimelinePageEnabledUpdatingScales="True"
+                                  Width="780" Height="408">
             <pdgcc:GanttChartDataGrid.Items>
                 <!-- Some item properties are set in code behind. -->
                 <!-- Alternatively, you may data bind items to your custom data source using a preconfigured pdgcc:TaskItemsConverter instance. -->

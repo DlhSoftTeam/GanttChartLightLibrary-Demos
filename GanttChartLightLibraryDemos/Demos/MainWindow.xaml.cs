@@ -28,7 +28,6 @@ namespace Demos
         public MainWindow()
         {
             InitializeComponent();
-
             try
             {
                 var queryString = ApplicationDeployment.CurrentDeployment.ActivationUri.Query;
