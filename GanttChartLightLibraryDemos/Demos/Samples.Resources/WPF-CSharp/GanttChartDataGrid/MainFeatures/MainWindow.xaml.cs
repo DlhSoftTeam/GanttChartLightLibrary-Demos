@@ -129,8 +129,20 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             //    });
             // GanttChartDataGrid.IsIndividualItemNonworkingTimeHighlighted = true;
 
+            for (int i = 5; i <= 25; i++)
+            {
+                GanttChartDataGrid.Items.Add(
+                    new GanttChartItem
+                    {
+                        Content = "Task " + i,
+                        Indentation = i >= 8 && i % 3 == 2 ? 0 : 1,
+                        Start = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8),
+                        Finish = DateTime.Today.AddDays((i <= 8 ? (i - 4) * 3 + (i > 8 ? 6 : 1) : i - 2) + 1)
+                    });
+            }
+
             // You may uncomment the next lines of code to test the component performance:
-            // for (int i = 5; i <= 4096; i++)
+            // for (int i = 26; i <= 4096; i++)
             // {
             //     GanttChartDataGrid.Items.Add(
             //         new GanttChartItem

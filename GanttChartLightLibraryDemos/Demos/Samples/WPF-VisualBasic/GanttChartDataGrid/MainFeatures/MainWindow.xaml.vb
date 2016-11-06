@@ -94,8 +94,19 @@ Class MainWindow
         '                                                                                                                                                                                                                                                            End Function)
         ' GanttChartDataGrid.IsIndividualItemNonworkingTimeHighlighted = True
 
+        For i As Integer = 5 To 25
+            GanttChartDataGrid.Items.Add(
+                New GanttChartItem With
+                {
+                    .Content = "Task " + i.ToString(),
+                    .Indentation = IIf(i >= 8 And i Mod 3 = 2, 0, 1),
+                    .Start = DateTime.Today.AddDays(IIf(i <= 8, (i - 4) * 3, i - 8)),
+                    .Finish = DateTime.Today.AddDays(IIf(i <= 8, (i - 4) * 3 + IIf(i > 8, 6, 1), i - 2) + 1)
+                })
+        Next
+
         ' You may uncomment the next lines of code to test the component performance:
-        ' For i As Integer = 5 To 4096
+        ' For i As Integer = 26 To 4096
         '    GanttChartDataGrid.Items.Add( _
         '        New GanttChartItem With _
         '        { _
@@ -152,10 +163,10 @@ Class MainWindow
         editItemDialog.ShowDialog()
     End Sub
     Private Sub AddNewButton_Click(sender As Object, e As RoutedEventArgs)
-        Dim item As New GanttChartItem() With { _
-         .Content = "New Task", _
-         .Start = DateTime.Today, _
-         .Finish = DateTime.Today.AddDays(1) _
+        Dim item As New GanttChartItem() With {
+         .Content = "New Task",
+         .Start = DateTime.Today,
+         .Finish = DateTime.Today.AddDays(1)
         }
         GanttChartDataGrid.Items.Add(item)
         GanttChartDataGrid.SelectedItem = item
@@ -167,11 +178,11 @@ Class MainWindow
             MessageBox.Show("Cannot insert a new item before selection as the selection is empty; you can either add a new item to the end of the list instead, or select an item first.", "Information", MessageBoxButton.OK)
             Return
         End If
-        Dim item As New GanttChartItem() With { _
-         .Content = "New Task", _
-         .Indentation = selectedItem.Indentation, _
-         .Start = DateTime.Today, _
-         .Finish = DateTime.Today.AddDays(1) _
+        Dim item As New GanttChartItem() With {
+         .Content = "New Task",
+         .Indentation = selectedItem.Indentation,
+         .Start = DateTime.Today,
+         .Finish = DateTime.Today.AddDays(1)
         }
         GanttChartDataGrid.Items.Insert(GanttChartDataGrid.SelectedIndex, item)
         GanttChartDataGrid.SelectedItem = item
@@ -454,14 +465,14 @@ Class MainWindow
         Opacity = 0.5
         GanttChartDataGrid.UnassignedScheduleChartItemContent = "(Unassigned)" ' Optional
         Dim scheduleChartItems As ObservableCollection(Of ScheduleChartItem) = GanttChartDataGrid.GetScheduleChartItems()
-        Dim scheduleChartWindow As New Window() With { _
-         .Owner = Application.Current.MainWindow, .Title = "Schedule Chart", _
+        Dim scheduleChartWindow As New Window() With {
+         .Owner = Application.Current.MainWindow, .Title = "Schedule Chart",
          .Width = 640, .Height = 480,
-         .WindowStartupLocation = WindowStartupLocation.CenterOwner, .ResizeMode = ResizeMode.CanResize, _
-         .Content = New ScheduleChartDataGrid() With { _
-          .Items = scheduleChartItems, .DataGridWidth = New GridLength(0.2, GridUnitType.Star), _
-          .UseMultipleLinesPerRow = True, .AreIndividualItemAppearanceSettingsApplied = True, .IsAlternatingItemBackgroundInverted = True, .UnassignedScheduleChartItemContent = GanttChartDataGrid.UnassignedScheduleChartItemContent _
-         } _
+         .WindowStartupLocation = WindowStartupLocation.CenterOwner, .ResizeMode = ResizeMode.CanResize,
+         .Content = New ScheduleChartDataGrid() With {
+          .Items = scheduleChartItems, .DataGridWidth = New GridLength(0.2, GridUnitType.Star),
+          .UseMultipleLinesPerRow = True, .AreIndividualItemAppearanceSettingsApplied = True, .IsAlternatingItemBackgroundInverted = True, .UnassignedScheduleChartItemContent = GanttChartDataGrid.UnassignedScheduleChartItemContent
+         }
         }
         If Not themeResourceDictionary Is Nothing Then CType(scheduleChartWindow.Content, FrameworkElement).Resources.MergedDictionaries.Add(themeResourceDictionary)
         scheduleChartWindow.ShowDialog()
@@ -479,7 +490,7 @@ Class MainWindow
         If loadChartResourceComboBox.Items.Count > 0 Then loadChartResourceComboBox.SelectedIndex = 0
         Dim dockPanel As New DockPanel()
         dockPanel.Children.Add(loadChartResourceComboBox)
-        dockPanel.SetDock(loadChartResourceComboBox, Dock.Top)
+        DockPanel.SetDock(loadChartResourceComboBox, Dock.Top)
         dockPanel.Children.Add(New LoadChartView() With {
           .Items = selectedLoadChartItemContainer,
           .ItemHeight = 170, .BarHeight = 166, .Height = 230, .Margin = New Thickness(4, 0, 4, 4), .VerticalAlignment = VerticalAlignment.Top
@@ -558,9 +569,9 @@ Class MainWindow
         Opacity = 0.5
         ' Optionally, specify a maximum indentation level to consider when generating PERT items as a parameter to the GetPertChartItems method call.
         Dim pertChartItems As ObservableCollection(Of DlhSoft.Windows.Controls.Pert.PertChartItem) = GanttChartDataGrid.GetPertChartItems()
-        pertChartView = New Pert.PertChartView() With { _
-          .Items = pertChartItems, _
-          .PredecessorToolTipTemplate = TryCast(Resources("PertChartPredecessorToolTipTemplate"), DataTemplate) _
+        pertChartView = New Pert.PertChartView() With {
+          .Items = pertChartItems,
+          .PredecessorToolTipTemplate = TryCast(Resources("PertChartPredecessorToolTipTemplate"), DataTemplate)
         }
         Dim pertChartWindow As New Window() With {
          .Owner = Application.Current.MainWindow, .Title = "PERT Chart",
@@ -591,8 +602,8 @@ Class MainWindow
         Opacity = 0.5
         ' Optionally, specify a maximum indentation level to consider when generating network items as a parameter to the GetNetworkDiagramItems method call.
         Dim networkDiagramItems As ObservableCollection(Of DlhSoft.Windows.Controls.Pert.NetworkDiagramItem) = GanttChartDataGrid.GetNetworkDiagramItems()
-        networkDiagramView = New Pert.NetworkDiagramView() With { _
-          .Items = networkDiagramItems _
+        networkDiagramView = New Pert.NetworkDiagramView() With {
+          .Items = networkDiagramItems
         }
         Dim networkDiagramWindow As New Window() With {
          .Owner = Application.Current.MainWindow, .Title = "Network Diagram",
@@ -625,9 +636,9 @@ Class MainWindow
         GanttChartDataGrid.LevelResources()
     End Sub
     Private Sub ProjectStatisticsButton_Click(sender As Object, e As RoutedEventArgs)
-        Dim statistics = String.Format("Start:" & vbTab & "{0:d}" & vbCrLf & "Finish:" & vbTab & "{1:d}" & vbCrLf & "Effort:" & vbTab & "{2:0.##}h" & vbCrLf & "Compl.:" & vbTab & "{3:0.##%}" & vbCrLf & "Cost:" & vbTab & "${4:0.##}", _
-                                       GanttChartDataGrid.GetProjectStart(), GanttChartDataGrid.GetProjectFinish(), _
-                                       GanttChartDataGrid.GetProjectEffort().TotalHours, GanttChartDataGrid.GetProjectCompletion(), _
+        Dim statistics = String.Format("Start:" & vbTab & "{0:d}" & vbCrLf & "Finish:" & vbTab & "{1:d}" & vbCrLf & "Effort:" & vbTab & "{2:0.##}h" & vbCrLf & "Compl.:" & vbTab & "{3:0.##%}" & vbCrLf & "Cost:" & vbTab & "${4:0.##}",
+                                       GanttChartDataGrid.GetProjectStart(), GanttChartDataGrid.GetProjectFinish(),
+                                       GanttChartDataGrid.GetProjectEffort().TotalHours, GanttChartDataGrid.GetProjectCompletion(),
                                        GanttChartDataGrid.GetProjectCost())
         MessageBox.Show(statistics, "Project statistics", MessageBoxButton.OK, MessageBoxImage.Information)
     End Sub
@@ -662,9 +673,9 @@ Class MainWindow
         GanttChartDataGrid.Export(TryCast(AddressOf ExportImageInternal, Action))
     End Sub
     Private Sub ExportImageInternal()
-        Dim saveFileDialog As New Microsoft.Win32.SaveFileDialog() With { _
-         .Title = "Export Image To", _
-         .Filter = "PNG image files|*.png" _
+        Dim saveFileDialog As New Microsoft.Win32.SaveFileDialog() With {
+         .Title = "Export Image To",
+         .Filter = "PNG image files|*.png"
         }
         If saveFileDialog.ShowDialog() <> True Then Return
         Dim bitmapSource As BitmapSource = GanttChartDataGrid.GetExportBitmapSource(96 * 2)
