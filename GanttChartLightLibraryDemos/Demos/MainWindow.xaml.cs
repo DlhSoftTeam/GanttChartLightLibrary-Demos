@@ -143,6 +143,7 @@ namespace Demos
                                         new SampleInfo { Tag = "MainFeatures-GCV", Title = "Main features - GCV", Description = "Shows the main features of the component" },
                                         new SampleInfo { Tag = "MainFeatures-SCV", Title = "Main features - SCV", Description = "Shows the main features of the component" },
                                         new SampleInfo { Tag = "MainFeatures-LCDG", Title = "Main features - LCDG", Description = "Shows the main features of the component" },
+                                        new SampleInfo { Tag = "MainFeatures-LCV", Title = "Main features - LCV", Description = "Shows the main features of the component" },
                                         new SampleInfo { Tag = "MainFeatures-PERT", Title = "Main features - PERT", Description = "Shows the main features of the component" }
                                     }
                                 }
