@@ -27,14 +27,13 @@ namespace Demos
     {
         public MainWindow()
         {
-            InitializeComponent();
-
             try
             {
                 var queryString = ApplicationDeployment.CurrentDeployment.ActivationUri.Query;
                 initialSelection = !string.IsNullOrEmpty(queryString) ? queryString.Substring(1).Replace('-', ' ') : null;
             }
             catch (DeploymentException) { }
+            InitializeComponent();
         }
 
         private string initialSelection;
