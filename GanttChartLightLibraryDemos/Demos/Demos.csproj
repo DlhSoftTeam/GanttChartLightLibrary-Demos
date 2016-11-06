@@ -216,6 +216,10 @@
     <None Include="Tools\Interop.Shell32.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures-item\MainFeatures-item.Library.csproj">
+      <Project>{347481fe-625f-43f4-b930-2fbd8f381608}</Project>
+      <Name>MainFeatures-item.Library</Name>
+    </ProjectReference>
     <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainFeatures.Library.csproj">
       <Project>{326967b5-0af7-4aa0-a4b9-70abb105142d}</Project>
       <Name>MainFeatures.Library</Name>

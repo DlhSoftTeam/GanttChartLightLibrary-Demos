@@ -18,7 +18,7 @@ using Microsoft.Win32;
 using System.IO;
 using System.Collections.ObjectModel;
 
-namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
+namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures_item
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -25,22 +25,28 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DateTime dateTime = DateTime.Today;
+
         public MainWindow()
         {
             InitializeComponent();
 
+            while (dateTime.DayOfWeek != DayOfWeek.Monday)
+                dateTime = dateTime.AddDays(1);
+
             GanttChartItem item0 = GanttChartDataGrid.Items[0];
+            item0.IsExpanded = false;
 
             GanttChartItem item1 = GanttChartDataGrid.Items[1];
-            item1.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
-            item1.Finish = DateTime.Today.Add(TimeSpan.Parse("16:00:00"));
-            item1.CompletedFinish = DateTime.Today.Add(TimeSpan.Parse("12:00:00"));
+            item1.Start = dateTime.Add(TimeSpan.Parse("08:00:00"));
+            item1.Finish = dateTime.Add(TimeSpan.Parse("16:00:00"));
+            item1.CompletedFinish = dateTime.Add(TimeSpan.Parse("12:00:00"));
             item1.AssignmentsContent = "Resource 1";
 
             GanttChartItem item2 = GanttChartDataGrid.Items[2];
-            item2.Start = DateTime.Today.AddDays(1).Add(TimeSpan.Parse("08:00:00"));
-            item2.Finish = DateTime.Today.AddDays(2).Add(TimeSpan.Parse("16:00:00"));
-            // Important note: CompletedFinish value defaults to DateTime.Today, therefore you should always set it to a Start (or a value between Start and Finish) when you initialize a past task item! In this example we don't set it as the task is in the future.
+            item2.Start = dateTime.AddDays(1).Add(TimeSpan.Parse("08:00:00"));
+            item2.Finish = dateTime.AddDays(2).Add(TimeSpan.Parse("16:00:00"));
+            // Important note: CompletedFinish value defaults to dateTime, therefore you should always set it to a Start (or a value between Start and Finish) when you initialize a past task item! In this example we don't set it as the task is in the future.
             item2.AssignmentsContent = "Resource 1, Resource 2";
             item2.Predecessors.Add(new PredecessorItem { Item = item1 });
 
@@ -48,35 +54,36 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             item3.Predecessors.Add(new PredecessorItem { Item = item0, DependencyType = DependencyType.StartStart });
 
             GanttChartItem item4 = GanttChartDataGrid.Items[4];
-            item4.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
-            item4.Finish = DateTime.Today.AddDays(2).Add(TimeSpan.Parse("12:00:00"));
+            item4.Start = dateTime.Add(TimeSpan.Parse("08:00:00"));
+            item4.Finish = dateTime.AddDays(2).Add(TimeSpan.Parse("12:00:00"));
+            item4.CompletedFinish = dateTime.AddDays(1).Add(TimeSpan.Parse("12:00:00"));
 
             GanttChartItem item6 = GanttChartDataGrid.Items[6];
-            item6.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
-            item6.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
+            item6.Start = dateTime.Add(TimeSpan.Parse("08:00:00"));
+            item6.Finish = dateTime.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
             item6.BaselineStart = item6.Start;
             item6.BaselineFinish = item6.Finish;
 
             GanttChartItem item7 = GanttChartDataGrid.Items[7];
-            item7.Start = DateTime.Today.AddDays(4);
+            item7.Start = dateTime.AddDays(4);
             item7.IsMilestone = true;
             item7.Predecessors.Add(new PredecessorItem { Item = item4 });
             item7.Predecessors.Add(new PredecessorItem { Item = item6 });
-            item7.BaselineStart = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
+            item7.BaselineStart = dateTime.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
 
             GanttChartItem item8 = GanttChartDataGrid.Items[8];
-            item8.Start = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
-            item8.Finish = DateTime.Today.AddDays(6).Add(TimeSpan.Parse("14:00:00"));
+            item8.Start = dateTime.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
+            item8.Finish = dateTime.AddDays(6).Add(TimeSpan.Parse("14:00:00"));
             item8.AssignmentsContent = "Resource 1 [50%], Resource 2 [75%]";
-            item8.BaselineStart = DateTime.Today.Add(TimeSpan.Parse("12:00:00"));
-            item8.BaselineFinish = DateTime.Today.AddDays(4).Add(TimeSpan.Parse("14:00:00"));
+            item8.BaselineStart = dateTime.Add(TimeSpan.Parse("12:00:00"));
+            item8.BaselineFinish = dateTime.AddDays(4).Add(TimeSpan.Parse("14:00:00"));
 
             GanttChartItem item9 = GanttChartDataGrid.Items[9];
-            item9.Start = DateTime.Today.AddDays(6).Add(TimeSpan.Parse("08:00:00"));
-            item9.Finish = DateTime.Today.AddDays(6).Add(TimeSpan.Parse("16:00:00"));
+            item9.Start = dateTime.AddDays(6).Add(TimeSpan.Parse("08:00:00"));
+            item9.Finish = dateTime.AddDays(6).Add(TimeSpan.Parse("16:00:00"));
             item9.AssignmentsContent = "Resource 1";
-            item9.BaselineStart = DateTime.Today.AddDays(4).Add(TimeSpan.Parse("12:00:00"));
-            item9.BaselineFinish = DateTime.Today.AddDays(6).Add(TimeSpan.Parse("16:00:00"));
+            item9.BaselineStart = dateTime.AddDays(4).Add(TimeSpan.Parse("12:00:00"));
+            item9.BaselineFinish = dateTime.AddDays(6).Add(TimeSpan.Parse("16:00:00"));
 
             // You may uncomment the next lines of code to set default schedule and timeline visibility settings for the Gantt Chart.
             // // Working week: between Tuesday and Saturday.
@@ -88,8 +95,8 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             // // Optionally, generic nonworking intervals.
             // GanttChartDataGrid.NonworkingIntervals = new ObservableCollection<TimeInterval>(
             //    new TimeInterval[] {
-            //        new TimeInterval(DateTime.Today.AddDays(1), DateTime.Today.AddDays(1).Add(TimeOfDay.MaxValue)), // Holiday: full day.
-            //        new TimeInterval(DateTime.Today.AddDays(3), DateTime.Today.AddDays(5).Add(TimeSpan.Parse("12:00:00"))) // Custom time interval off: full and partial day accepted.
+            //        new TimeInterval(dateTime.AddDays(1), dateTime.AddDays(1).Add(TimeOfDay.MaxValue)), // Holiday: full day.
+            //        new TimeInterval(dateTime.AddDays(3), dateTime.AddDays(5).Add(TimeSpan.Parse("12:00:00"))) // Custom time interval off: full and partial day accepted.
             //    });
             // // Optionally, specific nonworking intervals based on date parameter: recurrent breaks and holidays accepted.
             // GanttChartDataGrid.NonworkingDayIntervalProvider = (date) => { 
@@ -112,8 +119,8 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             //    DayOfWeek.Sunday, DayOfWeek.Thursday, // Working week: between Sunday and Thursday.
             //    TimeSpan.Parse("10:00:00"), TimeSpan.Parse("14:00:00"), // Working day: between 10 AM and 2 PM.
             //    new TimeInterval[] { // Optionally, generic nonworking intervals.
-            //        new TimeInterval(DateTime.Today.AddDays(4), DateTime.Today.AddDays(4).Add(TimeOfDay.MaxValue)), // Holiday: full day.
-            //        new TimeInterval(DateTime.Today.AddDays(8), DateTime.Today.AddDays(10).Add(TimeSpan.Parse("12:00:00"))) // Custom time interval off: full and partial day accepted.
+            //        new TimeInterval(dateTime.AddDays(4), dateTime.AddDays(4).Add(TimeOfDay.MaxValue)), // Holiday: full day.
+            //        new TimeInterval(dateTime.AddDays(8), dateTime.AddDays(10).Add(TimeSpan.Parse("12:00:00"))) // Custom time interval off: full and partial day accepted.
             //    },
             //    (date) => { // Optionally, specific nonworking intervals based on date parameter: recurrent breaks and holidays accepted.
             //        if (date.Day % 10 == 0) // First recurrence expression: on decade end days.
@@ -136,8 +143,8 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
                     {
                         Content = "Task " + i,
                         Indentation = i >= 8 && i % 3 == 2 ? 0 : 1,
-                        Start = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8),
-                        Finish = DateTime.Today.AddDays((i <= 8 ? (i - 4) * 3 + (i > 8 ? 6 : 1) : i - 2) + 1)
+                        Start = dateTime.AddDays(i <= 8 ? (i - 4) * 3 : i - 8),
+                        Finish = dateTime.AddDays((i <= 8 ? (i - 4) * 3 + (i > 8 ? 6 : 1) : i - 2) + 1)
                     });
             }
 
@@ -148,8 +155,8 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             //         new GanttChartItem
             //         {
             //             Content = "Task " + i,
-            //             Start = DateTime.Today.AddDays(5 + i / 20),
-            //             Finish = DateTime.Today.AddDays(5 + i / 10 + 1)
+            //             Start = dateTime.AddDays(5 + i / 20),
+            //             Finish = dateTime.AddDays(5 + i / 10 + 1)
             //         });
             // }
 
@@ -159,7 +166,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
 
             // Optionally, define the quantity values to consider when leveling resources, indicating maximum material amounts available for use at the same time.
             GanttChartDataGrid.ResourceQuantities = new Dictionary<string, double> { { "Material 1", 4 }, { "Material 2", double.PositiveInfinity } };
-            item4.AssignmentsContent = "Material 1 [300%]";
+            item4.AssignmentsContent = "Resource 1, Material 1 [300%]";
             item6.AssignmentsContent = "Material 1 [250%], Material 2";
 
             // Optionally, define task and resource costs.
@@ -204,7 +211,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
         }
         private void AddNewButton_Click(object sender, RoutedEventArgs e)
         {
-            GanttChartItem item = new GanttChartItem { Content = "New Task", Start = DateTime.Today, Finish = DateTime.Today.AddDays(1) };
+            GanttChartItem item = new GanttChartItem { Content = "New Task", Start = dateTime, Finish = dateTime.AddDays(1) };
             GanttChartDataGrid.Items.Add(item);
             GanttChartDataGrid.SelectedItem = item;
             GanttChartDataGrid.ScrollTo(item);
@@ -217,7 +224,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
                 MessageBox.Show("Cannot insert a new item before selection as the selection is empty; you can either add a new item to the end of the list instead, or select an item first.", "Information", MessageBoxButton.OK);
                 return;
             }
-            GanttChartItem item = new GanttChartItem { Content = "New Task", Indentation = selectedItem.Indentation, Start = DateTime.Today, Finish = DateTime.Today.AddDays(1) };
+            GanttChartItem item = new GanttChartItem { Content = "New Task", Indentation = selectedItem.Indentation, Start = dateTime, Finish = dateTime.AddDays(1) };
             GanttChartDataGrid.Items.Insert(GanttChartDataGrid.SelectedIndex, item);
             GanttChartDataGrid.SelectedItem = item;
             GanttChartDataGrid.ScrollTo(item);

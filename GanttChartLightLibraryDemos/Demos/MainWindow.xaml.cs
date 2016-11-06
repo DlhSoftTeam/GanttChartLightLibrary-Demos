@@ -138,7 +138,8 @@ namespace Demos
                                     Name = "GanttChartDataGrid",
                                     Features = new[]
                                     {
-                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
+                                        new SampleInfo { Tag = "MainFeatures-item", Title = "Main features - item", Description = "Shows the main features of the component" }
                                     }
                                 }
                             };
@@ -314,7 +315,7 @@ namespace Demos
                     containerWindow.Close();
                 var selectedThemeItem = ThemeComboBox.SelectedItem as ComboBoxItem;
                 var theme = selectedThemeItem?.Tag as string;
-                var path = "Demos." + platform + "." + programmingLanguage + "." + component + "." + feature;
+                var path = "Demos." + platform + "." + programmingLanguage + "." + component + "." + (feature.Replace('-', '_'));
                 containerWindow = Activator.CreateInstance(path, path + ".MainWindow", false, BindingFlags.Default, null, new[] { theme }, null, null).Unwrap() as Window;
                 ContentPresenter.Content = containerWindow.Content;
                 ContentPresenter.Visibility = Visibility.Visible;

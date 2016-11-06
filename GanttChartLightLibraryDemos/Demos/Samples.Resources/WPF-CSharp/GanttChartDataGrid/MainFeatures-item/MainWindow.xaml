@@ -1,4 +1,4 @@
-﻿<Window x:Class="Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures.MainWindow"
+﻿<Window x:Class="Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures_item.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
@@ -244,7 +244,7 @@
         <!-- Optionally, set AreTaskDependencyConstraintsDisabledWhileDragging to true to improve performance when AreTaskDependencyConstraintsEnabled would be set to true. -->
         <!-- Optionally, set IsMouseWheelZoomEnabledUpdatingScales and/or IsFittingToTimelinePageEnabledUpdatingScales to true to automatically update scales based on the actual zoom level of the chart. -->
         <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" IsUndoEnabled="True" AreSummaryRowsBold="True" AreTaskDependencyConstraintsDisabledWhileDragging="True" IsMouseWheelZoomEnabledUpdatingScales="True" IsFittingToTimelinePageEnabledUpdatingScales="True"
-                                  Width="800" Height="376">
+                                  Width="800" Height="284">
             <pdgcc:GanttChartDataGrid.Items>
                 <!-- Some item properties are set in code behind. -->
                 <!-- Alternatively, you may data bind items to your custom data source using a preconfigured pdgcc:TaskItemsConverter instance. -->
