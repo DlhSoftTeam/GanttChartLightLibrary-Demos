@@ -253,23 +253,9 @@ namespace Demos
                             break;
                     }
                     break;
-                case "GanttChartView":
-                    break;
-                case "ScheduleChartDataGrid":
-                    break;
-                case "ScheduleChartView":
-                    break;
-                case "LoadChartDataGrid":
-                    break;
-                case "LoadChartView":
-                    break;
-                case "PertChartView":
-                    break;
-                case "NetworkDiagramView":
-                    break;
             }
             if (fileItems == null)
-                return;
+                fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml.cs" };
             int index = 1;
             foreach (var fileItem in fileItems)
                 FilesListBox.Items.Insert(index++, new ListBoxItem { Content = fileItem, Tag = fileItem });
