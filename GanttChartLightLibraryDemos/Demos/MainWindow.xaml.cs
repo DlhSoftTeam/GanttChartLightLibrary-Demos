@@ -139,7 +139,10 @@ namespace Demos
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
-                                        new SampleInfo { Tag = "MainFeatures-item", Title = "Main features - item", Description = "Shows the main features of the component" }
+                                        new SampleInfo { Tag = "MainFeatures-item", Title = "Main features - item", Description = "Shows the main features of the component" },
+                                        new SampleInfo { Tag = "MainFeatures-SCV", Title = "Main features - SCV", Description = "Shows the main features of the component" },
+                                        new SampleInfo { Tag = "MainFeatures-LCDG", Title = "Main features - LCDG", Description = "Shows the main features of the component" },
+                                        new SampleInfo { Tag = "MainFeatures-PERT", Title = "Main features - PERT", Description = "Shows the main features of the component" }
                                     }
                                 }
                             };

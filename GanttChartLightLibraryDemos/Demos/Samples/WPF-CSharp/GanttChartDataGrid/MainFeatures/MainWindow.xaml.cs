@@ -557,7 +557,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             Window scheduleChartWindow =
                 new Window
                 {
-                    Owner = Application.Current.MainWindow, Title = "Schedule Chart", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 640, Height = 480, ResizeMode = ResizeMode.CanResize,
+                    Owner = Application.Current.MainWindow, Title = "Schedule Chart", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 800, Height = 412, ResizeMode = ResizeMode.CanResize,
                     Content = new ScheduleChartDataGrid
                     {
                         Items = scheduleChartItems, DataGridWidth = new GridLength(0.2, GridUnitType.Star),
@@ -592,7 +592,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             Window loadChartWindow =
                 new Window
                 {
-                    Owner = Application.Current.MainWindow, Title = "Load Chart", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 640, Height = 300, ResizeMode = ResizeMode.CanMinimize,
+                    Owner = Application.Current.MainWindow, Title = "Load Chart", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 400, Height = 300, ResizeMode = ResizeMode.CanMinimize,
                     Content = dockPanel
                 };
             if (themeResourceDictionary != null)

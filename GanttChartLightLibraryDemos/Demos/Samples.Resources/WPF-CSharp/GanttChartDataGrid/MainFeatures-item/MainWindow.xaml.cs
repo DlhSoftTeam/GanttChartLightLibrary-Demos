@@ -31,7 +31,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures_item
         {
             InitializeComponent();
 
-            while (dateTime.DayOfWeek == DayOfWeek.Friday || dateTime.DayOfWeek == DayOfWeek.Saturday || dateTime.DayOfWeek == DayOfWeek.Sunday)
+            while (dateTime.DayOfWeek == DayOfWeek.Saturday || dateTime.DayOfWeek == DayOfWeek.Sunday)
                 dateTime = dateTime.AddDays(1);
 
             GanttChartItem item0 = GanttChartDataGrid.Items[0];
