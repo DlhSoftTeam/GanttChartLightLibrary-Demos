@@ -579,7 +579,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures_LCDG
             Window loadChartWindow =
                 new Window
                 {
-                    Owner = Application.Current.MainWindow, Title = "Load Chart", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 520, Height = 200, ResizeMode = ResizeMode.CanResize,
+                    Owner = Application.Current.MainWindow, Title = "Load Chart", WindowStartupLocation = WindowStartupLocation.CenterOwner, Width = 520, Height = 235, ResizeMode = ResizeMode.CanResize,
                     Content = new LoadChartDataGrid
                     {
                         Items = loadChartItems, DataGridWidth = new GridLength(0.2, GridUnitType.Star)
