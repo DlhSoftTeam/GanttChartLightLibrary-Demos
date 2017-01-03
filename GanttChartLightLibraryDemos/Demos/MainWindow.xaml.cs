@@ -140,6 +140,14 @@ namespace Demos
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
                                     }
+                                },
+                                new ComponentInfo
+                                {
+                                    Name = "ScheduleChartDataGrid",
+                                    Features = new[]
+                                    {
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
+                                    }
                                 }
                             };
                             break;

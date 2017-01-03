@@ -50,6 +50,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MainFeatures", "MainFeature
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MainFeatures", "Demos\Samples\Silverlight-VisualBasic\GanttChartDataGrid\MainFeatures\MainFeatures.vbproj", "{E4452DAB-7BFE-4928-A9C3-BDA61F191593}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScheduleChartDataGrid", "ScheduleChartDataGrid", "{EC37E7BD-A4D8-400F-AEA5-B9BA4B766DD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures.Library", "Demos\Samples\WPF-CSharp\ScheduleChartDataGrid\MainFeatures\MainFeatures.Library.csproj", "{DB09445F-94FD-4EBA-8D89-718A9B8C50EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScheduleChartDataGrid", "ScheduleChartDataGrid", "{3767C00E-FBE2-4E50-8853-106F1CC77F5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures", "Demos\Samples\WPF-CSharp\ScheduleChartDataGrid\MainFeatures\MainFeatures.csproj", "{215B8C48-9DA4-4D32-90EA-5D24692DF9F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		ComponentSource.Release|Any CPU = ComponentSource.Release|Any CPU
@@ -105,6 +113,18 @@ Global
 		{E4452DAB-7BFE-4928-A9C3-BDA61F191593}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4452DAB-7BFE-4928-A9C3-BDA61F191593}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4452DAB-7BFE-4928-A9C3-BDA61F191593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB09445F-94FD-4EBA-8D89-718A9B8C50EA}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB09445F-94FD-4EBA-8D89-718A9B8C50EA}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB09445F-94FD-4EBA-8D89-718A9B8C50EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB09445F-94FD-4EBA-8D89-718A9B8C50EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB09445F-94FD-4EBA-8D89-718A9B8C50EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB09445F-94FD-4EBA-8D89-718A9B8C50EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{215B8C48-9DA4-4D32-90EA-5D24692DF9F7}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{215B8C48-9DA4-4D32-90EA-5D24692DF9F7}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{215B8C48-9DA4-4D32-90EA-5D24692DF9F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{215B8C48-9DA4-4D32-90EA-5D24692DF9F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{215B8C48-9DA4-4D32-90EA-5D24692DF9F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{215B8C48-9DA4-4D32-90EA-5D24692DF9F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -128,5 +148,9 @@ Global
 		{4C9C2C2B-0553-4A24-87D0-C162D983B3FE} = {E216A6BC-BFC4-497E-851E-7B0C472CB259}
 		{05762470-39DE-4B6B-9A54-8570E22A1516} = {D7B1EEB9-C0DC-4EE4-80E7-984800004E03}
 		{E4452DAB-7BFE-4928-A9C3-BDA61F191593} = {05762470-39DE-4B6B-9A54-8570E22A1516}
+		{EC37E7BD-A4D8-400F-AEA5-B9BA4B766DD8} = {5081A92F-EF6D-4814-AD17-8FA651583C14}
+		{DB09445F-94FD-4EBA-8D89-718A9B8C50EA} = {EC37E7BD-A4D8-400F-AEA5-B9BA4B766DD8}
+		{3767C00E-FBE2-4E50-8853-106F1CC77F5A} = {C3ABAD00-06EF-449A-A933-DB09A8B1BB75}
+		{215B8C48-9DA4-4D32-90EA-5D24692DF9F7} = {3767C00E-FBE2-4E50-8853-106F1CC77F5A}
 	EndGlobalSection
 EndGlobal
