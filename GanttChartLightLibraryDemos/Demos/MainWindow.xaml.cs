@@ -138,7 +138,8 @@ namespace Demos
                                     Name = "GanttChartDataGrid",
                                     Features = new[]
                                     {
-                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
+                                        new SampleInfo { Tag = "DataBinding", Title = "Data binding", Description = "Shows how you can data bind the component to a custom object collection" }
                                     }
                                 },
                                 new ComponentInfo
@@ -306,6 +307,9 @@ namespace Demos
                                 "Main" + (!isSilverlight ? "Window" : "Page") + ".xaml",
                                 "Main" + (!isSilverlight ? "Window" : "Page") + ".xaml" + (!isVisualBasic ? ".cs" : ".vb")
                             };
+                            break;
+                        case "DataBinding":
+                            fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml.cs", "CustomTaskItem.cs" };
                             break;
                     }
                     break;

@@ -143,14 +143,14 @@ Class MainWindow
         EnableDependencyConstraintsCheckBox.IsChecked = True
     End Sub
 
+    Private themeResourceDictionary As ResourceDictionary
+
     Public Sub New(theme As String)
         Me.New()
         If theme Is Nothing Or theme = "Default" Or theme = "Aero" Then Return
         themeResourceDictionary = New ResourceDictionary With {.Source = New Uri("/" + Me.GetType().Assembly.GetName().Name + ";component/Themes/" + theme + ".xaml", UriKind.Relative)}
         GanttChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary)
     End Sub
-
-    Private themeResourceDictionary As ResourceDictionary
 
     ' Control area commands.
     Private Sub EditButton_Click(sender As Object, e As RoutedEventArgs)

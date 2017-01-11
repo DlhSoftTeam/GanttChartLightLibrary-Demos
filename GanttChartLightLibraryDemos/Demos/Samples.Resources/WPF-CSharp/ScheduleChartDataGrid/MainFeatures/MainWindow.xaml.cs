@@ -91,11 +91,9 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
         {
             if (theme == null || theme == "Default" || theme == "Aero")
                 return;
-            themeResourceDictionary = new ResourceDictionary { Source = new Uri("/" + GetType().Assembly.GetName().Name + ";component/Themes/" + theme + ".xaml", UriKind.Relative) };
+            var themeResourceDictionary = new ResourceDictionary { Source = new Uri("/" + GetType().Assembly.GetName().Name + ";component/Themes/" + theme + ".xaml", UriKind.Relative) };
             ScheduleChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary);
         }
-
-        private ResourceDictionary themeResourceDictionary;
 
         // Control area commands.
         private void AddNewButton_Click(object sender, RoutedEventArgs e)

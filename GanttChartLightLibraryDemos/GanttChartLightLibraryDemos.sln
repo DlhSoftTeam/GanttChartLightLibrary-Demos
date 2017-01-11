@@ -104,6 +104,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures", "Demos\Sampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures", "Demos\Samples\WPF-CSharp\PertChartView\MainFeatures\MainFeatures.csproj", "{E17CD748-E5B4-48E3-AC04-528DF7D625FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBinding.GanttChartDataGrid", "Demos\Samples\WPF-CSharp\GanttChartDataGrid\DataBinding\DataBinding.GanttChartDataGrid.csproj", "{95F30FAA-9A21-435D-9E1C-B37465B05F01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBinding", "Demos\Samples\WPF-CSharp\GanttChartDataGrid\DataBinding\DataBinding.csproj", "{8D42AB78-F696-407F-BB3F-502F9D5AC50D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		ComponentSource.Release|Any CPU = ComponentSource.Release|Any CPU
@@ -243,6 +247,18 @@ Global
 		{E17CD748-E5B4-48E3-AC04-528DF7D625FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E17CD748-E5B4-48E3-AC04-528DF7D625FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E17CD748-E5B4-48E3-AC04-528DF7D625FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95F30FAA-9A21-435D-9E1C-B37465B05F01}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95F30FAA-9A21-435D-9E1C-B37465B05F01}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{95F30FAA-9A21-435D-9E1C-B37465B05F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F30FAA-9A21-435D-9E1C-B37465B05F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95F30FAA-9A21-435D-9E1C-B37465B05F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95F30FAA-9A21-435D-9E1C-B37465B05F01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D42AB78-F696-407F-BB3F-502F9D5AC50D}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D42AB78-F696-407F-BB3F-502F9D5AC50D}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D42AB78-F696-407F-BB3F-502F9D5AC50D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D42AB78-F696-407F-BB3F-502F9D5AC50D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D42AB78-F696-407F-BB3F-502F9D5AC50D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D42AB78-F696-407F-BB3F-502F9D5AC50D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -293,5 +309,7 @@ Global
 		{C63CF378-E428-41B5-89CC-CD3CC69A2978} = {C3ABAD00-06EF-449A-A933-DB09A8B1BB75}
 		{8170F718-594C-432D-A3EF-7324DD28590A} = {C63CF378-E428-41B5-89CC-CD3CC69A2978}
 		{E17CD748-E5B4-48E3-AC04-528DF7D625FC} = {FA86DDD1-BE9A-4AD8-9447-F82C9F329E44}
+		{95F30FAA-9A21-435D-9E1C-B37465B05F01} = {AE54A391-FB6D-48D4-A4C7-A8D4E78AEF2A}
+		{8D42AB78-F696-407F-BB3F-502F9D5AC50D} = {90664756-24B9-4446-8E44-BE6BBBAED316}
 	EndGlobalSection
 EndGlobal

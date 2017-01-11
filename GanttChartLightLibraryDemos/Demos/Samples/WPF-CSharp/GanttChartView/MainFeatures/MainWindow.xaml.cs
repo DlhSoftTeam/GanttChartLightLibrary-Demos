@@ -80,11 +80,9 @@ namespace Demos.WPF.CSharp.GanttChartView.MainFeatures
         {
             if (theme == null || theme == "Default" || theme == "Aero")
                 return;
-            themeResourceDictionary = new ResourceDictionary { Source = new Uri("/" + GetType().Assembly.GetName().Name + ";component/Themes/" + theme + ".xaml", UriKind.Relative) };
+            var themeResourceDictionary = new ResourceDictionary { Source = new Uri("/" + GetType().Assembly.GetName().Name + ";component/Themes/" + theme + ".xaml", UriKind.Relative) };
             GanttChartView.Resources.MergedDictionaries.Add(themeResourceDictionary);
         }
-
-        private ResourceDictionary themeResourceDictionary;
 
         // Control area commands.
         private void SetColorButton_Click(object sender, RoutedEventArgs e)
