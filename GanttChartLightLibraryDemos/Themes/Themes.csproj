@@ -9,10 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Themes</RootNamespace>
     <AssemblyName>Themes</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -143,8 +142,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>for /d %25%25t in ("$(SolutionDir)\Demos\Samples\WPF-*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in ("%25%25c\*") do xcopy /y "$(ProjectDir)*.xaml" "%25%25f\Themes\"
-</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>for /d %25%25t in ("$(SolutionDir)\Demos\Samples\WPF-*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in ("%25%25c\*") do xcopy /y "$(ProjectDir)*.xaml" "%25%25f\Themes\"
+</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

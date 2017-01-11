@@ -8,9 +8,8 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Demos.WPF.VisualBasic.GanttChartDataGrid.MainFeatures</RootNamespace>
     <AssemblyName>Demos.WPF.VisualBasic.GanttChartDataGrid.MainFeatures</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <MyType>Custom</MyType>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -65,11 +64,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="DlhSoft.ProjectData.GanttChart.LightWPF.Controls, Version=4.3.37.0, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.37.1\lib\net45\DlhSoft.ProjectData.GanttChart.LightWPF.Controls.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.37.1\lib\net40-client\DlhSoft.ProjectData.GanttChart.LightWPF.Controls.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DlhSoft.ProjectData.PertChart.LightWPF.Controls, Version=4.3.36.0, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.37.1\lib\net45\DlhSoft.ProjectData.PertChart.LightWPF.Controls.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.37.1\lib\net40-client\DlhSoft.ProjectData.PertChart.LightWPF.Controls.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Core" />
@@ -327,12 +326,6 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Themes\Themes.csproj">
-      <Project>{779ff005-986b-4284-aa4f-0f86c1216406}</Project>
-      <Name>Themes</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

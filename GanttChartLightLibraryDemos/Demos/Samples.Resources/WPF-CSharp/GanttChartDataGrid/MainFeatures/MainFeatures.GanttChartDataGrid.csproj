@@ -9,13 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures</RootNamespace>
     <AssemblyName>Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,19 +48,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DlhSoft.HierarchicalData.LightWPF.Controls, Version=4.0.8.5, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\packages\DlhSoft.HierarchicalDataLightLibrary.4.0.9\lib\net45\DlhSoft.HierarchicalData.LightWPF.Controls.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DlhSoft.OrganizationalChartLibrary.Controls, Version=4.0.8.5, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\packages\DlhSoft.HierarchicalDataLightLibrary.4.0.9\lib\net45\DlhSoft.OrganizationalChartLibrary.Controls.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\DlhSoft.HierarchicalDataLightLibrary.4.0.9\lib\net40-client\DlhSoft.HierarchicalData.LightWPF.Controls.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DlhSoft.ProjectData.GanttChart.LightWPF.Controls, Version=4.3.37.0, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.37.1\lib\net45\DlhSoft.ProjectData.GanttChart.LightWPF.Controls.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.37.1\lib\net40-client\DlhSoft.ProjectData.GanttChart.LightWPF.Controls.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DlhSoft.ProjectData.PertChart.LightWPF.Controls, Version=4.3.36.0, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.37.1\lib\net45\DlhSoft.ProjectData.PertChart.LightWPF.Controls.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.37.1\lib\net40-client\DlhSoft.ProjectData.PertChart.LightWPF.Controls.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -181,12 +176,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Themes\Themes.csproj">
-      <Project>{779ff005-986b-4284-aa4f-0f86c1216406}</Project>
-      <Name>Themes</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\AddNew.png" />

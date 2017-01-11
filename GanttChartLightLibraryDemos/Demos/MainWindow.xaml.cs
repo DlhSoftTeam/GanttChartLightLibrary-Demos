@@ -180,6 +180,22 @@ namespace Demos
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
                                     }
+                                },
+                                new ComponentInfo
+                                {
+                                    Name = "PertChartView",
+                                    Features = new[]
+                                    {
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
+                                    }
+                                },
+                                new ComponentInfo
+                                {
+                                    Name = "NetworkDiagramView",
+                                    Features = new[]
+                                    {
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
+                                    }
                                 }
                             };
                             break;
@@ -301,6 +317,8 @@ namespace Demos
                 FilesListBox.Items.Insert(index++, new ListBoxItem { Content = fileItem, Tag = fileItem });
             if (!isSilverlight)
                 FilesListBox.Items.Insert(index++, new ListBoxItem { Content = "AppResources.xaml", Tag = "AppResources.xaml" });
+            if (FilesListBox.SelectedIndex > 0)
+                FilesListBox.SelectedIndex = 0;
         }
 
         private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

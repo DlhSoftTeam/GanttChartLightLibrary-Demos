@@ -96,6 +96,126 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="FileNameConverter.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\AppResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\Themes\Generic-bright.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\Themes\Generic-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\AppResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\Themes\Generic-bright.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\Themes\Generic-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartView\MainFeatures\AppResources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -534,6 +654,12 @@
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartView\MainFeatures\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
     <Compile Include="UppercaseConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -620,6 +746,14 @@
     <ProjectReference Include="Samples\WPF-CSharp\LoadChartView\MainFeatures\MainFeatures.LoadChartView.csproj">
       <Project>{7e46452b-affa-45f6-87de-db9646e06cc2}</Project>
       <Name>MainFeatures.LoadChartView</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\NetworkDiagramView\MainFeatures\MainFeatures.NetworkDiagramView.csproj">
+      <Project>{f2bbfe3a-f856-4c83-9270-ad5b16360cdb}</Project>
+      <Name>MainFeatures.NetworkDiagramView</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\PertChartView\MainFeatures\MainFeatures.PertChartView.csproj">
+      <Project>{c1295877-1d6d-4986-a1b9-b4af32c32ec7}</Project>
+      <Name>MainFeatures.PertChartView</Name>
     </ProjectReference>
     <ProjectReference Include="Samples\WPF-CSharp\ScheduleChartDataGrid\MainFeatures\MainFeatures.ScheduleChartDataGrid.csproj">
       <Project>{db09445f-94fd-4eba-8d89-718a9b8c50ea}</Project>
