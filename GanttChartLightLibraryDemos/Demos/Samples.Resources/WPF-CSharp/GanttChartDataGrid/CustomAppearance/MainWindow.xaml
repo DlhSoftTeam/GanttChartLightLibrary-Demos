@@ -8,21 +8,9 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="AppResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <LinearGradientBrush x:Key="StandardBarFill" StartPoint="0.5,0" EndPoint="0.5,1">
-                <LinearGradientBrush.GradientStops>
-                    <GradientStop Color="Transparent" Offset="0"/>
-                    <GradientStop Color="PaleGreen" Offset="0.25"/>
-                    <GradientStop Color="DarkGreen" Offset="1"/>
-                </LinearGradientBrush.GradientStops>
-            </LinearGradientBrush>
+            <SolidColorBrush x:Key="StandardBarFill" Color="PaleGreen"/>
             <SolidColorBrush x:Key="StandardBarStroke" Color="DarkGreen"/>
-            <LinearGradientBrush x:Key="CustomStandardBarFill" StartPoint="0.5,0" EndPoint="0.5,1">
-                <LinearGradientBrush.GradientStops>
-                    <GradientStop Color="Transparent" Offset="0"/>
-                    <GradientStop Color="Tomato" Offset="0.25"/>
-                    <GradientStop Color="DarkRed" Offset="1"/>
-                </LinearGradientBrush.GradientStops>
-            </LinearGradientBrush>
+            <SolidColorBrush x:Key="CustomStandardBarFill" Color="Tomato"/>
             <SolidColorBrush x:Key="CustomStandardBarStroke" Color="DarkRed"/>
         </ResourceDictionary>
     </Window.Resources>
