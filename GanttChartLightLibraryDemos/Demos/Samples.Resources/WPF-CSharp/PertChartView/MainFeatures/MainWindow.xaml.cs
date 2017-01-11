@@ -43,7 +43,18 @@ namespace Demos.WPF.CSharp.PertChartView.MainFeatures
             item4.Predecessors.Add(new PredecessorItem { Item = item3, DisplayedText = "F", Content = "Task F", Effort = TimeSpan.Parse("2") });
         }
 
+        private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
+        {
+            this.theme = theme;
+            ApplyTemplate();
+        }
+        public override void OnApplyTemplate()
+        {
+            LoadTheme();
+            base.OnApplyTemplate();
+        }
+        private void LoadTheme()
         {
             if (theme == null || theme == "Default" || theme == "Aero")
                 return;

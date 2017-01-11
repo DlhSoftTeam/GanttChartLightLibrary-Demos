@@ -87,7 +87,18 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
             ShowWeekendsCheckBox.IsChecked = true;
         }
 
+        private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
+        {
+            this.theme = theme;
+            ApplyTemplate();
+        }
+        public override void OnApplyTemplate()
+        {
+            LoadTheme();
+            base.OnApplyTemplate();
+        }
+        private void LoadTheme()
         {
             if (theme == null || theme == "Default" || theme == "Aero")
                 return;
