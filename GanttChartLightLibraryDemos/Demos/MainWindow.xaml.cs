@@ -143,7 +143,39 @@ namespace Demos
                                 },
                                 new ComponentInfo
                                 {
+                                    Name = "GanttChartView",
+                                    Features = new[]
+                                    {
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
+                                    }
+                                },
+                                new ComponentInfo
+                                {
                                     Name = "ScheduleChartDataGrid",
+                                    Features = new[]
+                                    {
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
+                                    }
+                                },
+                                new ComponentInfo
+                                {
+                                    Name = "ScheduleChartView",
+                                    Features = new[]
+                                    {
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
+                                    }
+                                },
+                                new ComponentInfo
+                                {
+                                    Name = "LoadChartDataGrid",
+                                    Features = new[]
+                                    {
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
+                                    }
+                                },
+                                new ComponentInfo
+                                {
+                                    Name = "LoadChartView",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }

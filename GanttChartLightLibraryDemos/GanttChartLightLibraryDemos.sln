@@ -10,11 +10,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demos", "Demos\Demos.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF-CSharp", "WPF-CSharp", "{C3ABAD00-06EF-449A-A933-DB09A8B1BB75}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples.Apps", "Samples.Apps", "{382E81F1-9E86-4D43-98D7-CF5AD0A653C9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{382E81F1-9E86-4D43-98D7-CF5AD0A653C9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Themes", "Themes\Themes.csproj", "{779FF005-986B-4284-AA4F-0F86C1216406}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures.Library", "Demos\Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainFeatures.Library.csproj", "{326967B5-0AF7-4AA0-A4B9-70ABB105142D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures.GanttChartDataGrid", "Demos\Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainFeatures.GanttChartDataGrid.csproj", "{326967B5-0AF7-4AA0-A4B9-70ABB105142D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples.Libraries", "Samples.Libraries", "{EC1BB1BD-0A5B-4CB5-9D95-13386A89D919}"
 EndProject
@@ -30,7 +30,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GanttChartDataGrid", "Gantt
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MainFeatures", "Demos\Samples\WPF-VisualBasic\GanttChartDataGrid\MainFeatures\MainFeatures.vbproj", "{CCDE9711-3E18-4A62-986F-9D394A2957CE}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MainFeatures.Library.VisualBasic", "Demos\Samples\WPF-VisualBasic\GanttChartDataGrid\MainFeatures\MainFeatures.Library.VisualBasic.vbproj", "{3742FD40-EB79-4306-B785-56254DB4F986}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MainFeatures.VisualBasic.GanttChartDataGrid", "Demos\Samples\WPF-VisualBasic\GanttChartDataGrid\MainFeatures\MainFeatures.VisualBasic.GanttChartDataGrid.vbproj", "{3742FD40-EB79-4306-B785-56254DB4F986}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{5081A92F-EF6D-4814-AD17-8FA651583C14}"
 EndProject
@@ -52,11 +52,43 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MainFeatures", "Demos\Sampl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScheduleChartDataGrid", "ScheduleChartDataGrid", "{EC37E7BD-A4D8-400F-AEA5-B9BA4B766DD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures.Library", "Demos\Samples\WPF-CSharp\ScheduleChartDataGrid\MainFeatures\MainFeatures.Library.csproj", "{DB09445F-94FD-4EBA-8D89-718A9B8C50EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures.ScheduleChartDataGrid", "Demos\Samples\WPF-CSharp\ScheduleChartDataGrid\MainFeatures\MainFeatures.ScheduleChartDataGrid.csproj", "{DB09445F-94FD-4EBA-8D89-718A9B8C50EA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScheduleChartDataGrid", "ScheduleChartDataGrid", "{3767C00E-FBE2-4E50-8853-106F1CC77F5A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures", "Demos\Samples\WPF-CSharp\ScheduleChartDataGrid\MainFeatures\MainFeatures.csproj", "{215B8C48-9DA4-4D32-90EA-5D24692DF9F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoadChartDataGrid", "LoadChartDataGrid", "{7EC62E10-FBE0-4B5D-A3DD-F43FE1F6E067}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures.LoadChartDataGrid", "Demos\Samples\WPF-CSharp\LoadChartDataGrid\MainFeatures\MainFeatures.LoadChartDataGrid.csproj", "{FA769689-A8BA-40A3-BA7D-D72FF4668AE7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoadChartDataGrid", "LoadChartDataGrid", "{D44D5E95-3A38-4B78-A340-0D772312D365}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures", "Demos\Samples\WPF-CSharp\LoadChartDataGrid\MainFeatures\MainFeatures.csproj", "{30F4748F-EAF0-4EC2-A620-B7EB920DAEE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GanttChartView", "GanttChartView", "{2F926D7F-96D4-4FF6-9CF4-A37CFF62837F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScheduleChartView", "ScheduleChartView", "{AC439F7E-E8DD-46B9-8732-17B65641F7AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoadChartView", "LoadChartView", "{0270A79D-0305-43A5-BEB3-0068DE79AE4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures.LoadChartView", "Demos\Samples\WPF-CSharp\LoadChartView\MainFeatures\MainFeatures.LoadChartView.csproj", "{7E46452B-AFFA-45F6-87DE-DB9646E06CC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures.GanttChartView", "Demos\Samples\WPF-CSharp\GanttChartView\MainFeatures\MainFeatures.GanttChartView.csproj", "{B5C3B098-E758-4302-A7EA-7BB45E2325F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures.ScheduleChartView", "Demos\Samples\WPF-CSharp\ScheduleChartView\MainFeatures\MainFeatures.ScheduleChartView.csproj", "{27C381D6-4D27-47FC-81AA-24F176B57CE7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GanttChartView", "GanttChartView", "{A5FA71B5-2BC3-41B2-878D-1E0243670BC3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScheduleChartView", "ScheduleChartView", "{A1DFEFA8-DAD6-4683-B146-7C0DDF7C5BE7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoadChartView", "LoadChartView", "{4E6905C7-07A9-490D-9E98-5C0548847B36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures", "Demos\Samples\WPF-CSharp\GanttChartView\MainFeatures\MainFeatures.csproj", "{A91004D6-E1B0-4767-BB94-C599EA19E9A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures", "Demos\Samples\WPF-CSharp\LoadChartView\MainFeatures\MainFeatures.csproj", "{CA13DBD5-F4F3-4798-BE96-F85DE6EA555F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainFeatures", "Demos\Samples\WPF-CSharp\ScheduleChartView\MainFeatures\MainFeatures.csproj", "{4133707B-B351-493A-BB08-FC2EA0044560}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,6 +157,54 @@ Global
 		{215B8C48-9DA4-4D32-90EA-5D24692DF9F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{215B8C48-9DA4-4D32-90EA-5D24692DF9F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{215B8C48-9DA4-4D32-90EA-5D24692DF9F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA769689-A8BA-40A3-BA7D-D72FF4668AE7}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA769689-A8BA-40A3-BA7D-D72FF4668AE7}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA769689-A8BA-40A3-BA7D-D72FF4668AE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA769689-A8BA-40A3-BA7D-D72FF4668AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA769689-A8BA-40A3-BA7D-D72FF4668AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA769689-A8BA-40A3-BA7D-D72FF4668AE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30F4748F-EAF0-4EC2-A620-B7EB920DAEE2}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30F4748F-EAF0-4EC2-A620-B7EB920DAEE2}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{30F4748F-EAF0-4EC2-A620-B7EB920DAEE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30F4748F-EAF0-4EC2-A620-B7EB920DAEE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30F4748F-EAF0-4EC2-A620-B7EB920DAEE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30F4748F-EAF0-4EC2-A620-B7EB920DAEE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E46452B-AFFA-45F6-87DE-DB9646E06CC2}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E46452B-AFFA-45F6-87DE-DB9646E06CC2}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E46452B-AFFA-45F6-87DE-DB9646E06CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E46452B-AFFA-45F6-87DE-DB9646E06CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E46452B-AFFA-45F6-87DE-DB9646E06CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E46452B-AFFA-45F6-87DE-DB9646E06CC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5C3B098-E758-4302-A7EA-7BB45E2325F6}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5C3B098-E758-4302-A7EA-7BB45E2325F6}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5C3B098-E758-4302-A7EA-7BB45E2325F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5C3B098-E758-4302-A7EA-7BB45E2325F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5C3B098-E758-4302-A7EA-7BB45E2325F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5C3B098-E758-4302-A7EA-7BB45E2325F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C381D6-4D27-47FC-81AA-24F176B57CE7}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C381D6-4D27-47FC-81AA-24F176B57CE7}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C381D6-4D27-47FC-81AA-24F176B57CE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C381D6-4D27-47FC-81AA-24F176B57CE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C381D6-4D27-47FC-81AA-24F176B57CE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C381D6-4D27-47FC-81AA-24F176B57CE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A91004D6-E1B0-4767-BB94-C599EA19E9A2}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A91004D6-E1B0-4767-BB94-C599EA19E9A2}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{A91004D6-E1B0-4767-BB94-C599EA19E9A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A91004D6-E1B0-4767-BB94-C599EA19E9A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A91004D6-E1B0-4767-BB94-C599EA19E9A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A91004D6-E1B0-4767-BB94-C599EA19E9A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA13DBD5-F4F3-4798-BE96-F85DE6EA555F}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA13DBD5-F4F3-4798-BE96-F85DE6EA555F}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA13DBD5-F4F3-4798-BE96-F85DE6EA555F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA13DBD5-F4F3-4798-BE96-F85DE6EA555F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA13DBD5-F4F3-4798-BE96-F85DE6EA555F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA13DBD5-F4F3-4798-BE96-F85DE6EA555F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4133707B-B351-493A-BB08-FC2EA0044560}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4133707B-B351-493A-BB08-FC2EA0044560}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{4133707B-B351-493A-BB08-FC2EA0044560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4133707B-B351-493A-BB08-FC2EA0044560}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4133707B-B351-493A-BB08-FC2EA0044560}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4133707B-B351-493A-BB08-FC2EA0044560}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -152,5 +232,21 @@ Global
 		{DB09445F-94FD-4EBA-8D89-718A9B8C50EA} = {EC37E7BD-A4D8-400F-AEA5-B9BA4B766DD8}
 		{3767C00E-FBE2-4E50-8853-106F1CC77F5A} = {C3ABAD00-06EF-449A-A933-DB09A8B1BB75}
 		{215B8C48-9DA4-4D32-90EA-5D24692DF9F7} = {3767C00E-FBE2-4E50-8853-106F1CC77F5A}
+		{7EC62E10-FBE0-4B5D-A3DD-F43FE1F6E067} = {5081A92F-EF6D-4814-AD17-8FA651583C14}
+		{FA769689-A8BA-40A3-BA7D-D72FF4668AE7} = {7EC62E10-FBE0-4B5D-A3DD-F43FE1F6E067}
+		{D44D5E95-3A38-4B78-A340-0D772312D365} = {C3ABAD00-06EF-449A-A933-DB09A8B1BB75}
+		{30F4748F-EAF0-4EC2-A620-B7EB920DAEE2} = {D44D5E95-3A38-4B78-A340-0D772312D365}
+		{2F926D7F-96D4-4FF6-9CF4-A37CFF62837F} = {5081A92F-EF6D-4814-AD17-8FA651583C14}
+		{AC439F7E-E8DD-46B9-8732-17B65641F7AE} = {5081A92F-EF6D-4814-AD17-8FA651583C14}
+		{0270A79D-0305-43A5-BEB3-0068DE79AE4F} = {5081A92F-EF6D-4814-AD17-8FA651583C14}
+		{7E46452B-AFFA-45F6-87DE-DB9646E06CC2} = {0270A79D-0305-43A5-BEB3-0068DE79AE4F}
+		{B5C3B098-E758-4302-A7EA-7BB45E2325F6} = {2F926D7F-96D4-4FF6-9CF4-A37CFF62837F}
+		{27C381D6-4D27-47FC-81AA-24F176B57CE7} = {AC439F7E-E8DD-46B9-8732-17B65641F7AE}
+		{A5FA71B5-2BC3-41B2-878D-1E0243670BC3} = {C3ABAD00-06EF-449A-A933-DB09A8B1BB75}
+		{A1DFEFA8-DAD6-4683-B146-7C0DDF7C5BE7} = {C3ABAD00-06EF-449A-A933-DB09A8B1BB75}
+		{4E6905C7-07A9-490D-9E98-5C0548847B36} = {C3ABAD00-06EF-449A-A933-DB09A8B1BB75}
+		{A91004D6-E1B0-4767-BB94-C599EA19E9A2} = {A5FA71B5-2BC3-41B2-878D-1E0243670BC3}
+		{CA13DBD5-F4F3-4798-BE96-F85DE6EA555F} = {4E6905C7-07A9-490D-9E98-5C0548847B36}
+		{4133707B-B351-493A-BB08-FC2EA0044560} = {A1DFEFA8-DAD6-4683-B146-7C0DDF7C5BE7}
 	EndGlobalSection
 EndGlobal
