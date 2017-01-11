@@ -96,6 +96,66 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="FileNameConverter.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\AppResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\Themes\Generic-bright.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\Themes\Generic-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\CustomSchedule\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -839,6 +899,9 @@
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\CustomSchedule\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
     <Compile Include="UppercaseConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -937,6 +1000,10 @@
     <ProjectReference Include="Samples\WPF-CSharp\LoadChartView\MainFeatures\MainFeatures.LoadChartView.csproj">
       <Project>{7e46452b-affa-45f6-87de-db9646e06cc2}</Project>
       <Name>MainFeatures.LoadChartView</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\LoadChartView\SingleItem\SingleItem.LoadChartView.csproj">
+      <Project>{585a5d0c-7651-49c5-8938-3a706a78b859}</Project>
+      <Name>SingleItem.LoadChartView</Name>
     </ProjectReference>
     <ProjectReference Include="Samples\WPF-CSharp\NetworkDiagramView\MainFeatures\MainFeatures.NetworkDiagramView.csproj">
       <Project>{f2bbfe3a-f856-4c83-9270-ad5b16360cdb}</Project>

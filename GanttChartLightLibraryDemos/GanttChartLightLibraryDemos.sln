@@ -116,6 +116,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomAppearance", "Demos\S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomSchedule", "Demos\Samples\WPF-CSharp\GanttChartDataGrid\CustomSchedule\CustomSchedule.csproj", "{3A6562F1-D921-42F2-BACF-E72D10F95803}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleItem.LoadChartView", "Demos\Samples\WPF-CSharp\LoadChartView\SingleItem\SingleItem.LoadChartView.csproj", "{585A5D0C-7651-49C5-8938-3A706A78B859}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleItem", "Demos\Samples\WPF-CSharp\LoadChartView\SingleItem\SingleItem.csproj", "{15876F31-EE44-4EFB-A33F-513D0E7A6227}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		ComponentSource.Release|Any CPU = ComponentSource.Release|Any CPU
@@ -291,6 +295,18 @@ Global
 		{3A6562F1-D921-42F2-BACF-E72D10F95803}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A6562F1-D921-42F2-BACF-E72D10F95803}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A6562F1-D921-42F2-BACF-E72D10F95803}.Release|Any CPU.Build.0 = Release|Any CPU
+		{585A5D0C-7651-49C5-8938-3A706A78B859}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{585A5D0C-7651-49C5-8938-3A706A78B859}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{585A5D0C-7651-49C5-8938-3A706A78B859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{585A5D0C-7651-49C5-8938-3A706A78B859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{585A5D0C-7651-49C5-8938-3A706A78B859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{585A5D0C-7651-49C5-8938-3A706A78B859}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15876F31-EE44-4EFB-A33F-513D0E7A6227}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15876F31-EE44-4EFB-A33F-513D0E7A6227}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{15876F31-EE44-4EFB-A33F-513D0E7A6227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15876F31-EE44-4EFB-A33F-513D0E7A6227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15876F31-EE44-4EFB-A33F-513D0E7A6227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15876F31-EE44-4EFB-A33F-513D0E7A6227}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -347,5 +363,7 @@ Global
 		{5716893C-1163-4C50-90B7-0B537CFBB6AD} = {AE54A391-FB6D-48D4-A4C7-A8D4E78AEF2A}
 		{5964CA2E-5067-48FC-9AC6-EB6688E2729A} = {90664756-24B9-4446-8E44-BE6BBBAED316}
 		{3A6562F1-D921-42F2-BACF-E72D10F95803} = {90664756-24B9-4446-8E44-BE6BBBAED316}
+		{585A5D0C-7651-49C5-8938-3A706A78B859} = {0270A79D-0305-43A5-BEB3-0068DE79AE4F}
+		{15876F31-EE44-4EFB-A33F-513D0E7A6227} = {4E6905C7-07A9-490D-9E98-5C0548847B36}
 	EndGlobalSection
 EndGlobal

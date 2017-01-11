@@ -181,7 +181,8 @@ namespace Demos
                                     Name = "LoadChartView",
                                     Features = new[]
                                     {
-                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
+                                        new SampleInfo { Tag = "SingleItem", Title = "Single item", Description = "Shows how you can set up a single displayed item in the chart view" }
                                     }
                                 },
                                 new ComponentInfo
