@@ -38,6 +38,20 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.DataBinding
             taskItems[2].Predecessors = new ObservableCollection<CustomPredecessorItem> { new CustomPredecessorItem { Reference = taskItems[1] } };
             taskItems[3].Predecessors = new ObservableCollection<CustomPredecessorItem> { new CustomPredecessorItem { Reference = taskItems[0], Type = (int)DependencyType.StartStart } };
             taskItems[6].Predecessors = new ObservableCollection<CustomPredecessorItem> { new CustomPredecessorItem { Reference = taskItems[0] }, new CustomPredecessorItem { Reference = taskItems[3] } };
+
+            for (int i = 4; i <= 24; i++)
+            {
+                taskItems.Add(
+                    new CustomTaskItem
+                    {
+                        Name = "Task " + i,
+                        IndentLevel = i % 3 == 1 ? 0 : 1,
+                        StartDate = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8),
+                        FinishDate = DateTime.Today.AddDays((i <= 8 ? (i - 4) * 3 + (i > 8 ? 6 : 1) : i - 2) + 1),
+                        CompletionCurrentDate = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8).AddDays(i % 6 == 0 ? 3 : 0)
+                    });
+            }
+
             GanttChartDataGrid.DataContext = taskItems;
         }
 

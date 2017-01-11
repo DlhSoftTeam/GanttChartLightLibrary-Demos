@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using DlhSoft.Windows.Controls;
 using Microsoft.Win32;
 using System.IO;
+using System.Collections.ObjectModel;
 
 namespace Demos.WPF.CSharp.LoadChartDataGrid.MainFeatures
 {
@@ -48,8 +49,25 @@ namespace Demos.WPF.CSharp.LoadChartDataGrid.MainFeatures
             allocation22.Start = DateTime.Today.AddDays(1).Add(TimeSpan.Parse("08:00:00"));
             allocation22.Finish = DateTime.Today.AddDays(2).Add(TimeSpan.Parse("16:00:00"));
 
+            for (int i = 3; i <= 16; i++)
+            {
+                LoadChartItem item = new LoadChartItem { Content = "Resource " + i };
+                for (int j = 1; j <= (i - 1) % 4 + 1; j++)
+                {
+                    item.GanttChartItems.Add(
+                        new AllocationItem
+                        {
+                            Content = "Task " + i + "." + j + ((i + j) % 2 == 1 ? " [200%]" : string.Empty),
+                            Start = DateTime.Today.AddDays(i + (i - 1) * (j - 1)),
+                            Finish = DateTime.Today.AddDays(i * 1.2 + (i - 1) * (j - 1) + 1),
+                            Units = 1 + (i + j) % 2
+                        });
+                }
+                LoadChartDataGrid.Items.Add(item);
+            }
+
             // You may uncomment the next lines of code to test the component performance:
-            // for (int i = 3; i <= 1024; i++)
+            // for (int i = 17; i <= 1024; i++)
             // {
             //    LoadChartItem item = new LoadChartItem { Content = "Resource " + i };
             //    for (int j = 1; j <= (i - 1) % 4 + 1; j++)
@@ -97,6 +115,7 @@ namespace Demos.WPF.CSharp.LoadChartDataGrid.MainFeatures
             item.GanttChartItems.Add(new AllocationItem { Content = "New Task", Start = DateTime.Today, Finish = DateTime.Today.AddDays(1) });
             LoadChartDataGrid.Items.Add(item);
             LoadChartDataGrid.SelectedItem = item;
+            LoadChartDataGrid.ScrollTo(item.GanttChartItems[0]);
         }
         private void InsertNewButton_Click(object sender, RoutedEventArgs e)
         {

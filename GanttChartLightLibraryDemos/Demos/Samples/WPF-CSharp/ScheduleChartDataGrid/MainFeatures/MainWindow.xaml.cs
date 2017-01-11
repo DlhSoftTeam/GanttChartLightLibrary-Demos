@@ -15,6 +15,8 @@ using DlhSoft.Windows.Controls;
 using Microsoft.Win32;
 using System.IO;
 using DlhSoft.Windows.Data;
+using System.Collections.ObjectModel;
+using System.Windows.Threading;
 
 namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
 {
@@ -41,8 +43,25 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
             task22.Start = DateTime.Today.AddDays(1).Add(TimeSpan.Parse("12:00:00"));
             task22.Finish = DateTime.Today.AddDays(2).Add(TimeSpan.Parse("16:00:00"));
 
+            for (int i = 3; i <= 16; i++)
+            {
+                ScheduleChartItem item = new ScheduleChartItem { Content = "Resource " + i };
+                for (int j = 1; j <= (i - 1) % 4 + 1; j++)
+                {
+                    item.GanttChartItems.Add(
+                        new GanttChartItem
+                        {
+                            Content = "Task " + i + "." + j,
+                            Start = DateTime.Today.AddDays(i + (i - 1) * (j - 1)),
+                            Finish = DateTime.Today.AddDays(i * 1.2 + (i - 1) * (j - 1) + 1),
+                            CompletedFinish = DateTime.Today.AddDays(i + (i - 1) * (j - 1)).AddDays((i + j) % 5 == 2 ? 2 : 0)
+                        });
+                }
+                ScheduleChartDataGrid.Items.Add(item);
+            }
+
             // You may uncomment the next lines of code to test the component performance:
-            // for (int i = 3; i <= 1024; i++)
+            // for (int i = 17; i <= 1024; i++)
             // {
             //    ScheduleChartItem item = new ScheduleChartItem { Content = "Resource " + i };
             //    for (int j = 1; j <= (i - 1) % 4 + 1; j++)
@@ -113,6 +132,7 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
             item.GanttChartItems.Add(new GanttChartItem { Content = "New Task", Start = DateTime.Today, Finish = DateTime.Today.AddDays(1) });
             ScheduleChartDataGrid.Items.Add(item);
             ScheduleChartDataGrid.SelectedItem = item;
+            ScheduleChartDataGrid.ScrollTo(item.GanttChartItems[0]);
         }
         private void InsertNewButton_Click(object sender, RoutedEventArgs e)
         {

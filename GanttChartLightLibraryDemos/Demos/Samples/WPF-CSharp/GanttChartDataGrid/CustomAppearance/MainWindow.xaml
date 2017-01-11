@@ -10,8 +10,8 @@
             </ResourceDictionary.MergedDictionaries>
             <SolidColorBrush x:Key="StandardBarFill" Color="PaleGreen"/>
             <SolidColorBrush x:Key="StandardBarStroke" Color="DarkGreen"/>
-            <SolidColorBrush x:Key="CustomStandardBarFill" Color="Tomato"/>
-            <SolidColorBrush x:Key="CustomStandardBarStroke" Color="DarkRed"/>
+            <SolidColorBrush x:Key="CustomStandardBarFill" Color="#805480"/>
+            <SolidColorBrush x:Key="CustomStandardBarStroke" Color="#402740"/>
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>

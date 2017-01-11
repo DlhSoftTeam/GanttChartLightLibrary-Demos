@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using DlhSoft.Windows.Controls;
 using Microsoft.Win32;
 using System.IO;
+using System.Collections.ObjectModel;
 
 namespace Demos.WPF.CSharp.ScheduleChartView.MainFeatures
 {
@@ -40,8 +41,25 @@ namespace Demos.WPF.CSharp.ScheduleChartView.MainFeatures
             task22.Start = DateTime.Today.AddDays(1).Add(TimeSpan.Parse("12:00:00"));
             task22.Finish = DateTime.Today.AddDays(2).Add(TimeSpan.Parse("16:00:00"));
 
+            for (int i = 3; i <= 16; i++)
+            {
+                ScheduleChartItem item = new ScheduleChartItem();
+                for (int j = 1; j <= (i - 1) % 4 + 1; j++)
+                {
+                    item.GanttChartItems.Add(
+                        new GanttChartItem
+                        {
+                            Content = "Task " + i + "." + j + " (Resource " + i + ")",
+                            Start = DateTime.Today.AddDays(i + (i - 1) * (j - 1)),
+                            Finish = DateTime.Today.AddDays(i * 1.2 + (i - 1) * (j - 1) + 1),
+                            CompletedFinish = DateTime.Today.AddDays(i + (i - 1) * (j - 1)).AddDays((i + j) % 5 == 2 ? 2 : 0)
+                        });
+                }
+                ScheduleChartView.Items.Add(item);
+            }
+
             // You may uncomment the next lines of code to test the component performance:
-            // for (int i = 3; i <= 1024; i++)
+            // for (int i = 17; i <= 1024; i++)
             // {
             //    ScheduleChartItem item = new ScheduleChartItem();
             //    for (int j = 1; j <= (i - 1) % 4 + 1; j++)

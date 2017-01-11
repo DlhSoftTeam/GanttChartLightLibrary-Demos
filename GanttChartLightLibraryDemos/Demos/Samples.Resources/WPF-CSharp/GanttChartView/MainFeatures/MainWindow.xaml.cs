@@ -57,8 +57,21 @@ namespace Demos.WPF.CSharp.GanttChartView.MainFeatures
             item7.Predecessors.Add(new PredecessorItem { Item = item4 });
             item7.Predecessors.Add(new PredecessorItem { Item = item6 });
 
+            for (int i = 3; i <= 23; i++)
+            {
+                GanttChartView.Items.Add(
+                    new GanttChartItem
+                    {
+                        Content = "Task " + i,
+                        Indentation = i % 3 == 0 ? 0 : 1,
+                        Start = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8),
+                        Finish = DateTime.Today.AddDays((i <= 8 ? (i - 4) * 3 + (i > 8 ? 6 : 1) : i - 2) + 1),
+                        CompletedFinish = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8).AddDays(i % 6 == 4 ? 3 : 0)
+                    });
+            }
+
             // You may uncomment the next lines of code to test the component performance:
-            // for (int i = 9; i <= 4096; i++)
+            // for (int i = 24; i <= 4096; i++)
             // {
             //    GanttChartView.Items.Add(
             //        new GanttChartItem

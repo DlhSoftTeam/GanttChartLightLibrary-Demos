@@ -100,7 +100,7 @@
                     <Setter Property="FontWeight" Value="Normal"/>
                 </Trigger>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
                 </Trigger>
             </Style.Triggers>
         </Style>

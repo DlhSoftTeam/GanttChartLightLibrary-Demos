@@ -63,6 +63,7 @@
     <DefineTrace>true</DefineTrace>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
+    <MyType>Empty</MyType>
     <Optimize>true</Optimize>
     <OutputPath>Bin\Release</OutputPath>
     <DocumentationFile>GanttChartDataGridVisualBasicSample.xml</DocumentationFile>
