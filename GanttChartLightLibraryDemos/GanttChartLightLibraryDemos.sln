@@ -108,6 +108,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBinding.GanttChartDataG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBinding", "Demos\Samples\WPF-CSharp\GanttChartDataGrid\DataBinding\DataBinding.csproj", "{8D42AB78-F696-407F-BB3F-502F9D5AC50D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomAppearance.GanttChartDataGrid", "Demos\Samples\WPF-CSharp\GanttChartDataGrid\CustomAppearance\CustomAppearance.GanttChartDataGrid.csproj", "{C3E4139A-1498-443A-94CC-261E988F629A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomSchedule.GanttChartDataGrid", "Demos\Samples\WPF-CSharp\GanttChartDataGrid\CustomSchedule\CustomSchedule.GanttChartDataGrid.csproj", "{5716893C-1163-4C50-90B7-0B537CFBB6AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomAppearance", "Demos\Samples\WPF-CSharp\GanttChartDataGrid\CustomAppearance\CustomAppearance.csproj", "{5964CA2E-5067-48FC-9AC6-EB6688E2729A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomSchedule", "Demos\Samples\WPF-CSharp\GanttChartDataGrid\CustomSchedule\CustomSchedule.csproj", "{3A6562F1-D921-42F2-BACF-E72D10F95803}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		ComponentSource.Release|Any CPU = ComponentSource.Release|Any CPU
@@ -259,6 +267,30 @@ Global
 		{8D42AB78-F696-407F-BB3F-502F9D5AC50D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D42AB78-F696-407F-BB3F-502F9D5AC50D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D42AB78-F696-407F-BB3F-502F9D5AC50D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3E4139A-1498-443A-94CC-261E988F629A}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3E4139A-1498-443A-94CC-261E988F629A}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3E4139A-1498-443A-94CC-261E988F629A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3E4139A-1498-443A-94CC-261E988F629A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3E4139A-1498-443A-94CC-261E988F629A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3E4139A-1498-443A-94CC-261E988F629A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5716893C-1163-4C50-90B7-0B537CFBB6AD}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5716893C-1163-4C50-90B7-0B537CFBB6AD}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{5716893C-1163-4C50-90B7-0B537CFBB6AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5716893C-1163-4C50-90B7-0B537CFBB6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5716893C-1163-4C50-90B7-0B537CFBB6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5716893C-1163-4C50-90B7-0B537CFBB6AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5964CA2E-5067-48FC-9AC6-EB6688E2729A}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5964CA2E-5067-48FC-9AC6-EB6688E2729A}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{5964CA2E-5067-48FC-9AC6-EB6688E2729A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5964CA2E-5067-48FC-9AC6-EB6688E2729A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5964CA2E-5067-48FC-9AC6-EB6688E2729A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5964CA2E-5067-48FC-9AC6-EB6688E2729A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A6562F1-D921-42F2-BACF-E72D10F95803}.ComponentSource.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A6562F1-D921-42F2-BACF-E72D10F95803}.ComponentSource.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A6562F1-D921-42F2-BACF-E72D10F95803}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A6562F1-D921-42F2-BACF-E72D10F95803}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A6562F1-D921-42F2-BACF-E72D10F95803}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A6562F1-D921-42F2-BACF-E72D10F95803}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -311,5 +343,9 @@ Global
 		{E17CD748-E5B4-48E3-AC04-528DF7D625FC} = {FA86DDD1-BE9A-4AD8-9447-F82C9F329E44}
 		{95F30FAA-9A21-435D-9E1C-B37465B05F01} = {AE54A391-FB6D-48D4-A4C7-A8D4E78AEF2A}
 		{8D42AB78-F696-407F-BB3F-502F9D5AC50D} = {90664756-24B9-4446-8E44-BE6BBBAED316}
+		{C3E4139A-1498-443A-94CC-261E988F629A} = {AE54A391-FB6D-48D4-A4C7-A8D4E78AEF2A}
+		{5716893C-1163-4C50-90B7-0B537CFBB6AD} = {AE54A391-FB6D-48D4-A4C7-A8D4E78AEF2A}
+		{5964CA2E-5067-48FC-9AC6-EB6688E2729A} = {90664756-24B9-4446-8E44-BE6BBBAED316}
+		{3A6562F1-D921-42F2-BACF-E72D10F95803} = {90664756-24B9-4446-8E44-BE6BBBAED316}
 	EndGlobalSection
 EndGlobal

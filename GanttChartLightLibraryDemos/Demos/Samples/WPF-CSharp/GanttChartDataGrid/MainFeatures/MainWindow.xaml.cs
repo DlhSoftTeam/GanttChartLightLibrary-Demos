@@ -180,6 +180,8 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             EnableDependencyConstraintsCheckBox.IsChecked = true;
         }
 
+        private ResourceDictionary themeResourceDictionary;
+
         public MainWindow(string theme) : this()
         {
             if (theme == null || theme == "Default" || theme == "Aero")
@@ -187,8 +189,6 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             themeResourceDictionary = new ResourceDictionary { Source = new Uri("/" + GetType().Assembly.GetName().Name + ";component/Themes/" + theme + ".xaml", UriKind.Relative) };
             GanttChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary);
         }
-
-        private ResourceDictionary themeResourceDictionary;
 
         // Control area commands.
         private void EditButton_Click(object sender, RoutedEventArgs e)

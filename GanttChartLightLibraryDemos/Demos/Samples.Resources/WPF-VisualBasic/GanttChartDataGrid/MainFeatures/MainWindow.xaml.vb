@@ -99,9 +99,9 @@ Class MainWindow
                 New GanttChartItem With
                 {
                     .Content = "Task " + i.ToString(),
-                    .Indentation = IIf(i >= 8 And i Mod 3 = 2, 0, 1),
-                    .Start = DateTime.Today.AddDays(IIf(i <= 8, (i - 4) * 3, i - 8)),
-                    .Finish = DateTime.Today.AddDays(IIf(i <= 8, (i - 4) * 3 + IIf(i > 8, 6, 1), i - 2) + 1)
+                    .Indentation = CInt(IIf(i >= 8 And i Mod 3 = 2, 0, 1)),
+                    .Start = DateTime.Today.AddDays(CInt(IIf(i <= 8, (i - 4) * 3, i - 8))),
+                    .Finish = DateTime.Today.AddDays(CInt(IIf(i <= 8, (i - 4) * 3 + CInt(IIf(i > 8, 6, 1)), i - 2)) + 1)
                 })
         Next
 
