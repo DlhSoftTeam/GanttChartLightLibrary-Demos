@@ -1,0 +1,48 @@
+﻿<Window x:Class="Demos.WPF.CSharp.LoadChartDataGrid.CustomSchedule.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        Title="LoadChartDataGrid Custom Schedule Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate x:Key="ScaleHeaderContentTemplate">
+                <ContentControl Content="{Binding}" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="2" IsTabStop="False"/>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <!-- Set VisibleWeekStart and VisibleWeekFinish (and in code behind, TimlineStart and TimelineFinish, and VisibleDayStart and VisibleDayFinish) properties to define the visible time intervals in the chart. -->
+        <!-- Set HourWidth property to define the zoom level for the timeline in the chart. -->
+        <!-- Set HeaderHeight and ScaleHeaderHeight properties to define the total header height and the default scale header height in the chart. -->
+        <pdgcc:LoadChartDataGrid x:Name="LoadChartDataGrid" VisibleWeekStart="Monday" VisibleWeekFinish="Saturday" HourWidth="30" HeaderHeight="84" ScaleHeaderHeight="28">
+            <!-- Set Scales collection to specify the headers to be displayed in the chart. -->
+            <pdgcc:LoadChartDataGrid.Scales>
+                <pdgcc:ScaleCollection>
+                    <pdgcc:Scale ScaleType="Months" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+                    <pdgcc:Scale ScaleType="Weeks" HeaderHeight="0" BorderBrush="Silver" BorderThickness="0,0,0.35,0"/>
+                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayLeadingZero" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,0.15,0"/>
+                    <pdgcc:Scale ScaleType="Hours" HeaderContentFormat="HourLeadingZero" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                </pdgcc:ScaleCollection>
+            </pdgcc:LoadChartDataGrid.Scales>
+            <pdgcc:LoadChartDataGrid.Items>
+                <!-- Some item properties are set in code behind. -->
+                <pdgcc:LoadChartItem Content="Resource 1">
+                    <pdgcc:LoadChartItem.GanttChartItems>
+                        <pdgcc:AllocationItem Content="Task 1"/>
+                        <pdgcc:AllocationItem Content="Task 1, Task 2 [50%]: 150%"/>
+                        <pdgcc:AllocationItem Content="Task 2 [50%]"/>
+                        <pdgcc:AllocationItem Content="Task 3"/>
+                    </pdgcc:LoadChartItem.GanttChartItems>
+                </pdgcc:LoadChartItem>
+                <pdgcc:LoadChartItem Content="Resource 2">
+                    <pdgcc:LoadChartItem.GanttChartItems>
+                        <pdgcc:AllocationItem Content="Task 2"/>
+                    </pdgcc:LoadChartItem.GanttChartItems>
+                </pdgcc:LoadChartItem>
+            </pdgcc:LoadChartDataGrid.Items>
+        </pdgcc:LoadChartDataGrid>
+    </DockPanel>
+</Window>

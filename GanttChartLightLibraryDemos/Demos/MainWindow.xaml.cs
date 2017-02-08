@@ -208,7 +208,10 @@ namespace Demos
                                     Name = "LoadChartDataGrid",
                                     Features = new[]
                                     {
-                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
+                                        new SampleInfo { Tag = "CustomAppearance", Title = "Custom appearance", Description = "Shows how you can set colors for different types of allocation items" },
+                                        new SampleInfo { Tag = "CustomSchedule", Title = "Custom schedule and scales", Description = "Shows how you can define working and nonworking times and custom scales and headers for the chart view" },
+                                        new SampleInfo { Tag = "MouseEventHandling", Title = "Mouse event handling", Description = "Shows how you can determine the item and other elements bound to the cursor position for handling mouse events" }
                                     }
                                 },
                                 new ComponentInfo

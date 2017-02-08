@@ -196,6 +196,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleLinesPerRow.Schedul
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleLinesPerRow", "Demos\Samples\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\MultipleLinesPerRow.csproj", "{3879B90C-048E-4CE9-BCD9-2AFA3684339B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomAppearance.LoadChartDataGrid", "Demos\Samples\WPF-CSharp\LoadChartDataGrid\CustomAppearance\CustomAppearance.LoadChartDataGrid.csproj", "{FA3C350D-0EAC-4822-99DF-6CF339D895DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomAppearance", "Demos\Samples\WPF-CSharp\LoadChartDataGrid\CustomAppearance\CustomAppearance.csproj", "{DFD53710-6776-472A-9693-F3734F09CE4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomSchedule.LoadChartDataGrid", "Demos\Samples\WPF-CSharp\LoadChartDataGrid\CustomSchedule\CustomSchedule.LoadChartDataGrid.csproj", "{087A406F-AF83-4722-9417-C98BC41276B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomSchedule", "Demos\Samples\WPF-CSharp\LoadChartDataGrid\CustomSchedule\CustomSchedule.csproj", "{6181703A-5B7F-48F6-8A02-B86E1DDCE6A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MouseEventHandling.LoadChartDataGrid", "Demos\Samples\WPF-CSharp\LoadChartDataGrid\MouseEventHandling\MouseEventHandling.LoadChartDataGrid.csproj", "{EA394593-4D02-46D1-8F82-56919089EA9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MouseEventHandling", "Demos\Samples\WPF-CSharp\LoadChartDataGrid\MouseEventHandling\MouseEventHandling.csproj", "{128F5D6E-499E-49FF-88F7-38D0CA26B510}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -474,6 +486,30 @@ Global
 		{3879B90C-048E-4CE9-BCD9-2AFA3684339B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3879B90C-048E-4CE9-BCD9-2AFA3684339B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3879B90C-048E-4CE9-BCD9-2AFA3684339B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA3C350D-0EAC-4822-99DF-6CF339D895DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA3C350D-0EAC-4822-99DF-6CF339D895DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA3C350D-0EAC-4822-99DF-6CF339D895DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA3C350D-0EAC-4822-99DF-6CF339D895DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFD53710-6776-472A-9693-F3734F09CE4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFD53710-6776-472A-9693-F3734F09CE4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFD53710-6776-472A-9693-F3734F09CE4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFD53710-6776-472A-9693-F3734F09CE4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{087A406F-AF83-4722-9417-C98BC41276B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{087A406F-AF83-4722-9417-C98BC41276B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{087A406F-AF83-4722-9417-C98BC41276B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{087A406F-AF83-4722-9417-C98BC41276B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6181703A-5B7F-48F6-8A02-B86E1DDCE6A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6181703A-5B7F-48F6-8A02-B86E1DDCE6A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6181703A-5B7F-48F6-8A02-B86E1DDCE6A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6181703A-5B7F-48F6-8A02-B86E1DDCE6A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA394593-4D02-46D1-8F82-56919089EA9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA394593-4D02-46D1-8F82-56919089EA9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA394593-4D02-46D1-8F82-56919089EA9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA394593-4D02-46D1-8F82-56919089EA9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{128F5D6E-499E-49FF-88F7-38D0CA26B510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{128F5D6E-499E-49FF-88F7-38D0CA26B510}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{128F5D6E-499E-49FF-88F7-38D0CA26B510}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{128F5D6E-499E-49FF-88F7-38D0CA26B510}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -570,5 +606,11 @@ Global
 		{E239995A-913A-4D65-87EC-FC5E5D536BB2} = {3767C00E-FBE2-4E50-8853-106F1CC77F5A}
 		{1B29A236-E2C7-484B-8372-F306342B8980} = {EC37E7BD-A4D8-400F-AEA5-B9BA4B766DD8}
 		{3879B90C-048E-4CE9-BCD9-2AFA3684339B} = {3767C00E-FBE2-4E50-8853-106F1CC77F5A}
+		{FA3C350D-0EAC-4822-99DF-6CF339D895DD} = {7EC62E10-FBE0-4B5D-A3DD-F43FE1F6E067}
+		{DFD53710-6776-472A-9693-F3734F09CE4B} = {D44D5E95-3A38-4B78-A340-0D772312D365}
+		{087A406F-AF83-4722-9417-C98BC41276B8} = {7EC62E10-FBE0-4B5D-A3DD-F43FE1F6E067}
+		{6181703A-5B7F-48F6-8A02-B86E1DDCE6A4} = {D44D5E95-3A38-4B78-A340-0D772312D365}
+		{EA394593-4D02-46D1-8F82-56919089EA9F} = {7EC62E10-FBE0-4B5D-A3DD-F43FE1F6E067}
+		{128F5D6E-499E-49FF-88F7-38D0CA26B510} = {D44D5E95-3A38-4B78-A340-0D772312D365}
 	EndGlobalSection
 EndGlobal

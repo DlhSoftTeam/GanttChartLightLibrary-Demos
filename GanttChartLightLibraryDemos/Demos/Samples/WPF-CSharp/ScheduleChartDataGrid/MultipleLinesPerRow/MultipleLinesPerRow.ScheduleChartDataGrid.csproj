@@ -7,8 +7,8 @@
     <ProjectGuid>{1B29A236-E2C7-484B-8372-F306342B8980}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Demos.WPF.CSharp.ScheduleChartDataGrid.MultipleLinesRow</RootNamespace>
-    <AssemblyName>Demos.WPF.CSharp.ScheduleChartDataGrid.MultipleLinesRow</AssemblyName>
+    <RootNamespace>Demos.WPF.CSharp.ScheduleChartDataGrid.MultipleLinesPerRow</RootNamespace>
+    <AssemblyName>Demos.WPF.CSharp.ScheduleChartDataGrid.MultipleLinesPerRow</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>

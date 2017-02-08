@@ -8,7 +8,7 @@ using DlhSoft.Windows.Controls;
 using Microsoft.Win32;
 using System.IO;
 
-namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MultipleLinesRow
+namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MultipleLinesPerRow
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
