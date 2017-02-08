@@ -22,7 +22,7 @@
         <!-- Set IsCurrentTimeLineVisible to false in order to hide the current time vertical bar, as date and time values are virtualized using a numeric day origin (see code behind). -->
         <!-- Set UpdateScaleInterval to 1 day time span, as date and time values should be defined using integral day numbers. -->
         <!-- Handle TimelinePageChanged event to be able to set the Gantt Chart header string values in code behind when the timeline page changes or gets initialized. -->
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" IsCurrentTimeLineVisible="False" UpdateScaleInterval="1.00:00:00" TimelinePageChanged="GanttChartDataGrid_TimelinePageChanged">
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" DataGridWidth="0.35*" IsCurrentTimeLineVisible="False" UpdateScaleInterval="1.00:00:00" TimelinePageChanged="GanttChartDataGrid_TimelinePageChanged">
             <pdgcc:GanttChartDataGrid.Columns>
                 <!-- Set the entire columns collection in order to be able to set Start and Finish columns as displaying numeric day string values instead of dates and times. -->
                 <pdgcc:DataGridColumnCollection>

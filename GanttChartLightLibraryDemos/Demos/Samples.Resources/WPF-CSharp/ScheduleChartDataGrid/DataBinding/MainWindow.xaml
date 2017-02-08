@@ -12,7 +12,7 @@
     </Window.Resources>
     <DockPanel>
         <!-- DataContext is set to a custom resource collection in code behind, and items are bound using ResourceItemsConverter. -->
-        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid">
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.05*">
             <pdgcc:ScheduleChartDataGrid.Items>
                 <Binding>
                     <Binding.Converter>

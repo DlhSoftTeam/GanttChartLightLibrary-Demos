@@ -13,7 +13,7 @@
     <DockPanel>
         <TextBox x:Name="NotificationsTextBox" DockPanel.Dock="Bottom" MaxLines="8" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="2"/>
         <!-- Handle PreviewMouseLeftButtonUp event to be notified when click events occur within the control (see code behind). -->
-        <pdgcc:LoadChartDataGrid x:Name="LoadChartDataGrid" PreviewMouseLeftButtonUp="LoadChartDataGrid_PreviewMouseLeftButtonUp">
+        <pdgcc:LoadChartDataGrid x:Name="LoadChartDataGrid" DataGridWidth="0.05*" PreviewMouseLeftButtonUp="LoadChartDataGrid_PreviewMouseLeftButtonUp">
             <pdgcc:LoadChartDataGrid.Items>
                 <!-- Some item properties are set in code behind. -->
                 <pdgcc:LoadChartItem Content="Resource 1">
