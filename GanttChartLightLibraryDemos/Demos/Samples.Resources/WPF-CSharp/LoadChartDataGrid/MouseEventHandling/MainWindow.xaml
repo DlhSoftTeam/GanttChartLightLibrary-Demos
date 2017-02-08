@@ -24,7 +24,7 @@
                         <pdgcc:AllocationItem Content="Task 3"/>
                     </pdgcc:LoadChartItem.GanttChartItems>
                 </pdgcc:LoadChartItem>
-                <pdgcc:LoadChartItem Content="Resource 1">
+                <pdgcc:LoadChartItem Content="Resource 2">
                     <pdgcc:LoadChartItem.GanttChartItems>
                         <pdgcc:AllocationItem Content="Task 2"/>
                     </pdgcc:LoadChartItem.GanttChartItems>
