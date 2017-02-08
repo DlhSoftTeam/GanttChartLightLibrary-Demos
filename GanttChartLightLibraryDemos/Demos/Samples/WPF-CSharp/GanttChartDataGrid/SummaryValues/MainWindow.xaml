@@ -1,0 +1,55 @@
+﻿<Window x:Class="Demos.WPF.CSharp.GanttChartDataGrid.SummaryValues.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:local="clr-namespace:Demos.WPF.CSharp.GanttChartDataGrid.SummaryValues"
+        Title="GanttChartDataGrid Summary values Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid">
+            <pdgcc:GanttChartDataGrid.Columns>
+                <pdgcc:DataGridColumnCollection>
+                    <hdc:DataTreeGridColumn Header="Task"/>
+                    <DataGridTextColumn Header="Start" Binding="{Binding Start, Mode=TwoWay, Converter={StaticResource DateTimeStringConverter}}"/>
+                    <DataGridTextColumn Header="Finish" Binding="{Binding Finish, Mode=TwoWay, Converter={StaticResource DateTimeStringConverter}}"/>
+                    <DataGridCheckBoxColumn Header="Is milestone" Binding="{Binding IsMilestone, Mode=TwoWay}"/>
+                    <DataGridCheckBoxColumn Header="Is completed" Binding="{Binding IsCompleted, Mode=TwoWay}"/>
+                    <DataGridTextColumn Header="Assignments" Binding="{Binding AssignmentsContent, Mode=TwoWay}"/>
+                    <!-- Define and add the extra costs column using a custom template. -->
+                    <DataGridTemplateColumn Header="Extra costs">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ExtraCosts, StringFormat=0.00}" Margin="2,0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <!-- Set the text editor as read only for summary items (binding IsReadOnly property of the TextBox to HasChildren indicator of the item). -->
+                                <TextBox Text="{Binding ExtraCosts, StringFormat=0.00}" IsReadOnly="{Binding HasChildren}" BorderThickness="0" Padding="0" VerticalAlignment="Stretch"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                </pdgcc:DataGridColumnCollection>
+            </pdgcc:GanttChartDataGrid.Columns>
+            <pdgcc:GanttChartDataGrid.Items>
+                <!-- Use a custom item that inherits from GanttChartItem (see code behind). -->
+                <!-- Some item properties, including ExtraCosts, are set in code behind. -->
+                <local:CustomGanttChartItem Content="Task 1"/>
+                <local:CustomGanttChartItem Content="Task 1.1" Indentation="1"/>
+                <local:CustomGanttChartItem Content="Task 1.2" Indentation="1"/>
+                <local:CustomGanttChartItem Content="Task 2"/>
+                <local:CustomGanttChartItem Content="Task 2.1" Indentation="1"/>
+                <local:CustomGanttChartItem Content="Task 2.2" Indentation="1"/>
+                <local:CustomGanttChartItem Content="Task 2.2.1" Indentation="2"/>
+                <local:CustomGanttChartItem Content="Task 2.2.2" Indentation="2"/>
+            </pdgcc:GanttChartDataGrid.Items>
+        </pdgcc:GanttChartDataGrid>
+    </DockPanel>
+</Window>

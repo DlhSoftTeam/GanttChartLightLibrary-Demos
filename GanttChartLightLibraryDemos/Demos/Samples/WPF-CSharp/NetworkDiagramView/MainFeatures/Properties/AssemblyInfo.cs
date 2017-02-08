@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NetworkDiagramViewSample")]
+[assembly: AssemblyTitle("MainFeatures")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("DlhSoft")]
-[assembly: AssemblyProduct("NetworkDiagramViewSample")]
-[assembly: AssemblyCopyright("Copyright © 2012 DlhSoft")]
+[assembly: AssemblyProduct("MainFeatures")]
+[assembly: AssemblyCopyright("Copyright © 2017 DlhSoft")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

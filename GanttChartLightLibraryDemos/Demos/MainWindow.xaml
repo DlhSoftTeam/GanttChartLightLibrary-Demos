@@ -149,8 +149,8 @@
                 </TextBlock>
             </StackPanel>
         </DockPanel>
-        <ScrollViewer DockPanel.Dock="Top" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="16,0" Height="55">
+        <Viewbox DockPanel.Dock="Top" HorizontalAlignment="Right" Margin="16,0" Height="55">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="55">
                 <ListBox Name="FilesListBox" SelectionMode="Single" SelectionChanged="FilesListBox_SelectionChanged">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -210,7 +210,7 @@
                     <ComboBoxItem Content="Silverlight™ – Visual Basic®" Tag="Silverlight-VisualBasic"/>
                 </ComboBox>
             </StackPanel>
-        </ScrollViewer>
+        </Viewbox>
         <Border BorderBrush="#ccc" BorderThickness="0,1,0,0">
             <DockPanel>
                 <Grid DockPanel.Dock="Left">

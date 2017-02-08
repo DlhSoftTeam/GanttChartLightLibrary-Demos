@@ -63,7 +63,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Properties\GanttChrartLightLibraryDemos.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Properties\GanttChartLightLibraryDemos.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
@@ -97,6 +97,1102 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="FileNameConverter.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\AppResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\Themes\Generic-bright.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\Themes\Generic-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\AppResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\Themes\Generic-bright.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\Themes\Generic-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\AppResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\Themes\Generic-bright.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\Themes\Generic-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\AppResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\Themes\Generic-bright.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\Themes\Generic-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\AppResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\Themes\Generic-bright.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\Themes\Generic-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\AppResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\Themes\Generic-bright.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\Themes\Generic-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\AppResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\Themes\Generic-bright.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\Themes\Generic-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\AppResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Themes\Generic-bright.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Themes\Generic-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\Themes\Generic-bright.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\Themes\Generic-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\Themes\Common.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\Themes\Generic-bright.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\Themes\Generic-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\Themes\Common.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\Themes\Generic-bright.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\Themes\Generic-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\Themes\Common.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\Themes\Generic-bright.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\Themes\Generic-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\Themes\Common.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\Themes\Generic-bright.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\Themes\Generic-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\Themes\Common.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\Themes\Generic-bright.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\Themes\Generic-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\Themes\Common.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\Themes\Generic-bright.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\Themes\Generic-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\Themes\Common.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\Themes\Generic-bright.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\Themes\Generic-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\Themes\Common.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\Themes\Generic-bright.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\Themes\Generic-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\Themes\Common.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\Themes\Generic-bright.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\Themes\Generic-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\Themes\Common.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\Themes\Generic-bright.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\Themes\Generic-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\Themes\Common.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -896,13 +1992,81 @@
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\CustomAppearance\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\CustomSchedule\CustomTaskItem.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\CustomSchedule\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\UnlimitedIntConverter.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\CustomGanttChartItem.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\CustomGanttChartItem.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\Interruption.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\Marker.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\NumericDayStringConverter.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\RecurrenceType.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\RecurrentGanttChartItem.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\CustomGanttChartItem.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Interruption.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Marker.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\CustomResourceItem.cs" />
     <Compile Include="UppercaseConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -944,7 +2108,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Properties\GanttChrartLightLibraryDemos.snk" />
+    <None Include="Properties\GanttChartLightLibraryDemos.snk" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -979,6 +2143,18 @@
     <None Include="Tools\Interop.Shell32.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\BarTemplating\BarTemplating.GanttChartDataGrid.csproj">
+      <Project>{add9c2aa-cf1f-4836-a611-ce893e857e31}</Project>
+      <Name>BarTemplating.GanttChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\BasicUsage\BasicUsage.GanttChartDataGrid.csproj">
+      <Project>{f8192a49-b514-4222-943d-6420cb50d62f}</Project>
+      <Name>BasicUsage.GanttChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\ChangeNotifications.GanttChartDataGrid.csproj">
+      <Project>{277e081e-408e-4574-a851-c34d93435673}</Project>
+      <Name>ChangeNotifications.GanttChartDataGrid</Name>
+    </ProjectReference>
     <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\CustomAppearance\CustomAppearance.GanttChartDataGrid.csproj">
       <Project>{c3e4139a-1498-443a-94cc-261e988f629a}</Project>
       <Name>CustomAppearance.GanttChartDataGrid</Name>
@@ -991,9 +2167,41 @@
       <Project>{95f30faa-9a21-435d-9e1c-b37465b05f01}</Project>
       <Name>DataBinding.GanttChartDataGrid</Name>
     </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\Filtering\Filtering.GanttChartDataGrid.csproj">
+      <Project>{95641bd8-7441-4173-8b91-973384f97e69}</Project>
+      <Name>Filtering.GanttChartDataGrid</Name>
+    </ProjectReference>
     <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainFeatures.GanttChartDataGrid.csproj">
       <Project>{326967b5-0af7-4aa0-a4b9-70abb105142d}</Project>
       <Name>MainFeatures.GanttChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MinuteScale\MinuteScale.GanttChartDataGrid.csproj">
+      <Project>{23218f0a-821b-4ea1-a657-d486502dce16}</Project>
+      <Name>MinuteScale.GanttChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\MouseEventHandling.GanttChartDataGrid.csproj">
+      <Project>{f359a7ce-088c-4434-9368-8e1d5fa97c18}</Project>
+      <Name>MouseEventHandling.GanttChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\NumericDays\NumericDays.GanttChartDataGrid.csproj">
+      <Project>{fe9c0ec3-a81b-449d-bbd3-8f24dd85fdf9}</Project>
+      <Name>NumericDays.GanttChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\Recurrence\Recurrence.GanttChartDataGrid.csproj">
+      <Project>{ef5f119a-5c33-421e-a9f8-27e8029b514b}</Project>
+      <Name>Recurrence.GanttChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\Sorting\Sorting.GanttChartDataGrid.csproj">
+      <Project>{6b814acc-3bae-4eae-a3b8-432bfdb8ea9d}</Project>
+      <Name>Sorting.GanttChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\SummaryBars\SummaryBars.GanttChartDataGrid.csproj">
+      <Project>{cb7b1a34-6631-4b99-9788-7f888afc3564}</Project>
+      <Name>SummaryBars.GanttChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\SummaryValues\SummaryValues.GanttChartDataGrid.csproj">
+      <Project>{c8210aa8-3750-459d-8d7b-22c23a5d2956}</Project>
+      <Name>SummaryValues.GanttChartDataGrid</Name>
     </ProjectReference>
     <ProjectReference Include="Samples\WPF-CSharp\GanttChartView\MainFeatures\MainFeatures.GanttChartView.csproj">
       <Project>{b5c3b098-e758-4302-a7ea-7bb45e2325f6}</Project>
@@ -1019,9 +2227,41 @@
       <Project>{c1295877-1d6d-4986-a1b9-b4af32c32ec7}</Project>
       <Name>MainFeatures.PertChartView</Name>
     </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\BarTemplating.ScheduleChartDataGrid.csproj">
+      <Project>{d4f836c9-8cd1-43cc-9965-234ab22b9a92}</Project>
+      <Name>BarTemplating.ScheduleChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\BasicUsage.ScheduleChartDataGrid.csproj">
+      <Project>{3d9828fa-63f3-4949-9861-64d693db5aeb}</Project>
+      <Name>BasicUsage.ScheduleChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\CustomAppearance.ScheduleChartDataGrid.csproj">
+      <Project>{817a505f-e8ee-463a-a692-9228d0bdbd05}</Project>
+      <Name>CustomAppearance.ScheduleChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\CustomSchedule.ScheduleChartDataGrid.csproj">
+      <Project>{12c2e139-c927-40c4-b60b-2a6934827d2d}</Project>
+      <Name>CustomSchedule.ScheduleChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\ScheduleChartDataGrid\DataBinding\DataBinding.ScheduleChartDataGrid.csproj">
+      <Project>{307de03a-b65a-42f8-b053-c80a9e236a96}</Project>
+      <Name>DataBinding.ScheduleChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\Hierarchy.ScheduleChartDataGrid.csproj">
+      <Project>{6971f199-a0d7-44c4-9cf1-9911eff4c8c0}</Project>
+      <Name>Hierarchy.ScheduleChartDataGrid</Name>
+    </ProjectReference>
     <ProjectReference Include="Samples\WPF-CSharp\ScheduleChartDataGrid\MainFeatures\MainFeatures.ScheduleChartDataGrid.csproj">
       <Project>{db09445f-94fd-4eba-8d89-718a9b8c50ea}</Project>
       <Name>MainFeatures.ScheduleChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\MouseEventHandling.ScheduleChartDataGrid.csproj">
+      <Project>{bed03d92-782a-4d16-a265-5f729a94745d}</Project>
+      <Name>MouseEventHandling.ScheduleChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\MultipleLinesPerRow.ScheduleChartDataGrid.csproj">
+      <Project>{1b29a236-e2c7-484b-8372-f306342b8980}</Project>
+      <Name>MultipleLinesPerRow.ScheduleChartDataGrid</Name>
     </ProjectReference>
     <ProjectReference Include="Samples\WPF-CSharp\ScheduleChartView\MainFeatures\MainFeatures.ScheduleChartView.csproj">
       <Project>{27c381d6-4d27-47fc-81aa-24f176b57ce7}</Project>
@@ -1049,7 +2289,7 @@
   <PropertyGroup>
     <PostBuildEvent>for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\obj
 for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\bin
-for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do del "%25%25f\*.Library.*proj*"
+for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do del "%25%25f\*.*.*proj*"
 
 rd /s /q "$(ProjectDir)\publish\Samples"
 md "$(ProjectDir)\publish\Samples"

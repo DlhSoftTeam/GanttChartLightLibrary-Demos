@@ -11,11 +11,11 @@ Imports System.Windows
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("GanttChartDataGridVisualBasicSample")> 
+<Assembly: AssemblyTitle("MainFeatures")>
 <Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("DlhSoft")> 
-<Assembly: AssemblyProduct("GanttChartDataGridVisualBasicSample")> 
-<Assembly: AssemblyCopyright("Copyright @ 2011-2014 DlhSoft")> 
+<Assembly: AssemblyCompany("DlhSoft")>
+<Assembly: AssemblyProduct("MainFeatures")>
+<Assembly: AssemblyCopyright("Copyright @ 2017 DlhSoft")>
 <Assembly: AssemblyTrademark("")> 
 <Assembly: ComVisible(false)>
 

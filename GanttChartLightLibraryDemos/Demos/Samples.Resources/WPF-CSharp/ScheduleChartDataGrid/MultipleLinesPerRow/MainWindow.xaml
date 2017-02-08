@@ -1,0 +1,44 @@
+﻿<Window x:Class="Demos.WPF.CSharp.ScheduleChartDataGrid.MultipleLinesRow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        Title="ScheduleChartDataGrid Multiple Lines Per Row Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <!-- Set UseMultipleLinesPerRow to true to enable displaying multiple lines per row, so that bars representing tasks assigned to the same resource do not overlap in the chart area. -->
+        <!-- Optionally, you may set GanttChartItem.DisplayLineIndex and/or ScheduleChartItem.DisplayLineCount property values on individual items. -->
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" UseMultipleLinesPerRow="True">
+            <pdgcc:ScheduleChartDataGrid.Items>
+                <pdgcc:ScheduleChartItem Content="Resource 1">
+                    <pdgcc:ScheduleChartItem.GanttChartItems>
+                        <pdgcc:GanttChartItem Content="Task 1"/>
+                        <pdgcc:GanttChartItem Content="Task 2"/>
+                    </pdgcc:ScheduleChartItem.GanttChartItems>
+                </pdgcc:ScheduleChartItem>
+                <pdgcc:ScheduleChartItem Content="Resource 2">
+                    <pdgcc:ScheduleChartItem.GanttChartItems>
+                        <pdgcc:GanttChartItem Content="Task 2"/>
+                    </pdgcc:ScheduleChartItem.GanttChartItems>
+                </pdgcc:ScheduleChartItem>
+                <pdgcc:ScheduleChartItem Content="Resource 3">
+                    <pdgcc:ScheduleChartItem.GanttChartItems>
+                        <pdgcc:GanttChartItem Content="Task 3"/>
+                    </pdgcc:ScheduleChartItem.GanttChartItems>
+                </pdgcc:ScheduleChartItem>
+                <pdgcc:ScheduleChartItem Content="Resource 4">
+                    <pdgcc:ScheduleChartItem.GanttChartItems>
+                        <pdgcc:GanttChartItem Content="Task 4"/>
+                        <pdgcc:GanttChartItem Content="Task 5"/>
+                        <pdgcc:GanttChartItem Content="Task 6"/>
+                    </pdgcc:ScheduleChartItem.GanttChartItems>
+                </pdgcc:ScheduleChartItem>
+            </pdgcc:ScheduleChartDataGrid.Items>
+        </pdgcc:ScheduleChartDataGrid>
+    </DockPanel>
+</Window>

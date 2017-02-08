@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GanttChartDataGridSimpleDataBindingSample")]
+[assembly: AssemblyTitle("DataBinding")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("DlhSoft")]
-[assembly: AssemblyProduct("GanttChartDataGridSimpleDataBindingSample")]
-[assembly: AssemblyCopyright("Copyright © 2011 DlhSoft")]
+[assembly: AssemblyProduct("DataBinding")]
+[assembly: AssemblyCopyright("Copyright © 2017 DlhSoft")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

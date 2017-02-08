@@ -1,0 +1,38 @@
+﻿<Window x:Class="Demos.WPF.CSharp.ScheduleChartDataGrid.CustomAppearance.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        Title="ScheduleChartDataGrid Custom Appearance Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <SolidColorBrush x:Key="StandardBarFill" Color="PaleGreen"/>
+            <SolidColorBrush x:Key="StandardBarStroke" Color="DarkGreen"/>
+            <SolidColorBrush x:Key="CustomStandardBarFill" Color="#805480"/>
+            <SolidColorBrush x:Key="CustomStandardBarStroke" Color="#402740"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <!-- Set StandardBarFill, StandardBarStroke, and other similar properties to set up the general appearance of task bars. -->
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" StandardBarFill="{StaticResource StandardBarFill}" StandardBarStroke="{StaticResource StandardBarStroke}" DependencyLineStroke="{StaticResource StandardBarStroke}">
+            <pdgcc:ScheduleChartDataGrid.Items>
+                <!-- Some item properties are set in code behind. -->
+                <pdgcc:ScheduleChartItem Content="Resource 1">
+                    <pdgcc:ScheduleChartItem.GanttChartItems>
+                        <pdgcc:GanttChartItem Content="Task 1"/>
+                        <!-- Set GanttChartView.StandardBarFill, GanttChartView.StandardBarStroke, and other similar attached properties to set up the custom appearance of specific task bars. -->
+                        <pdgcc:GanttChartItem Content="Task 2" pdgcc:GanttChartView.StandardBarFill="{StaticResource CustomStandardBarFill}" pdgcc:GanttChartView.StandardBarStroke="{StaticResource CustomStandardBarStroke}"/>
+                    </pdgcc:ScheduleChartItem.GanttChartItems>
+                </pdgcc:ScheduleChartItem>
+                <pdgcc:ScheduleChartItem Content="Resource 2">
+                    <pdgcc:ScheduleChartItem.GanttChartItems>
+                        <pdgcc:GanttChartItem Content="Task 2" pdgcc:GanttChartView.StandardBarFill="{StaticResource CustomStandardBarFill}" pdgcc:GanttChartView.StandardBarStroke="{StaticResource CustomStandardBarStroke}"/>
+                    </pdgcc:ScheduleChartItem.GanttChartItems>
+                </pdgcc:ScheduleChartItem>
+            </pdgcc:ScheduleChartDataGrid.Items>
+        </pdgcc:ScheduleChartDataGrid>
+    </DockPanel>
+</Window>
+ 

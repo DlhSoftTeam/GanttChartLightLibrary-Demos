@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 
-namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
+namespace Demos.WPF.CSharp.ScheduleChartDataGrid.BasicUsage
 {
     /// <summary>
     /// Interaction logic for App.xaml
