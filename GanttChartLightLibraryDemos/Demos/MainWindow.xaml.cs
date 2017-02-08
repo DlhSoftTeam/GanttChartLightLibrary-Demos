@@ -228,7 +228,8 @@ namespace Demos
                                     Name = "PertChartView",
                                     Features = new[]
                                     {
-                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
+                                        new SampleInfo { Tag = "MultiTasksPerLine", Title = "Multiple tasks per line", Description = "Shows how you can extend task lines to multiple parallel items displayed between the same task event shapes" },
                                     }
                                 },
                                 new ComponentInfo
@@ -236,7 +237,8 @@ namespace Demos
                                     Name = "NetworkDiagramView",
                                     Features = new[]
                                     {
-                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
+                                        new SampleInfo { Tag = "ShapeTemplating", Title = "Shape templating", Description = "Shows how you can define XAML templates for task shapes displayed in the view, optionally enabling item property editing as needed" }
                                     }
                                 }
                             };
@@ -376,6 +378,14 @@ namespace Demos
                             break;
                         case "DataBinding":
                             fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml.cs", "CustomResourceItem.cs" };
+                            break;
+                    }
+                    break;
+                case "NetworkDiagramView":
+                    switch (feature)
+                    {
+                        case "ShapeTemplating":
+                            fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml.cs", "CustomNetworkDiagramItem.cs" };
                             break;
                     }
                     break;

@@ -97,6 +97,126 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="FileNameConverter.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\Themes\Generic-bright.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\Themes\Generic-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\AppResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\Themes\Generic-bright.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\Themes\Generic-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\AppResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\LoadChartDataGrid\CustomSchedule\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -2250,6 +2370,13 @@
     <Resource Include="Samples.Resources\WPF-CSharp\LoadChartDataGrid\CustomAppearance\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\LoadChartDataGrid\CustomSchedule\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\LoadChartDataGrid\MouseEventHandling\MainWindow.xaml.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\CustomNetworkDiagramItem.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
     <Compile Include="UppercaseConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -2418,9 +2545,17 @@
       <Project>{f2bbfe3a-f856-4c83-9270-ad5b16360cdb}</Project>
       <Name>MainFeatures.NetworkDiagramView</Name>
     </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\NetworkDiagramView\ShapeTemplating\ShapeTemplating.NetworkDiagramView.csproj">
+      <Project>{a7c30ef6-87fc-425f-a0b0-583411f9664c}</Project>
+      <Name>ShapeTemplating.NetworkDiagramView</Name>
+    </ProjectReference>
     <ProjectReference Include="Samples\WPF-CSharp\PertChartView\MainFeatures\MainFeatures.PertChartView.csproj">
       <Project>{c1295877-1d6d-4986-a1b9-b4af32c32ec7}</Project>
       <Name>MainFeatures.PertChartView</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\PertChartView\MultiTasksPerLine\MultiTasksPerLine.PertChartView.csproj">
+      <Project>{d2a57481-394c-42cc-b433-1243c4f1304b}</Project>
+      <Name>MultiTasksPerLine.PertChartView</Name>
     </ProjectReference>
     <ProjectReference Include="Samples\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\BarTemplating.ScheduleChartDataGrid.csproj">
       <Project>{d4f836c9-8cd1-43cc-9965-234ab22b9a92}</Project>
