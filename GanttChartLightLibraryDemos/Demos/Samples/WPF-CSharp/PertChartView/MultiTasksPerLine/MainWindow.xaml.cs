@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows.Threading;
 
 namespace Demos.WPF.CSharp.PertChartView.MultiTasksPerLine
 {
@@ -30,6 +31,8 @@ namespace Demos.WPF.CSharp.PertChartView.MultiTasksPerLine
             Tasks[2].Predecessors.Add(new PredecessorItem { Item = Tasks[1] });
             Tasks[3].Predecessors.Add(new PredecessorItem { Item = Tasks[2] });
             Tasks[4].Predecessors.Add(new PredecessorItem { Item = Tasks[2] });
+
+            Dispatcher.BeginInvoke((Action)delegate { TabControl.SelectedItem = PertChartTabItem; }, DispatcherPriority.Background);
         }
 
         private string theme = "Generic-bright";

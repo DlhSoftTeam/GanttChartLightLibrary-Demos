@@ -229,7 +229,7 @@ namespace Demos
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
-                                        new SampleInfo { Tag = "MultiTasksPerLine", Title = "Multiple tasks per line", Description = "Shows how you can extend task lines to multiple parallel items displayed between the same task event shapes" },
+                                        new SampleInfo { Tag = "MultiTasksPerLine", Title = "Multiple tasks per line", Description = "Shows how you can extend task lines into multiple parallel items displayed between the same task event shapes, especially useful to avoid diagram complexity when generating items from a Gantt Chart source" },
                                     }
                                 },
                                 new ComponentInfo
