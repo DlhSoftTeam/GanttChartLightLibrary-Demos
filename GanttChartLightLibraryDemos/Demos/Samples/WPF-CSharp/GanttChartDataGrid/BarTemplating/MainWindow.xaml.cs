@@ -68,13 +68,11 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.BarTemplating
             this.theme = theme;
             ApplyTemplate();
         }
-
         public override void OnApplyTemplate()
         {
             LoadTheme();
             base.OnApplyTemplate();
         }
-
         private void LoadTheme()
         {
             if (theme == null || theme == "Default" || theme == "Aero")

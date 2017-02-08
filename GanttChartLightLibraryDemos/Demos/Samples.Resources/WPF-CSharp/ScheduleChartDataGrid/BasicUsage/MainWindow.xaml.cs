@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using DlhSoft.Windows.Controls;
-using Microsoft.Win32;
-using System.IO;
 
 namespace Demos.WPF.CSharp.ScheduleChartDataGrid.BasicUsage
 {

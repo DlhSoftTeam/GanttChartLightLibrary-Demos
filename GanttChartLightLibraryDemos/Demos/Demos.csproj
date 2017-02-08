@@ -2266,72 +2266,30 @@
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\Silverlight-CSharp\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml.cs" />
     <Resource Include="Samples.Resources\Silverlight-CSharp\GanttChartDataGrid\MainFeatures\MainPage.xaml.cs" />
-    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MainFeatures\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MainFeatures\MainWindow.xaml.cs"/>
     <Resource Include="Samples.Resources\WPF-CSharp\LoadChartDataGrid\MainFeatures\MainWindow.xaml.cs" />
-    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\MainFeatures\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartView\MainFeatures\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartView\MainFeatures\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\DataBinding\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\MainFeatures\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartView\MainFeatures\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartView\MainFeatures\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\MainFeatures\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MainFeatures\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\DataBinding\MainWindow.xaml.cs"/>
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\DataBinding\CustomTaskItem.cs" />
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\CustomAppearance\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\CustomSchedule\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\CustomAppearance\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\CustomSchedule\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\LoadChartView\SingleItem\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BasicUsage\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\ChangeNotifications\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Filtering\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MinuteScale\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\MouseEventHandling\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\MainWindow.xaml.cs"/>
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\UnlimitedIntConverter.cs" />
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Sorting\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryBars\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\MainWindow.xaml.cs"/>
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryValues\CustomGanttChartItem.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\CustomGanttChartItem.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\BarTemplating\Interruption.cs" />
@@ -2339,44 +2297,24 @@
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NumericDays\NumericDayStringConverter.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\RecurrenceType.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Recurrence\RecurrentGanttChartItem.cs" />
-    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BasicUsage\MainWindow.xaml.cs"/>
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\CustomGanttChartItem.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Interruption.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\BarTemplating\Marker.cs" />
-    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomAppearance\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\MainWindow.xaml.cs"/>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\MainWindow.xaml.cs"/>
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\CustomResourceItem.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\LoadChartDataGrid\CustomAppearance\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\LoadChartDataGrid\CustomSchedule\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\LoadChartDataGrid\MouseEventHandling\MainWindow.xaml.cs" />
-    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\MainWindow.xaml.cs"/>
     <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\CustomNetworkDiagramItem.cs" />
-    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\MainWindow.xaml.cs"/>
     <Compile Include="UppercaseConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
