@@ -75,6 +75,18 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DlhSoft.HierarchicalData.LightWPF.Controls, Version=4.0.8.5, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
+      <HintPath>..\packages\DlhSoft.HierarchicalDataLightLibrary.4.0.9.1\lib\net40-client\DlhSoft.HierarchicalData.LightWPF.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DlhSoft.ProjectData.GanttChart.LightWPF.Controls, Version=4.3.37.0, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
+      <HintPath>..\packages\DlhSoft.GanttChartLightLibrary.4.3.37.3\lib\net40-client\DlhSoft.ProjectData.GanttChart.LightWPF.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DlhSoft.ProjectData.PertChart.LightWPF.Controls, Version=4.3.36.0, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
+      <HintPath>..\packages\DlhSoft.GanttChartLightLibrary.4.3.37.3\lib\net40-client\DlhSoft.ProjectData.PertChart.LightWPF.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -2356,6 +2368,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\GanttChartLightLibraryDemos.snk" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -2419,32 +2432,11 @@
       <Project>{95641bd8-7441-4173-8b91-973384f97e69}</Project>
       <Name>Filtering.GanttChartDataGrid</Name>
     </ProjectReference>
-    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainFeatures.GanttChartDataGrid.csproj">
-    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures-GCV\MainFeatures-GCV.Library.csproj">
-      <Project>{01b74b86-43be-4325-bf31-4108a477bfc5}</Project>
-      <Name>MainFeatures-GCV.Library</Name>
-    </ProjectReference>
-    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures-item\MainFeatures-item.Library.csproj">
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures-item\MainFeatures-item.GanttChartDataGrid.csproj">
       <Project>{347481fe-625f-43f4-b930-2fbd8f381608}</Project>
-      <Name>MainFeatures-item.Library</Name>
+      <Name>MainFeatures-item.GanttChartDataGrid</Name>
     </ProjectReference>
-    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures-LCDG\MainFeatures-LCDG.Library.csproj">
-      <Project>{95f0e9d8-55c3-4213-99c1-5d55753cd66d}</Project>
-      <Name>MainFeatures-LCDG.Library</Name>
-    </ProjectReference>
-    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures-LCV\MainFeatures-LCV.Library.csproj">
-      <Project>{617cd033-fd8a-4bc7-9d29-7f7e7e4e9b23}</Project>
-      <Name>MainFeatures-LCV.Library</Name>
-    </ProjectReference>
-    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures-PERT\MainFeatures-PERT.Library.csproj">
-      <Project>{dec49b14-f5ca-46bc-9430-f0a9fbe81f85}</Project>
-      <Name>MainFeatures-PERT.Library</Name>
-    </ProjectReference>
-    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures-SCV\MainFeatures-SCV.Library.csproj">
-      <Project>{d4191aa2-2a90-44e0-bc66-a4d4a01e9be0}</Project>
-      <Name>MainFeatures-SCV.Library</Name>
-    </ProjectReference>
-    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainFeatures.Library.csproj">
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\MainFeatures\MainFeatures.GanttChartDataGrid.csproj">
       <Project>{326967b5-0af7-4aa0-a4b9-70abb105142d}</Project>
       <Name>MainFeatures.GanttChartDataGrid</Name>
     </ProjectReference>
