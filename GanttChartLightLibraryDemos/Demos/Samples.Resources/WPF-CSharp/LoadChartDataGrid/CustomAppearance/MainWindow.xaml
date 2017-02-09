@@ -1,0 +1,39 @@
+﻿<Window x:Class="Demos.WPF.CSharp.LoadChartDataGrid.CustomAppearance.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        Title="LoadChartDataGrid Custom Appearance Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <SolidColorBrush x:Key="NormalAllocationBarFill" Color="#805480"/>
+            <SolidColorBrush x:Key="UnderAllocationBarFill" Color="Orange"/>
+            <SolidColorBrush x:Key="OverAllocationBarFill" Color="Red"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <!-- Set NormalAllocationBarFill, UnderAllocationBarFill, OverAllocationBarFill and other similar properties to set up the general appearance of allocation bars. -->
+        <!-- Set MaxDisplayedUnits property to define the maximum displayed units in the view (by default 1.5, i.e. 150%), representing the full height allocation bar (if allocation units of an item would be higher than this value the associated displayed allocation bar will not exceed this maximum height). -->
+        <pdgcc:LoadChartDataGrid x:Name="LoadChartDataGrid" DataGridWidth="0.05*" NormalAllocationBarFill="{StaticResource NormalAllocationBarFill}" UnderAllocationBarFill="{StaticResource UnderAllocationBarFill}" OverAllocationBarFill="{StaticResource OverAllocationBarFill}" MaxDisplayedUnits="1.25">
+            <pdgcc:LoadChartDataGrid.Items>
+                <!-- Some item properties are set in code behind. -->
+                <pdgcc:LoadChartItem Content="Resource 1">
+                    <pdgcc:LoadChartItem.GanttChartItems>
+                        <pdgcc:AllocationItem Content="Task 1"/>
+                        <pdgcc:AllocationItem Content="Task 1, Task 2 [50%]: 150%"/>
+                        <pdgcc:AllocationItem Content="Task 2 [50%]"/>
+                        <pdgcc:AllocationItem Content="Task 3"/>
+                    </pdgcc:LoadChartItem.GanttChartItems>
+                </pdgcc:LoadChartItem>
+                <pdgcc:LoadChartItem Content="Resource 2">
+                    <pdgcc:LoadChartItem.GanttChartItems>
+                        <pdgcc:AllocationItem Content="Task 2"/>
+                    </pdgcc:LoadChartItem.GanttChartItems>
+                </pdgcc:LoadChartItem>
+            </pdgcc:LoadChartDataGrid.Items>
+        </pdgcc:LoadChartDataGrid>
+    </DockPanel>
+</Window>
+    

@@ -71,7 +71,10 @@ namespace Demos
                 return;
             if (selectedItem.HasItems)
             {
-                SelectComponent(selectedItem);
+                var previouslySelectedChildItem = e.OldValue as TreeViewItem;
+                if (previouslySelectedChildItem != null && previouslySelectedChildItem.HasItems)
+                    previouslySelectedChildItem = null;
+                SelectComponent(selectedItem, previouslySelectedChildItem);
                 return;
             }
             else
@@ -86,10 +89,23 @@ namespace Demos
                 Dispatcher.BeginInvoke((Action)LoadContent);
             }
         }
-        private void SelectComponent(TreeViewItem selectedItem)
+        private void SelectComponent(TreeViewItem selectedItem, TreeViewItem previouslySelectedChildItem)
         {
-            var firstChildItem = selectedItem.Items[0] as TreeViewItem;
-            firstChildItem.IsSelected = true;
+            TreeViewItem itemToSelect = null;
+            if (previouslySelectedChildItem != null)
+            {
+                foreach (TreeViewItem item in selectedItem.Items)
+                {
+                    if (item.Tag == previouslySelectedChildItem.Tag)
+                    {
+                        itemToSelect = item;
+                        break;
+                    }
+                }
+            }
+            if (itemToSelect == null)
+                itemToSelect = selectedItem.Items[0] as TreeViewItem;
+            itemToSelect.IsSelected = true;
             selectedItem.IsExpanded = true;
         }
         private TreeViewItem previousSelectedParentItem;
@@ -144,7 +160,91 @@ namespace Demos
                                         new SampleInfo { Tag = "MainFeatures-SCV", Title = "Main features - SCV", Description = "Shows the main features of the component" },
                                         new SampleInfo { Tag = "MainFeatures-LCDG", Title = "Main features - LCDG", Description = "Shows the main features of the component" },
                                         new SampleInfo { Tag = "MainFeatures-LCV", Title = "Main features - LCV", Description = "Shows the main features of the component" },
-                                        new SampleInfo { Tag = "MainFeatures-PERT", Title = "Main features - PERT", Description = "Shows the main features of the component" }
+                                        new SampleInfo { Tag = "MainFeatures-PERT", Title = "Main features - PERT", Description = "Shows the main features of the component" },
+                                        new SampleInfo { Tag = "BasicUsage", Title = "Basic usage", Description = "Shows how to load the component with minimum configuration" },
+                                        new SampleInfo { Tag = "DataBinding", Title = "Data binding", Description = "Shows how you can data bind the component to a custom task item collection" },
+                                        new SampleInfo { Tag = "CustomAppearance", Title = "Custom appearance", Description = "Shows how you can set colors for all or for individual task items" },
+                                        new SampleInfo { Tag = "CustomSchedule", Title = "Custom schedule and scales", Description = "Shows how you can define working and nonworking times for scheduling task items and custom scales and headers for the chart view" },
+                                        new SampleInfo { Tag = "Sorting", Title = "Sorting", Description = "Shows how you can hierarchically sort task items in the grid and chart view" },
+                                        new SampleInfo { Tag = "Filtering", Title = "Filtering", Description = "Shows how you can hide specific task items for filtering purposes" },
+                                        new SampleInfo { Tag = "ChangeNotifications", Title = "Change notifications", Description = "Shows how you can detect changes and perform custom actions when they occur" },
+                                        new SampleInfo { Tag = "MouseEventHandling", Title = "Mouse event handling", Description = "Shows how you can determine the item and other elements bound to the cursor position for handling mouse events" },
+                                        new SampleInfo { Tag = "BarTemplating", Title = "Bar templating", Description = "Shows how you can define XAML templates for task bars displayed in the chart view" },
+                                        new SampleInfo { Tag = "MinuteScale", Title = "Minute scale", Description = "Shows how you can customize scales and display task bars bound to hours and minutes" },
+                                        new SampleInfo { Tag = "NumericDays", Title = "Numeric days", Description = "Shows how you can customize scales to display project week and day numbers instead of dates" },
+                                        new SampleInfo { Tag = "Recurrence", Title = "Recurrence", Description = "Shows how you can define custom code to generate and display recurrent task items and chart bars" },
+                                        new SampleInfo { Tag = "SummaryBars", Title = "Summary bars", Description = "Shows how you can display child bars instead of summary bars when node items are collapsed" },
+                                        new SampleInfo { Tag = "SummaryValues", Title = "Summary values", Description = "Shows how you can hierarchically summarize custom values such as custom task costs" }
+                                    }
+                                },
+                                new ComponentInfo
+                                {
+                                    Name = "GanttChartView",
+                                    Features = new[]
+                                    {
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
+                                    }
+                                },
+                                new ComponentInfo
+                                {
+                                    Name = "ScheduleChartDataGrid",
+                                    Features = new[]
+                                    {
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
+                                        new SampleInfo { Tag = "BasicUsage", Title = "Basic usage", Description = "Shows how to load the component with minimum configuration" },
+                                        new SampleInfo { Tag = "DataBinding", Title = "Data binding", Description = "Shows how you can data bind the component to a custom resource item collection" },
+                                        new SampleInfo { Tag = "CustomAppearance", Title = "Custom appearance", Description = "Shows how you can set colors for all or for individual task items" },
+                                        new SampleInfo { Tag = "CustomSchedule", Title = "Custom schedule and scales", Description = "Shows how you can define working and nonworking times for scheduling task items and custom scales and headers for the chart view" },
+                                        new SampleInfo { Tag = "Hierarchy", Title = "Hierarchy", Description = "Shows how you can hierarchically display resource groups in the grid" },
+                                        new SampleInfo { Tag = "MultipleLinesPerRow", Title = "Multiple lines per row", Description = "Shows how you can configure the component to display chart task bars using multiple lines per resource row automatically enlarging individual grid row height values" },
+                                        new SampleInfo { Tag = "MouseEventHandling", Title = "Mouse event handling", Description = "Shows how you can determine the item and other elements bound to the cursor position for handling mouse events" },
+                                        new SampleInfo { Tag = "BarTemplating", Title = "Bar templating", Description = "Shows how you can define XAML templates for task bars displayed in the chart view" }
+                                    }
+                                },
+                                new ComponentInfo
+                                {
+                                    Name = "ScheduleChartView",
+                                    Features = new[]
+                                    {
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
+                                    }
+                                },
+                                new ComponentInfo
+                                {
+                                    Name = "LoadChartDataGrid",
+                                    Features = new[]
+                                    {
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
+                                        new SampleInfo { Tag = "CustomAppearance", Title = "Custom appearance", Description = "Shows how you can set colors for different types of allocation items" },
+                                        new SampleInfo { Tag = "CustomSchedule", Title = "Custom schedule and scales", Description = "Shows how you can define working and nonworking times and custom scales and headers for the chart view" },
+                                        new SampleInfo { Tag = "MouseEventHandling", Title = "Mouse event handling", Description = "Shows how you can determine the item and other elements bound to the cursor position for handling mouse events" }
+                                    }
+                                },
+                                new ComponentInfo
+                                {
+                                    Name = "LoadChartView",
+                                    Features = new[]
+                                    {
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
+                                        new SampleInfo { Tag = "SingleItem", Title = "Single item", Description = "Shows how you can set up a single displayed item in the chart view" }
+                                    }
+                                },
+                                new ComponentInfo
+                                {
+                                    Name = "PertChartView",
+                                    Features = new[]
+                                    {
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
+                                        new SampleInfo { Tag = "MultiTasksPerLine", Title = "Multiple tasks per line", Description = "Shows how you can extend task lines into multiple parallel items displayed between the same task event shapes, especially useful to avoid diagram complexity when generating items from a Gantt Chart source" },
+                                    }
+                                },
+                                new ComponentInfo
+                                {
+                                    Name = "NetworkDiagramView",
+                                    Features = new[]
+                                    {
+                                        new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
+                                        new SampleInfo { Tag = "ShapeTemplating", Title = "Shape templating", Description = "Shows how you can define XAML templates for task shapes displayed in the view, optionally enabling item property editing as needed" }
                                     }
                                 }
                             };
@@ -254,8 +354,44 @@ namespace Demos
                         case "MainFeatures":
                             fileItems = new[] {
                                 "Main" + (!isSilverlight ? "Window" : "Page") + ".xaml",
-                                "Main" + (!isSilverlight ? "Window" : "Page") + ".xaml" + (!isVisualBasic ? ".cs" : ".vb")
+                                "Main" + (!isSilverlight ? "Window" : "Page") + ".xaml" + (!isVisualBasic ? ".cs" : ".vb"),
+                                "EditItemDialog.xaml",
+                                "EditItemDialog.xaml" + (!isVisualBasic ? ".cs" : ".vb")
                             };
+                            break;
+                        case "DataBinding":
+                            fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml.cs", "CustomTaskItem.cs" };
+                            break;
+                        case "BarTemplating":
+                            fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml.cs", "CustomGanttChartItem.cs", "Interruption.cs", "Marker.cs" };
+                            break;
+                        case "NumericDays":
+                            fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml.cs", "NumericDayStringConverter.cs" };
+                            break;
+                        case "Recurrence":
+                            fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml.cs", "RecurrentGanttChartItem.cs", "RecurrenceType.cs", "UnlimitedIntConverter.cs" };
+                            break;
+                        case "SummaryValues":
+                            fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml.cs", "CustomGanttChartItem.cs" };
+                            break;
+                    }
+                    break;
+                case "ScheduleChartDataGrid":
+                    switch (feature)
+                    {
+                        case "BarTemplating":
+                            fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml.cs", "CustomGanttChartItem.cs", "Interruption.cs", "Marker.cs" };
+                            break;
+                        case "DataBinding":
+                            fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml.cs", "CustomResourceItem.cs" };
+                            break;
+                    }
+                    break;
+                case "NetworkDiagramView":
+                    switch (feature)
+                    {
+                        case "ShapeTemplating":
+                            fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml.cs", "CustomNetworkDiagramItem.cs" };
                             break;
                     }
                     break;
@@ -267,6 +403,8 @@ namespace Demos
                 FilesListBox.Items.Insert(index++, new ListBoxItem { Content = fileItem, Tag = fileItem });
             if (!isSilverlight)
                 FilesListBox.Items.Insert(index++, new ListBoxItem { Content = "AppResources.xaml", Tag = "AppResources.xaml" });
+            if (FilesListBox.SelectedIndex > 0)
+                FilesListBox.SelectedIndex = 0;
         }
 
         private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

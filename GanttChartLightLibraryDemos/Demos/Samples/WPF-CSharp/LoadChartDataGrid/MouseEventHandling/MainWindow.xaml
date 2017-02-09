@@ -1,0 +1,35 @@
+﻿<Window x:Class="Demos.WPF.CSharp.LoadChartDataGrid.MouseEventHandling.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        Title="LoadChartDataGrid Mouse Event Handling Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <TextBox x:Name="NotificationsTextBox" DockPanel.Dock="Bottom" MaxLines="8" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="2"/>
+        <!-- Handle PreviewMouseLeftButtonUp event to be notified when click events occur within the control (see code behind). -->
+        <pdgcc:LoadChartDataGrid x:Name="LoadChartDataGrid" DataGridWidth="0.05*" PreviewMouseLeftButtonUp="LoadChartDataGrid_PreviewMouseLeftButtonUp">
+            <pdgcc:LoadChartDataGrid.Items>
+                <!-- Some item properties are set in code behind. -->
+                <pdgcc:LoadChartItem Content="Resource 1">
+                    <pdgcc:LoadChartItem.GanttChartItems>
+                        <pdgcc:AllocationItem Content="Task 1"/>
+                        <pdgcc:AllocationItem Content="Task 1, Task 2 [50%]: 150%"/>
+                        <pdgcc:AllocationItem Content="Task 2 [50%]"/>
+                        <pdgcc:AllocationItem Content="Task 3"/>
+                    </pdgcc:LoadChartItem.GanttChartItems>
+                </pdgcc:LoadChartItem>
+                <pdgcc:LoadChartItem Content="Resource 2">
+                    <pdgcc:LoadChartItem.GanttChartItems>
+                        <pdgcc:AllocationItem Content="Task 2"/>
+                    </pdgcc:LoadChartItem.GanttChartItems>
+                </pdgcc:LoadChartItem>
+            </pdgcc:LoadChartDataGrid.Items>
+        </pdgcc:LoadChartDataGrid>
+    </DockPanel>
+</Window>

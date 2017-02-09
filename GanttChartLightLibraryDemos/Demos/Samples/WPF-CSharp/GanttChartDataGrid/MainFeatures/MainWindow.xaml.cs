@@ -85,6 +85,11 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             item9.BaselineStart = dateTime.AddDays(4).Add(TimeSpan.Parse("12:00:00"));
             item9.BaselineFinish = dateTime.AddDays(6).Add(TimeSpan.Parse("16:00:00"));
 
+            GanttChartItem item10 = GanttChartDataGrid.Items[10];
+            item10.Start = DateTime.Today.AddDays(7).Add(TimeSpan.Parse("08:00:00"));
+            item10.Finish = DateTime.Today.AddDays(28).Add(TimeSpan.Parse("16:00:00"));
+            item10.Predecessors.Add(new PredecessorItem { Item = item9 });
+
             // You may uncomment the next lines of code to set default schedule and timeline visibility settings for the Gantt Chart.
             // // Working week: between Tuesday and Saturday.
             // GanttChartDataGrid.WorkingWeekStart = DayOfWeek.Tuesday;
@@ -136,7 +141,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             //    });
             // GanttChartDataGrid.IsIndividualItemNonworkingTimeHighlighted = true;
 
-            for (int i = 5; i <= 25; i++)
+            for (int i = 6; i <= 25; i++)
             {
                 GanttChartDataGrid.Items.Add(
                     new GanttChartItem
@@ -187,15 +192,25 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             EnableDependencyConstraintsCheckBox.IsChecked = true;
         }
 
+        private ResourceDictionary themeResourceDictionary;
+        private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
+        {
+            this.theme = theme;
+            ApplyTemplate();
+        }
+        public override void OnApplyTemplate()
+        {
+            LoadTheme();
+            base.OnApplyTemplate();
+        }
+        private void LoadTheme()
         {
             if (theme == null || theme == "Default" || theme == "Aero")
                 return;
             themeResourceDictionary = new ResourceDictionary { Source = new Uri("/" + GetType().Assembly.GetName().Name + ";component/Themes/" + theme + ".xaml", UriKind.Relative) };
             GanttChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary);
         }
-
-        private ResourceDictionary themeResourceDictionary;
 
         // Control area commands.
         private void EditButton_Click(object sender, RoutedEventArgs e)

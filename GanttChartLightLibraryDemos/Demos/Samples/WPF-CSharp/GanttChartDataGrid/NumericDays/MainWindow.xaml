@@ -1,0 +1,56 @@
+﻿<Window x:Class="Demos.WPF.CSharp.GanttChartDataGrid.NumericDays.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:pdgccConverters="clr-namespace:DlhSoft.Windows.Converters;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:local="clr-namespace:Demos.WPF.CSharp.GanttChartDataGrid.NumericDays"
+        Title="GanttChartDataGrid Numeric Days Sample" Width="1200" Height="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <!-- Converter for date and time and numeric day string values. -->
+            <local:NumericDayStringConverter x:Key="NumericDayStringConverter"/>
+            <DataTemplate x:Key="ScaleHeaderContentTemplate">
+                <ContentControl Content="{Binding}" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="2" IsTabStop="False"/>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <!-- Set IsCurrentTimeLineVisible to false in order to hide the current time vertical bar, as date and time values are virtualized using a numeric day origin (see code behind). -->
+        <!-- Set UpdateScaleInterval to 1 day time span, as date and time values should be defined using integral day numbers. -->
+        <!-- Handle TimelinePageChanged event to be able to set the Gantt Chart header string values in code behind when the timeline page changes or gets initialized. -->
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" DataGridWidth="0.35*" IsCurrentTimeLineVisible="False" UpdateScaleInterval="1.00:00:00" TimelinePageChanged="GanttChartDataGrid_TimelinePageChanged">
+            <pdgcc:GanttChartDataGrid.Columns>
+                <!-- Set the entire columns collection in order to be able to set Start and Finish columns as displaying numeric day string values instead of dates and times. -->
+                <pdgcc:DataGridColumnCollection>
+                    <hdc:DataTreeGridColumn Header="Task" />
+                    <DataGridTextColumn Header="Start" Binding="{Binding Start, Mode=TwoWay, Converter={StaticResource NumericDayStringConverter}}"/>
+                    <DataGridTextColumn Header="Finish" Binding="{Binding Finish, Mode=TwoWay, Converter={StaticResource NumericDayStringConverter}, ConverterParameter=Finish}"/>
+                    <DataGridCheckBoxColumn Header="Is milestone" Binding="{Binding IsMilestone, Mode=TwoWay}"/>
+                    <DataGridCheckBoxColumn Header="Is completed" Binding="{Binding IsCompleted, Mode=TwoWay}"/>
+                    <DataGridTextColumn Header="Assignments" Binding="{Binding AssignmentsContent, Mode=TwoWay}" IsReadOnly="False"/>
+                </pdgcc:DataGridColumnCollection>
+            </pdgcc:GanttChartDataGrid.Columns>
+            <pdgcc:GanttChartDataGrid.Scales>
+                <!-- Set the scales collection in order to set HeaderContentFormat to Custom and be able to set time interval header string values manually (see code behind). -->
+                <pdgcc:ScaleCollection>
+                    <pdgcc:Scale ScaleType="WeeksStartingMonday" HeaderContentFormat="Custom" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="Custom" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                </pdgcc:ScaleCollection>
+            </pdgcc:GanttChartDataGrid.Scales>
+            <pdgcc:GanttChartDataGrid.Items>
+                <pdgcc:GanttChartItem Content="Task 1"/>
+                <pdgcc:GanttChartItem Content="Task 1.1" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 1.2" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2"/>
+                <pdgcc:GanttChartItem Content="Task 2.1" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2.2" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2.2.1" Indentation="2"/>
+                <pdgcc:GanttChartItem Content="Task 2.2.2" Indentation="2"/>
+            </pdgcc:GanttChartDataGrid.Items>
+        </pdgcc:GanttChartDataGrid>
+    </DockPanel>
+</Window>

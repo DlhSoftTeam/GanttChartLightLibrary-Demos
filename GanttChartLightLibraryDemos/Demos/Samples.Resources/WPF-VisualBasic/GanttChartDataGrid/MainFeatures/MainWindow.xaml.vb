@@ -99,9 +99,9 @@ Class MainWindow
                 New GanttChartItem With
                 {
                     .Content = "Task " + i.ToString(),
-                    .Indentation = IIf(i >= 8 And i Mod 3 = 2, 0, 1),
-                    .Start = DateTime.Today.AddDays(IIf(i <= 8, (i - 4) * 3, i - 8)),
-                    .Finish = DateTime.Today.AddDays(IIf(i <= 8, (i - 4) * 3 + IIf(i > 8, 6, 1), i - 2) + 1)
+                    .Indentation = CInt(IIf(i >= 8 And i Mod 3 = 2, 0, 1)),
+                    .Start = DateTime.Today.AddDays(CInt(IIf(i <= 8, (i - 4) * 3, i - 8))),
+                    .Finish = DateTime.Today.AddDays(CInt(IIf(i <= 8, (i - 4) * 3 + CInt(IIf(i > 8, 6, 1)), i - 2)) + 1)
                 })
         Next
 
@@ -143,14 +143,22 @@ Class MainWindow
         EnableDependencyConstraintsCheckBox.IsChecked = True
     End Sub
 
+    Private themeResourceDictionary As ResourceDictionary
+    Private theme As String = "Generic-bright"
     Public Sub New(theme As String)
         Me.New()
+        Me.theme = theme
+        ApplyTemplate()
+    End Sub
+    Public Overrides Sub OnApplyTemplate()
+        LoadTheme()
+        MyBase.OnApplyTemplate()
+    End Sub
+    Private Sub LoadTheme()
         If theme Is Nothing Or theme = "Default" Or theme = "Aero" Then Return
         themeResourceDictionary = New ResourceDictionary With {.Source = New Uri("/" + Me.GetType().Assembly.GetName().Name + ";component/Themes/" + theme + ".xaml", UriKind.Relative)}
         GanttChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary)
     End Sub
-
-    Private themeResourceDictionary As ResourceDictionary
 
     ' Control area commands.
     Private Sub EditButton_Click(sender As Object, e As RoutedEventArgs)

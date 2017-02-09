@@ -4,7 +4,7 @@
         xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
         xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
         xmlns:pdgccConverters="clr-namespace:DlhSoft.Windows.Converters;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
-        Title="GanttChartDataGrid Sample" Width="1024" Height="600">
+        Title="GanttChartDataGrid Sample" Width="1200" Height="800">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -258,6 +258,7 @@
                 <pdgcc:GanttChartItem Content="Task 2.2.2" Indentation="2"/>
                 <pdgcc:GanttChartItem Content="Task 3"/>
                 <pdgcc:GanttChartItem Content="Task 4"/>
+                <pdgcc:GanttChartItem Content="Task 5"/>
             </pdgcc:GanttChartDataGrid.Items>
             <!-- Optionally, set up grid columns. -->
             <pdgcc:GanttChartDataGrid.Columns>

@@ -1,0 +1,142 @@
+﻿<Window x:Class="Demos.WPF.CSharp.NetworkDiagramView.MainFeatures.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pdpcc="clr-namespace:DlhSoft.Windows.Controls.Pert;assembly=DlhSoft.ProjectData.PertChart.LightWPF.Controls"
+        Title="NetworkDiagramView Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <SolidColorBrush x:Key="CustomShapeFill" Color="LightYellow"/>
+            <SolidColorBrush x:Key="CustomShapeStroke" Color="Red"/>
+            <SolidColorBrush x:Key="CustomDependencyLineStroke" Color="Red"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <!-- Control area is displayed at the top of the screen. -->
+        <Border DockPanel.Dock="Top" Style="{StaticResource RibbonContainerStyle}">
+            <Border.Resources>
+                <Style TargetType="Image">
+                    <Setter Property="Width" Value="16"/>
+                    <Setter Property="Height" Value="16"/>
+                </Style>
+            </Border.Resources>
+            <StackPanel Style="{StaticResource RibbonStyle}">
+                <Border Style="{StaticResource RibbonPanelStyle}">
+                    <StackPanel>
+                        <ContentControl Content="Items" Style="{StaticResource RibbonHeaderStyle}"/>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <Button x:Name="SetColorButton" ToolTipService.ToolTip="Set custom shape color to Task 2" Click="SetColorButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/SetColor.png"/>
+                            </Button>
+                            <Button x:Name="SetDependencyColorButton" ToolTipService.ToolTip="Set custom line color to the dependency between Start and Task 2" Click="SetDependencyColorButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/SetDependencyColor.png"/>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource RibbonPanelStyle}">
+                    <StackPanel>
+                        <ContentControl Content="Project tools" Style="{StaticResource RibbonHeaderStyle}"/>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <ToggleButton x:Name="CriticalPathCheckBox" ToolTipService.ToolTip="Temporarily highlights critical task items in the chart using red." Checked="CriticalPathCheckBox_Checked" Unchecked="CriticalPathCheckBox_Unchecked" Style="{StaticResource RibbonToggleButtonStyle}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Images/CriticalPath.png"/>
+                                    <TextBlock Text="Highlight critical path" Style="{StaticResource RibbonCommandTextStyle}"/>
+                                </StackPanel>
+                            </ToggleButton>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource RibbonPanelStyle}">
+                    <StackPanel>
+                        <ContentControl Content="Files and printing" Style="{StaticResource RibbonHeaderStyle}"/>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <Button x:Name="ExportImageButton" ToolTipService.ToolTip="Export image" Click="ExportImageButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/ExportImage.png"/>
+                            </Button>
+                            <Button x:Name="PrintButton" ToolTipService.ToolTip="Print" Click="PrintButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/Print.png"/>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+        <pdpcc:NetworkDiagramView x:Name="NetworkDiagramView">
+            <pdpcc:NetworkDiagramView.Items>
+                <!-- Some item properties are set in code behind. -->
+                <!-- Alternatively, you may data bind items to your custom data source using a preconfigured pdpcc:NetworkTaskItemsConverter instance. -->
+                <pdpcc:NetworkDiagramItem Content="Start milestone" DisplayedText="Start" IsMilestone="True"/>
+                <pdpcc:NetworkDiagramItem Content="First task" DisplayedText="Task 1"/>
+                <pdpcc:NetworkDiagramItem Content="Second task" DisplayedText="Task 2"/>
+                <pdpcc:NetworkDiagramItem Content="Third task" DisplayedText="Task 3"/>
+                <pdpcc:NetworkDiagramItem Content="Fourth task" DisplayedText="Task 4"/>
+                <pdpcc:NetworkDiagramItem Content="Fifth task (middle milestone)" DisplayedText="Task 5" IsMilestone="True"/>
+                <pdpcc:NetworkDiagramItem Content="Sixth task" DisplayedText="Task 6"/>
+                <pdpcc:NetworkDiagramItem Content="Seventh task" DisplayedText="Task 7"/>
+                <pdpcc:NetworkDiagramItem Content="Finish milestone" DisplayedText="Finish" IsMilestone="True" DisplayedRowIndex="0"/>
+            </pdpcc:NetworkDiagramView.Items>
+            <!-- Optionally, define the tool tip template. -->
+            <pdpcc:NetworkDiagramView.ToolTipTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" Text="Task:" Margin="0,0,0,1"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" FontWeight="Bold" Text="{Binding Content}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="Duration: "/>
+                        <!-- Optionally, use ConverterParameter=0.##d/8 for DurationStringConverter to display the value in working days of 8 hours.-->
+                        <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Effort, Converter={StaticResource DurationStringConverter}}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="2" Text="Early start: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding EarlyStart, Converter={StaticResource DateTimeStringConverter}}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="3" Text="Early finish: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding EarlyFinish, Converter={StaticResource DateTimeStringConverter}}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="4" Text="Late start: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding LateStart, Converter={StaticResource DateTimeStringConverter}}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="5" Text="Late finish: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="5" Text="{Binding LateFinish, Converter={StaticResource DateTimeStringConverter}}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="6" Text="Slack: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="6" Text="{Binding Slack, Converter={StaticResource DurationStringConverter}}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="7" Text="Assignments: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="7" Text="{Binding AssignmentsContent}"/>
+                    </Grid>
+                </DataTemplate>
+            </pdpcc:NetworkDiagramView.ToolTipTemplate>
+            <!-- Optionally, define the printing template. -->
+            <pdpcc:NetworkDiagramView.PrintingTemplate>
+                <DataTemplate>
+                    <Grid Margin="32">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="Bold" Text="NetworkDiagramView Sample"/>
+                        <Border Grid.Row="1" Margin="0,16" BorderBrush="DarkGray" BorderThickness="1" Padding="16">
+                            <ContentPresenter Content="{Binding Content}"/>
+                        </Border>
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock Text="{Binding PageIndex}"/>
+                            <TextBlock Text="/"/>
+                            <TextBlock Text="{Binding PageCount}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </pdpcc:NetworkDiagramView.PrintingTemplate>
+        </pdpcc:NetworkDiagramView>
+    </DockPanel>
+</Window>

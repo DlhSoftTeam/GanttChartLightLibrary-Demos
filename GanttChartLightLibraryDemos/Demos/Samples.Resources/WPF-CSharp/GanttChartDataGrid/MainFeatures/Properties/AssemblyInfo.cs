@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("MainFeatures")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("DlhSoft")]
 [assembly: AssemblyProduct("MainFeatures")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright © 2017 DlhSoft")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
