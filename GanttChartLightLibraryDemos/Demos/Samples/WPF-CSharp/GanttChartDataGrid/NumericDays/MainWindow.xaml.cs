@@ -63,7 +63,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.NumericDays
             item10.Finish = NumericDayOrigin.AddDays(3);
             item10.CompletedFinish = NumericDayOrigin;
 
-            for (int i = 6; i <= 25; i++)
+            for (int i = 3; i <= 25; i++)
             {
                 GanttChartDataGrid.Items.Add(
                     new GanttChartItem

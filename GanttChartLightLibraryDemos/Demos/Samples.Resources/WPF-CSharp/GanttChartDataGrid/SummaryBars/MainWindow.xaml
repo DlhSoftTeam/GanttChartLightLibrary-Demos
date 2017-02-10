@@ -11,7 +11,7 @@
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid">
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" IsChartClickSelectionEnabled="False">
             <!-- Instead of summary task bars we will present leaf task item clones, inline (see code behind). -->
             <pdgcc:GanttChartDataGrid.Items>
                 <pdgcc:GanttChartItem Content="Task 1"/>

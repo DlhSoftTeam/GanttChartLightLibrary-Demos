@@ -37,6 +37,8 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.SummaryBars
             item4.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
             item4.Finish = DateTime.Today.AddDays(2).Add(TimeSpan.Parse("12:00:00"));
 
+            GanttChartItem item5 = GanttChartDataGrid.Items[5];
+
             GanttChartItem item6 = GanttChartDataGrid.Items[6];
             item6.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
             item6.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
@@ -49,45 +51,53 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.SummaryBars
 
             // Turn off asynchronous presentation and apply template to ensure task hierarchy initialization and to be able to access the internal GanttChartView control.
             GanttChartDataGrid.IsAsyncPresentationEnabled = false;
-            ApplyTemplate();
-            GanttChartDataGrid.ApplyTemplate();
 
-            // Set up the internally managed leaf item clones to be displayed in the chart area (instead of GanttChartDataGrid.Items).
-            foreach (GanttChartItem item in GanttChartDataGrid.Items)
+            // Component ApplyTemplate is called in order to complete loading of the user interface, after the main ApplyTemplate that initializes the custom theme, and using an asynchronous action to allow further constructor initializations if they exist (such as setting up the theme name to load).
+            Dispatcher.BeginInvoke((Action)delegate
             {
-                if (item.HasChildren)
+                ApplyTemplate();
+                GanttChartDataGrid.ApplyTemplate();
+
+                // Set up the internally managed leaf item clones to be displayed in the chart area (instead of GanttChartDataGrid.Items).
+                foreach (GanttChartItem item in GanttChartDataGrid.Items)
                 {
-                    // Store children of each summary task for reference purposes.
-                    item.Tag = GanttChartDataGrid.GetAllChildren(item);
-                    continue;
+                    if (item.HasChildren)
+                    {
+                        // Store children of each summary task for reference purposes.
+                        item.Tag = GanttChartDataGrid.GetAllChildren(item);
+                        continue;
+                    }
+                    GanttChartItem clone = new GanttChartItem();
+                    BindingOperations.SetBinding(clone, GanttChartItem.ContentProperty, new Binding("Content") { Source = item });
+                    BindingOperations.SetBinding(clone, GanttChartItem.StartProperty, new Binding("Start") { Source = item });
+                    BindingOperations.SetBinding(clone, GanttChartItem.FinishProperty, new Binding("Finish") { Source = item });
+                    BindingOperations.SetBinding(clone, GanttChartItem.CompletedFinishProperty, new Binding("CompletedFinish") { Source = item });
+                    BindingOperations.SetBinding(clone, GanttChartItem.IsMilestoneProperty, new Binding("IsMilestone") { Source = item });
+                    BindingOperations.SetBinding(clone, GanttChartItem.AssignmentsContentProperty, new Binding("AssignmentsContent") { Source = item });
+                    BindingOperations.SetBinding(clone, GanttChartItem.DisplayRowIndexProperty, new Binding("ActualDisplayRowIndex") { Source = item });
+                    BindingOperations.SetBinding(clone, GanttChartItem.IsVisibleProperty, new Binding("IsVisible") { Source = item });
+                    BindingOperations.SetBinding(item, GanttChartItem.StartProperty, new Binding("Start") { Source = clone });
+                    BindingOperations.SetBinding(item, GanttChartItem.FinishProperty, new Binding("Finish") { Source = clone });
+                    BindingOperations.SetBinding(item, GanttChartItem.CompletedFinishProperty, new Binding("CompletedFinish") { Source = clone });
+                    BindingOperations.SetBinding(item, GanttChartItem.IsMilestoneProperty, new Binding("IsMilestone") { Source = clone });
+                    // Store clones as item tags for reference purposes.
+                    item.Tag = clone;
+                    // Store parents of each cloned item for reference purposes.
+                    clone.Tag = GanttChartDataGrid.GetAllParents(item);
+                    ganttChartItemClones.Add(clone);
                 }
-                GanttChartItem clone = new GanttChartItem();
-                BindingOperations.SetBinding(clone, GanttChartItem.ContentProperty, new Binding("Content") { Source = item });
-                BindingOperations.SetBinding(clone, GanttChartItem.StartProperty, new Binding("Start") { Source = item });
-                BindingOperations.SetBinding(clone, GanttChartItem.FinishProperty, new Binding("Finish") { Source = item });
-                BindingOperations.SetBinding(clone, GanttChartItem.CompletedFinishProperty, new Binding("CompletedFinish") { Source = item });
-                BindingOperations.SetBinding(clone, GanttChartItem.IsMilestoneProperty, new Binding("IsMilestone") { Source = item });
-                BindingOperations.SetBinding(clone, GanttChartItem.AssignmentsContentProperty, new Binding("AssignmentsContent") { Source = item });
-                BindingOperations.SetBinding(clone, GanttChartItem.DisplayRowIndexProperty, new Binding("ActualDisplayRowIndex") { Source = item });
-                BindingOperations.SetBinding(clone, GanttChartItem.IsVisibleProperty, new Binding("IsVisible") { Source = item });
-                BindingOperations.SetBinding(item, GanttChartItem.StartProperty, new Binding("Start") { Source = clone });
-                BindingOperations.SetBinding(item, GanttChartItem.FinishProperty, new Binding("Finish") { Source = clone });
-                BindingOperations.SetBinding(item, GanttChartItem.CompletedFinishProperty, new Binding("CompletedFinish") { Source = clone });
-                BindingOperations.SetBinding(item, GanttChartItem.IsMilestoneProperty, new Binding("IsMilestone") { Source = clone });
-                // Store clones as item tags for reference purposes.
-                item.Tag = clone;
-                // Store parents of each cloned item for reference purposes.
-                clone.Tag = GanttChartDataGrid.GetAllParents(item);
-                ganttChartItemClones.Add(clone);
-            }
-            GanttChartDataGrid.GanttChartView.Items = ganttChartItemClones;
+                GanttChartDataGrid.GanttChartView.Items = ganttChartItemClones;
 
-            // Initialize expansion notification handler on summary items in the DataGrid.
-            foreach (GanttChartItem item in GanttChartDataGrid.Items)
-            {
-                if (item.HasChildren)
-                    item.ExpansionChanged += Item_ExpansionChanged;
-            }
+                // Initialize expansion notification handler on summary items in the DataGrid.
+                foreach (GanttChartItem item in GanttChartDataGrid.Items)
+                {
+                    if (item.HasChildren)
+                        item.ExpansionChanged += Item_ExpansionChanged;
+                }
+
+                item0.IsExpanded = false;
+                item5.IsExpanded = false;
+            });
         }
 
         private string theme = "Generic-bright";

@@ -49,6 +49,19 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MinuteScale
             item7.Predecessors.Add(new PredecessorItem { Item = item4 });
             item7.Predecessors.Add(new PredecessorItem { Item = item6 });
 
+            for (int i = 3; i <= 25; i++)
+            {
+                GanttChartDataGrid.Items.Add(
+                    new GanttChartItem
+                    {
+                        Content = "Task " + i,
+                        Indentation = i % 3 == 0 ? 0 : 1,
+                        Start = now.AddMinutes(i <= 8 ? (i - 4) * 3 : i - 8),
+                        Finish = now.AddMinutes((i <= 8 ? (i - 4) * 3 + (i > 8 ? 6 : 1) : i - 2) + 1),
+                        CompletedFinish = now.AddMinutes(i <= 8 ? (i - 4) * 3 : i - 8).AddMinutes(i % 6 == 1 ? 3 : 0)
+                    });
+            }
+
             // Set working and visible time to 24 hours/day and 7 day/week, and nonworking time as not highlighted (as there is only working time).
             GanttChartDataGrid.WorkingDayStart = GanttChartDataGrid.VisibleDayStart = TimeOfDay.MinValue;
             GanttChartDataGrid.WorkingDayFinish = GanttChartDataGrid.VisibleDayFinish = TimeOfDay.MaxValue;

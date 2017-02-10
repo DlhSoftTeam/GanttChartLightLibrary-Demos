@@ -49,12 +49,12 @@
                     <DataGridTemplateColumn Header="Occurrence count">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <ContentControl Content="{Binding OccurrenceCount, Converter={StaticResource UnlimitedIntConverter}, UpdateSourceTrigger=PropertyChanged}"/>
+                                <ContentControl Content="{Binding OccurrenceCount, Converter={StaticResource UnlimitedIntConverter}}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                         <DataGridTemplateColumn.CellEditingTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding OccurrenceCount, Mode=TwoWay, Converter={StaticResource UnlimitedIntConverter}}" IsEnabled="{Binding IsLeaf}"/>
+                                <TextBox Text="{Binding OccurrenceCount, Mode=TwoWay, Converter={StaticResource UnlimitedIntConverter}, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsLeaf}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellEditingTemplate>
                     </DataGridTemplateColumn>

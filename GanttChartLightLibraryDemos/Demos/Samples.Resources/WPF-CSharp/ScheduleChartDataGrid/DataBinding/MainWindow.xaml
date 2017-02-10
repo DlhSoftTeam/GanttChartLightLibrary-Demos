@@ -12,7 +12,7 @@
     </Window.Resources>
     <DockPanel>
         <!-- DataContext is set to a custom resource collection in code behind, and items are bound using ResourceItemsConverter. -->
-        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.05*">
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.15*">
             <pdgcc:ScheduleChartDataGrid.Items>
                 <Binding>
                     <Binding.Converter>
@@ -24,8 +24,11 @@
                 </Binding>
             </pdgcc:ScheduleChartDataGrid.Items>
             <pdgcc:ScheduleChartDataGrid.Columns>
-                <!-- Define new columns for custom properties, using Tag prefix to refer the original custom data item properties. -->
-                <DataGridTextColumn Header="Description" Binding="{Binding Tag.Description, Mode=TwoWay}" IsReadOnly="False"/>
+                <pdgcc:DataGridColumnCollection>
+                    <DataGridTextColumn Header="Resource" Binding="{Binding Content, Mode=TwoWay}"/>
+                    <!-- Define new columns for custom properties, using Tag prefix to refer the original custom data item properties. -->
+                    <DataGridTextColumn Header="Description" Binding="{Binding Tag.Description, Mode=TwoWay}" IsReadOnly="False"/>
+                </pdgcc:DataGridColumnCollection>
             </pdgcc:ScheduleChartDataGrid.Columns>
         </pdgcc:ScheduleChartDataGrid>
     </DockPanel>

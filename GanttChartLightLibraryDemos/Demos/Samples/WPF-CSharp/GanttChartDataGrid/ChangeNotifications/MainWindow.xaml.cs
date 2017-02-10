@@ -45,7 +45,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.ChangeNotifications
             item7.Predecessors.Add(new PredecessorItem { Item = item4 });
             item7.Predecessors.Add(new PredecessorItem { Item = item6 });
 
-            for (int i = 3; i <= 23; i++)
+            for (int i = 3; i <= 25; i++)
             {
                 GanttChartDataGrid.Items.Add(
                     new GanttChartItem

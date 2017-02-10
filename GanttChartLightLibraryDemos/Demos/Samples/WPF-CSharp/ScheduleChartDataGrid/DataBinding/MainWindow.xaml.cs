@@ -36,7 +36,7 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.DataBinding
 
             for (int i = 3; i <= 16; i++)
             {
-                CustomResourceItem item = new CustomResourceItem { Name = "Resource " + i, AssignedTasks = new ObservableCollection<CustomTaskItem>() };
+                CustomResourceItem item = new CustomResourceItem { Name = "Resource " + i, Description = "Description of custom resource " + i, AssignedTasks = new ObservableCollection<CustomTaskItem>() };
                 for (int j = 1; j <= (i - 1) % 4 + 1; j++)
                 {
                     item.AssignedTasks.Add(

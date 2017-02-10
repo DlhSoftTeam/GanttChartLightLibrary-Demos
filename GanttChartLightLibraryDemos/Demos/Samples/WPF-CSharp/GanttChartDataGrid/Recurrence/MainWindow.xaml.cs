@@ -41,13 +41,18 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.Recurrence
             item7.RecurrenceType = RecurrenceType.Daily;
             item7.OccurrenceCount = 2;
 
-            // Apply template to be able to access the internal GanttChartView control.
-            ApplyTemplate();
-            GanttChartDataGrid.ApplyTemplate();
+            // Component ApplyTemplate is called in order to complete loading of the user interface, after the main ApplyTemplate that initializes the custom theme, and using an asynchronous action to allow further constructor initializations if they exist (such as setting up the theme name to load).
+            Dispatcher.BeginInvoke((Action)delegate
+            {
+                ApplyTemplate();
 
-            // Set up the internally managed occurrence item collection to be displayed in the chart area (instead of GanttChartDataGrid.Items).
-            GanttChartDataGrid.GanttChartView.Items = ganttChartItemOccurrences;
-            UpdateOccurrences();
+                // Apply template to be able to access the internal GanttChartView control.
+                GanttChartDataGrid.ApplyTemplate();
+
+                // Set up the internally managed occurrence item collection to be displayed in the chart area (instead of GanttChartDataGrid.Items).
+                GanttChartDataGrid.GanttChartView.Items = ganttChartItemOccurrences;
+                UpdateOccurrences();
+            });
         }
 
         private string theme = "Generic-bright";

@@ -60,6 +60,19 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.BarTemplating
             item7.IsMilestone = true;
             item7.Predecessors.Add(new PredecessorItem { Item = item4 });
             item7.Predecessors.Add(new PredecessorItem { Item = item6 });
+
+            for (int i = 3; i <= 25; i++)
+            {
+                GanttChartDataGrid.Items.Add(
+                    new CustomGanttChartItem
+                    {
+                        Content = "Task " + i,
+                        Indentation = i % 3 == 0 ? 0 : 1,
+                        Start = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8),
+                        Finish = DateTime.Today.AddDays((i <= 8 ? (i - 4) * 3 + (i > 8 ? 6 : 1) : i - 2) + 1),
+                        CompletedFinish = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8).AddDays(i % 6 == 1 ? 3 : 0)
+                    });
+            }
         }
 
         private string theme = "Generic-bright";
