@@ -16,8 +16,9 @@
     <DockPanel>
         <!-- Set NormalAllocationBarFill, UnderAllocationBarFill, OverAllocationBarFill and other similar properties to set up the general appearance of allocation bars. -->
         <!-- Set MaxDisplayedUnits property to define the maximum displayed units in the view (by default 1.5, i.e. 150%), representing the full height allocation bar (if allocation units of an item would be higher than this value the associated displayed allocation bar will not exceed this maximum height). -->
-        <pdgcc:LoadChartDataGrid x:Name="LoadChartDataGrid" DataGridWidth="0.05*" NormalAllocationBarFill="{StaticResource NormalAllocationBarFill}" UnderAllocationBarFill="{StaticResource UnderAllocationBarFill}" OverAllocationBarFill="{StaticResource OverAllocationBarFill}" MaxDisplayedUnits="1.25">
-            <pdgcc:LoadChartDataGrid.Items>
+        <pdgcc:LoadChartView x:Name="LoadChartDataGrid" NormalAllocationBarFill="{StaticResource NormalAllocationBarFill}" UnderAllocationBarFill="{StaticResource UnderAllocationBarFill}" OverAllocationBarFill="{StaticResource OverAllocationBarFill}" MaxDisplayedUnits="1.25"
+                             Width="800" Height="376">
+            <pdgcc:LoadChartView.Items>
                 <!-- Some item properties are set in code behind. -->
                 <pdgcc:LoadChartItem Content="Resource 1">
                     <pdgcc:LoadChartItem.GanttChartItems>
@@ -32,8 +33,8 @@
                         <pdgcc:AllocationItem Content="Task 2"/>
                     </pdgcc:LoadChartItem.GanttChartItems>
                 </pdgcc:LoadChartItem>
-            </pdgcc:LoadChartDataGrid.Items>
-        </pdgcc:LoadChartDataGrid>
+            </pdgcc:LoadChartView.Items>
+        </pdgcc:LoadChartView>
     </DockPanel>
 </Window>
     

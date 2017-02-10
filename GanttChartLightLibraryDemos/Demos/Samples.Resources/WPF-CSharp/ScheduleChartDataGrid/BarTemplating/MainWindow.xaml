@@ -12,7 +12,8 @@
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
-        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.05*" StandardBarCornerRadius="1" IsMouseWheelZoomEnabled="False">
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.05*" StandardBarCornerRadius="1" IsMouseWheelZoomEnabled="False"
+                                     Width="800" Height="376">
             <!-- Define the custom bar template for standard tasks. -->
             <pdgcc:ScheduleChartDataGrid.StandardTaskTemplate>
                 <DataTemplate>

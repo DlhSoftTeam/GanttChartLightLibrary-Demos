@@ -18,7 +18,8 @@
         <!-- Set VisibleWeekStart and VisibleWeekFinish (and in code behind, TimlineStart and TimelineFinish, and VisibleDayStart and VisibleDayFinish) properties to define the visible time intervals in the chart. -->
         <!-- Set HourWidth property to define the zoom level for the timeline in the chart. -->
         <!-- Set HeaderHeight and ScaleHeaderHeight properties to define the total header height and the default scale header height in the chart. -->
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" WorkingWeekStart="Tuesday" WorkingWeekFinish="Saturday" VisibleWeekStart="Monday" VisibleWeekFinish="Saturday" HourWidth="30" HeaderHeight="84" ScaleHeaderHeight="28">
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" WorkingWeekStart="Tuesday" WorkingWeekFinish="Saturday" VisibleWeekStart="Monday" VisibleWeekFinish="Saturday" HourWidth="30" HeaderHeight="84" ScaleHeaderHeight="28"
+                                  Width="800" Height="376">
             <!-- Set Scales collection to specify the headers to be displayed in the chart. -->
             <pdgcc:GanttChartDataGrid.Scales>
                 <pdgcc:ScaleCollection>

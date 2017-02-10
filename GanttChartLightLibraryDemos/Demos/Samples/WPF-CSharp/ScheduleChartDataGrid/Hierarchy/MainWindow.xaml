@@ -12,7 +12,8 @@
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
-        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.1*">
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.1*"
+                                     Width="800" Height="376">
             <!-- DataTreeGridColumn (within a fully defined custom Columns collection) is required to present hierarchical resources. -->
             <pdgcc:ScheduleChartDataGrid.Columns>
                 <pdgcc:DataGridColumnCollection>

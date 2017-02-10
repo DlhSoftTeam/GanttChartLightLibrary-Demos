@@ -16,7 +16,8 @@
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="2">
             <ToggleButton Name="FilteringToggleButton" Content="Apply filtering" Checked="FilteringToggleButton_CheckedChanged" Unchecked="FilteringToggleButton_CheckedChanged" Margin="2"/>
         </StackPanel>
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" IsAsyncPresentationEnabled="False">
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" IsAsyncPresentationEnabled="False"
+                                  Width="800" Height="376">
             <pdgcc:GanttChartDataGrid.Columns>
                 <pdgcc:DataGridColumnCollection>
                     <hdc:DataTreeGridColumn Header="Task"/>

@@ -13,7 +13,8 @@
     </Window.Resources>
     <DockPanel>
         <!-- DataContext is set to a custom task collection in code behind, and items are bound using TaskItemsConverter. -->
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid">
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" 
+                                  Width="800" Height="376">
             <pdgcc:GanttChartDataGrid.Items>
                 <Binding>
                     <Binding.Converter>

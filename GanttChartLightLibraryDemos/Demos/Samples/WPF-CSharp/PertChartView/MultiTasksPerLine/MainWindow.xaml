@@ -20,7 +20,8 @@
                 <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" Items="{Binding Tasks}"/>
             </TabItem>
             <TabItem x:Name="PertChartTabItem" Header="Pert Chart">
-                <pdpcc:PertChartView x:Name="PertChartView"/>
+                <pdpcc:PertChartView x:Name="PertChartView" 
+                                     Width="800" Height="376"/>
             </TabItem>
         </TabControl>
     </DockPanel>

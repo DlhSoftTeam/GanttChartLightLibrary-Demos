@@ -13,7 +13,8 @@
     </Window.Resources>
     <DockPanel>
         <!-- Set IsLegendVisible to false to hide the legend and define specific item and shape sizes as we customize the task shape template. -->
-        <pdpcc:NetworkDiagramView x:Name="NetworkDiagramView" IsLegendVisible="False" ItemWidth="350" ItemHeight="100" ShapeWidth="342" ShapeHeight="92">
+        <pdpcc:NetworkDiagramView x:Name="NetworkDiagramView" IsLegendVisible="False" ItemWidth="350" ItemHeight="100" ShapeWidth="342" ShapeHeight="92"
+                                  Width="800" Height="376">
             <!-- Define the custom shape template for tasks. -->
             <pdpcc:NetworkDiagramView.TaskTemplate>
                 <DataTemplate>

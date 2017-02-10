@@ -13,7 +13,8 @@
     <DockPanel>
         <!-- Set UseMultipleLinesPerRow to true to enable displaying multiple lines per row, so that bars representing tasks assigned to the same resource do not overlap in the chart area. -->
         <!-- Optionally, you may set GanttChartItem.DisplayLineIndex and/or ScheduleChartItem.DisplayLineCount property values on individual items. -->
-        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.05*" UseMultipleLinesPerRow="True">
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.05*" UseMultipleLinesPerRow="True"
+                                     Width="800" Height="376">
             <pdgcc:ScheduleChartDataGrid.Items>
                 <pdgcc:ScheduleChartItem Content="Resource 1">
                     <pdgcc:ScheduleChartItem.GanttChartItems>

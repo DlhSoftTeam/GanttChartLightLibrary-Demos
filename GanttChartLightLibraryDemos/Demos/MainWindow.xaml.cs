@@ -156,11 +156,6 @@ namespace Demos
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
                                         new SampleInfo { Tag = "MainFeatures-item", Title = "Main features - item", Description = "Shows the main features of the component" },
-                                        new SampleInfo { Tag = "MainFeatures-GCV", Title = "Main features - GCV", Description = "Shows the main features of the component" },
-                                        new SampleInfo { Tag = "MainFeatures-SCV", Title = "Main features - SCV", Description = "Shows the main features of the component" },
-                                        new SampleInfo { Tag = "MainFeatures-LCDG", Title = "Main features - LCDG", Description = "Shows the main features of the component" },
-                                        new SampleInfo { Tag = "MainFeatures-LCV", Title = "Main features - LCV", Description = "Shows the main features of the component" },
-                                        new SampleInfo { Tag = "MainFeatures-PERT", Title = "Main features - PERT", Description = "Shows the main features of the component" },
                                         new SampleInfo { Tag = "BasicUsage", Title = "Basic usage", Description = "Shows how to load the component with minimum configuration" },
                                         new SampleInfo { Tag = "DataBinding", Title = "Data binding", Description = "Shows how you can data bind the component to a custom task item collection" },
                                         new SampleInfo { Tag = "CustomAppearance", Title = "Custom appearance", Description = "Shows how you can set colors for all or for individual task items" },

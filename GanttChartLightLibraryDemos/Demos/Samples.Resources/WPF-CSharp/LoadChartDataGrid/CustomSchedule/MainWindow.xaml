@@ -17,17 +17,18 @@
         <!-- Set VisibleWeekStart and VisibleWeekFinish (and in code behind, TimlineStart and TimelineFinish, and VisibleDayStart and VisibleDayFinish) properties to define the visible time intervals in the chart. -->
         <!-- Set HourWidth property to define the zoom level for the timeline in the chart. -->
         <!-- Set HeaderHeight and ScaleHeaderHeight properties to define the total header height and the default scale header height in the chart. -->
-        <pdgcc:LoadChartDataGrid x:Name="LoadChartDataGrid" DataGridWidth="0.05*" VisibleWeekStart="Monday" VisibleWeekFinish="Saturday" HourWidth="30" HeaderHeight="84" ScaleHeaderHeight="28">
+        <pdgcc:LoadChartView x:Name="LoadChartDataGrid" VisibleWeekStart="Monday" VisibleWeekFinish="Saturday" HourWidth="30" HeaderHeight="84" ScaleHeaderHeight="28"
+                             Width="800" Height="376">
             <!-- Set Scales collection to specify the headers to be displayed in the chart. -->
-            <pdgcc:LoadChartDataGrid.Scales>
+            <pdgcc:LoadChartView.Scales>
                 <pdgcc:ScaleCollection>
                     <pdgcc:Scale ScaleType="Months" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
                     <pdgcc:Scale ScaleType="Weeks" HeaderHeight="0" BorderBrush="Silver" BorderThickness="0,0,0.35,0"/>
                     <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayLeadingZero" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,0.15,0"/>
                     <pdgcc:Scale ScaleType="Hours" HeaderContentFormat="HourLeadingZero" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
                 </pdgcc:ScaleCollection>
-            </pdgcc:LoadChartDataGrid.Scales>
-            <pdgcc:LoadChartDataGrid.Items>
+            </pdgcc:LoadChartView.Scales>
+            <pdgcc:LoadChartView.Items>
                 <!-- Some item properties are set in code behind. -->
                 <pdgcc:LoadChartItem Content="Resource 1">
                     <pdgcc:LoadChartItem.GanttChartItems>
@@ -42,7 +43,7 @@
                         <pdgcc:AllocationItem Content="Task 2"/>
                     </pdgcc:LoadChartItem.GanttChartItems>
                 </pdgcc:LoadChartItem>
-            </pdgcc:LoadChartDataGrid.Items>
-        </pdgcc:LoadChartDataGrid>
+            </pdgcc:LoadChartView.Items>
+        </pdgcc:LoadChartView>
     </DockPanel>
 </Window>

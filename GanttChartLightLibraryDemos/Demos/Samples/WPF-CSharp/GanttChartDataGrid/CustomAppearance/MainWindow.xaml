@@ -16,7 +16,8 @@
     </Window.Resources>
     <DockPanel>
         <!-- Set StandardBarFill, StandardBarStroke, and other similar properties to set up the general appearance of task bars. -->
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" StandardBarFill="{StaticResource StandardBarFill}" StandardBarStroke="{StaticResource StandardBarStroke}" DependencyLineStroke="{StaticResource StandardBarStroke}">
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" StandardBarFill="{StaticResource StandardBarFill}" StandardBarStroke="{StaticResource StandardBarStroke}" DependencyLineStroke="{StaticResource StandardBarStroke}"
+                                  Width="800" Height="376">
             <pdgcc:GanttChartDataGrid.Items>
                 <!-- Some item properties are set in code behind. -->
                 <pdgcc:GanttChartItem Content="Task 1"/>

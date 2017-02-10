@@ -20,7 +20,8 @@
         <!-- Handle TimelinePageChanged event to be able to generate appropriate chart item occurrences in code behind when the timeline page changes or gets initialized. -->
         <!-- Handle ItemPropertyChanged event to be able to detect recurrence setting changes and to update items in the managed occurrence collection accordingly (see code behind). -->
         <!-- Optionally, set DependencyCreationValidator to null to disable dependency creation using drag and drop operations in the chart view, as predecessors are supported only between tasks that do not share row indexes (task occurrences do share row indexes to be displayed as multiple bars in the same row). -->
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" DataGridWidth="0.35*" TimelinePageChanged="GanttChartDataGrid_TimelinePageChanged" ItemPropertyChanged="GanttChartDataGrid_ItemPropertyChanged" DependencyCreationValidator="{x:Null}">
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" DataGridWidth="0.35*" TimelinePageChanged="GanttChartDataGrid_TimelinePageChanged" ItemPropertyChanged="GanttChartDataGrid_ItemPropertyChanged" DependencyCreationValidator="{x:Null}"
+                                  Width="800" Height="376">
             <pdgcc:GanttChartDataGrid.Columns>
                 <!-- Set the entire columns collection in order to be able to display only Start, Finish and recurrence definition button columns. -->
                 <pdgcc:DataGridColumnCollection>

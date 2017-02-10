@@ -47,12 +47,16 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.SummaryValues
             // Turn off asynchronous presentation and apply template before setting ExtraCosts property values, in order for items to be aware of their container (GanttChartView.Items collection) and therefore to be able to aggregate summary (parent item) values automatically at initialization time also.
             GanttChartDataGrid.IsAsyncPresentationEnabled = false;
 
-            ApplyTemplate();
-            GanttChartDataGrid.ApplyTemplate();
+            // Component ApplyTemplate is called in order to complete loading of the user interface, after the main ApplyTemplate that initializes the custom theme, and using an asynchronous action to allow further constructor initializations if they exist (such as setting up the theme name to load).
+            Dispatcher.BeginInvoke((Action)delegate
+            {
+                ApplyTemplate();
+                GanttChartDataGrid.ApplyTemplate();
 
-            item1.ExtraCosts = 200;
-            item2.ExtraCosts = 300;
-            item6.ExtraCosts = 600;
+                item1.ExtraCosts = 200;
+                item2.ExtraCosts = 300;
+                item6.ExtraCosts = 600;
+            });
         }
 
         private string theme = "Generic-bright";
