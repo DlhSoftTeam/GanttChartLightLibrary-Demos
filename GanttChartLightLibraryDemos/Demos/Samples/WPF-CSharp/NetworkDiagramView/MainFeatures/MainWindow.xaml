@@ -64,7 +64,8 @@
                 </Border>
             </StackPanel>
         </Border>
-        <pdpcc:NetworkDiagramView x:Name="NetworkDiagramView">
+        <pdpcc:NetworkDiagramView x:Name="NetworkDiagramView"
+                                  Width="800" Height="376">
             <pdpcc:NetworkDiagramView.Items>
                 <!-- Some item properties are set in code behind. -->
                 <!-- Alternatively, you may data bind items to your custom data source using a preconfigured pdpcc:NetworkTaskItemsConverter instance. -->

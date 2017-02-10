@@ -12,7 +12,8 @@
     </Window.Resources>
     <DockPanel>
         <!-- As only one resource item would be displayed you can safely set item height and related properties to large values. -->
-        <pdgcc:LoadChartView x:Name="LoadChartView" ItemHeight="176" BarHeight="172" Height="252" VerticalAlignment="Top">
+        <pdgcc:LoadChartView x:Name="LoadChartView" ItemHeight="176" BarHeight="172" Height="252" VerticalAlignment="Top"
+                             Width="800">
             <pdgcc:LoadChartView.Items>
                 <!-- Some item properties are set in code behind. -->
                 <pdgcc:LoadChartItem>

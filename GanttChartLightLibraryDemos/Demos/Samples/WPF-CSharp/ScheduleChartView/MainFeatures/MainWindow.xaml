@@ -97,7 +97,8 @@
                 </Border>
             </StackPanel>
         </Border>
-        <pdgcc:ScheduleChartView x:Name="ScheduleChartView">
+        <pdgcc:ScheduleChartView x:Name="ScheduleChartView"
+                                 Width="800" Height="376">
             <pdgcc:ScheduleChartView.Items>
                 <!-- Some item properties are set in code behind. -->
                 <pdgcc:ScheduleChartItem>

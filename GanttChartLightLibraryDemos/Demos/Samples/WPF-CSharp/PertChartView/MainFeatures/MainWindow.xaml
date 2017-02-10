@@ -66,7 +66,8 @@
                 </Border>
             </StackPanel>
         </Border>
-        <pdpcc:PertChartView x:Name="PertChartView">
+        <pdpcc:PertChartView x:Name="PertChartView"
+                             Width="800" Height="376">
             <pdpcc:PertChartView.Items>
                 <!-- Some item properties are set in code behind. -->
                 <!-- Alternatively, you may data bind items to your custom data source using a preconfigured pdpcc:TaskEventItemsConverter instance. -->

@@ -97,7 +97,8 @@
                 </Border>
             </StackPanel>
         </Border>
-        <pdgcc:GanttChartView x:Name="GanttChartView">
+        <pdgcc:GanttChartView x:Name="GanttChartView"
+                              Width="800" Height="376">
             <pdgcc:GanttChartView.Items>
                 <!-- Some item properties are set in code behind. -->
                 <pdgcc:GanttChartItem Content="Task 1"/>

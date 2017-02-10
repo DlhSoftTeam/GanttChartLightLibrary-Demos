@@ -92,7 +92,8 @@
                 </Border>
             </StackPanel>
         </Border>
-        <pdgcc:LoadChartDataGrid x:Name="LoadChartDataGrid" DataGridWidth="0.05*">
+        <pdgcc:LoadChartDataGrid x:Name="LoadChartDataGrid" DataGridWidth="0.05*"
+                                 Width="800" Height="376">
             <pdgcc:LoadChartDataGrid.Items>
                 <!-- Some item properties are set in code behind. -->
                 <pdgcc:LoadChartItem Content="Resource 1">
