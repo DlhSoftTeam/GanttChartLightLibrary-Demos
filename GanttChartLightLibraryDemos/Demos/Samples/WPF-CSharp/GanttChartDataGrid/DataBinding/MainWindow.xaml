@@ -30,10 +30,6 @@
                 <pdgcc:DataGridColumnCollection>
                     <hd:DataTreeGridColumn Header="Task"/>
                     <DataGridTextColumn Header="Start" Binding="{Binding Start, Mode=TwoWay, Converter={StaticResource DateTimeStringConverter}}"/>
-                    <DataGridTextColumn Header="Finish" Binding="{Binding Finish, Mode=TwoWay, Converter={StaticResource DateTimeStringConverter}}"/>
-                    <DataGridCheckBoxColumn Header="Is milestone" Binding="{Binding IsMilestone, Mode=TwoWay}"/>
-                    <DataGridCheckBoxColumn Header="Is completed" Binding="{Binding IsCompleted, Mode=TwoWay}"/>
-                    <DataGridTextColumn Header="Assignments" Binding="{Binding AssignmentsContent, Mode=TwoWay}"/>
                     <!-- Define new columns for custom properties, using Tag prefix to refer the original custom data item properties. -->
                     <DataGridTextColumn Header="Description" Binding="{Binding Tag.Description, Mode=TwoWay}" IsReadOnly="False"/>
                 </pdgcc:DataGridColumnCollection>

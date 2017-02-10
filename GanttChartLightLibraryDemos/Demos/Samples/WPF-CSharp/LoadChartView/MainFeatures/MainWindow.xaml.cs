@@ -86,6 +86,8 @@ namespace Demos.WPF.CSharp.LoadChartView.MainFeatures
             // Initialize the control area.
             ScalesComboBox.SelectedIndex = 0;
             ShowWeekendsCheckBox.IsChecked = true;
+
+            LoadChartView.DisplayedTime = DateTime.Today.AddDays(-1);
         }
 
         private string theme = "Generic-bright";

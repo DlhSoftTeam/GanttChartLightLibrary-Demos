@@ -67,6 +67,8 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.CustomAppearance
                         CompletedFinish = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8).AddDays(i % 6 == 4 ? 3 : 0)
                     });
             }
+
+            GanttChartDataGrid.DisplayedTime = DateTime.Today.AddDays(-1);
         }
 
         private string theme = "Generic-bright";

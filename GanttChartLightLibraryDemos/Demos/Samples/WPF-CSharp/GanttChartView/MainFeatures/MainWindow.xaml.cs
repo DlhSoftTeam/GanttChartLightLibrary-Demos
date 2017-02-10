@@ -87,6 +87,8 @@ namespace Demos.WPF.CSharp.GanttChartView.MainFeatures
             // Initialize the control area.
             ScalesComboBox.SelectedIndex = 0;
             ShowWeekendsCheckBox.IsChecked = true;
+
+            GanttChartView.DisplayedTime = DateTime.Today.AddDays(-1);
         }
 
         private string theme = "Generic-bright";

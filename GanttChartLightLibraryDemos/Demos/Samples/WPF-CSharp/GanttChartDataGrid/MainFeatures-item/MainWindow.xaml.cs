@@ -185,6 +185,8 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures_item
             ShowWeekendsCheckBox.IsChecked = true;
             BaselineCheckBox.IsChecked = true;
             EnableDependencyConstraintsCheckBox.IsChecked = true;
+
+            GanttChartDataGrid.DisplayedTime = DateTime.Today.AddDays(-1);
         }
 
         public MainWindow(string theme) : this()

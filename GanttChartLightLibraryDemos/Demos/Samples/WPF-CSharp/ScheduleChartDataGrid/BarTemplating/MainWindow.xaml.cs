@@ -55,6 +55,8 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.BarTemplating
                 }
                 ScheduleChartDataGrid.Items.Add(item);
             }
+
+            ScheduleChartDataGrid.DisplayedTime = DateTime.Today.AddDays(-1);
         }
 
         private string theme = "Generic-bright";

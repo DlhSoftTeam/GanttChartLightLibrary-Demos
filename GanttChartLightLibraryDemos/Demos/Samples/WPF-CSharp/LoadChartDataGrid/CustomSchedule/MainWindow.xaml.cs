@@ -57,6 +57,8 @@ namespace Demos.WPF.CSharp.LoadChartDataGrid.CustomSchedule
                 }
                 LoadChartDataGrid.Items.Add(item);
             }
+
+            LoadChartDataGrid.DisplayedTime = DateTime.Today.AddDays(-1);
         }
 
         private string theme = "Generic-bright";
