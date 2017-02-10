@@ -37,6 +37,8 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.SummaryBars
             item4.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
             item4.Finish = DateTime.Today.AddDays(2).Add(TimeSpan.Parse("12:00:00"));
 
+            GanttChartItem item5 = GanttChartDataGrid.Items[5];
+
             GanttChartItem item6 = GanttChartDataGrid.Items[6];
             item6.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
             item6.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
@@ -92,6 +94,9 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.SummaryBars
                     if (item.HasChildren)
                         item.ExpansionChanged += Item_ExpansionChanged;
                 }
+
+                item0.IsExpanded = false;
+                item5.IsExpanded = false;
             });
         }
 

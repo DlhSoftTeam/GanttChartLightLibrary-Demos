@@ -39,7 +39,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.DataBinding
             taskItems[3].Predecessors = new ObservableCollection<CustomPredecessorItem> { new CustomPredecessorItem { Reference = taskItems[0], Type = (int)DependencyType.StartStart } };
             taskItems[6].Predecessors = new ObservableCollection<CustomPredecessorItem> { new CustomPredecessorItem { Reference = taskItems[0] }, new CustomPredecessorItem { Reference = taskItems[3] } };
 
-            for (int i = 4; i <= 24; i++)
+            for (int i = 4; i <= 25; i++)
             {
                 taskItems.Add(
                     new CustomTaskItem
