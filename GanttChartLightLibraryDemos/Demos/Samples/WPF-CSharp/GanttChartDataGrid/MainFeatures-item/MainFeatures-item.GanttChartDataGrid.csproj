@@ -175,9 +175,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\Themes\Themes.csproj">
       <Project>{779ff005-986b-4284-aa4f-0f86c1216406}</Project>
       <Name>Themes</Name>
