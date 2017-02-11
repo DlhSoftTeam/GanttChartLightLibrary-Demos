@@ -72,7 +72,13 @@
     <ManifestCertificateThumbprint>5C3AC98AD7EC993A8CC7F5C084F002A038DC38D1</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\Application.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DlhSoft.HierarchicalData.LightWPF.Controls, Version=4.0.8.5, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
@@ -2369,6 +2375,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\Application.manifest" />
     <None Include="Properties\GanttChartLightLibraryDemos.snk" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -14,7 +14,7 @@
     </Window.Resources>
     <DockPanel>
         <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" DataGridWidth="0.75*"
-                                  Width="800" Height="376">
+                                  Width="800" Height="316">
             <pdgcc:GanttChartDataGrid.Columns>
                 <pdgcc:DataGridColumnCollection>
                     <hdc:DataTreeGridColumn Header="Task"/>

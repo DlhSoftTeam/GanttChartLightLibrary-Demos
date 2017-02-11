@@ -12,7 +12,7 @@
     </Window.Resources>
     <DockPanel>
         <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" IsChartClickSelectionEnabled="False"
-                                  Width="800" Height="376">
+                                  Width="800" Height="196">
             <!-- Instead of summary task bars we will present leaf task item clones, inline (see code behind). -->
             <pdgcc:GanttChartDataGrid.Items>
                 <pdgcc:GanttChartItem Content="Task 1"/>

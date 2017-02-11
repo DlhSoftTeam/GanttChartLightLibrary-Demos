@@ -16,7 +16,7 @@
     </Window.Resources>
     <DockPanel>
         <!-- Set StandardBarFill, StandardBarStroke, and other similar properties to set up the general appearance of task bars. -->
-        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.05*" StandardBarFill="{StaticResource StandardBarFill}" StandardBarStroke="{StaticResource StandardBarStroke}" DependencyLineStroke="{StaticResource StandardBarStroke}"
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.08*" StandardBarFill="{StaticResource StandardBarFill}" StandardBarStroke="{StaticResource StandardBarStroke}" DependencyLineStroke="{StaticResource StandardBarStroke}"
                                      Width="800" Height="376">
             <pdgcc:ScheduleChartDataGrid.Items>
                 <!-- Some item properties are set in code behind. -->

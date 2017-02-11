@@ -122,7 +122,7 @@
             </StackPanel>
         </Border>
         <!-- Optionally, set IsUndoEnabled to true to enable undo queue recording; you may call Undo and Redo methods for undoing and redoing recorded actions (see code behind). -->
-        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.05*" IsUndoEnabled="True"
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.08*" IsUndoEnabled="True"
                                      Width="800" Height="376">
             <pdgcc:ScheduleChartDataGrid.Items>
                 <!-- Some item properties are set in code behind. -->
