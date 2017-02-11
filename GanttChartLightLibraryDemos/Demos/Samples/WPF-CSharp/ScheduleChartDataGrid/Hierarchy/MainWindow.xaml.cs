@@ -55,7 +55,7 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.Hierarchy
         private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
         {
-            this.theme = theme;
+            this.theme = "Blue-navy";
             ApplyTemplate();
         }
         public override void OnApplyTemplate()

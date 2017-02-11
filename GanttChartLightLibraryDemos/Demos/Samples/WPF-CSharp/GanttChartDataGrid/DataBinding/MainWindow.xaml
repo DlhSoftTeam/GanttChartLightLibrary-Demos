@@ -14,7 +14,7 @@
     <DockPanel>
         <!-- DataContext is set to a custom task collection in code behind, and items are bound using TaskItemsConverter. -->
         <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" 
-                                  Width="800" Height="376">
+                                  Width="800" Height="376" IsRowClickTimeScrollingEnabled="False">
             <pdgcc:GanttChartDataGrid.Items>
                 <Binding>
                     <Binding.Converter>
@@ -29,7 +29,18 @@
             <pdgcc:GanttChartDataGrid.Columns>
                 <pdgcc:DataGridColumnCollection>
                     <hd:DataTreeGridColumn Header="Task"/>
-                    <DataGridTextColumn Header="Start" Binding="{Binding Start, Mode=TwoWay, Converter={StaticResource DateTimeStringConverter}}"/>
+                    <DataGridTemplateColumn Header="Start" MinWidth="140">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding Start, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Start, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
                     <!-- Define new columns for custom properties, using Tag prefix to refer the original custom data item properties. -->
                     <DataGridTextColumn Header="Description" Binding="{Binding Tag.Description, Mode=TwoWay}" IsReadOnly="False"/>
                 </pdgcc:DataGridColumnCollection>

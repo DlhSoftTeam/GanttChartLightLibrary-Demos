@@ -54,12 +54,15 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.CustomSchedule
                 }
                 ScheduleChartDataGrid.Items.Add(item);
             }
+
+            ScheduleChartDataGrid.DisplayedTime = ScheduleChartDataGrid.TimelinePageStart;
+            ScheduleChartDataGrid.TimelinePageStart = ScheduleChartDataGrid.TimelinePageStart.AddDays(-1);
         }
 
         private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
         {
-            this.theme = theme;
+            this.theme = "Gray-blue";
             ApplyTemplate();
         }
         public override void OnApplyTemplate()

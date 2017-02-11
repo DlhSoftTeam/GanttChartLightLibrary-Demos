@@ -18,7 +18,7 @@
         <!-- Set HourWidth property to define the zoom level for the timeline in the chart. -->
         <!-- Set HeaderHeight and ScaleHeaderHeight properties to define the total header height and the default scale header height in the chart. -->
         <pdgcc:LoadChartView x:Name="LoadChartDataGrid" VisibleWeekStart="Monday" VisibleWeekFinish="Saturday" HourWidth="30" HeaderHeight="84" ScaleHeaderHeight="28"
-                             Width="800" Height="376">
+                             Width="800" Height="226">
             <!-- Set Scales collection to specify the headers to be displayed in the chart. -->
             <pdgcc:LoadChartView.Scales>
                 <pdgcc:ScaleCollection>

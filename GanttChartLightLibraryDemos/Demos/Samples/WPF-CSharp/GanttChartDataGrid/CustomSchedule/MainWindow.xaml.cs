@@ -78,12 +78,15 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.CustomSchedule
                         CompletedFinish = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8).AddDays(i % 6 == 4 ? 3 : 0)
                     });
             }
+
+            GanttChartDataGrid.DisplayedTime = GanttChartDataGrid.TimelinePageStart;
+            GanttChartDataGrid.TimelinePageStart = GanttChartDataGrid.TimelinePageStart.AddDays(-1);
         }
 
         private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
         {
-            this.theme = theme;
+            this.theme = "Purple-green";
             ApplyTemplate();
         }
         public override void OnApplyTemplate()

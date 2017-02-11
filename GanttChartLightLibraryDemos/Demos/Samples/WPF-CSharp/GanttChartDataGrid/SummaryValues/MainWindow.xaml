@@ -20,9 +20,6 @@
                     <hdc:DataTreeGridColumn Header="Task"/>
                     <DataGridTextColumn Header="Start" Binding="{Binding Start, Mode=TwoWay, Converter={StaticResource DateTimeStringConverter}}"/>
                     <DataGridTextColumn Header="Finish" Binding="{Binding Finish, Mode=TwoWay, Converter={StaticResource DateTimeStringConverter}}"/>
-                    <DataGridCheckBoxColumn Header="Is milestone" Binding="{Binding IsMilestone, Mode=TwoWay}"/>
-                    <DataGridCheckBoxColumn Header="Is completed" Binding="{Binding IsCompleted, Mode=TwoWay}"/>
-                    <DataGridTextColumn Header="Assignments" Binding="{Binding AssignmentsContent, Mode=TwoWay}"/>
                     <!-- Define and add the extra costs column using a custom template. -->
                     <DataGridTemplateColumn Header="Extra costs">
                         <DataGridTemplateColumn.CellTemplate>

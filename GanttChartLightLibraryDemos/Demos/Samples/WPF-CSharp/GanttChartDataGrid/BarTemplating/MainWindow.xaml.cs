@@ -78,7 +78,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.BarTemplating
         private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
         {
-            this.theme = theme;
+            this.theme = "Cyan-green";
             ApplyTemplate();
         }
         public override void OnApplyTemplate()

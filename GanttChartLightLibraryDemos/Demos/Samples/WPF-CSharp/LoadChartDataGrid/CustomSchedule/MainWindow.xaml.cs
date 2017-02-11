@@ -57,12 +57,15 @@ namespace Demos.WPF.CSharp.LoadChartDataGrid.CustomSchedule
                 }
                 LoadChartDataGrid.Items.Add(item);
             }
+
+            LoadChartDataGrid.DisplayedTime = LoadChartDataGrid.TimelinePageStart;
+            LoadChartDataGrid.TimelinePageStart = LoadChartDataGrid.TimelinePageStart.AddDays(-1);
         }
 
         private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
         {
-            this.theme = theme;
+            this.theme = "Steel-blue";
             ApplyTemplate();
         }
         public override void OnApplyTemplate()

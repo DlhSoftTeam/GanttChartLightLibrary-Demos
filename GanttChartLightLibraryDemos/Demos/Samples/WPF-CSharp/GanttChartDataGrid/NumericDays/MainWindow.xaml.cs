@@ -77,15 +77,15 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.NumericDays
             }
 
             // Set timeline page start and displayed time to the numeric day origin.
-            GanttChartDataGrid.SetTimelinePage(NumericDayOrigin, NumericDayOrigin.AddDays(45));
-            GanttChartDataGrid.DisplayedTime = NumericDayOrigin;
+            GanttChartDataGrid.SetTimelinePage(NumericDayOrigin.AddDays(-7), NumericDayOrigin.AddDays(45));
+            GanttChartDataGrid.DisplayedTime = NumericDayOrigin.AddDays(-1);
         }
 
         private ResourceDictionary themeResourceDictionary;
         private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
         {
-            this.theme = theme;
+            this.theme = "Teal-green";
             ApplyTemplate();
         }
         public override void OnApplyTemplate()

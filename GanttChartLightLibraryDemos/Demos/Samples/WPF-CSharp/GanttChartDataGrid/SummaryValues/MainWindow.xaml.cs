@@ -62,7 +62,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.SummaryValues
         private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
         {
-            this.theme = theme;
+            this.theme = "Gray-blue";
             ApplyTemplate();
         }
         public override void OnApplyTemplate()

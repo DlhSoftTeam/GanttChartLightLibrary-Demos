@@ -58,7 +58,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.DataBinding
         private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
         {
-            this.theme = theme;
+            this.theme = "Steel-blue";
             ApplyTemplate();
         }
         public override void OnApplyTemplate()

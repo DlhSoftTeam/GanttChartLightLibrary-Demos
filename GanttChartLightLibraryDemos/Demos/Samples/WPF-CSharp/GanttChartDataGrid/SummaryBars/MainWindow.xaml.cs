@@ -103,7 +103,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.SummaryBars
         private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
         {
-            this.theme = theme;
+            this.theme = "Dark-black";
             ApplyTemplate();
         }
 

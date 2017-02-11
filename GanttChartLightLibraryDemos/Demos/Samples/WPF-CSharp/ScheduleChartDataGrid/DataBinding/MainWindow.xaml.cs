@@ -57,7 +57,7 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.DataBinding
         private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
         {
-            this.theme = theme;
+            this.theme = "Orange-brown";
             ApplyTemplate();
         }
         public override void OnApplyTemplate()

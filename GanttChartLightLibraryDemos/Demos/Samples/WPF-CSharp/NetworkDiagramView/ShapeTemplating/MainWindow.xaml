@@ -14,7 +14,7 @@
     <DockPanel>
         <!-- Set IsLegendVisible to false to hide the legend and define specific item and shape sizes as we customize the task shape template. -->
         <pdpcc:NetworkDiagramView x:Name="NetworkDiagramView" IsLegendVisible="False" ItemWidth="350" ItemHeight="100" ShapeWidth="342" ShapeHeight="92"
-                                  Width="800" Height="376">
+                                  Width="800" Height="296">
             <!-- Define the custom shape template for tasks. -->
             <pdpcc:NetworkDiagramView.TaskTemplate>
                 <DataTemplate>
@@ -38,13 +38,13 @@
                                 <pdpcc:DragNetworkTaskThumb Grid.Row="0" Grid.ColumnSpan="5" IsEnabled="{Binding NetworkDiagramView.IsTaskPositionThumbEnabled}"/>
                                 <Rectangle Grid.Row="1" Grid.ColumnSpan="5" Stroke="{Binding Path=(pdpcc:NetworkDiagramView.ShapeStroke)}" StrokeThickness="0.5" Height="0.5" VerticalAlignment="Top" Margin="1,-2"/>
                                 <TextBlock Grid.Row="1" Grid.Column="0" Text="Start: " Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                                <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding ActualStart, Mode=TwoWay}" Width="110" BorderThickness="0" Margin="0,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding ActualStart, Mode=TwoWay}" Width="112" BorderThickness="0" Margin="0,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                 <TextBlock Grid.Row="1" Grid.Column="3" Text="Finish: " Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                                <DatePicker Grid.Row="1" Grid.Column="4" SelectedDate="{Binding ActualFinish, Mode=TwoWay}" Width="110" BorderThickness="0" Margin="0,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <DatePicker Grid.Row="1" Grid.Column="4" SelectedDate="{Binding ActualFinish, Mode=TwoWay}" Width="112" BorderThickness="0" Margin="0,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Dur.: " Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Effort, Converter={StaticResource DurationStringConverter}, Mode=TwoWay}" Width="110" BorderThickness="0" Margin="0,2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Effort, Converter={StaticResource DurationStringConverter}, Mode=TwoWay}" Width="112" BorderThickness="0" Margin="0,2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                 <TextBlock Grid.Row="2" Grid.Column="3" Text="Res.: " Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                                <TextBox Grid.Row="2" Grid.Column="4" Text="{Binding AssignmentsContent, Mode=TwoWay}" Width="110" BorderThickness="0" Margin="0,2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBox Grid.Row="2" Grid.Column="4" Text="{Binding AssignmentsContent, Mode=TwoWay}" Width="112" BorderThickness="0" Margin="0,2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             </Grid>
                         </Grid>
                         <Grid Visibility="{Binding MilestoneShapeVisibility}">
@@ -63,7 +63,7 @@
                                 <pdpcc:DragNetworkTaskThumb Grid.Row="0" Grid.ColumnSpan="2" IsEnabled="{Binding NetworkDiagramView.IsTaskPositionThumbEnabled}"/>
                                 <Rectangle Grid.Row="1" Grid.ColumnSpan="2" Stroke="{Binding Path=(pdpcc:NetworkDiagramView.ShapeStroke)}" StrokeThickness="0.5" Height="0.5" VerticalAlignment="Top" Margin="-15,0"/>
                                 <TextBlock Grid.Row="1" Grid.Column="0" Text="Date: " Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                                <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding ActualStart, Mode=TwoWay}" Width="110" BorderThickness="0" Margin="0,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding ActualStart, Mode=TwoWay}" Width="112" BorderThickness="0" Margin="0,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             </Grid>
                         </Grid>
                     </Grid>

@@ -21,7 +21,7 @@
             </TabItem>
             <TabItem x:Name="PertChartTabItem" Header="Pert Chart">
                 <pdpcc:PertChartView x:Name="PertChartView" 
-                                     Width="800" Height="376"/>
+                                     Width="490" Height="110"/>
             </TabItem>
         </TabControl>
     </DockPanel>

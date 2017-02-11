@@ -64,7 +64,7 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MultipleLinesPerRow
         private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
         {
-            this.theme = theme;
+            this.theme = "Purple-beige";
             ApplyTemplate();
         }
         public override void OnApplyTemplate()
