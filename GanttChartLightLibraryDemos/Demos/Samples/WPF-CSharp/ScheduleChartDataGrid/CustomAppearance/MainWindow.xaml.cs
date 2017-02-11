@@ -42,8 +42,6 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.CustomAppearance
                         });
                 }
                 ScheduleChartDataGrid.Items.Add(item);
-
-                ScheduleChartDataGrid.DisplayedTime = DateTime.Today.AddDays(-1);
             }
         }
 

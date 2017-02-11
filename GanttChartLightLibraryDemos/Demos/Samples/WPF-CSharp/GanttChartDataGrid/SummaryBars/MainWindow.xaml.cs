@@ -98,8 +98,6 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.SummaryBars
                 item0.IsExpanded = false;
                 item5.IsExpanded = false;
             });
-
-            GanttChartDataGrid.DisplayedTime = DateTime.Today.AddDays(-1);
         }
 
         private string theme = "Generic-bright";

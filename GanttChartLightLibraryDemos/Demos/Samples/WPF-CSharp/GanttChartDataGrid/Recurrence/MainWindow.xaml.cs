@@ -53,8 +53,6 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.Recurrence
                 GanttChartDataGrid.GanttChartView.Items = ganttChartItemOccurrences;
                 UpdateOccurrences();
             });
-
-            GanttChartDataGrid.DisplayedTime = DateTime.Today.AddDays(-1);
         }
 
         private string theme = "Generic-bright";

@@ -73,8 +73,6 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.BarTemplating
                         CompletedFinish = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8).AddDays(i % 6 == 1 ? 3 : 0)
                     });
             }
-
-            GanttChartDataGrid.DisplayedTime = DateTime.Today.AddDays(-1);
         }
 
         private string theme = "Generic-bright";

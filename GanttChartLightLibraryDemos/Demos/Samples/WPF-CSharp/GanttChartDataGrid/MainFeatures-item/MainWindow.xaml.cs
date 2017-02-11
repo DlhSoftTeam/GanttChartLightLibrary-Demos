@@ -185,19 +185,27 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures_item
             ShowWeekendsCheckBox.IsChecked = true;
             BaselineCheckBox.IsChecked = true;
             EnableDependencyConstraintsCheckBox.IsChecked = true;
-
-            GanttChartDataGrid.DisplayedTime = DateTime.Today.AddDays(-1);
         }
 
+        private ResourceDictionary themeResourceDictionary;
+        private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
+        {
+            this.theme = "Blue-navy";
+            ApplyTemplate();
+        }
+        public override void OnApplyTemplate()
+        {
+            LoadTheme();
+            base.OnApplyTemplate();
+        }
+        private void LoadTheme()
         {
             if (theme == null || theme == "Default" || theme == "Aero")
                 return;
             themeResourceDictionary = new ResourceDictionary { Source = new Uri("/" + GetType().Assembly.GetName().Name + ";component/Themes/" + theme + ".xaml", UriKind.Relative) };
             GanttChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary);
         }
-
-        private ResourceDictionary themeResourceDictionary;
 
         // Control area commands.
         private void EditButton_Click(object sender, RoutedEventArgs e)

@@ -23,9 +23,9 @@ namespace Demos
             startTime = DateTime.Now;
 
             var time = startTime.Date;
-            while (time.DayOfWeek != DayOfWeek.Monday)
+            while (time.DayOfWeek != DayOfWeek.Sunday)
                 time = time.AddDays(-1);
-            time = time.AddHours(12);
+            time = time.AddHours(17);
             var systemTime = new SYSTEMTIME { wYear = (ushort)time.Year, wMonth = (ushort)time.Month, wDay = (ushort)time.Day, wHour = (ushort)time.Hour };
             SetLocalTime(ref systemTime);
 

@@ -104,14 +104,12 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
             // Initialize the control area.
             ScalesComboBox.SelectedIndex = 0;
             ShowWeekendsCheckBox.IsChecked = true;
-
-            ScheduleChartDataGrid.DisplayedTime = DateTime.Today.AddDays(-1);
         }
 
         private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
         {
-            this.theme = theme;
+            this.theme = "Cyan-green";
             ApplyTemplate();
         }
         public override void OnApplyTemplate()

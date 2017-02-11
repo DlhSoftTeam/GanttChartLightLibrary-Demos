@@ -57,8 +57,6 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.SummaryValues
                 item2.ExtraCosts = 300;
                 item6.ExtraCosts = 600;
             });
-
-            GanttChartDataGrid.DisplayedTime = DateTime.Today.AddDays(-1);
         }
 
         private string theme = "Generic-bright";

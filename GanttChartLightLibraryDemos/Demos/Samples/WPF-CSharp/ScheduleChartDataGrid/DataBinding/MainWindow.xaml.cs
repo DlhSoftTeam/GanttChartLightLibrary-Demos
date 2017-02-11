@@ -52,8 +52,6 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.DataBinding
             }
 
             ScheduleChartDataGrid.DataContext = resourceItems;
-
-            ScheduleChartDataGrid.DisplayedTime = DateTime.Today.AddDays(-1);
         }
 
         private string theme = "Generic-bright";

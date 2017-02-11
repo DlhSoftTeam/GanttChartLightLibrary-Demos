@@ -49,8 +49,6 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.Hierarchy
                     }
                 }
                 ScheduleChartDataGrid.Items.Add(item);
-
-                ScheduleChartDataGrid.DisplayedTime = DateTime.Today.AddDays(-1);
             }
         }
 

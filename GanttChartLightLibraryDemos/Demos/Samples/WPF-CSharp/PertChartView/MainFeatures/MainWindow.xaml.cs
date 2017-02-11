@@ -46,7 +46,7 @@ namespace Demos.WPF.CSharp.PertChartView.MainFeatures
         private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
         {
-            this.theme = theme;
+            this.theme = "Generic-bright";
             ApplyTemplate();
         }
         public override void OnApplyTemplate()

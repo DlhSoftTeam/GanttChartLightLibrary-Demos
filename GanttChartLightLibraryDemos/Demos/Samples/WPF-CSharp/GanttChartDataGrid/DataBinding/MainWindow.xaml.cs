@@ -53,8 +53,6 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.DataBinding
             }
 
             GanttChartDataGrid.DataContext = taskItems;
-
-            GanttChartDataGrid.DisplayedTime = DateTime.Today.AddDays(-1);
         }
 
         private string theme = "Generic-bright";
