@@ -418,7 +418,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellEditingTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Est. effort" MinWidth="50">
+                    <DataGridTemplateColumn Header="Est. duration" MinWidth="50">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <ContentControl Content="{Binding BaselineEffort, Converter={StaticResource DurationStringConverter}, ConverterParameter=0.##h}" Padding="4"/>
