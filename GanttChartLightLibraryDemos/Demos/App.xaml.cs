@@ -22,10 +22,9 @@ namespace Demos
 
             startTime = DateTime.Now;
 
-            var time = startTime.Date.AddDays(-startTime.Day).AddMonths(1);
+            var time = startTime.Date.AddDays(-startTime.Day - 7);
             while (time.DayOfWeek != DayOfWeek.Tuesday)
-                time = time.AddDays(-1);
-            time = time.AddHours(7);
+                time = time.AddDays(1);
             var systemTime = new SYSTEMTIME { wYear = (ushort)time.Year, wMonth = (ushort)time.Month, wDay = (ushort)time.Day, wHour = (ushort)time.Hour };
             SetLocalTime(ref systemTime);
 
