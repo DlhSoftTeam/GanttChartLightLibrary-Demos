@@ -291,6 +291,7 @@
                         </DataGridTemplateColumn.CellTemplate>
                         <DataGridTemplateColumn.CellEditingTemplate>
                             <DataTemplate>
+                                <!-- Optionally use StartPreservingEffort property to also update task finish when end user changes start, preserving task effort and duration. -->
                                 <DatePicker SelectedDate="{Binding Start, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" Padding="0"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellEditingTemplate>
@@ -328,6 +329,7 @@
                         </DataGridTemplateColumn.CellTemplate>
                         <DataGridTemplateColumn.CellEditingTemplate>
                             <DataTemplate>
+                                <!-- Optionally use FinishPreservingEffort property to also update task start when end user changes finish, preserving task effort and duration. -->
                                 <DatePicker SelectedDate="{Binding Finish, Converter={StaticResource FinishDateConverter}, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" Padding="0"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellEditingTemplate>
