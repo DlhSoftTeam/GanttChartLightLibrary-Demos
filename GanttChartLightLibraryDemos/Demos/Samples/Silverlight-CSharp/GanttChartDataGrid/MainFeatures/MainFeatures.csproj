@@ -65,7 +65,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>624879771A2DCA2C0DE5CF0D98682E002702B6BC</ManifestCertificateThumbprint>
@@ -79,12 +79,12 @@
       <HintPath>..\..\..\..\..\packages\DlhSoft.HierarchicalDataLightLibrary.4.0.9.1\lib\sl50\DlhSoft.HierarchicalData.Silverlight.Controls.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DlhSoft.ProjectData.GanttChart.Silverlight.Controls, Version=4.3.37.0, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.37.3\lib\sl50\DlhSoft.ProjectData.GanttChart.Silverlight.Controls.dll</HintPath>
+    <Reference Include="DlhSoft.ProjectData.GanttChart.Silverlight.Controls, Version=4.3.38.0, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.38.1\lib\sl50\DlhSoft.ProjectData.GanttChart.Silverlight.Controls.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DlhSoft.ProjectData.PertChart.Silverlight.Controls, Version=4.3.36.0, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.37.3\lib\sl50\DlhSoft.ProjectData.PertChart.Silverlight.Controls.dll</HintPath>
+    <Reference Include="DlhSoft.ProjectData.PertChart.Silverlight.Controls, Version=4.3.38.0, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\packages\DlhSoft.GanttChartLightLibrary.4.3.38.1\lib\sl50\DlhSoft.ProjectData.PertChart.Silverlight.Controls.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
@@ -134,9 +134,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\Utilities\Certificates\DlhSoft.GlobalSign.pfx">
-      <Link>DlhSoft.GlobalSign.pfx</Link>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
