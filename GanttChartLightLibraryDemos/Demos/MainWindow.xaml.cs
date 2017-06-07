@@ -163,6 +163,7 @@ namespace Demos
                                         new SampleInfo { Tag = "Filtering", Title = "Filtering", Description = "Shows how you can hide specific task items for filtering purposes" },
                                         new SampleInfo { Tag = "ChangeNotifications", Title = "Change notifications", Description = "Shows how you can detect changes and perform custom actions when they occur" },
                                         new SampleInfo { Tag = "MouseEventHandling", Title = "Mouse event handling", Description = "Shows how you can determine the item and other elements bound to the cursor position for handling mouse events" },
+                                        new SampleInfo { Tag = "Templating", Title = "Default templates", Description = "Source code providing expanded default XAML templates for specific component elements" },
                                         new SampleInfo { Tag = "BarTemplating", Title = "Bar templating", Description = "Shows how you can define XAML templates for task bars displayed in the chart view" },
                                         new SampleInfo { Tag = "MinuteScale", Title = "Minute scale", Description = "Shows how you can customize scales and display task bars bound to hours and minutes" },
                                         new SampleInfo { Tag = "NumericDays", Title = "Numeric days", Description = "Shows how you can customize scales to display project week and day numbers instead of dates" },

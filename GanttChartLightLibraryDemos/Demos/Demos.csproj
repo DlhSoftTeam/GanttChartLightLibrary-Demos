@@ -30,7 +30,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>27</ApplicationRevision>
+    <ApplicationRevision>28</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -109,6 +109,62 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="FileNameConverter.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\Themes\Teal-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\Themes\Steel-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\Themes\Purple-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\Themes\Purple-beige.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\Themes\Orange-brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\Themes\Gray-blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\Themes\Generic-bright.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\Themes\Generic-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\Themes\DlhSoft-gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\Themes\Dark-black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\Themes\Cyan-green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\Themes\Common.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\Themes\Blue-navy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\Themes\Teal-green.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -2327,6 +2383,7 @@
     <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\CustomNetworkDiagramItem.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\MainWindow.xaml.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\MainWindow.xaml.cs" />
     <Compile Include="UppercaseConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -2464,6 +2521,10 @@
     <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\SummaryValues\SummaryValues.GanttChartDataGrid.csproj">
       <Project>{c8210aa8-3750-459d-8d7b-22c23a5d2956}</Project>
       <Name>SummaryValues.GanttChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\Templating\Templating.GanttChartDataGrid.csproj">
+      <Project>{a52ba54c-995b-495d-850d-3f2f7dcdefb2}</Project>
+      <Name>Templating.GanttChartDataGrid</Name>
     </ProjectReference>
     <ProjectReference Include="Samples\WPF-CSharp\GanttChartView\MainFeatures\MainFeatures.GanttChartView.csproj">
       <Project>{b5c3b098-e758-4302-a7ea-7bb45e2325f6}</Project>
