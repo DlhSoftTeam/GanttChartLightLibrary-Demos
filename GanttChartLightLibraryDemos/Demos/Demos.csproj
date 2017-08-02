@@ -2633,6 +2633,7 @@
     <PostBuildEvent>for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\obj
 for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\bin
 for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do del "%25%25f\*.*.*proj*"
+for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do cd %25%25f &amp; "$(ProjectDir)\Tools\SampleUpdater.exe" tpp
 
 rd /s /q "$(ProjectDir)\publish\Samples"
 md "$(ProjectDir)\publish\Samples"
