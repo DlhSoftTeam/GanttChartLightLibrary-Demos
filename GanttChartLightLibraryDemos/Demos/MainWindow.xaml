@@ -202,6 +202,11 @@
                     <ComboBoxItem Content="Teal-green" Tag="Teal-green"/>
                     <ComboBoxItem Content="Purple-beige" Tag="Purple-beige"/>
                     <ComboBoxItem Content="Gray-blue" Tag="Gray-blue"/>
+                    <ComboBoxItem Content="Light-blue" Tag="Light-blue"/>
+                    <ComboBoxItem Content="Yellow-green" Tag="Yellow-green"/>
+                    <ComboBoxItem Content="Green-blue" Tag="Green-blue"/>
+                    <ComboBoxItem Content="Generic-bright-2016" Tag="Generic-bright-2016"/>
+                    <ComboBoxItem Content="Generic-blue-2016" Tag="Generic-blue-2016"/>
                 </ComboBox>
                 <ComboBox Name="TechnologyComboBox" HorizontalContentAlignment="Right" SelectionChanged="TechnologyComboBox_SelectionChanged">
                     <ComboBoxItem Content="WPF – C#" Tag="WPF-CSharp" IsSelected="True"/>

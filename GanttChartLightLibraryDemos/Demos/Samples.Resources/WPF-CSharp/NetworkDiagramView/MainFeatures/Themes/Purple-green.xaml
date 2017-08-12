@@ -5,74 +5,38 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Common.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    <Style TargetType="pdgcc:GanttChartView" BasedOn="{StaticResource GanttChartViewTemplates}">
-        <Setter Property="HeaderBackground" Value="#dddfd4"/>
+    <Style TargetType="pdgcc:GanttChartView" BasedOn="{StaticResource GanttChartViewTemplates2}">
         <Setter Property="StandardBarStroke" Value="#005173"/>
         <Setter Property="StandardBarFill" Value="#a0729d"/>
         <Setter Property="StandardCompletedBarStroke" Value="#005173"/>
         <Setter Property="StandardCompletedBarFill" Value="#91bc0e"/>
     </Style>
-    <Style TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource GanttChartDataGridTemplates}">
-        <Setter Property="HeaderBackground" Value="#dddfd4"/>
-        <Setter Property="ColumnHeaderStyle">
-            <Setter.Value>
-                <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="Background" Value="#dddfd4"/>
-                    <Setter Property="BorderBrush" Value="Silver"/>
-                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
-                    <Setter Property="Padding" Value="4"/>
-                </Style>
-            </Setter.Value>
-        </Setter>
+    <Style TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource GanttChartDataGridTemplates2}">
         <Setter Property="StandardBarStroke" Value="#005173"/>
         <Setter Property="StandardBarFill" Value="#a0729d"/>
         <Setter Property="StandardCompletedBarStroke" Value="#005173"/>
         <Setter Property="StandardCompletedBarFill" Value="#91bc0e"/>
     </Style>
-    <Style TargetType="pdgcc:ScheduleChartView" BasedOn="{StaticResource ScheduleChartViewTemplates}">
-        <Setter Property="HeaderBackground" Value="#dddfd4"/>
+    <Style TargetType="pdgcc:ScheduleChartView" BasedOn="{StaticResource ScheduleChartViewTemplates2}">
         <Setter Property="StandardBarStroke" Value="#005173"/>
         <Setter Property="StandardBarFill" Value="#a0729d"/>
         <Setter Property="StandardCompletedBarStroke" Value="#005173"/>
         <Setter Property="StandardCompletedBarFill" Value="#91bc0e"/>
     </Style>
-    <Style TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource ScheduleChartDataGridTemplates}">
-        <Setter Property="HeaderBackground" Value="#dddfd4"/>
-        <Setter Property="ColumnHeaderStyle">
-            <Setter.Value>
-                <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="Background" Value="#dddfd4"/>
-                    <Setter Property="BorderBrush" Value="Silver"/>
-                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
-                    <Setter Property="Padding" Value="4"/>
-                </Style>
-            </Setter.Value>
-        </Setter>
+    <Style TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource ScheduleChartDataGridTemplates2}">
         <Setter Property="StandardBarStroke" Value="#005173"/>
         <Setter Property="StandardBarFill" Value="#a0729d"/>
         <Setter Property="StandardCompletedBarStroke" Value="#005173"/>
         <Setter Property="StandardCompletedBarFill" Value="#91bc0e"/>
     </Style>
-    <Style TargetType="pdgcc:LoadChartView" BasedOn="{StaticResource LoadChartViewTemplates}">
-        <Setter Property="HeaderBackground" Value="#dddfd4"/>
+    <Style TargetType="pdgcc:LoadChartView" BasedOn="{StaticResource LoadChartViewTemplates2}">
         <Setter Property="NormalAllocationBarFill" Value="#a0729d"/>
         <Setter Property="UnderAllocationBarFill" Value="#a0729d"/>
     </Style>
-    <Style TargetType="pdgcc:LoadChartDataGrid" BasedOn="{StaticResource LoadChartDataGridTemplates}">
-        <Setter Property="HeaderBackground" Value="#dddfd4"/>
-        <Setter Property="ColumnHeaderStyle">
-            <Setter.Value>
-                <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="Background" Value="#dddfd4"/>
-                    <Setter Property="BorderBrush" Value="Silver"/>
-                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
-                    <Setter Property="Padding" Value="4"/>
-                </Style>
-            </Setter.Value>
-        </Setter>
+    <Style TargetType="pdgcc:LoadChartDataGrid" BasedOn="{StaticResource LoadChartDataGridTemplates2}">
         <Setter Property="NormalAllocationBarFill" Value="#a0729d"/>
         <Setter Property="UnderAllocationBarFill" Value="#a0729d"/>
     </Style>
-    <Style TargetType="pdpcc:PertChartView" BasedOn="{StaticResource PertChartViewTemplates}"/>
-    <Style TargetType="pdpcc:NetworkDiagramView" BasedOn="{StaticResource NetworkDiagramViewTemplates}"/>
+    <Style TargetType="pdpcc:PertChartView" BasedOn="{StaticResource PertChartViewTemplates2}"/>
+    <Style TargetType="pdpcc:NetworkDiagramView" BasedOn="{StaticResource NetworkDiagramViewTemplates2}"/>
 </ResourceDictionary>

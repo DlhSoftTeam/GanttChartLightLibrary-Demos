@@ -5,12 +5,12 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Common.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    <Style TargetType="pdgcc:GanttChartView" BasedOn="{StaticResource GanttChartViewTemplates}"/>
-    <Style TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource GanttChartDataGridTemplates}"/>
-    <Style TargetType="pdgcc:ScheduleChartView" BasedOn="{StaticResource ScheduleChartViewTemplates}"/>
-    <Style TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource ScheduleChartDataGridTemplates}"/>
-    <Style TargetType="pdgcc:LoadChartView" BasedOn="{StaticResource LoadChartViewTemplates}"/>
-    <Style TargetType="pdgcc:LoadChartDataGrid" BasedOn="{StaticResource LoadChartDataGridTemplates}"/>
-    <Style TargetType="pdpcc:PertChartView" BasedOn="{StaticResource PertChartViewTemplates}"/>
-    <Style TargetType="pdpcc:NetworkDiagramView" BasedOn="{StaticResource NetworkDiagramViewTemplates}"/>
+    <Style TargetType="pdgcc:GanttChartView" BasedOn="{StaticResource GanttChartViewTemplates2}"/>
+    <Style TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource GanttChartDataGridTemplates2}"/>
+    <Style TargetType="pdgcc:ScheduleChartView" BasedOn="{StaticResource ScheduleChartViewTemplates2}"/>
+    <Style TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource ScheduleChartDataGridTemplates2}"/>
+    <Style TargetType="pdgcc:LoadChartView" BasedOn="{StaticResource LoadChartViewTemplates2}"/>
+    <Style TargetType="pdgcc:LoadChartDataGrid" BasedOn="{StaticResource LoadChartDataGridTemplates2}"/>
+    <Style TargetType="pdpcc:PertChartView" BasedOn="{StaticResource PertChartViewTemplates2}"/>
+    <Style TargetType="pdpcc:NetworkDiagramView" BasedOn="{StaticResource NetworkDiagramViewTemplates2}"/>
 </ResourceDictionary>

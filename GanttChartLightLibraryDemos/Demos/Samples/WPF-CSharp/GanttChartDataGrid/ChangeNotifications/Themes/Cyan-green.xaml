@@ -5,7 +5,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Common.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    <Style TargetType="pdgcc:GanttChartView" BasedOn="{StaticResource GanttChartViewTemplates}">
+    <Style TargetType="pdgcc:GanttChartView" BasedOn="{StaticResource GanttChartViewTemplates2}">
         <Setter Property="StandardBarStroke" Value="#6534ff"/>
         <Setter Property="StandardBarFill" Value="#1fb5ce"/>
         <Setter Property="StandardCompletedBarStroke" Value="#6534ff"/>
@@ -13,7 +13,7 @@
         <Setter Property="MilestoneBarStroke" Value="#222222"/>
         <Setter Property="MilestoneBarFill" Value="#d6485b"/>
     </Style>
-    <Style TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource GanttChartDataGridTemplates}">
+    <Style TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource GanttChartDataGridTemplates2}">
         <Setter Property="StandardBarStroke" Value="#6534ff"/>
         <Setter Property="StandardBarFill" Value="#1fb5ce"/>
         <Setter Property="StandardCompletedBarStroke" Value="#6534ff"/>
@@ -21,7 +21,7 @@
         <Setter Property="MilestoneBarStroke" Value="#222222"/>
         <Setter Property="MilestoneBarFill" Value="#d6485b"/>
     </Style>
-    <Style TargetType="pdgcc:ScheduleChartView" BasedOn="{StaticResource ScheduleChartViewTemplates}">
+    <Style TargetType="pdgcc:ScheduleChartView" BasedOn="{StaticResource ScheduleChartViewTemplates2}">
         <Setter Property="StandardBarStroke" Value="#6534ff"/>
         <Setter Property="StandardBarFill" Value="#1fb5ce"/>
         <Setter Property="StandardCompletedBarStroke" Value="#6534ff"/>
@@ -29,7 +29,7 @@
         <Setter Property="MilestoneBarStroke" Value="#222222"/>
         <Setter Property="MilestoneBarFill" Value="#d6485b"/>
     </Style>
-    <Style TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource ScheduleChartDataGridTemplates}">
+    <Style TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource ScheduleChartDataGridTemplates2}">
         <Setter Property="StandardBarStroke" Value="#6534ff"/>
         <Setter Property="StandardBarFill" Value="#1fb5ce"/>
         <Setter Property="StandardCompletedBarStroke" Value="#6534ff"/>
@@ -37,7 +37,7 @@
         <Setter Property="MilestoneBarStroke" Value="#222222"/>
         <Setter Property="MilestoneBarFill" Value="#d6485b"/>
     </Style>
-    <Style TargetType="pdgcc:LoadChartView" BasedOn="{StaticResource LoadChartViewTemplates}">
+    <Style TargetType="pdgcc:LoadChartView" BasedOn="{StaticResource LoadChartViewTemplates2}">
         <Setter Property="NormalAllocationBarFill" Value="#1fb5ce"/>
         <Setter Property="UnderAllocationBarFill" Value="#1fb5ce"/>
     </Style>
@@ -45,6 +45,6 @@
         <Setter Property="NormalAllocationBarFill" Value="#1fb5ce"/>
         <Setter Property="UnderAllocationBarFill" Value="#1fb5ce"/>
     </Style>
-    <Style TargetType="pdpcc:PertChartView" BasedOn="{StaticResource PertChartViewTemplates}"/>
-    <Style TargetType="pdpcc:NetworkDiagramView" BasedOn="{StaticResource NetworkDiagramViewTemplates}"/>
+    <Style TargetType="pdpcc:PertChartView" BasedOn="{StaticResource PertChartViewTemplates2}"/>
+    <Style TargetType="pdpcc:NetworkDiagramView" BasedOn="{StaticResource NetworkDiagramViewTemplates2}"/>
 </ResourceDictionary>
