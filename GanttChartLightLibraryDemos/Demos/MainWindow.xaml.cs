@@ -299,7 +299,7 @@ namespace Demos
                 var componentItem = new TreeViewItem { Header = component.Name, Tag = component.Name, IsExpanded = isFirst };
                 foreach (var feature in component.Features)
                 {
-                    componentItem.Items.Add(new TreeViewItem { Header = feature.Title, Tag = feature.Tag, ToolTip = feature.Description, IsSelected = isFirst });
+                    componentItem.Items.Add(new TreeViewItem { Header = feature.Title, Tag = feature.Tag, ToolTip = feature.Description, IsSelected = isFirst, Opacity = feature.IsLink ? 0.65 : 1 });
                     isFirst = false;
                 }
                 TreeView.Items.Add(componentItem);
@@ -316,6 +316,7 @@ namespace Demos
             public string Tag { get; set; }
             public string Title { get; set; }
             public string Description { get; set; }
+            public bool IsLink { get; set; }
         }
 
         private void LoadFiles()
