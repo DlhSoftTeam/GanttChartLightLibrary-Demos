@@ -169,7 +169,8 @@ namespace Demos
                                         new SampleInfo { Tag = "NumericDays", Title = "Numeric days", Description = "Shows how you can customize scales to display project week and day numbers instead of dates" },
                                         new SampleInfo { Tag = "Recurrence", Title = "Recurrence", Description = "Shows how you can define custom code to generate and display recurrent task items and chart bars" },
                                         new SampleInfo { Tag = "SummaryBars", Title = "Summary bars", Description = "Shows how you can display child bars instead of summary bars when node items are collapsed" },
-                                        new SampleInfo { Tag = "SummaryValues", Title = "Summary values", Description = "Shows how you can hierarchically summarize custom values such as custom task costs" }
+                                        new SampleInfo { Tag = "SummaryValues", Title = "Summary values", Description = "Shows how you can hierarchically summarize custom values such as custom task costs" },
+                                        new SampleInfo { Tag = "Database", IsLink = true, Title = "SQL Server® database integration", Description = "Load tasks from and save changes to a SQL Server® database" }
                                     }
                                 },
                                 new ComponentInfo
@@ -397,7 +398,7 @@ namespace Demos
             int index = 1;
             foreach (var fileItem in fileItems)
                 FilesListBox.Items.Insert(index++, new ListBoxItem { Content = fileItem, Tag = fileItem });
-            if (!isSilverlight)
+            if (!isSilverlight && selectedTreeViewItem.Opacity == 1)
                 FilesListBox.Items.Insert(index++, new ListBoxItem { Content = "AppResources.xaml", Tag = "AppResources.xaml" });
             if (FilesListBox.SelectedIndex > 0)
                 FilesListBox.SelectedIndex = 0;

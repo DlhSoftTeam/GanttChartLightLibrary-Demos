@@ -202,9 +202,9 @@ Backup*/
 UpgradeLog*.XML
 UpgradeLog*.htm
 
-# SQL Server files
-*.mdf
-*.ldf
+# SQL Server files: accepted under Demos (to support database samples)
+# *.mdf
+# *.ldf
 
 # Business Intelligence projects
 *.rdl.data

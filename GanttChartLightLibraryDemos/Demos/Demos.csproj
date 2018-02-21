@@ -30,7 +30,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -90,6 +90,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -109,6 +111,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="FileNameConverter.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Database\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\Themes\Teal-green.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -2384,6 +2390,9 @@
     <Resource Include="Samples.Resources\WPF-CSharp\NetworkDiagramView\ShapeTemplating\CustomNetworkDiagramItem.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\PertChartView\MultiTasksPerLine\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Templating\MainWindow.xaml.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Database\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Resource>
     <Compile Include="UppercaseConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -2623,7 +2632,6 @@
     <Resource Include="Samples.Resources\Silverlight-VisualBasic\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml.vb" />
     <Resource Include="Samples.Resources\Silverlight-VisualBasic\GanttChartDataGrid\MainFeatures\MainPage.xaml.vb" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>xcopy /s /y "$(ProjectDir)\Samples" "$(ProjectDir)\Samples.Resources"

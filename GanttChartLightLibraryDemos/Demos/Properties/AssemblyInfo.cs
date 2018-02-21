@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("DlhSoft")]
 [assembly: AssemblyProduct("Demos")]
-[assembly: AssemblyCopyright("Copyright © DlhSoft 2016-2017")]
+[assembly: AssemblyCopyright("Copyright © DlhSoft 2016-2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
