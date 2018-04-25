@@ -118,7 +118,7 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="Bold" Text="PertChartView Sample"/>
-                        <Border Grid.Row="1" Margin="0,16" BorderBrush="DarkGray" BorderThickness="1" Padding="16">
+                        <Border Grid.Row="1" Margin="0,16" BorderBrush="DarkGray" BorderThickness="1">
                             <ContentPresenter Content="{Binding Content}"/>
                         </Border>
                         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
