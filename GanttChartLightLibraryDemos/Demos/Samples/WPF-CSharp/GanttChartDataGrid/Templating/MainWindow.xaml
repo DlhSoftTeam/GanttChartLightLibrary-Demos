@@ -92,7 +92,8 @@
             <!-- Attached assignments content template for task bars. -->
             <pdgcc:GanttChartDataGrid.AssignmentsTemplate>
                 <DataTemplate>
-                    <ContentControl Content="{Binding AssignmentsContent}" IsHitTestVisible="False" IsTabStop="False"/>
+                    <!-- Note: default assignments content template doesn't include a specific foreground, but a neutral color is set here to make assignments text properly visible on both light and dark themes. -->
+                    <ContentControl Content="{Binding AssignmentsContent}" Foreground="Gray" IsHitTestVisible="False" IsTabStop="False"/>
                 </DataTemplate>
             </pdgcc:GanttChartDataGrid.AssignmentsTemplate>
             <!-- Dependency line template. -->
