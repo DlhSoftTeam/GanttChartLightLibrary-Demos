@@ -8,15 +8,28 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="AppResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <SolidColorBrush x:Key="StandardBarFill" Color="PaleGreen"/>
-            <SolidColorBrush x:Key="StandardBarStroke" Color="DarkGreen"/>
-            <SolidColorBrush x:Key="CustomStandardBarFill" Color="#805480"/>
-            <SolidColorBrush x:Key="CustomStandardBarStroke" Color="#402740"/>
+            <SolidColorBrush x:Key="StandardBarFill" Color="#7cb1c5"/>
+            <SolidColorBrush x:Key="StandardBarStroke" Color="#6b8fb0"/>
+            <SolidColorBrush x:Key="CustomStandardBarFill" Color="#766e9a"/>
+            <SolidColorBrush x:Key="CustomStandardBarStroke" Color="#5f4f78"/>
+            <SolidColorBrush x:Key="StandardCompletedBarFill" Color="#6b8fb0"/>
+            <SolidColorBrush x:Key="StandardCompletedBarStroke" Color="#6b8fb0"/>
+            <SolidColorBrush x:Key="MilestoneBarFill" Color="Green"/>
+            <SolidColorBrush x:Key="VerticalGridLinesBrush" Color="LightGray"/>
+            <SolidColorBrush x:Key="AlternatingItemBackground" Color="#f8f8f8"/>
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
         <!-- Set StandardBarFill, StandardBarStroke, and other similar properties to set up the general appearance of task bars. -->
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" StandardBarFill="{StaticResource StandardBarFill}" StandardBarStroke="{StaticResource StandardBarStroke}" DependencyLineStroke="{StaticResource StandardBarStroke}">
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid"
+                                  StandardBarFill="{StaticResource StandardBarFill}" StandardBarStroke="{StaticResource StandardBarStroke}"
+                                  StandardCompletedBarFill="{StaticResource StandardCompletedBarFill}" StandardCompletedBarStroke="{StaticResource StandardCompletedBarStroke}"
+                                  StandardBarCornerRadius="6" StandardCompletedBarCornerRadius="6"
+                                  MilestoneBarFill="{StaticResource MilestoneBarFill}"
+                                  BarHeight="16" CompletedBarHeight="16" 
+                                  DependencyLineStroke="{StaticResource StandardBarStroke}"
+                                  GridLinesVisibility="Vertical" VerticalGridLinesBrush="{StaticResource VerticalGridLinesBrush}"
+                                  AlternatingItemBackground="{StaticResource AlternatingItemBackground}">
             <pdgcc:GanttChartDataGrid.Items>
                 <!-- Some item properties are set in code behind. -->
                 <pdgcc:GanttChartItem Content="Task 1"/>
