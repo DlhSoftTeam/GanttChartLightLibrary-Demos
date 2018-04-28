@@ -230,7 +230,12 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="4*"/>
                     </Grid.ColumnDefinitions>
-                    <TreeView Name="TreeView" Grid.Column="0" Loaded="TreeView_Loaded" SelectedItemChanged="TreeView_SelectedItemChanged"/>
+                    <DockPanel Grid.Column="0">
+                        <TextBox Name="TreeViewSearchTextBox" DockPanel.Dock="Bottom" Text="Search..." Padding="4" Background="White" Foreground="Gray" 
+                                 GotKeyboardFocus="TreeViewSearchTextBox_GotKeyboardFocus" LostKeyboardFocus="TreeViewSearchTextBox_LostKeyboardFocus"
+                                 TextChanged="TreeViewSearchTextBox_TextChanged"/>
+                        <TreeView Name="TreeView" Loaded="TreeView_Loaded" SelectedItemChanged="TreeView_SelectedItemChanged"/>
+                    </DockPanel>
                     <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Stretch" Background="Transparent"/>
                     <Border Grid.Column="2" BorderThickness="1,0,0,0" BorderBrush="#ccc">
                         <Grid>

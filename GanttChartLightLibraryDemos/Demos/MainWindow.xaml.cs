@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Demos
 {
@@ -478,6 +479,58 @@ namespace Demos
             var technology = selectedTechnologyItem.Tag as string;
             string url = "http://DlhSoft.com/GanttChartLightLibrary/Demos/Samples/" + technology + "/" + component + "/" + feature + ".zip";
             Process.Start(new ProcessStartInfo(url));
+        }
+
+        private void TreeViewSearchTextBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            TreeViewSearchTextBox.Foreground = Brushes.Black;
+            TreeViewSearchTextBox.Text = string.Empty;
+        }
+
+        private void TreeViewSearchTextBox_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            TreeViewSearchTextBox.Foreground = Brushes.Gray;
+            TreeViewSearchTextBox.Text = "Search...";
+        }
+
+        private void TreeViewSearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TreeView == null || string.IsNullOrEmpty(TreeViewSearchTextBox.Text) || TreeViewSearchTextBox.Foreground != Brushes.Black)
+                return;
+
+            if (timer == null)
+            {
+                timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(0.35) };
+                timer.Tick += (ts, te) => 
+                {
+                    timer.Stop();
+                    if (TreeViewSearchTextBox.Foreground != Brushes.Black)
+                        return;
+                    var item = FindTreeViewItem(TreeView.Items, TreeViewSearchTextBox.Text.ToLowerInvariant());
+                    if (item != null)
+                    {
+                        item.BringIntoView();
+                        item.IsSelected = true;
+                    }
+                };
+            }
+            timer.Stop();
+            timer.Start();
+        }
+
+        private DispatcherTimer timer;
+
+        private TreeViewItem FindTreeViewItem(ItemCollection items, string text)
+        {
+            foreach (TreeViewItem item in items)
+            {
+                if ((item.Header as string ?? string.Empty).ToLowerInvariant().Contains(text))
+                    return item;
+                var matchingChildItem = FindTreeViewItem(item.Items, text);
+                if (matchingChildItem != null)
+                    return matchingChildItem;
+            }
+            return null;
         }
 
         private Window containerWindow;
