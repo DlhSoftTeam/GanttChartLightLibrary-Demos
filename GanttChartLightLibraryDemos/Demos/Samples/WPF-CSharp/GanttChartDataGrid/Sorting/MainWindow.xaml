@@ -16,7 +16,7 @@
                             <Border Background="Transparent">
                                 <StackPanel Orientation="Horizontal">
                                     <Path Name="ToggleButtonPath" Height="5" Data="M0,5 L3.5,0 L7,5 Z" Fill="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" VerticalAlignment="Center" Margin="0,0,4,0"/>
-                                    <TextBlock Text="{Binding}"/>
+                                    <TextBlock Text="{Binding}" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=DataGridColumnHeader}}"/>
                                 </StackPanel>
                             </Border>
                             <ControlTemplate.Triggers>
