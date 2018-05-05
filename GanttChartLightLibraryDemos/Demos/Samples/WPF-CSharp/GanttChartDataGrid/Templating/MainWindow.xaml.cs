@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using DlhSoft.Windows.Controls;
+using System.Collections.ObjectModel;
 
 namespace Demos.WPF.CSharp.GanttChartDataGrid.Templating
 {
@@ -56,6 +57,8 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.Templating
                         CompletedFinish = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 2 : i - 8).AddDays(i % 6 == 4 ? 3 : 0)
                     });
             }
+
+            GanttChartDataGrid.AssignableResources = new ObservableCollection<string> { "Resource 1", "Resource 2", "Resource 3" };
         }
 
         private string theme = "Generic-bright";
