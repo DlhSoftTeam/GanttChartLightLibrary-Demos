@@ -1,0 +1,46 @@
+﻿<Window x:Class="Demos.WPF.CSharp.GanttChartDataGrid.MultipleBarsPerLine.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:converters="clr-namespace:DlhSoft.Windows.Converters;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:local="clr-namespace:Demos.WPF.CSharp.GanttChartDataGrid.MultipleBarsPerLine"
+        Title="GanttChartDataGrid Multiple Bars per Line Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <converters:NumberStringConverter x:Key="NumberStringConverter"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" DataGridWidth="0.1*" ChartWidth="0.9*">
+            <pdgcc:GanttChartDataGrid.StandardTaskTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Canvas Opacity="0.5" Visibility="{Binding GanttChartView.BaselineVisibility}">
+                            <Rectangle Fill="Transparent" Height="{Binding ComputedBarHeight}" Canvas.Left="{Binding ComputedBaselineBarLeft}" RadiusY="{Binding GanttChartView.StandardBarCornerRadius}" RadiusX="{Binding GanttChartView.StandardBarCornerRadius}" Stroke="{Binding (pdgcc:GanttChartView.StandardBarStroke)}" StrokeThickness="{Binding GanttChartView.StandardBarStrokeThickness}" StrokeDashArray="2 2" Canvas.Top="-4" Width="{Binding ComputedBaselineBarWidth}"/>
+                        </Canvas>
+                        <Grid>
+                            <Rectangle Fill="{Binding (pdgcc:GanttChartView.StandardBarFill)}" RadiusY="{Binding GanttChartView.StandardBarCornerRadius}" RadiusX="{Binding GanttChartView.StandardBarCornerRadius}" Stroke="{Binding (pdgcc:GanttChartView.StandardBarStroke)}" StrokeThickness="{Binding GanttChartView.StandardBarStrokeThickness}"/>
+                            <pdgcc:DragTaskThumb IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskStartThumbEnabled}" Role="UpdateStart" Visibility="{Binding GanttChartView.ThumbVisibility}"/>
+                            <pdgcc:DragTaskThumb HorizontalAlignment="Right" IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskFinishThumbEnabled}" Role="UpdateFinish" Visibility="{Binding GanttChartView.ThumbVisibility}" Width="2"/>
+                            <pdgcc:DragTaskThumb HorizontalAlignment="Left" IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskStartOnlyThumbEnabled}" Margin="-2,0,0,0" Role="UpdateStartOnly" Visibility="{Binding GanttChartView.ThumbVisibility}" Width="2"/>
+                        </Grid>
+                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Visibility="{Binding GanttChartView.TaskCompletedEffortVisibility}" VerticalAlignment="Center">
+                            <Rectangle Fill="{Binding (pdgcc:GanttChartView.StandardCompletedBarFill)}" Height="{Binding GanttChartView.CompletedBarHeight}" IsHitTestVisible="False" RadiusY="{Binding GanttChartView.StandardCompletedBarCornerRadius}" RadiusX="{Binding GanttChartView.StandardCompletedBarCornerRadius}" Stroke="{Binding (pdgcc:GanttChartView.StandardCompletedBarStroke)}" StrokeThickness="{Binding GanttChartView.StandardCompletedBarStrokeThickness}" VerticalAlignment="Center" Width="{Binding ComputedCompletedBarWidth}"/>
+                            <pdgcc:DragTaskThumb Height="{Binding GanttChartView.BarHeight}" IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskCompletionThumbEnabled}" Role="UpdateCompletedFinish" Visibility="{Binding GanttChartView.ThumbVisibility}" Width="2"
+                                                 ToolTip="{Binding Completion, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%}"/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding Content, Mode=TwoWay}" FontSize="8" Foreground="Gray" Padding="4,1" IsHitTestVisible="False"/>
+                    </Grid>
+                </DataTemplate>
+            </pdgcc:GanttChartDataGrid.StandardTaskTemplate>
+            <pdgcc:GanttChartDataGrid.Columns>
+                <pdgcc:DataGridColumnCollection>
+                    <DataGridTextColumn Header="Task" Binding="{Binding Content}"/>
+                </pdgcc:DataGridColumnCollection>
+            </pdgcc:GanttChartDataGrid.Columns>
+        </pdgcc:GanttChartDataGrid>
+    </DockPanel>
+</Window>

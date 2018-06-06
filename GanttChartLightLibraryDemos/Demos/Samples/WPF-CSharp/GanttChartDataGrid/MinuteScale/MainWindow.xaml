@@ -19,7 +19,7 @@
         <!-- Set UpdateScaleInterval to 1 minute, as date and time values could be defined using minute precision. -->
         <!-- Set UpdateTimelinePageAmount to 10 minutes, so that extra horizontal scrolling increases or decreases the timeline page by an appropriate time span value. -->
         <!-- Handle TimelinePageChanged event to be able to set the Gantt Chart header string values in code behind when the timeline page changes or gets initialized. -->
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" HourWidth="1800" UpdateScaleInterval="00:01:00" UpdateTimelinePageAmount="00:10:00" TimelinePageChanged="GanttChartDataGrid_TimelinePageChanged">
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" HourWidth="1800" UpdateScaleInterval="00:01:00" UpdateTimelinePageAmount="00:10:00" IsMouseWheelZoomEnabled="False" TimelinePageChanged="GanttChartDataGrid_TimelinePageChanged">
             <pdgcc:GanttChartDataGrid.Scales>
                 <!-- Set the scales collection in order to set ScaleType and HeaderContentFormat to Custom and be able to set time interval header string values manually (see code behind). -->
                 <pdgcc:ScaleCollection>

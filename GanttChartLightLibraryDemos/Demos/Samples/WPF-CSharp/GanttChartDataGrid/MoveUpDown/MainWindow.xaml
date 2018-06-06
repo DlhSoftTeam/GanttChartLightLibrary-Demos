@@ -1,0 +1,52 @@
+﻿<Window x:Class="Demos.WPF.CSharp.GanttChartDataGrid.MoveUpDown.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        Title="GanttChartDataGrid Move up-down Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <Border DockPanel.Dock="Top" Style="{StaticResource RibbonContainerStyle}">
+        <Border.Resources>
+            <Style TargetType="Image">
+                <Setter Property="Width" Value="16"/>
+                <Setter Property="Height" Value="16"/>
+            </Style>
+        </Border.Resources>
+        <StackPanel Style="{StaticResource RibbonStyle}">
+            <Border Style="{StaticResource RibbonPanelStyle}">
+                <StackPanel>
+                    <ContentControl Content="Commands" Style="{StaticResource RibbonHeaderStyle}"/>
+                    <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <Button x:Name="MoveUpButton" ToolTipService.ToolTip="Move selected item(s) up" Click="MoveUpButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/MoveUp.png"/>
+                            </Button>
+                            <Button x:Name="MoveDownButton" ToolTipService.ToolTip="Move selected item(s) down" Click="MoveDownButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/MoveDown.png"/>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid">
+            <pdgcc:GanttChartDataGrid.Items>
+                <!-- Some item properties are set in code behind. -->
+                <pdgcc:GanttChartItem Content="Task 1"/>
+                <pdgcc:GanttChartItem Content="Task 1.1" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 1.2" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2"/>
+                <pdgcc:GanttChartItem Content="Task 2.1" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2.2" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2.2.1" Indentation="2"/>
+                <pdgcc:GanttChartItem Content="Task 2.2.2" Indentation="2"/>
+            </pdgcc:GanttChartDataGrid.Items>
+        </pdgcc:GanttChartDataGrid>
+    </DockPanel>
+</Window>

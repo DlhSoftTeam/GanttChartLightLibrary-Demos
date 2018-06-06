@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using DlhSoft.Windows.Controls;
+using System.Collections.ObjectModel;
 
 namespace Demos.WPF.CSharp.GanttChartDataGrid.Templating
 {

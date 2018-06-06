@@ -97,14 +97,15 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             //        new TimeInterval(DateTime.Today.AddDays(3), DateTime.Today.AddDays(5).Add(TimeSpan.Parse("12:00:00"))) // Custom time interval off: full and partial day accepted.
             //    });
             // // Optionally, specific nonworking intervals based on date parameter: recurrent breaks and holidays accepted.
-            // GanttChartDataGrid.NonworkingDayIntervalProvider = (date) => { 
+            // GanttChartDataGrid.NonworkingDayIntervalProvider = (date) =>
+            // {
             //    if (date.Day % 3 == 0) // First recurrence expression: on the end of every set of three days in the month.
-            //        return new DayTimeInterval[] { 
+            //        return new DayTimeInterval[] {
             //            new DayTimeInterval(TimeOfDay.MinValue, TimeOfDay.Parse("12:00:00")), // Large interval off: first part of day.
             //            new DayTimeInterval(TimeOfDay.Parse("12:30:00"), TimeOfDay.Parse("13:00:00")) // Short break: fast lunch time.
             //        };
             //    else if (date.DayOfWeek != DayOfWeek.Wednesday) // Second recurrence expression: every day except Wednesdays.
-            //        return new DayTimeInterval[] { 
+            //        return new DayTimeInterval[] {
             //            new DayTimeInterval(TimeOfDay.Parse("12:00:00"), TimeOfDay.Parse("13:00:00")) // Break: regular lunch time.
             //        };
             //    return null; // Otherwise use regular timing only.
