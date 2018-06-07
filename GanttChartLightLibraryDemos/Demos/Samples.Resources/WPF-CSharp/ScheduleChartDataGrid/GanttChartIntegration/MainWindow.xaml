@@ -1,0 +1,80 @@
+﻿<Window x:Class="Demos.WPF.CSharp.ScheduleChartDataGrid.GanttChartIntegration.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        Title="ScheduleChartDataGrid Gantt Chart Integration Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate x:Key="ScaleHeaderContentTemplate">
+                <ContentControl Content="{Binding}" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="2" IsTabStop="False"/>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <Border DockPanel.Dock="Top" Style="{StaticResource RibbonContainerStyle}">
+            <Border.Resources>
+                <Style TargetType="Image">
+                    <Setter Property="Width" Value="16"/>
+                    <Setter Property="Height" Value="16"/>
+                </Style>
+            </Border.Resources>
+            <StackPanel Style="{StaticResource RibbonStyle}">
+                <Border Style="{StaticResource RibbonPanelStyle}">
+                    <StackPanel>
+                        <ContentControl Content="Items" Style="{StaticResource RibbonHeaderStyle}"/>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <Button x:Name="AddNewButton" ToolTipService.ToolTip="Add new item" Click="AddNewButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/AddNew.png"/>
+                            </Button>
+                            <Button x:Name="InsertNewButton" ToolTipService.ToolTip="Insert new item before selection" Click="InsertNewButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/InsertNew.png"/>
+                            </Button>
+                            <Button x:Name="DeleteButton" ToolTipService.ToolTip="Delete selected item(s)" Click="DeleteButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/Delete.png"/>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource RibbonPanelStyle}">
+                    <StackPanel>
+                        <ContentControl Content="View" Style="{StaticResource RibbonHeaderStyle}"/>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <Button x:Name="ScheduleChartButton" ToolTipService.ToolTip="Displays and allows updating task assignments for the available project resources in the Gantt Chart." Click="ScheduleChartButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Images/ScheduleChart.png"/>
+                                    <TextBlock Text="Schedule chart" Style="{StaticResource RibbonCommandTextStyle}"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid">
+            <pdgcc:GanttChartDataGrid.Scales>
+                <pdgcc:ScaleCollection>
+                    <pdgcc:Scale ScaleType="Weeks" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayLeadingZero" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderThickness="0"/>
+                </pdgcc:ScaleCollection>
+            </pdgcc:GanttChartDataGrid.Scales>
+            <pdgcc:GanttChartDataGrid.Items>
+                <!-- Some item properties are set in code behind. -->
+                <pdgcc:GanttChartItem Content="Task 1"/>
+                <pdgcc:GanttChartItem Content="Task 1.1" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 1.2" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2"/>
+                <pdgcc:GanttChartItem Content="Task 2.1" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2.2" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2.2.1" Indentation="2"/>
+                <pdgcc:GanttChartItem Content="Task 2.2.2" Indentation="2"/>
+                <pdgcc:GanttChartItem Content="Task 3"/>
+                <pdgcc:GanttChartItem Content="Task 4"/>
+                <pdgcc:GanttChartItem Content="Task 5"/>
+            </pdgcc:GanttChartDataGrid.Items>
+        </pdgcc:GanttChartDataGrid>
+    </DockPanel>
+</Window>

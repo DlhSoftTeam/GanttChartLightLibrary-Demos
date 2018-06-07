@@ -1,0 +1,17 @@
+﻿<Window x:Class="Demos.WPF.CSharp.ScheduleChartDataGrid.AssigningTasks.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        Title="ScheduleChartDataGrid Assigning Tasks Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.1*" ChartWidth="0.9*"
+                                     UseMultipleLinesPerRow="True" IsAlternatingItemBackgroundInverted="True"/>
+    </DockPanel>
+</Window>

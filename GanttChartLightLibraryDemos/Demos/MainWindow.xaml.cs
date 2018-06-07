@@ -219,12 +219,16 @@ namespace Demos
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
                                         new SampleInfo { Tag = "BasicUsage", Title = "Basic usage", Description = "Shows how to load the component with minimum configuration" },
+                                        new SampleInfo { Tag = "AssigningTasks", Title = "Assigning tasks (drag unassigned items)", Description = "Shows how you can define a Schedule Chart view with draggable unassigned tasks" },
                                         new SampleInfo { Tag = "DataBinding", Title = "Data binding", Description = "Shows how you can data bind the component to a custom resource item collection" },
+                                        new SampleInfo { Tag = "GanttChartIntegration", Title = "Gantt Chart integration", Description = "Shows how to generate a Schedule Chart view from Gantt Chart data" },
                                         new SampleInfo { Tag = "CustomAppearance", Title = "Custom appearance", Description = "Shows how you can set colors for all or for individual task items" },
                                         new SampleInfo { Tag = "CustomSchedule", Title = "Custom schedule and scales", Description = "Shows how you can define working and nonworking times for scheduling task items and custom scales and headers for the chart view" },
                                         new SampleInfo { Tag = "Hierarchy", Title = "Hierarchy", Description = "Shows how you can hierarchically display resource groups in the grid" },
                                         new SampleInfo { Tag = "MultipleLinesPerRow", Title = "Multiple lines per row", Description = "Shows how you can configure the component to display chart task bars using multiple lines per resource row automatically enlarging individual grid row height values" },
                                         new SampleInfo { Tag = "MouseEventHandling", Title = "Mouse event handling", Description = "Shows how you can determine the item and other elements bound to the cursor position for handling mouse events" },
+                                        new SampleInfo { Tag = "StatusDisplaying", Title = "Status displaying (resource timeline)", Description = "Shows how you can easily display multiple resources and their status at different times using chart bars of different colors" },
+                                        new SampleInfo { Tag = "ShiftScheduling", Title = "Shift scheduling (assigning employees on time shifts) ", Description = "Shows how you can define shifts as resource assignments so that the end user can drag and drop them vertically to change shifts as needed" },
                                         new SampleInfo { Tag = "BarTemplating", Title = "Bar templating", Description = "Shows how you can define XAML templates for task bars displayed in the chart view" }
                                     }
                                 },

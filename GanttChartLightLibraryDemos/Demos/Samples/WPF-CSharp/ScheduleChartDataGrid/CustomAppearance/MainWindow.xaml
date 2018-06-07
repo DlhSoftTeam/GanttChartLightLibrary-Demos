@@ -8,9 +8,9 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="AppResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <SolidColorBrush x:Key="StandardBarFill" Color="PaleGreen"/>
+            <SolidColorBrush x:Key="StandardBarFill" Color="#95c4f3"/>
             <SolidColorBrush x:Key="StandardBarStroke" Color="DarkGreen"/>
-            <SolidColorBrush x:Key="CustomStandardBarFill" Color="#805480"/>
+            <SolidColorBrush x:Key="CustomStandardBarFill" Color="#00ab84"/>
             <SolidColorBrush x:Key="CustomStandardBarStroke" Color="#402740"/>
         </ResourceDictionary>
     </Window.Resources>
