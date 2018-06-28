@@ -3608,6 +3608,10 @@
       <Project>{1c0e6f1d-5f05-4213-b529-af640fa088bd}</Project>
       <Name>DateAndTimeFormats.GanttChartDataGrid</Name>
     </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\DependencyLineTemplating\DependencyLineTemplating.GanttChartDataGrid.csproj">
+      <Project>{c9d49a90-5c7b-4ec1-95cd-07fe2967bb92}</Project>
+      <Name>DependencyLineTemplating.GanttChartDataGrid</Name>
+    </ProjectReference>
     <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\ExportImage\ExportImage.GanttChartDataGrid.csproj">
       <Project>{9f8a84b0-f917-42f1-a86c-145a320b61a3}</Project>
       <Name>ExportImage.GanttChartDataGrid</Name>

@@ -360,6 +360,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShiftScheduling", "Demos\Sa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatusDisplaying", "Demos\Samples\WPF-CSharp\ScheduleChartDataGrid\StatusDisplaying\StatusDisplaying.csproj", "{818AC6AD-047E-49CD-B94F-1F07228ADFA7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyLineTemplating.GanttChartDataGrid", "Demos\Samples\WPF-CSharp\GanttChartDataGrid\DependencyLineTemplating\DependencyLineTemplating.GanttChartDataGrid.csproj", "{C9D49A90-5C7B-4EC1-95CD-07FE2967BB92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -958,6 +960,10 @@ Global
 		{818AC6AD-047E-49CD-B94F-1F07228ADFA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{818AC6AD-047E-49CD-B94F-1F07228ADFA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{818AC6AD-047E-49CD-B94F-1F07228ADFA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9D49A90-5C7B-4EC1-95CD-07FE2967BB92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9D49A90-5C7B-4EC1-95CD-07FE2967BB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9D49A90-5C7B-4EC1-95CD-07FE2967BB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9D49A90-5C7B-4EC1-95CD-07FE2967BB92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1134,5 +1140,6 @@ Global
 		{C1627863-8D9F-44DE-B752-23379EE70BD1} = {3767C00E-FBE2-4E50-8853-106F1CC77F5A}
 		{DD2D81CE-5BC2-49B2-B6E1-DB4CB013A54F} = {3767C00E-FBE2-4E50-8853-106F1CC77F5A}
 		{818AC6AD-047E-49CD-B94F-1F07228ADFA7} = {3767C00E-FBE2-4E50-8853-106F1CC77F5A}
+		{C9D49A90-5C7B-4EC1-95CD-07FE2967BB92} = {AE54A391-FB6D-48D4-A4C7-A8D4E78AEF2A}
 	EndGlobalSection
 EndGlobal
