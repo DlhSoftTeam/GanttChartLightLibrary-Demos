@@ -70,15 +70,20 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.CriticalPath
 
             for (int i = 6; i <= 25; i++)
             {
-                GanttChartDataGrid.Items.Add(
-                    new GanttChartItem
-                    {
-                        Content = "Task " + i,
-                        Indentation = i % 3 == 0 ? 0 : 1,
-                        Start = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8),
-                        Finish = DateTime.Today.AddDays((i <= 8 ? (i - 4) * 3 + (i > 8 ? 6 : 1) : i - 2) + 1),
-                        CompletedFinish = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8).AddDays(i % 6 == 1 ? 3 : 0)
-                    });
+                var item = new GanttChartItem
+                {
+                    Content = "Task " + i,
+                    Indentation = i % 3 == 0 ? 0 : 1,
+                    Start = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8),
+                    Finish = DateTime.Today.AddDays((i <= 8 ? (i - 4) * 3 + (i > 8 ? 6 : 1) : i - 2) + 1),
+                    CompletedFinish = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8).AddDays(i % 6 == 1 ? 3 : 0)
+                };
+                if (i % 3 != 1)
+                {
+                    var c = GanttChartDataGrid.Items.Count;
+                    item.Predecessors.Add(new PredecessorItem { Item = i % 3 == 0 ? GanttChartDataGrid.Items[c - 3] : GanttChartDataGrid.Items[c - 1] });
+                }
+                GanttChartDataGrid.Items.Add(item);
             }
         }
 
@@ -104,18 +109,18 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.CriticalPath
         private void CriticalPathCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             GanttChartDataGrid.IsReadOnly = true;
-            TimeSpan criticalDelay = TimeSpan.FromHours(8);
-            foreach (GanttChartItem item in GanttChartDataGrid.Items)
+            UsingPertMethodCheckBox.IsEnabled = false;
+            foreach (GanttChartItem item in UsingPertMethodCheckBox.IsChecked == true ? GanttChartDataGrid.GetPertCriticalItems() : GanttChartDataGrid.GetCriticalItems(criticalDelay: TimeSpan.FromHours(8)))
             {
                 if (item.HasChildren)
                     continue;
-                SetCriticalPathHighlighting(item, GanttChartDataGrid.IsCritical(item, criticalDelay));
+                SetCriticalPathHighlighting(item, true);
             }
-            if (CriticalPathCheckBox.IsChecked == true)
-                MessageBox.Show("Gantt Chart items are temporarily read only while critical path is highlighted.", "Information", MessageBoxButton.OK);
+            MessageBox.Show("Gantt Chart items are temporarily read only while critical path is highlighted.", "Information", MessageBoxButton.OK);
         }
         private void CriticalPathCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
+            UsingPertMethodCheckBox.IsEnabled = true;
             GanttChartDataGrid.IsReadOnly = false;
             foreach (GanttChartItem item in GanttChartDataGrid.Items)
             {

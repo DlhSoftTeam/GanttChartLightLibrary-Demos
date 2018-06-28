@@ -28,12 +28,13 @@
                     <StackPanel>
                         <ContentControl Content="Commands" Style="{StaticResource RibbonHeaderStyle}"/>
                         <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
-                            <ToggleButton x:Name="CriticalPathCheckBox" ToolTipService.ToolTip="Temporarily highlights critical task items in the chart using red." Checked="CriticalPathCheckBox_Checked"  Unchecked="CriticalPathCheckBox_Unchecked"  Style="{StaticResource RibbonToggleButtonStyle}">
+                            <ToggleButton x:Name="CriticalPathCheckBox" ToolTipService.ToolTip="Temporarily highlights critical task items in the chart using red." Checked="CriticalPathCheckBox_Checked" Unchecked="CriticalPathCheckBox_Unchecked" Style="{StaticResource RibbonToggleButtonStyle}">
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="Images/CriticalPath.png"/>
                                     <TextBlock Text="Highlight critical path" Style="{StaticResource RibbonCommandTextStyle}"/>
                                 </StackPanel>
                             </ToggleButton>
+                            <CheckBox Name="UsingPertMethodCheckBox" Content="using PERT method" IsChecked="True" ToolTip="Uncheck for using the simple algorithm (better performance, but returning only items that directly affect project finish)" Style="{StaticResource RibbonCheckBoxStyle}"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
