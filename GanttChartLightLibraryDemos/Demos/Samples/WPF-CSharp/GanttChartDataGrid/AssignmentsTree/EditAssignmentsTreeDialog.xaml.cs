@@ -142,40 +142,72 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.AssignmentsTree
 
         private void AssignmentsDataTreeGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var addedToSelection = e.AddedItems;
-            var removedFromSelection = e.RemovedItems;
+            // We use a flag to avoid recurrent event handler calls.
+            if (isDuringInternalAssignmentsDataTreeGridSelection)
+                return;
+            isDuringInternalAssignmentsDataTreeGridSelection = true;
 
+            var selectedItems = AssignmentsDataTreeGrid.SelectedItems;
+            var addedToSelection = e.AddedItems.Cast<Resource>().ToList();
+            var removedFromSelection = e.RemovedItems.Cast<Resource>().ToList();
+
+            // Wait for the selection changes to actually occur before we update it, if needed.
             Dispatcher.BeginInvoke((Action)delegate
             {
+                // When items are selected, also select their children.
                 if (addedToSelection != null)
                 {
-                    foreach (Resource selected in addedToSelection)
+                    foreach (var selected in addedToSelection)
                     {
                         if (selected.HasChildren)
                         {
-                            foreach (Resource child in selected.AllChildren)
+                            foreach (var child in selected.AllChildren)
                             {
-                                if (!AssignmentsDataTreeGrid.SelectedItems.Contains(child))
-                                    AssignmentsDataTreeGrid.SelectedItems.Add(child);
+                                if (!selectedItems.Contains(child))
+                                    selectedItems.Add(child);
                             }
                         }
                     }
                 }
+
+                // When items are unselected, also unselect their children, and ensure parents are no longer selected either.
                 if (removedFromSelection != null)
                 {
-                    foreach (Resource selected in addedToSelection)
+                    // Note that when clicking on any item (without holding Control key), items may get unselected automatically,
+                    // due to the way DataGrid behaves. We need to make sure we do not propagate the changes to children,
+                    // and also add the inadvertently unselected items back, as appropriate for a hierarchy.
+                    var remainingSelectedItems = selectedItems.Cast<Resource>().ToArray();
+                    var remainingSelectedChildren = remainingSelectedItems.SelectMany(i => i.AllChildren.Cast<Resource>()).ToArray();
+                    var remainingSelectedItemsWithChildren = remainingSelectedItems.Union(remainingSelectedChildren).ToArray();
+                    removedFromSelection.RemoveAll(i => remainingSelectedChildren.Contains(i));
+
+                    foreach (var selected in removedFromSelection)
                     {
                         if (selected.HasChildren)
                         {
-                            foreach (Resource child in selected.AllChildren)
+                            foreach (var child in selected.AllChildren)
                             {
-                                if (!AssignmentsDataTreeGrid.SelectedItems.Contains(child))
-                                    AssignmentsDataTreeGrid.SelectedItems.Remove(child);
+                                if (selectedItems.Contains(child))
+                                    selectedItems.Remove(child);
                             }
                         }
+                        foreach (var parent in selected.AllParents)
+                        {
+                            if (selectedItems.Contains(parent))
+                                selectedItems.Remove(parent);
+                        }
+                    }
+
+                    foreach (var selected in remainingSelectedItemsWithChildren)
+                    {
+                        if (!selectedItems.Contains(selected))
+                            selectedItems.Add(selected);
                     }
                 }
+
+                isDuringInternalAssignmentsDataTreeGridSelection = false;
             });
         }
+        private bool isDuringInternalAssignmentsDataTreeGridSelection;
     }
 }
