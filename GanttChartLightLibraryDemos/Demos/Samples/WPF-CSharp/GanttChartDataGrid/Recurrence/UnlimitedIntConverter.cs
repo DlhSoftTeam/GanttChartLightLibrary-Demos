@@ -17,6 +17,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.Recurrence
             string stringValue = (string)value;
             if (stringValue == string.Empty || stringValue.ToLowerInvariant() == "unlimited")
                 return int.MaxValue;
+            stringValue = stringValue.ToLowerInvariant().Replace("unlimited", string.Empty);
             int intValue;
             if (int.TryParse(stringValue, out intValue))
                 return intValue;

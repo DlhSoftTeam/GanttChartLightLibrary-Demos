@@ -84,8 +84,10 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.Recurrence
 
         private void GanttChartDataGrid_ItemPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            foreach (GanttChartItem item in GanttChartDataGrid.Items)
-                UpdateOccurrences(item as RecurrentGanttChartItem, false);
+            if (e.PropertyName != "Start" && e.PropertyName != "Finish" && e.PropertyName != "RecurrenceType" && e.PropertyName != "OccurrenceCount")
+                return;
+
+            UpdateOccurrences();
         }
 
         // Update the managed occurrence item collection for all DataGrid items, according to the current timeline page displayed in the chart area, based on their recurrence settings.
