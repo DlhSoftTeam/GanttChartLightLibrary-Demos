@@ -1,0 +1,166 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        Title="GanttChartDataGrid Time Constraints Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid">
+            <pdgcc:GanttChartDataGrid.Items>
+                <!-- Some item properties are set in code behind. -->
+                <pdgcc:GanttChartItem Content="Task 1"/>
+                <pdgcc:GanttChartItem Content="Task 1.1" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 1.2" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2"/>
+                <pdgcc:GanttChartItem Content="Task 2.1" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2.2" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2.2.1" Indentation="2"/>
+                <pdgcc:GanttChartItem Content="Task 2.2.2" Indentation="2"/>
+            </pdgcc:GanttChartDataGrid.Items>
+            <pdgcc:GanttChartDataGrid.Columns>
+                <pdgcc:DataGridColumnCollection>
+                    <hdc:DataTreeGridColumn Header="Task" MinWidth="160"/>
+                    <DataGridTemplateColumn Header="Start" MinWidth="140">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding Start, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <!-- Optionally use StartPreservingEffort property to also update task finish when end user changes start, preserving task effort and duration. -->
+                                <DatePicker SelectedDate="{Binding Start, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Finish" MinWidth="140">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding Finish, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <!-- Optionally use FinishPreservingEffort property to also update task start when end user changes finish, preserving task effort and duration. -->
+                                <DatePicker SelectedDate="{Binding Finish, Converter={StaticResource FinishDateConverter}, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Min start" MinWidth="140">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding MinStart, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding MinStart, Mode=TwoWay}" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Max start" MinWidth="140">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding MaxStart, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding MinStart, Mode=TwoWay}" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Min finish" MinWidth="140">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding MinFinish, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding MinFinish, Mode=TwoWay}" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Max finish" MinWidth="140">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding MaxFinish, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding MinFinish, Mode=TwoWay}" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Milestone">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Name="TextBlock" Text="✓" Visibility="Hidden" HorizontalAlignment="Center" Padding="4,0,10,8"/>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding IsMilestone}" Value="True">
+                                        <Setter TargetName="TextBlock" Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsMilestone, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Compl.">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Name="TextBlock" Text="✓" Visibility="Hidden" HorizontalAlignment="Center" Padding="4,0,10,8"/>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding IsCompleted}" Value="True">
+                                        <Setter TargetName="TextBlock" Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsCompleted, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="%" MinWidth="45">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding Completion, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Completion, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%, Mode=TwoWay}" IsReadOnly="{Binding HasChildren}" BorderThickness="0" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Assignments" MinWidth="160">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding AssignmentsContent}" VerticalAlignment="Center" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <pdgcc:AssignmentComboBox AvailableItemsSource="{Binding AssignableResources, RelativeSource={RelativeSource AncestorType=pdgcc:GanttChartDataGrid}}" SelectedContent="{Binding AssignmentsContent, Mode=TwoWay}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                </pdgcc:DataGridColumnCollection>
+            </pdgcc:GanttChartDataGrid.Columns>
+        </pdgcc:GanttChartDataGrid>
+    </DockPanel>
+</Window>

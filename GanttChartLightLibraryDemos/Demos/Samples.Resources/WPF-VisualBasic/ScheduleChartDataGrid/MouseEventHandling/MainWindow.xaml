@@ -1,0 +1,33 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        Title="ScheduleChartDataGrid Mouse Event Handling Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <TextBox x:Name="NotificationsTextBox" DockPanel.Dock="Bottom" MaxLines="8" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="2"/>
+        <!-- Handle PreviewMouseLeftButtonUp event to be notified when click events occur within the control (see code behind). -->
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.05*" PreviewMouseLeftButtonUp="ScheduleChartDataGrid_PreviewMouseLeftButtonUp">
+            <pdgcc:ScheduleChartDataGrid.Items>
+                <!-- Some item properties are set in code behind. -->
+                <pdgcc:ScheduleChartItem Content="Resource 1">
+                    <pdgcc:ScheduleChartItem.GanttChartItems>
+                        <pdgcc:GanttChartItem Content="Task 1"/>
+                        <pdgcc:GanttChartItem Content="Task 2"/>
+                    </pdgcc:ScheduleChartItem.GanttChartItems>
+                </pdgcc:ScheduleChartItem>
+                <pdgcc:ScheduleChartItem Content="Resource 2">
+                    <pdgcc:ScheduleChartItem.GanttChartItems>
+                        <pdgcc:GanttChartItem Content="Task 2"/>
+                    </pdgcc:ScheduleChartItem.GanttChartItems>
+                </pdgcc:ScheduleChartItem>
+            </pdgcc:ScheduleChartDataGrid.Items>
+        </pdgcc:ScheduleChartDataGrid>
+    </DockPanel>
+</Window>

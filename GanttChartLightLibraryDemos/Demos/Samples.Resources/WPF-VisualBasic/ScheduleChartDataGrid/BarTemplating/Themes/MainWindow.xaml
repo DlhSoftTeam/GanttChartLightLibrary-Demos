@@ -1,0 +1,142 @@
+﻿<Window x:Class="Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        Title="ScheduleChartDataGrid Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate x:Key="ScaleHeaderContentTemplate">
+                <ContentControl Content="{Binding}" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="2" IsTabStop="False"/>
+            </DataTemplate>
+            <pdgcc:ScaleCollection x:Key="WeeksScales">
+                <pdgcc:Scale ScaleType="Weeks" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+                <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayOfWeekInitial" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+            </pdgcc:ScaleCollection>
+            <pdgcc:ScaleCollection x:Key="MonthsScales">
+                <pdgcc:Scale ScaleType="Months" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+                <pdgcc:Scale ScaleType="Weeks" HeaderContentFormat="Day" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+            </pdgcc:ScaleCollection>
+            <pdgcc:ScaleCollection x:Key="YearsScales">
+                <pdgcc:Scale ScaleType="Years" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+                <pdgcc:Scale ScaleType="Months" HeaderContentFormat="Month" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+            </pdgcc:ScaleCollection>
+            <LinearGradientBrush x:Key="CustomStandardBarFill" StartPoint="0.5,0" EndPoint="0.5,1">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="Transparent" Offset="0"/>
+                    <GradientStop Color="Tomato" Offset="0.25"/>
+                    <GradientStop Color="DarkRed" Offset="1"/>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <SolidColorBrush x:Key="CustomStandardBarStroke" Color="DarkRed"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <!-- Control area is displayed at the top of the screen. -->
+        <Border DockPanel.Dock="Top" Style="{StaticResource RibbonContainerStyle}">
+            <Border.Resources>
+                <Style TargetType="Image">
+                    <Setter Property="Width" Value="16"/>
+                    <Setter Property="Height" Value="16"/>
+                </Style>
+            </Border.Resources>
+            <StackPanel Style="{StaticResource RibbonStyle}">
+                <Border Style="{StaticResource RibbonPanelStyle}">
+                    <StackPanel>
+                        <ContentControl Content="Items" Style="{StaticResource RibbonHeaderStyle}"/>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <Button x:Name="AddNewButton" ToolTipService.ToolTip="Add new item" Click="AddNewButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/AddNew.png"/>
+                            </Button>
+                            <Button x:Name="InsertNewButton" ToolTipService.ToolTip="Insert new item before selection" Click="InsertNewButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/InsertNew.png"/>
+                            </Button>
+                            <Button x:Name="DeleteButton" ToolTipService.ToolTip="Delete selected item(s)" Click="DeleteButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/Delete.png"/>
+                            </Button>
+                            <Border Style="{StaticResource RibbonCommandSeparatorStyle}"/>
+                            <Button x:Name="SetColorButton" ToolTipService.ToolTip="Set custom bar color to selected item(s)" Click="SetColorButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/SetColor.png"/>
+                            </Button>
+                            <Border Style="{StaticResource RibbonCommandSeparatorStyle}"/>
+                            <Button x:Name="CopyButton" ToolTipService.ToolTip="Copy selected item(s) to clipboard" Click="CopyButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/Copy.png"/>
+                            </Button>
+                            <Button x:Name="PasteButton" ToolTipService.ToolTip="Paste item(s) from clipboard" Click="PasteButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/Paste.png"/>
+                            </Button>
+                            <Border Style="{StaticResource RibbonCommandSeparatorStyle}"/>
+                            <Button x:Name="UndoButton" ToolTipService.ToolTip="Undo previously recorded action" Click="UndoButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/Undo.png"/>
+                            </Button>
+                            <Button x:Name="RedoButton" ToolTipService.ToolTip="Redo previously undone action" Click="RedoButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/Redo.png"/>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource RibbonPanelStyle}">
+                    <StackPanel>
+                        <ContentControl Content="Timeline" Style="{StaticResource RibbonHeaderStyle}"/>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <ComboBox x:Name="ScalesComboBox" ToolTipService.ToolTip="Select scales" Width="100" SelectionChanged="ScaleTypeComboBox_SelectionChanged" Style="{StaticResource RibbonComboBoxStyle}">
+                                <ComboBoxItem Content="Weeks/days" Tag="WeeksScales"/>
+                                <ComboBoxItem Content="Months/weeks" Tag="MonthsScales"/>
+                                <ComboBoxItem Content="Years/months" Tag="YearsScales"/>
+                            </ComboBox>
+                            <ToggleButton x:Name="ZoomCheckBox" ToolTipService.ToolTip="Zoom 200%" Checked="ZoomCheckBox_Checked" Unchecked="ZoomCheckBox_Unchecked" Style="{StaticResource RibbonToggleButtonStyle}">
+                                <Image Source="Images/ZoomIn.png"/>
+                            </ToggleButton>
+                            <Border Style="{StaticResource RibbonCommandSeparatorStyle}"/>
+                            <ToggleButton x:Name="ShowWeekendsCheckBox" ToolTipService.ToolTip="Show weekends" Checked="ShowWeekendsCheckBox_Checked" Unchecked="ShowWeekendsCheckBox_Unchecked" Style="{StaticResource RibbonToggleButtonStyle}">
+                                <Image Source="Images/ShowWeekends.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="WorkOnWeekendsCheckBox" ToolTipService.ToolTip="Weekends are working time" Checked="WorkOnWeekendsCheckBox_Checked" Unchecked="WorkOnWeekendsCheckBox_Unchecked" Style="{StaticResource RibbonToggleButtonStyle}">
+                                <Image Source="Images/WorkOnWeekends.png"/>
+                            </ToggleButton>
+                            <Border Style="{StaticResource RibbonCommandSeparatorStyle}"/>
+                            <Button x:Name="DecreaseTimelinePageButton" ToolTipService.ToolTip="Move towards past" Click="DecreaseTimelinePageButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/DecreaseTimelinePage.png"/>
+                            </Button>
+                            <Button x:Name="IncreaseTimelinePageButton" ToolTipService.ToolTip="Move towards future" Click="IncreaseTimelinePageButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/IncreaseTimelinePage.png"/>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource RibbonPanelStyle}">
+                    <StackPanel>
+                        <ContentControl Content="Files and printing" Style="{StaticResource RibbonHeaderStyle}"/>
+                        <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
+                            <Button x:Name="ExportImageButton" ToolTipService.ToolTip="Export image" Click="ExportImageButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/ExportImage.png"/>
+                            </Button>
+                            <Button x:Name="PrintButton" ToolTipService.ToolTip="Print" Click="PrintButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/Print.png"/>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+        <!-- Optionally, set IsUndoEnabled to true to enable undo queue recording; you may call Undo and Redo methods for undoing and redoing recorded actions (see code behind). -->
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" IsUndoEnabled="True">
+            <pdgcc:ScheduleChartDataGrid.Items>
+                <!-- Some item properties are set in code behind. -->
+                <pdgcc:ScheduleChartItem Content="Resource 1">
+                    <pdgcc:ScheduleChartItem.GanttChartItems>
+                        <pdgcc:GanttChartItem Content="Task 1"/>
+                        <pdgcc:GanttChartItem Content="Task 2"/>
+                    </pdgcc:ScheduleChartItem.GanttChartItems>
+                </pdgcc:ScheduleChartItem>
+                <pdgcc:ScheduleChartItem Content="Resource 2">
+                    <pdgcc:ScheduleChartItem.GanttChartItems>
+                        <pdgcc:GanttChartItem Content="Task 2"/>
+                    </pdgcc:ScheduleChartItem.GanttChartItems>
+                </pdgcc:ScheduleChartItem>
+            </pdgcc:ScheduleChartDataGrid.Items>
+        </pdgcc:ScheduleChartDataGrid>
+    </DockPanel>
+</Window>

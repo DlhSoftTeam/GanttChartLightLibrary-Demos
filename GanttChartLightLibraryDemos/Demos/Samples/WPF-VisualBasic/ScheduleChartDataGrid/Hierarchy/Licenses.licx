@@ -1,0 +1,5 @@
+﻿DlhSoft.Windows.Controls.GanttChartDataGrid, DlhSoft.ProjectData.GanttChart.LightWPF.Controls
+DlhSoft.Windows.Controls.ScheduleChartDataGrid, DlhSoft.ProjectData.GanttChart.LightWPF.Controls
+DlhSoft.Windows.Controls.LoadChartDataGrid, DlhSoft.ProjectData.GanttChart.LightWPF.Controls
+DlhSoft.Windows.Controls.Pert.PertChartView, DlhSoft.ProjectData.PertChart.LightWPF.Controls
+DlhSoft.Windows.Controls.Pert.NetworkDiagramView, DlhSoft.ProjectData.PertChart.LightWPF.Controls

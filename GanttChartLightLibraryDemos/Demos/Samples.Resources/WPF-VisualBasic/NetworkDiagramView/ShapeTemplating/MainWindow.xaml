@@ -1,0 +1,86 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pdpcc="clr-namespace:DlhSoft.Windows.Controls.Pert;assembly=DlhSoft.ProjectData.PertChart.LightWPF.Controls"
+        xmlns:local="clr-namespace:Demos.WPF.VisualBasic.NetworkDiagramView.ShapeTemplating"
+        Title="NetworkDiagramView View Shape Templating Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <!-- Set IsLegendVisible to false to hide the legend and define specific item and shape sizes as we customize the task shape template. -->
+        <pdpcc:NetworkDiagramView x:Name="NetworkDiagramView" IsLegendVisible="False" ItemWidth="350" ItemHeight="100" ShapeWidth="342" ShapeHeight="92">
+            <!-- Define the custom shape template for tasks. -->
+            <pdpcc:NetworkDiagramView.TaskTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid Visibility="{Binding StandardShapeVisibility}">
+                            <Rectangle Fill="{Binding Path=(pdpcc:NetworkDiagramView.ShapeFill)}" Stroke="{Binding Path=(pdpcc:NetworkDiagramView.ShapeStroke)}" StrokeThickness="{Binding NetworkDiagramView.ShapeStrokeThickness}"/>
+                            <Grid Margin="2,0" UseLayoutRounding="True">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="4"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0" Grid.ColumnSpan="5" Text="{Binding DisplayedText}" FontWeight="Bold" TextTrimming="CharacterEllipsis" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <pdpcc:DragNetworkTaskThumb Grid.Row="0" Grid.ColumnSpan="5" IsEnabled="{Binding NetworkDiagramView.IsTaskPositionThumbEnabled}"/>
+                                <Rectangle Grid.Row="1" Grid.ColumnSpan="5" Stroke="{Binding Path=(pdpcc:NetworkDiagramView.ShapeStroke)}" StrokeThickness="0.5" Height="0.5" VerticalAlignment="Top" Margin="1,-2"/>
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="Start: " Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding ActualStart, Mode=TwoWay}" Width="110" BorderThickness="0" Margin="0,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Row="1" Grid.Column="3" Text="Finish: " Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <DatePicker Grid.Row="1" Grid.Column="4" SelectedDate="{Binding ActualFinish, Mode=TwoWay}" Width="110" BorderThickness="0" Margin="0,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="Dur.: " Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Effort, Converter={StaticResource DurationStringConverter}, Mode=TwoWay}" Width="110" BorderThickness="0" Margin="0,2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Row="2" Grid.Column="3" Text="Res.: " Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Grid.Row="2" Grid.Column="4" Text="{Binding AssignmentsContent, Mode=TwoWay}" Width="110" BorderThickness="0" Margin="0,2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Grid>
+                        <Grid Visibility="{Binding MilestoneShapeVisibility}">
+                            <Polygon Fill="{Binding Path=(pdpcc:NetworkDiagramView.ShapeFill)}" Stroke="{Binding Path=(pdpcc:NetworkDiagramView.ShapeStroke)}" StrokeThickness="{Binding NetworkDiagramView.ShapeStrokeThickness}" Width="{Binding NetworkDiagramView.ShapeWidth}" Stretch="Fill"
+                                     Points="0,0.5 0.1,0 0.9,0 1,0.5 0.9,1 0.1,1"/>
+                            <Grid Margin="24,0" UseLayoutRounding="True">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="3*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding DisplayedText}" FontWeight="Bold" TextTrimming="CharacterEllipsis" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <pdpcc:DragNetworkTaskThumb Grid.Row="0" Grid.ColumnSpan="2" IsEnabled="{Binding NetworkDiagramView.IsTaskPositionThumbEnabled}"/>
+                                <Rectangle Grid.Row="1" Grid.ColumnSpan="2" Stroke="{Binding Path=(pdpcc:NetworkDiagramView.ShapeStroke)}" StrokeThickness="0.5" Height="0.5" VerticalAlignment="Top" Margin="-15,0"/>
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="Date: " Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding ActualStart, Mode=TwoWay}" Width="110" BorderThickness="0" Margin="0,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </pdpcc:NetworkDiagramView.TaskTemplate>
+            <pdpcc:NetworkDiagramView.Items>
+                <!-- Use a custom item that inherits from NetworkDiagramItem (see code behind). -->
+                <!-- Some item properties are set in code behind. -->
+                <local:CustomNetworkDiagramItem Content="Start milestone" DisplayedText="Start" IsMilestone="True"/>
+                <local:CustomNetworkDiagramItem Content="First task" DisplayedText="Task 1"/>
+                <local:CustomNetworkDiagramItem Content="Second task" DisplayedText="Task 2"/>
+                <local:CustomNetworkDiagramItem Content="Third task" DisplayedText="Task 3"/>
+                <local:CustomNetworkDiagramItem Content="Fourth task" DisplayedText="Task 4"/>
+                <local:CustomNetworkDiagramItem Content="Fifth task (middle milestone)" DisplayedText="Task 5" IsMilestone="True"/>
+                <local:CustomNetworkDiagramItem Content="Sixth task" DisplayedText="Task 6"/>
+                <local:CustomNetworkDiagramItem Content="Seventh task" DisplayedText="Task 7"/>
+                <local:CustomNetworkDiagramItem Content="Finish milestone" DisplayedText="Finish" IsMilestone="True" DisplayedRowIndex="0"/>
+            </pdpcc:NetworkDiagramView.Items>
+        </pdpcc:NetworkDiagramView>
+    </DockPanel>
+</Window>

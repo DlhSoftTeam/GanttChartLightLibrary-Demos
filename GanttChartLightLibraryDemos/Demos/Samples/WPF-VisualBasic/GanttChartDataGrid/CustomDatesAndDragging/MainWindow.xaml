@@ -1,0 +1,111 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:converters="clr-namespace:DlhSoft.Windows.Converters;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:local="clr-namespace:Demos.WPF.VisualBasic.GanttChartDataGrid.CustomDatesAndDragging"
+        Title="GanttChartDataGrid Custom Dates and Dragging Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" BarHeight="10">
+            <!-- Task bar templates. -->
+            <pdgcc:GanttChartDataGrid.StandardTaskTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <!--Display a new custom bar at the position computed based on CustomStart property and bar left (Start) origin.-->
+                        <Canvas>
+                            <Grid Canvas.Left="{Binding ComputedCustomBarLeft}" Canvas.Top="-10" Width="{Binding ComputedCustomBarWidth}" Height="10">
+                                <Rectangle Fill="#FF7FB482" Stroke="{Binding Path=(pdgcc:GanttChartView.StandardBarStroke)}" StrokeThickness="{Binding GanttChartView.StandardBarStrokeThickness}" RadiusX="{Binding GanttChartView.StandardBarCornerRadius}" RadiusY="{Binding GanttChartView.StandardBarCornerRadius}"/>
+                                <Thumb Name="CustomBarThumb" Cursor="Hand" DragDelta="CustomBarThumb_DragDelta">
+                                    <Thumb.Template>
+                                        <ControlTemplate TargetType="Thumb">
+                                            <Rectangle Fill="Transparent"/>
+                                        </ControlTemplate>
+                                    </Thumb.Template>
+                                </Thumb>
+                            </Grid>
+                        </Canvas>
+                        <Grid>
+                            <Rectangle Fill="{Binding (pdgcc:GanttChartView.StandardBarFill)}" Height="10" RadiusY="{Binding GanttChartView.StandardBarCornerRadius}" RadiusX="{Binding GanttChartView.StandardBarCornerRadius}" Stroke="{Binding (pdgcc:GanttChartView.StandardBarStroke)}" StrokeThickness="{Binding GanttChartView.StandardBarStrokeThickness}"/>
+                            <pdgcc:DragTaskThumb IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskStartThumbEnabled}" Role="UpdateStart" Visibility="{Binding GanttChartView.ThumbVisibility}"/>
+                            <pdgcc:DragTaskThumb HorizontalAlignment="Right" IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskFinishThumbEnabled}" Role="UpdateFinish" Visibility="{Binding GanttChartView.ThumbVisibility}" Width="2"/>
+                            <pdgcc:DragTaskThumb HorizontalAlignment="Left" IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskStartOnlyThumbEnabled}" Margin="-2,0,0,0" Role="UpdateStartOnly" Visibility="{Binding GanttChartView.ThumbVisibility}" Width="2"/>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </pdgcc:GanttChartDataGrid.StandardTaskTemplate>
+            <pdgcc:GanttChartDataGrid.Columns>
+                <pdgcc:DataGridColumnCollection>
+                    <hdc:DataTreeGridColumn Header="Task" MinWidth="160"/>
+                    <DataGridTemplateColumn Header="Start" MinWidth="140">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding Start, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Start, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Finish" MinWidth="140">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding Finish, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Finish, Converter={StaticResource FinishDateConverter}, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <!-- Add CustomStart and CustomFinish columns. -->
+                    <DataGridTemplateColumn Header="Custom start" MinWidth="140">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding CustomStart, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding CustomStart, Mode=TwoWay}" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Custom finish" MinWidth="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding CustomFinish, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding CustomFinish, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g, Mode=TwoWay}" BorderThickness="0" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                </pdgcc:DataGridColumnCollection>
+            </pdgcc:GanttChartDataGrid.Columns>
+            <pdgcc:GanttChartDataGrid.Items>
+                <!-- Some item properties are set in code behind. -->
+                <local:CustomGanttChartItem Content="Task 1"/>
+                <local:CustomGanttChartItem Content="Task 1.1" Indentation="1"/>
+                <local:CustomGanttChartItem Content="Task 1.2" Indentation="1"/>
+                <local:CustomGanttChartItem Content="Task 2"/>
+                <local:CustomGanttChartItem Content="Task 2.1" Indentation="1"/>
+                <local:CustomGanttChartItem Content="Task 2.2" Indentation="1"/>
+                <local:CustomGanttChartItem Content="Task 2.2.1" Indentation="2"/>
+                <local:CustomGanttChartItem Content="Task 2.2.2" Indentation="2"/>
+            </pdgcc:GanttChartDataGrid.Items>
+        </pdgcc:GanttChartDataGrid>
+    </DockPanel>
+</Window>

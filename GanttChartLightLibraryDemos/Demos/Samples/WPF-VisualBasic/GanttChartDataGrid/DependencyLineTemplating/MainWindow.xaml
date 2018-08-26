@@ -1,0 +1,80 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:shapes="clr-namespace:DlhSoft.Windows.Shapes;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:local="clr-namespace:Demos.WPF.VisualBasic.GanttChartDataGrid.DependencyLineTemplating"
+        Title="GanttChartDataGrid Dependency Line Templating Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <!-- Use DependencyLineStroke to change the default color for dependency lines. -->
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" DependencyLineStroke="Green">
+            <pdgcc:GanttChartDataGrid.Items>
+                <!-- Some item properties are set in code behind. -->
+                <!-- Overriding values for the attached property GanttChartView.DependencyLineStroke may also be set on PredecessorItem objects defined in code to link GanttChartItems. -->
+                <pdgcc:GanttChartItem Content="Task 1"/>
+                <pdgcc:GanttChartItem Content="Task 1.1" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 1.2" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2"/>
+                <pdgcc:GanttChartItem Content="Task 2.1" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2.2" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2.2.1" Indentation="2"/>
+                <pdgcc:GanttChartItem Content="Task 2.2.2" Indentation="2"/>
+            </pdgcc:GanttChartDataGrid.Items>
+            <!-- Finally, you can fully customize dependency lines by specifying DependencyLineTemplate and optionally the control template of DependencyArrowLine shape (if used). -->
+            <pdgcc:GanttChartDataGrid.DependencyLineTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <ToolTipService.ToolTip>
+                            <ToolTip Content="{Binding}" ContentTemplate="{Binding GanttChartView.PredecessorToolTipTemplate}" Visibility="{Binding GanttChartView.DependencyToolTipVisibility}"/>
+                        </ToolTipService.ToolTip>
+                        <shapes:DependencyArrowLine Stroke="Transparent" StrokeThickness="3" Points="{Binding ComputedDependencyLinePoints}"/>
+                        <shapes:DependencyArrowLine x:Name="DependencyArrowLine" Stroke="{Binding Path=(pdgcc:GanttChartView.DependencyLineStroke)}" StrokeThickness="{Binding GanttChartView.DependencyLineStrokeThickness}" Points="{Binding ComputedDependencyLinePoints}">
+                            <Control.Template>
+                                <ControlTemplate TargetType="shapes:DependencyArrowLine">
+                                    <ItemsControl x:Name="LineItemsControl" IsTabStop="False">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <Grid IsItemsHost="True"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <shapes:ArrowLine Name="Line" X1="{Binding X1}" Y1="{Binding Y1}" X2="{Binding X2}" Y2="{Binding Y2}" Stroke="{Binding Parent.Stroke}" StrokeThickness="{Binding Parent.StrokeThickness}" ArrowSize="{Binding Parent.ArrowSize}" StartCap="{Binding StartCap}" EndCap="{Binding EndCap}"/>
+                                                <DataTemplate.Triggers>
+                                                    <!-- For example, you can set up a trigger to set StrokeDashArray to 2,2 to display dashed lines (or 1,1 for dotted lines) for dependencies of type Start-Start or Finish-Finish. -->
+                                                    <DataTrigger Binding="{Binding DataContext.DependencyType, ElementName=LineItemsControl}" Value="StartStart">
+                                                        <Setter TargetName="Line" Property="StrokeDashArray" Value="2,2"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding DataContext.DependencyType, ElementName=LineItemsControl}" Value="FinishFinish">
+                                                        <Setter TargetName="Line" Property="StrokeDashArray" Value="2,2"/>
+                                                    </DataTrigger>
+                                                    <!-- Or, when a custom property is set on the predecessor item, increase stroke thinkness. -->
+                                                    <DataTrigger Binding="{Binding DataContext.(local:PredecessorItemExtensions.IsImportant), ElementName=LineItemsControl}" Value="True">
+                                                        <Setter TargetName="Line" Property="StrokeThickness" Value="2"/>
+                                                    </DataTrigger>
+                                                </DataTemplate.Triggers>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ControlTemplate>
+                            </Control.Template>
+                        </shapes:DependencyArrowLine>
+                    </Grid>
+                    <DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Path=(pdgcc:GanttChartView.DependencyLineStroke)}" Value="{x:Null}">
+                            <Setter TargetName="DependencyArrowLine" Property="Stroke" Value="{Binding Path=DependentItem.(pdgcc:GanttChartView.DependencyLineStroke)}"/>
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </pdgcc:GanttChartDataGrid.DependencyLineTemplate>
+        </pdgcc:GanttChartDataGrid>
+    </DockPanel>
+</Window>

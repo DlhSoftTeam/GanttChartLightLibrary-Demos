@@ -115,14 +115,15 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\HierarchicalDataLight\WPF.Controls\HierarchicalData.LightWPF.Controls.csproj">
-      <Project>{31391A17-FE52-4766-BFD8-536DFB5EA889}</Project>
-      <Name>HierarchicalData.LightWPF.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\GanttChart.WPF.Controls\ProjectData.GanttChart.LightWPF.Controls.csproj">
-      <Project>{75A90452-9513-4605-AFAA-DABEE0263168}</Project>
-      <Name>ProjectData.GanttChart.LightWPF.Controls</Name>
-    </ProjectReference>
+    <Reference Include="DlhSoft.HierarchicalData.LightWPF.Controls, Version=4.0.8.5, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DlhSoft.ProjectData.GanttChart.LightWPF.Controls, Version=4.3.39.4, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DlhSoft.ProjectData.PertChart.LightWPF.Controls, Version=4.3.39.4, Culture=neutral, PublicKeyToken=6071b28da0134838, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database.mdf">

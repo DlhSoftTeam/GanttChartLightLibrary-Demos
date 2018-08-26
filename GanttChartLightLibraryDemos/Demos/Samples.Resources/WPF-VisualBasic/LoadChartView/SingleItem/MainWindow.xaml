@@ -1,0 +1,29 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        Title="LoadChartView Single Item Sample" Width="800" SizeToContent="Height">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <!-- As only one resource item would be displayed you can safely set item height and related properties to large values. -->
+        <pdgcc:LoadChartView x:Name="LoadChartView" ItemHeight="176" BarHeight="172" Height="252" VerticalAlignment="Top">
+            <pdgcc:LoadChartView.Items>
+                <!-- Some item properties are set in code behind. -->
+                <pdgcc:LoadChartItem>
+                    <pdgcc:LoadChartItem.GanttChartItems>
+                        <pdgcc:AllocationItem Content="Task 1"/>
+                        <pdgcc:AllocationItem Content="Task 1, Task 2 [50%]: 150%"/>
+                        <pdgcc:AllocationItem Content="Task 2 [50%]"/>
+                        <pdgcc:AllocationItem Content="Task 3"/>
+                    </pdgcc:LoadChartItem.GanttChartItems>
+                </pdgcc:LoadChartItem>
+            </pdgcc:LoadChartView.Items>
+        </pdgcc:LoadChartView>
+    </DockPanel>
+</Window>

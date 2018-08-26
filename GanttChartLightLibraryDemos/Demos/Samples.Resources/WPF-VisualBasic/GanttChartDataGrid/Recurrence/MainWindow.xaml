@@ -1,0 +1,75 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:pdgccConverters="clr-namespace:DlhSoft.Windows.Converters;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:local="clr-namespace:Demos.WPF.VisualBasic.GanttChartDataGrid.Recurrence"
+        Title="GanttChartDataGrid Recurrence Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <pdgccConverters:DateTimeStringConverter x:Key="DateTimeStringConverter"/>
+            <!-- Converter for integral numbers that support Unlimited value (int.MaxValue). -->
+            <local:UnlimitedIntConverter  x:Key="UnlimitedIntConverter"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <!-- Handle TimelinePageChanged event to be able to generate appropriate chart item occurrences in code behind when the timeline page changes or gets initialized. -->
+        <!-- Handle ItemPropertyChanged event to be able to detect recurrence setting changes and to update items in the managed occurrence collection accordingly (see code behind). -->
+        <!-- Optionally, set DependencyCreationValidator to null to disable dependency creation using drag and drop operations in the chart view, as predecessors are supported only between tasks that do not share row indexes (task occurrences do share row indexes to be displayed as multiple bars in the same row). -->
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" DataGridWidth="0.35*" TimelinePageChanged="GanttChartDataGrid_TimelinePageChanged" ItemPropertyChanged="GanttChartDataGrid_ItemPropertyChanged" DependencyCreationValidator="{x:Null}">
+            <pdgcc:GanttChartDataGrid.Columns>
+                <!-- Set the entire columns collection in order to be able to display only Start, Finish and recurrence definition button columns. -->
+                <pdgcc:DataGridColumnCollection>
+                    <hdc:DataTreeGridColumn Header="Task"/>
+                    <DataGridTextColumn Header="Start" Binding="{Binding Start, Mode=TwoWay, Converter={StaticResource DateTimeStringConverter}}"/>
+                    <DataGridTextColumn Header="Finish" Binding="{Binding Finish, Mode=TwoWay, Converter={StaticResource DateTimeStringConverter}}"/>
+                    <DataGridTemplateColumn Header="Recurrence type">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding RecurrenceType}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox SelectedItem="{Binding RecurrenceType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsLeaf}" Padding="0">
+                                    <ComboBox.Items>
+                                        <local:RecurrenceType>Daily</local:RecurrenceType>
+                                        <local:RecurrenceType>Weekly</local:RecurrenceType>
+                                        <local:RecurrenceType>Monthly</local:RecurrenceType>
+                                        <local:RecurrenceType>Yearly</local:RecurrenceType>
+                                    </ComboBox.Items>
+                                </ComboBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Occurrence count">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding OccurrenceCount, Converter={StaticResource UnlimitedIntConverter}}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding OccurrenceCount, Mode=TwoWay, Converter={StaticResource UnlimitedIntConverter}, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsLeaf}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                </pdgcc:DataGridColumnCollection>
+            </pdgcc:GanttChartDataGrid.Columns>
+            <pdgcc:GanttChartDataGrid.Items>
+                <pdgcc:GanttChartItem Content="Task 1"/>
+                <local:RecurrentGanttChartItem Content="Task 1.1" Indentation="1"/>
+                <local:RecurrentGanttChartItem Content="Task 1.2" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2"/>
+                <local:RecurrentGanttChartItem Content="Task 2.1" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Task 2.2" Indentation="1"/>
+                <local:RecurrentGanttChartItem Content="Task 2.2.1" Indentation="2"/>
+                <local:RecurrentGanttChartItem Content="Task 2.2.2" Indentation="2"/>
+            </pdgcc:GanttChartDataGrid.Items>
+        </pdgcc:GanttChartDataGrid>
+    </DockPanel>
+</Window>
