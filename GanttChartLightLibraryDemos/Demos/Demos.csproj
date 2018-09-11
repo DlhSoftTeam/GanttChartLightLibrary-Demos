@@ -30,7 +30,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -7078,6 +7078,10 @@
     <ProjectReference Include="Samples\WPF-VisualBasic\GanttChartDataGrid\AssigningResources\AssigningResources.VisualBasic.GanttChartDataGrid.vbproj">
       <Project>{9092cf76-72a3-47dd-89c2-9910e00a8a5b}</Project>
       <Name>AssigningResources.VisualBasic.GanttChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-VisualBasic\GanttChartDataGrid\AssignmentsTemplate\AssignmentsTemplate.VisualBasic.GanttChartDataGrid.vbproj">
+      <Project>{76ee40ac-a384-40bc-bf29-85f48595350a}</Project>
+      <Name>AssignmentsTemplate.VisualBasic.GanttChartDataGrid</Name>
     </ProjectReference>
     <ProjectReference Include="Samples\WPF-VisualBasic\GanttChartDataGrid\AssignmentsTree\AssignmentsTree.VisualBasic.GanttChartDataGrid.vbproj">
       <Project>{c5c6a002-5973-487a-a383-f24e03090d9c}</Project>
