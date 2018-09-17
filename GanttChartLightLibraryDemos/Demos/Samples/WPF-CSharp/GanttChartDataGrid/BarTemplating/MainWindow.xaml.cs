@@ -67,10 +67,11 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.BarTemplating
                     new CustomGanttChartItem
                     {
                         Content = "Task " + i,
-                        Indentation = i % 3 == 0 ? 0 : 1,
+                        Indentation = i > 6 || i % 3 == 0 ? 0 : 1,
                         Start = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8),
-                        Finish = DateTime.Today.AddDays((i <= 8 ? (i - 4) * 3 + (i > 8 ? 6 : 1) : i - 2) + 1),
-                        CompletedFinish = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8).AddDays(i % 6 == 1 ? 3 : 0)
+                        Finish = DateTime.Today.AddDays((i <= 8 ? (i - 4) * 3 + (i > 8 ? 6 : 1) : i - 2) + 1.5),
+                        CompletedFinish = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8).AddDays(i % 6 == 1 ? 3 : 0),
+                        IsExpanded = i != 3
                     });
             }
         }
@@ -78,7 +79,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.BarTemplating
         private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
         {
-            this.theme = "Cyan-green";
+            this.theme = "Blue-navy";
             ApplyTemplate();
         }
         public override void OnApplyTemplate()
