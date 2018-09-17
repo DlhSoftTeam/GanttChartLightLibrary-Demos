@@ -14,7 +14,7 @@
     </Window.Resources>
     <DockPanel>
         <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" AreSummaryRowsBold="True" StandardBarCornerRadius="1" IsMouseWheelZoomEnabled="False"
-                                  Width="800" Height="376" IsRowClickTimeScrollingEnabled="False">
+                                  Width="800" Height="286" IsRowClickTimeScrollingEnabled="False">
             <!-- Define the custom bar template for standard tasks. -->
             <pdgcc:GanttChartDataGrid.StandardTaskTemplate>
                 <DataTemplate>
