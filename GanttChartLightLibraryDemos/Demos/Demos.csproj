@@ -30,7 +30,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationRevision>9</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -111,6 +111,111 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="FileNameConverter.cs" />
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\Themes\Teal-green.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\Themes\Steel-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\Themes\Purple-green.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\Themes\Purple-beige.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\Themes\Orange-brown.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\Themes\Gray-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\Themes\Generic-bright.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\Themes\Generic-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\Themes\DlhSoft-gray.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\Themes\Dark-black.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\Themes\Cyan-green.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\Themes\Common.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\Themes\Blue-navy.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Blue-navy.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Common.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Cyan-green.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Dark-black.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\DlhSoft-gray.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Generic-blue-2016.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Generic-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Generic-bright-2016.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Generic-bright.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Gray-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Green-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Light-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Orange-brown.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Purple-beige.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Purple-green.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Steel-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Teal-green.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\Themes\Yellow-green.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\AssigningTasks\Themes\Blue-navy.xaml">
       <SubType>Designer</SubType>
     </Resource>
@@ -6709,6 +6814,7 @@
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\StatusDisplaying\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\GanttChartIntegration\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\DependencyLineTemplating\MainWindow.xaml.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\MainWindow.xaml.cs" />
     <Compile Include="UppercaseConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -6946,6 +7052,10 @@
     <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\SummaryBars\SummaryBars.GanttChartDataGrid.csproj">
       <Project>{cb7b1a34-6631-4b99-9788-7f888afc3564}</Project>
       <Name>SummaryBars.GanttChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\SummaryDragging\SummaryDragging.GanttChartDataGrid.csproj">
+      <Project>{9e595e4f-9173-40df-8c87-07485afcddfa}</Project>
+      <Name>SummaryDragging.GanttChartDataGrid</Name>
     </ProjectReference>
     <ProjectReference Include="Samples\WPF-CSharp\GanttChartDataGrid\SummaryValues\SummaryValues.GanttChartDataGrid.csproj">
       <Project>{c8210aa8-3750-459d-8d7b-22c23a5d2956}</Project>
@@ -7234,6 +7344,10 @@
     <ProjectReference Include="Samples\WPF-VisualBasic\GanttChartDataGrid\SummaryBars\SummaryBars.VisualBasic.GanttChartDataGrid.vbproj">
       <Project>{14cbfa75-cf40-42df-ae68-7896bd87c4df}</Project>
       <Name>SummaryBars.VisualBasic.GanttChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\SummaryDragging.VisualBasic.GanttChartDataGrid.vbproj">
+      <Project>{4cf9d1aa-7051-4727-922e-18a28db9c990}</Project>
+      <Name>SummaryDragging.VisualBasic.GanttChartDataGrid</Name>
     </ProjectReference>
     <ProjectReference Include="Samples\WPF-VisualBasic\GanttChartDataGrid\SummaryValues\SummaryValues.VisualBasic.GanttChartDataGrid.vbproj">
       <Project>{f4f1e800-076d-4703-ac32-e34ca2087b8f}</Project>
@@ -7609,6 +7723,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\AssigningTasks\MainWindow.xaml.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\MainWindow.xaml.vb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
