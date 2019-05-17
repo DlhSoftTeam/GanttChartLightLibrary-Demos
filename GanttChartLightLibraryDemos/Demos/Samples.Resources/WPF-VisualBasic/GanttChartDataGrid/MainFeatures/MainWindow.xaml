@@ -512,12 +512,12 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="Bold" Text="GanttChartDataGrid Sample"/>
                         <Border Grid.Row="1" Margin="0,16" BorderBrush="DarkGray" BorderThickness="1">
-                            <ContentPresenter Content="{Binding Content}"/>
+                            <ContentPresenter Content="{Binding Content, Mode=OneTime}"/>
                         </Border>
                         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                            <TextBlock Text="{Binding PageIndex}"/>
+                            <TextBlock Text="{Binding PageIndex, Mode=OneTime}"/>
                             <TextBlock Text="/"/>
-                            <TextBlock Text="{Binding PageCount}"/>
+                            <TextBlock Text="{Binding PageCount, Mode=OneTime}"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
