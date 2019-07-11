@@ -133,6 +133,7 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
             ScheduleChartDataGrid.Items.Add(item);
             ScheduleChartDataGrid.SelectedItem = item;
             ScheduleChartDataGrid.ScrollTo(item.GanttChartItems[0]);
+            ScheduleChartDataGrid.ScrollTo(item.GanttChartItems[0].Start);
         }
         private void InsertNewButton_Click(object sender, RoutedEventArgs e)
         {
@@ -146,6 +147,8 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
             item.GanttChartItems.Add(new GanttChartItem { Content = "New Task", Start = DateTime.Today, Finish = DateTime.Today.AddDays(1) });
             ScheduleChartDataGrid.Items.Insert(ScheduleChartDataGrid.SelectedIndex, item);
             ScheduleChartDataGrid.SelectedItem = item;
+            ScheduleChartDataGrid.ScrollTo(item.GanttChartItems[0]);
+            ScheduleChartDataGrid.ScrollTo(item.GanttChartItems[0].Start);
         }
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {

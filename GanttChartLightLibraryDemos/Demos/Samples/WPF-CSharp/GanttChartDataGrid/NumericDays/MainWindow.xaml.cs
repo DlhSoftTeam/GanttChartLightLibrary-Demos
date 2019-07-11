@@ -2,6 +2,7 @@
 using System.Windows;
 using DlhSoft.Windows.Controls;
 using System.Windows.Threading;
+using System.Collections.Generic;
 
 namespace Demos.WPF.CSharp.GanttChartDataGrid.NumericDays
 {
@@ -76,6 +77,22 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.NumericDays
                     });
             }
 
+            // Set up scale header content providers.
+            GanttChartDataGrid.GetScale(0).IntervalProvider = (start, finish) =>
+            {
+                var intervals = new List<ScaleInterval>();
+                if (start < NumericDayOrigin)
+                {
+                    intervals.Add(new ScaleInterval(start, NumericDayOrigin));
+                    start = NumericDayOrigin;
+                }
+                for (var date = start; date < finish; date = date.AddDays(7))
+                    intervals.Add(new ScaleInterval(date, date.AddDays(7)));
+                return intervals;
+            };
+            GanttChartDataGrid.GetScale(0).HeaderContentProvider = (start, finish) => start >= NumericDayOrigin ? string.Format("Week {0}", (int)(start.Date - NumericDayOrigin).TotalDays / 7 + 1) : string.Empty;
+            GanttChartDataGrid.GetScale(1).HeaderContentProvider = (start, finish) => start >= NumericDayOrigin ? string.Format("{0:00}", ((int)(start.Date - NumericDayOrigin).TotalDays + 1) % 100) : string.Empty;
+
             // Set timeline page start and displayed time to the numeric day origin.
             GanttChartDataGrid.SetTimelinePage(NumericDayOrigin, NumericDayOrigin.AddDays(45));
             GanttChartDataGrid.DisplayedTime = NumericDayOrigin;
@@ -102,24 +119,5 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.NumericDays
         }
 
         private static DateTime NumericDayOrigin { get { return NumericDayStringConverter.Origin; } }
-
-        private void GanttChartDataGrid_TimelinePageChanged(object sender, EventArgs e)
-        {
-            // Use Dispatcher.BeginInvoke in order to ensure that scale objects and their interval header items are properly created before setting their HeaderContent values.
-            // Use DispatcherPriority.Render to apply the changes when rendering the view.
-            Dispatcher.BeginInvoke((Action)delegate
-            {
-                if (GanttChartDataGrid.Scales.Count <= 2)
-                    return;
-                // Scales use one based indexes because a special scale (non working highlighting) is inserted at position zero during control initialization (behind the scenes).
-                Scale weekScale = GanttChartDataGrid.Scales[1];
-                foreach (ScaleInterval i in weekScale.Intervals)
-                    i.HeaderContent = i.TimeInterval.Start.Date >= NumericDayOrigin ? string.Format("Week {0}", (int)(i.TimeInterval.Start.Date - NumericDayOrigin).TotalDays / 7 + 1) : string.Empty;
-                Scale dayScale = GanttChartDataGrid.Scales[2];
-                foreach (ScaleInterval i in dayScale.Intervals)
-                    i.HeaderContent = i.TimeInterval.Start.Date >= NumericDayOrigin ? string.Format("{0:00}", ((int)(i.TimeInterval.Start.Date - NumericDayOrigin).TotalDays + 1) % 100) : string.Empty;
-            },
-            DispatcherPriority.Render);
-        }
     }
 }

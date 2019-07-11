@@ -15,13 +15,13 @@
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" TimelinePageChanged="GanttChartDataGrid_TimelinePageChanged">
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid">
             <pdgcc:GanttChartDataGrid.Scales>
-                <!-- Set the scales collection in order to set ScaleType and HeaderContentFormat to Custom and be able to set time interval header string values manually (see code behind). -->
+                <!-- Set the scales collection in order to set HeaderContentFormat to Custom and be able to set time interval header string values manually (see code behind). -->
                 <pdgcc:ScaleCollection>
                     <pdgcc:Scale ScaleType="Months" HeaderContentFormat="Month" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
                     <pdgcc:Scale ScaleType="Days" HeaderContentFormat="Day" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
-                    <pdgcc:Scale ScaleType="Custom" HeaderContentFormat="Custom" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="Custom" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
                 </pdgcc:ScaleCollection>
             </pdgcc:GanttChartDataGrid.Scales>
             <pdgcc:GanttChartDataGrid.Items>

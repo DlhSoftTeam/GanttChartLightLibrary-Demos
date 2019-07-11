@@ -63,6 +63,23 @@ Partial Public Class MainWindow
             GanttChartDataGrid.Items.Add(New GanttChartItem With {.Content = "Task " & i, .Indentation = If(i Mod 3 = 0, 0, 1), .Start = NumericDayOrigin.AddDays(If(i <= 8, (i - 4) * 3, i - 8)), .Finish = NumericDayOrigin.AddDays((If(i <= 8, (i - 4) * 3 + (If(i > 8, 6, 1)), i - 2)) + 3), .CompletedFinish = NumericDayOrigin.AddDays(If(i <= 8, (i - 4) * 3, i - 8)).AddDays(If(i Mod 6 = 1, 3, 0))})
         Next i
 
+        ' Set up scale header content providers.
+        GanttChartDataGrid.GetScale(0).IntervalProvider = Function(start, finish)
+                                                              Dim intervals As New List(Of ScaleInterval)
+                                                              If start < NumericDayOrigin Then
+                                                                  intervals.Add(New ScaleInterval(start, NumericDayOrigin))
+                                                                  start = NumericDayOrigin
+                                                              End If
+                                                              Dim d = start
+                                                              While d < finish
+                                                                  intervals.Add(New ScaleInterval(d, d.AddDays(7)))
+                                                                  d = d.AddDays(7)
+                                                              End While
+                                                              Return intervals
+                                                          End Function
+        GanttChartDataGrid.GetScale(0).HeaderContentProvider = Function(start, finish) If(start >= NumericDayOrigin, String.Format("Week {0}", CInt(Fix((start.Date - NumericDayOrigin).TotalDays)) \ 7 + 1), String.Empty)
+        GanttChartDataGrid.GetScale(1).HeaderContentProvider = Function(start, finish) If(start >= NumericDayOrigin, String.Format("{0:00}", (CInt(Fix((start.Date - NumericDayOrigin).TotalDays)) + 1) Mod 100), String.Empty)
+
         ' Set timeline page start and displayed time to the numeric day origin.
         GanttChartDataGrid.SetTimelinePage(NumericDayOrigin, NumericDayOrigin.AddDays(45))
         GanttChartDataGrid.DisplayedTime = NumericDayOrigin
@@ -92,23 +109,4 @@ Partial Public Class MainWindow
             Return NumericDayStringConverter.Origin
         End Get
     End Property
-
-    Private Sub GanttChartDataGrid_TimelinePageChanged(sender As Object, e As EventArgs)
-        ' Use Dispatcher.BeginInvoke in order to ensure that scale objects and their interval header items are properly created before setting their HeaderContent values.
-        ' Use DispatcherPriority.Render to apply the changes when rendering the view.
-        Dispatcher.BeginInvoke(CType(Sub()
-                                         ' Scales use one based indexes because a special scale (non working highlighting) is inserted at position zero during control initialization (behind the scenes).
-                                         If GanttChartDataGrid.Scales.Count <= 2 Then
-                                             Return
-                                         End If
-                                         Dim weekScale As Scale = GanttChartDataGrid.Scales(1)
-                                         For Each i As ScaleInterval In weekScale.Intervals
-                                             i.HeaderContent = If(i.TimeInterval.Start.Date >= NumericDayOrigin, String.Format("Week {0}", CInt(Fix((i.TimeInterval.Start.Date - NumericDayOrigin).TotalDays)) \ 7 + 1), String.Empty)
-                                         Next i
-                                         Dim dayScale As Scale = GanttChartDataGrid.Scales(2)
-                                         For Each i As ScaleInterval In dayScale.Intervals
-                                             i.HeaderContent = If(i.TimeInterval.Start.Date >= NumericDayOrigin, String.Format("{0:00}", (CInt(Fix((i.TimeInterval.Start.Date - NumericDayOrigin).TotalDays)) + 1) Mod 100), String.Empty)
-                                         Next i
-                                     End Sub, Action), DispatcherPriority.Render)
-    End Sub
 End Class

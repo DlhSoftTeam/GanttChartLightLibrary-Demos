@@ -108,6 +108,7 @@ Partial Public Class MainWindow
         ScheduleChartDataGrid.Items.Add(item)
         ScheduleChartDataGrid.SelectedItem = item
         ScheduleChartDataGrid.ScrollTo(item.GanttChartItems(0))
+        ScheduleChartDataGrid.ScrollTo(item.GanttChartItems(0).Start)
     End Sub
     Private Sub InsertNewButton_Click(sender As Object, e As RoutedEventArgs)
         Dim selectedItem As ScheduleChartItem = TryCast(ScheduleChartDataGrid.SelectedItem, ScheduleChartItem)
@@ -119,6 +120,8 @@ Partial Public Class MainWindow
         item.GanttChartItems.Add(New GanttChartItem With {.Content = "New Task", .Start = Date.Today, .Finish = Date.Today.AddDays(1)})
         ScheduleChartDataGrid.Items.Insert(ScheduleChartDataGrid.SelectedIndex, item)
         ScheduleChartDataGrid.SelectedItem = item
+        ScheduleChartDataGrid.ScrollTo(item.GanttChartItems(0))
+        ScheduleChartDataGrid.ScrollTo(item.GanttChartItems(0).Start)
     End Sub
     Private Sub DeleteButton_Click(sender As Object, e As RoutedEventArgs)
         Dim items As New List(Of ScheduleChartItem)()

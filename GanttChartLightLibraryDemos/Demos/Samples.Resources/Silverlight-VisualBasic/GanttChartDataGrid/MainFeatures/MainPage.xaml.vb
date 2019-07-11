@@ -159,6 +159,7 @@ Partial Public Class MainPage
         Dispatcher.BeginInvoke(CType(Sub()
                                          GanttChartDataGrid.SelectedItem = item
                                          GanttChartDataGrid.ScrollTo(item)
+                                         GanttChartDataGrid.ScrollTo(item.Start)
                                      End Sub, Action))
     End Sub
     Private Sub InsertNewButton_Click(sender As Object, e As RoutedEventArgs)
@@ -177,6 +178,7 @@ Partial Public Class MainPage
         Dispatcher.BeginInvoke(CType(Sub()
                                          GanttChartDataGrid.SelectedItem = item
                                          GanttChartDataGrid.ScrollTo(item)
+                                         GanttChartDataGrid.ScrollTo(item.Start)
                                      End Sub, Action))
     End Sub
     Private Sub DeleteButton_Click(sender As Object, e As RoutedEventArgs)
@@ -635,6 +637,7 @@ Partial Public Class MainPage
         Dim assignableResources = GanttChartDataGrid.AssignableResources
         Using stream As Stream = openFileDialog.File.OpenRead()
             GanttChartDataGrid.LoadProjectXml(stream)
+            GanttChartDataGrid.ScrollToVerticalOffset(0)
         End Using
     End Sub
     Private Sub PrintButton_Click(sender As Object, e As RoutedEventArgs)

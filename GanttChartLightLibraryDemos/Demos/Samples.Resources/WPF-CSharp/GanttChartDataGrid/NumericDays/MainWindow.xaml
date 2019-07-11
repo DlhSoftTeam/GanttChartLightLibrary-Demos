@@ -21,8 +21,7 @@
     <DockPanel>
         <!-- Set IsCurrentTimeLineVisible to false in order to hide the current time vertical bar, as date and time values are virtualized using a numeric day origin (see code behind). -->
         <!-- Set UpdateScaleInterval to 1 day time span, as date and time values should be defined using integral day numbers. -->
-        <!-- Handle TimelinePageChanged event to be able to set the Gantt Chart header string values in code behind when the timeline page changes or gets initialized. -->
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" DataGridWidth="0.35*" IsCurrentTimeLineVisible="False" UpdateScaleInterval="1.00:00:00" TimelinePageChanged="GanttChartDataGrid_TimelinePageChanged">
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" DataGridWidth="0.35*" IsCurrentTimeLineVisible="False" UpdateScaleInterval="1.00:00:00">
             <pdgcc:GanttChartDataGrid.Columns>
                 <!-- Set the entire columns collection in order to be able to set Start and Finish columns as displaying numeric day string values instead of dates and times. -->
                 <pdgcc:DataGridColumnCollection>
@@ -35,9 +34,9 @@
                 </pdgcc:DataGridColumnCollection>
             </pdgcc:GanttChartDataGrid.Columns>
             <pdgcc:GanttChartDataGrid.Scales>
-                <!-- Set the scales collection in order to set HeaderContentFormat to Custom and be able to set time interval header string values manually (see code behind). -->
+                <!-- Set the scales collection in order to set ScaleType and/or HeaderContentFormat to Custom and be able to set time intervals and header string values manually from their IntervalProvider and HeaderContentProvider properties (see code behind). -->
                 <pdgcc:ScaleCollection>
-                    <pdgcc:Scale ScaleType="WeeksStartingMonday" HeaderContentFormat="Custom" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+                    <pdgcc:Scale ScaleType="Custom" HeaderContentFormat="Custom" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
                     <pdgcc:Scale ScaleType="Days" HeaderContentFormat="Custom" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
                 </pdgcc:ScaleCollection>
             </pdgcc:GanttChartDataGrid.Scales>

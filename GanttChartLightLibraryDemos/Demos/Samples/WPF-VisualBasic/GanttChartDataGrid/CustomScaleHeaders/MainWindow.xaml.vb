@@ -46,6 +46,9 @@ Partial Public Class MainWindow
             GanttChartDataGrid.Items.Add(New GanttChartItem With {.Content = "Task " & i, .Indentation = If(i Mod 3 = 0, 0, 1), .Start = Date.Today.AddDays(If(i <= 8, (i - 4) * 2, i - 8)), .Finish = Date.Today.AddDays((If(i <= 8, (i - 4) * 2 + (If(i > 8, 6, 1)), i - 2)) + 2), .CompletedFinish = Date.Today.AddDays(If(i <= 8, (i - 4) * 2, i - 8)).AddDays(If(i Mod 6 = 4, 3, 0))})
         Next i
 
+        ' Define computing custom scale interval headers.
+        GanttChartDataGrid.GetScale(2).HeaderContentProvider = Function(start, finish) start.ToString("ddd")
+
         ' Set the initial timeline page.
         GanttChartDataGrid.SetTimelinePage(Date.Today.AddMonths(-1), Date.Today.AddMonths(2))
     End Sub
@@ -69,21 +72,5 @@ Partial Public Class MainWindow
         End If
         Dim themeResourceDictionary = New ResourceDictionary With {.Source = New Uri("/" & Me.GetType().Assembly.GetName().Name & ";component/Themes/" & theme & ".xaml", UriKind.Relative)}
         GanttChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary)
-    End Sub
-
-    Private Sub GanttChartDataGrid_TimelinePageChanged(sender As Object, e As EventArgs)
-        ' Use Dispatcher.BeginInvoke in order to ensure that scale objects and their interval header items are properly created before setting their HeaderContent values.
-        ' Use DispatcherPriority.Render to apply the changes when rendering the view.
-        Dispatcher.BeginInvoke(CType(Sub()
-                                         ' Scales use zero based indexes because non working highlighting special scale is not inserted at position zero during control initialization (behind the scenes), as we have set IsNonworkingTimeHighlighted to false.
-                                         ' Clear previous and add updated scale intervals according to the current timeline page settings.
-                                         Dim daysScale As Scale = GanttChartDataGrid.Scales(3)
-                                         daysScale.Intervals.Clear()
-                                         Dim dateTime As Date = GanttChartDataGrid.TimelinePageStart
-                                         Do While dateTime <= GanttChartDataGrid.TimelinePageFinish
-                                             daysScale.Intervals.Add(New ScaleInterval(dateTime, dateTime.AddDays(1)) With {.HeaderContent = dateTime.ToString("ddd")})
-                                             dateTime = dateTime.AddDays(1)
-                                         Loop
-                                     End Sub, Action), DispatcherPriority.Render)
     End Sub
 End Class

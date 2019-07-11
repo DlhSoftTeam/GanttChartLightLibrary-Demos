@@ -179,6 +179,7 @@ Class MainWindow
         GanttChartDataGrid.Items.Add(item)
         GanttChartDataGrid.SelectedItem = item
         GanttChartDataGrid.ScrollTo(item)
+        GanttChartDataGrid.ScrollTo(item.Start)
     End Sub
     Private Sub InsertNewButton_Click(sender As Object, e As RoutedEventArgs)
         Dim selectedItem As GanttChartItem = TryCast(GanttChartDataGrid.SelectedItem, GanttChartItem)
@@ -195,6 +196,7 @@ Class MainWindow
         GanttChartDataGrid.Items.Insert(GanttChartDataGrid.SelectedIndex, item)
         GanttChartDataGrid.SelectedItem = item
         GanttChartDataGrid.ScrollTo(item)
+        GanttChartDataGrid.ScrollTo(item.Start)
     End Sub
     Private Sub DeleteButton_Click(sender As Object, e As RoutedEventArgs)
         Dim items As New List(Of GanttChartItem)()
@@ -673,6 +675,7 @@ Class MainWindow
         Using stream As Stream = openFileDialog.OpenFile()
             GanttChartDataGrid.LoadProjectXml(stream)
         End Using
+        GanttChartDataGrid.ScrollToVerticalOffset(0)
     End Sub
     Private Sub PrintButton_Click(sender As Object, e As RoutedEventArgs)
         GanttChartDataGrid.Print("GanttChartDataGrid Sample Document")

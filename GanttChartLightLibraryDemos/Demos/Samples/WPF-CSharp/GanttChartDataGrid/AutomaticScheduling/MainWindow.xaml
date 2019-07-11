@@ -35,7 +35,9 @@
                 </Border>
             </StackPanel>
         </Border>
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid">
+        <!-- Optionallys, set AreTaskDependencyConstraintsDisabledWhileDragging to true to ensure auto-scheduling (when it would be turned on from the 
+             Use automatic schedule toggle) is disabled during drag and drop operations to improve application's responsiveness and its percieved performance. -->
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" AreTaskDependencyConstraintsDisabledWhileDragging="True">
             <pdgcc:GanttChartDataGrid.Items>
                 <!-- Some item properties are set in code behind. -->
                 <pdgcc:GanttChartItem Content="Task 1"/>

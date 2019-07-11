@@ -3,6 +3,7 @@ using System.Windows;
 using DlhSoft.Windows.Controls;
 using DlhSoft.Windows.Data;
 using System.Windows.Threading;
+using System.Collections.Generic;
 
 namespace Demos.WPF.CSharp.GanttChartDataGrid.MinuteScale
 {
@@ -69,6 +70,16 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MinuteScale
             GanttChartDataGrid.WorkingWeekFinish = GanttChartDataGrid.VisibleWeekFinish = DayOfWeek.Saturday;
             GanttChartDataGrid.IsNonworkingTimeHighlighted = false;
 
+            // Configure the minute scale.
+            GanttChartDataGrid.GetScale(1).IntervalProvider = (start, finish) =>
+            {
+                var intervals = new List<ScaleInterval>();
+                for (var date = start; date < finish; date = date.AddMinutes(1))
+                    intervals.Add(new ScaleInterval(date, date.AddMinutes(1)));
+                return intervals;
+            };
+            GanttChartDataGrid.GetScale(1).HeaderContentProvider = (start, finish) => start.ToString("mm");
+
             // Set timeline page start and displayed time to the numeric day origin.
             GanttChartDataGrid.SetTimelinePage(now.AddMinutes(-10), now.AddMinutes(60));
             GanttChartDataGrid.DisplayedTime = now.AddMinutes(-1);
@@ -91,22 +102,6 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MinuteScale
                 return;
             var themeResourceDictionary = new ResourceDictionary { Source = new Uri("/" + GetType().Assembly.GetName().Name + ";component/Themes/" + theme + ".xaml", UriKind.Relative) };
             GanttChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary);
-        }
-
-        private void GanttChartDataGrid_TimelinePageChanged(object sender, EventArgs e)
-        {
-            // Use Dispatcher.BeginInvoke in order to ensure that scale objects and their interval header items are properly created before setting their HeaderContent values.
-            // Use DispatcherPriority.Render to apply the changes when rendering the view.
-            Dispatcher.BeginInvoke((Action)delegate
-            {
-                // Scales use zero based indexes because non working highlighting special scale is not inserted at position zero during control initialization (behind the scenes), as we have set IsNonworkingTimeHighlighted to false.
-                Scale minuteScale = GanttChartDataGrid.Scales[1];
-                // Clear previous and add updated scale intervals according to the current timeline page settings.
-                minuteScale.Intervals.Clear();
-                for (DateTime dateTime = GanttChartDataGrid.TimelinePageStart; dateTime <= GanttChartDataGrid.TimelinePageFinish; dateTime = dateTime.AddMinutes(1))
-                    minuteScale.Intervals.Add(new ScaleInterval(dateTime, dateTime.AddMinutes(1)) { HeaderContent = dateTime.ToString("mm") });
-            },
-            DispatcherPriority.Render);
         }
     }
 }

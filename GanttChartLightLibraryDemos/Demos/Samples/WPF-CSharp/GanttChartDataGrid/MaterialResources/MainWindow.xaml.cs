@@ -55,6 +55,17 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MaterialResources
             // Set timeline page start and displayed time.
             GanttChartDataGrid.SetTimelinePage(dateTime.AddHours(-1), dateTime.AddHours(2));
             GanttChartDataGrid.DisplayedTime = dateTime.AddMinutes(-dateTime.Minute);
+
+            // Setup scales.
+            Scale hourQuarterScale = GanttChartDataGrid.GetScale(0);
+            hourQuarterScale.Intervals.Clear();
+            for (dateTime = GanttChartDataGrid.TimelinePageStart; dateTime <= GanttChartDataGrid.TimelinePageFinish; dateTime = dateTime.AddMinutes(15))
+                hourQuarterScale.Intervals.Add(new ScaleInterval(dateTime, dateTime.AddMinutes(15)) { HeaderContent = dateTime.ToString("g") });
+
+            Scale minuteScale = GanttChartDataGrid.GetScale(1);
+            minuteScale.Intervals.Clear();
+            for (dateTime = GanttChartDataGrid.TimelinePageStart; dateTime <= GanttChartDataGrid.TimelinePageFinish; dateTime = dateTime.AddMinutes(3))
+                minuteScale.Intervals.Add(new ScaleInterval(dateTime, dateTime.AddMinutes(3)) { HeaderContent = dateTime.ToString("mm") });
         }
 
         private string theme = "Generic-bright";
@@ -74,23 +85,6 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MaterialResources
                 return;
             var themeResourceDictionary = new ResourceDictionary { Source = new Uri("/" + GetType().Assembly.GetName().Name + ";component/Themes/" + theme + ".xaml", UriKind.Relative) };
             GanttChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary);
-        }
-
-        private void GanttChartDataGrid_TimelinePageChanged(object sender, EventArgs e)
-        {
-            Dispatcher.BeginInvoke((Action)delegate
-            {
-                Scale hourQuarterScale = GanttChartDataGrid.Scales[0];
-                hourQuarterScale.Intervals.Clear();
-                for (DateTime dateTime = GanttChartDataGrid.TimelinePageStart; dateTime <= GanttChartDataGrid.TimelinePageFinish; dateTime = dateTime.AddMinutes(15))
-                    hourQuarterScale.Intervals.Add(new ScaleInterval(dateTime, dateTime.AddMinutes(15)) { HeaderContent = dateTime.ToString("g") });
-
-                Scale minuteScale = GanttChartDataGrid.Scales[1];
-                minuteScale.Intervals.Clear();
-                for (DateTime dateTime = GanttChartDataGrid.TimelinePageStart; dateTime <= GanttChartDataGrid.TimelinePageFinish; dateTime = dateTime.AddMinutes(3))
-                    minuteScale.Intervals.Add(new ScaleInterval(dateTime, dateTime.AddMinutes(3)) { HeaderContent = dateTime.ToString("mm") });
-            },
-            DispatcherPriority.Render);
         }
 
         private void LevelResourcesButton_Click(object sender, RoutedEventArgs e)

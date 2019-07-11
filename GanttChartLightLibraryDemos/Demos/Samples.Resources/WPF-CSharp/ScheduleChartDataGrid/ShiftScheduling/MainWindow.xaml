@@ -18,7 +18,7 @@
                                      IsTaskStartReadOnly="True" IsTaskFinishReadOnly="True" IsTaskCompletedEffortVisible="False"
                                      WorkingWeekStart="Sunday" WorkingWeekFinish="Saturday" 
                                      WorkingDayStart="00:00:00" WorkingDayFinish="24:00:00" VisibleDayStart="00:00:00" VisibleDayFinish="24:00:00"
-                                     TimelinePageChanged="ScheduleChartDataGrid_TimelinePageChanged">
+                                     AreUpdateTimelinePageButtonsVisible="False">
             <pdgcc:GanttChartDataGrid.Scales>
                 <pdgcc:ScaleCollection>
                     <pdgcc:Scale ScaleType="Days" HeaderContentFormat="ShortDate" HeaderBorderBrush="Silver" HeaderBorderThickness="0" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver"/>

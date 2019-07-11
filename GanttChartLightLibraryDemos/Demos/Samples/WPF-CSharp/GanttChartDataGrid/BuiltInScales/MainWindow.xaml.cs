@@ -102,7 +102,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.BuiltInScales
             if (GanttChartDataGrid == null)
                 return;
             ScaleType scaleType = (ScaleType)MajorScaleTypeComboBox.SelectedItem;
-            GanttChartDataGrid.Scales[1].ScaleType = GetActualScaleType(scaleType);
+            GanttChartDataGrid.GetScale(0).ScaleType = GetActualScaleType(scaleType);
             UpdateFromSelectedMajorScaleType(scaleType);
         }
         private void UpdateFromSelectedMajorScaleType(ScaleType scaleType)
@@ -145,7 +145,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.BuiltInScales
             if (GanttChartDataGrid == null || MinorScaleTypeComboBox.SelectedItem == null)
                 return;
             var scaleType = (ScaleType)MinorScaleTypeComboBox.SelectedItem;
-            GanttChartDataGrid.Scales[2].ScaleType = GetActualScaleType(scaleType);
+            GanttChartDataGrid.GetScale(1).ScaleType = GetActualScaleType(scaleType);
             UpdateFromSelectedMinorScaleType(scaleType);
         }
         private void UpdateFromSelectedMinorScaleType(ScaleType scaleType)
@@ -185,14 +185,14 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.BuiltInScales
             if (GanttChartDataGrid == null)
                 return;
             TimeScaleTextFormat headerFormat = (TimeScaleTextFormat)MajorScaleHeaderFormatComboBox.SelectedItem;
-            GanttChartDataGrid.Scales[1].HeaderContentFormat = headerFormat;
+            GanttChartDataGrid.GetScale(0).HeaderContentFormat = headerFormat;
         }
         private void MinorScaleHeaderFormatComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (GanttChartDataGrid == null)
                 return;
             TimeScaleTextFormat headerFormat = (TimeScaleTextFormat)MinorScaleHeaderFormatComboBox.SelectedItem;
-            GanttChartDataGrid.Scales[2].HeaderContentFormat = headerFormat;
+            GanttChartDataGrid.GetScale(1).HeaderContentFormat = headerFormat;
         }
 
         private void MajorScaleSeparatorCheckBox_Checked(object sender, RoutedEventArgs e)
@@ -200,9 +200,9 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.BuiltInScales
             if (GanttChartDataGrid == null)
                 return;
             if (MajorScaleSeparatorCheckBox.IsChecked == true)
-                GanttChartDataGrid.Scales[1].BorderThickness = new Thickness(0, 0, 1, 0);
+                GanttChartDataGrid.GetScale(0).BorderThickness = new Thickness(0, 0, 1, 0);
             else
-                GanttChartDataGrid.Scales[1].BorderThickness = new Thickness(0);
+                GanttChartDataGrid.GetScale(0).BorderThickness = new Thickness(0);
         }
         private void MinorScaleSeparatorCheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -210,12 +210,12 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.BuiltInScales
                 return;
             if (MinorScaleSeparatorCheckBox.IsChecked == true)
             {
-                GanttChartDataGrid.Scales[2].BorderThickness = new Thickness(0, 0, 1, 0);
-                GanttChartDataGrid.Scales[2].BorderBrush = GanttChartDataGrid.Scales[1].BorderBrush;
+                GanttChartDataGrid.GetScale(1).BorderThickness = new Thickness(0, 0, 1, 0);
+                GanttChartDataGrid.GetScale(1).BorderBrush = GanttChartDataGrid.GetScale(0).BorderBrush;
             }
             else
             {
-                GanttChartDataGrid.Scales[2].BorderThickness = new Thickness(0);
+                GanttChartDataGrid.GetScale(1).BorderThickness = new Thickness(0);
             }
         }
 

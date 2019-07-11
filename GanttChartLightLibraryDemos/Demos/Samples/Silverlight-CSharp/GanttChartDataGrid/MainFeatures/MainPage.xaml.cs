@@ -187,6 +187,7 @@ namespace GanttChartDataGridSample
             {
                 GanttChartDataGrid.SelectedItem = item;
                 GanttChartDataGrid.ScrollTo(item);
+                GanttChartDataGrid.ScrollTo(item.Start);
             });
         }
         private void InsertNewButton_Click(object sender, RoutedEventArgs e)
@@ -203,6 +204,7 @@ namespace GanttChartDataGridSample
             {
                 GanttChartDataGrid.SelectedItem = item;
                 GanttChartDataGrid.ScrollTo(item);
+                GanttChartDataGrid.ScrollTo(item.Start);
             });
         }
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
@@ -727,6 +729,7 @@ namespace GanttChartDataGridSample
             using (Stream stream = openFileDialog.File.OpenRead())
             {
                 GanttChartDataGrid.LoadProjectXml(stream, assignableResources);
+                GanttChartDataGrid.ScrollToVerticalOffset(0);
             }
         }
         private void PrintButton_Click(object sender, RoutedEventArgs e)

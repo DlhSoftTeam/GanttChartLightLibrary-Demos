@@ -47,6 +47,22 @@ Partial Public Class MainWindow
         ' Set timeline page start and displayed time.
         GanttChartDataGrid.SetTimelinePage(dateTime.AddHours(-1), dateTime.AddHours(2))
         GanttChartDataGrid.DisplayedTime = dateTime.AddMinutes(-dateTime.Minute)
+
+        ' Setup scales.
+        Dim hourQuarterScale As Scale = GanttChartDataGrid.GetScale(0)
+        hourQuarterScale.Intervals.Clear()
+        dateTime = GanttChartDataGrid.TimelinePageStart
+        Do While dateTime <= GanttChartDataGrid.TimelinePageFinish
+            hourQuarterScale.Intervals.Add(New ScaleInterval(dateTime, dateTime.AddMinutes(15)) With {.HeaderContent = dateTime.ToString("g")})
+            dateTime = dateTime.AddMinutes(15)
+        Loop
+        Dim minuteScale As Scale = GanttChartDataGrid.GetScale(1)
+        minuteScale.Intervals.Clear()
+        dateTime = GanttChartDataGrid.TimelinePageStart
+        Do While dateTime <= GanttChartDataGrid.TimelinePageFinish
+            minuteScale.Intervals.Add(New ScaleInterval(dateTime, dateTime.AddMinutes(3)) With {.HeaderContent = dateTime.ToString("mm")})
+            dateTime = dateTime.AddMinutes(3)
+        Loop
     End Sub
 
     Private theme As String = "Generic-bright"
@@ -65,25 +81,6 @@ Partial Public Class MainWindow
         End If
         Dim themeResourceDictionary = New ResourceDictionary With {.Source = New Uri("/" & Me.GetType().Assembly.GetName().Name & ";component/Themes/" & theme & ".xaml", UriKind.Relative)}
         GanttChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary)
-    End Sub
-
-    Private Sub GanttChartDataGrid_TimelinePageChanged(sender As Object, e As EventArgs)
-        Dispatcher.BeginInvoke(CType(Sub()
-                                         Dim hourQuarterScale As Scale = GanttChartDataGrid.Scales(0)
-                                         hourQuarterScale.Intervals.Clear()
-                                         Dim dateTime As Date = GanttChartDataGrid.TimelinePageStart
-                                         Do While dateTime <= GanttChartDataGrid.TimelinePageFinish
-                                             hourQuarterScale.Intervals.Add(New ScaleInterval(dateTime, dateTime.AddMinutes(15)) With {.HeaderContent = dateTime.ToString("g")})
-                                             dateTime = dateTime.AddMinutes(15)
-                                         Loop
-                                         Dim minuteScale As Scale = GanttChartDataGrid.Scales(1)
-                                         minuteScale.Intervals.Clear()
-                                         dateTime = GanttChartDataGrid.TimelinePageStart
-                                         Do While dateTime <= GanttChartDataGrid.TimelinePageFinish
-                                             minuteScale.Intervals.Add(New ScaleInterval(dateTime, dateTime.AddMinutes(3)) With {.HeaderContent = dateTime.ToString("mm")})
-                                             dateTime = dateTime.AddMinutes(3)
-                                         Loop
-                                     End Sub, Action), DispatcherPriority.Render)
     End Sub
 
     Private Sub LevelResourcesButton_Click(sender As Object, e As RoutedEventArgs)

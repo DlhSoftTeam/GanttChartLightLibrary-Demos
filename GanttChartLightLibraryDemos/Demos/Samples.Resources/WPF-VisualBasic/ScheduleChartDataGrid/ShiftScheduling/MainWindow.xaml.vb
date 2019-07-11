@@ -28,6 +28,19 @@ Partial Public Class MainWindow
         ScheduleChartDataGrid.SetTimelinePage(timelinePageStart, timelinePageFinish)
         ScheduleChartDataGrid.DisplayedTime = timelinePageStart
 
+        ' Setup hour scale.
+        Dim hoursScale As Scale = ScheduleChartDataGrid.GetScale(2)
+        hoursScale.Intervals.Clear()
+        Dim dateTime As Date = ScheduleChartDataGrid.TimelinePageStart.Date.AddDays(-1).AddHours(23)
+        Do While dateTime <= ScheduleChartDataGrid.TimelinePageFinish
+            Dim start = dateTime
+            If start < ScheduleChartDataGrid.TimelinePageStart Then
+                start = ScheduleChartDataGrid.TimelinePageStart
+            End If
+            hoursScale.Intervals.Add(New ScaleInterval(start, dateTime.AddHours(8)) With {.HeaderContent = dateTime.ToString("HH")})
+            dateTime = dateTime.AddHours(8)
+        Loop
+
         ' Set up the actual shifts for engineers and managers (resource assignments).
         Dim engineerMorning As Brush = New SolidColorBrush(Color.FromArgb(128, 104, 168, 96))
         Dim engineerAfternoon As Brush = New SolidColorBrush(Color.FromArgb(128, 239, 156, 80))
@@ -95,22 +108,5 @@ Partial Public Class MainWindow
         End If
         Dim themeResourceDictionary = New ResourceDictionary With {.Source = New Uri("/" & Me.GetType().Assembly.GetName().Name & ";component/Themes/" & theme & ".xaml", UriKind.Relative)}
         ScheduleChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary)
-    End Sub
-
-    Private Sub ScheduleChartDataGrid_TimelinePageChanged(sender As Object, e As EventArgs)
-        ' Add custom time intervals.
-        Dispatcher.BeginInvoke(CType(Sub()
-                                         Dim hoursScale As Scale = ScheduleChartDataGrid.Scales(3)
-                                         hoursScale.Intervals.Clear()
-                                         Dim dateTime As Date = ScheduleChartDataGrid.TimelinePageStart.Date.AddDays(-1).AddHours(23)
-                                         Do While dateTime <= ScheduleChartDataGrid.TimelinePageFinish
-                                             Dim start = dateTime
-                                             If start < ScheduleChartDataGrid.TimelinePageStart Then
-                                                 start = ScheduleChartDataGrid.TimelinePageStart
-                                             End If
-                                             hoursScale.Intervals.Add(New ScaleInterval(start, dateTime.AddHours(8)) With {.HeaderContent = dateTime.ToString("HH")})
-                                             dateTime = dateTime.AddHours(8)
-                                         Loop
-                                     End Sub, Action), DispatcherPriority.Render)
     End Sub
 End Class

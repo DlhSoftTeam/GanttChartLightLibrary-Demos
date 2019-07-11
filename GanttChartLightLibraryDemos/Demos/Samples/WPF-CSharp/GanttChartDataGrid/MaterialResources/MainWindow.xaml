@@ -34,7 +34,7 @@
                 <Label Style="{StaticResource RibbonLabelStyle}">Click the command button to level resources based on their required amounts of each of them on each task and their available quantities.</Label>
             </StackPanel>
         </Border>
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" HourWidth="1500" UpdateScaleInterval="00:03:00" UpdateTimelinePageAmount="01:00:00" TimelinePageChanged="GanttChartDataGrid_TimelinePageChanged">
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" HourWidth="1500" UpdateScaleInterval="00:03:00" AreUpdateTimelinePageButtonsVisible="False">
             <pdgcc:GanttChartDataGrid.Scales>
                 <!-- Set the scales collection in order to set ScaleType and HeaderContentFormat to Custom and be able to set time interval header string values manually (see code behind). -->
                 <pdgcc:ScaleCollection>

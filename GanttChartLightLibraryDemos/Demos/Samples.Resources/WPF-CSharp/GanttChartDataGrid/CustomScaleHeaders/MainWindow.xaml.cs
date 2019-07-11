@@ -3,6 +3,7 @@ using System.Windows;
 using DlhSoft.Windows.Controls;
 using System.Windows.Threading;
 using System.Globalization;
+using System.Collections.Generic;
 
 namespace Demos.WPF.CSharp.GanttChartDataGrid.CustomScaleHeaders
 {
@@ -59,6 +60,9 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.CustomScaleHeaders
                     });
             }
 
+            // Define computing custom scale interval headers.
+            GanttChartDataGrid.GetScale(2).HeaderContentProvider = (start, finish) => start.ToString("ddd");
+
             // Set the initial timeline page.
             GanttChartDataGrid.SetTimelinePage(DateTime.Today.AddMonths(-1), DateTime.Today.AddMonths(2));
         }
@@ -83,22 +87,6 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.CustomScaleHeaders
                 return;
             var themeResourceDictionary = new ResourceDictionary { Source = new Uri("/" + GetType().Assembly.GetName().Name + ";component/Themes/" + theme + ".xaml", UriKind.Relative) };
             GanttChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary);
-        }
-
-        private void GanttChartDataGrid_TimelinePageChanged(object sender, EventArgs e)
-        {
-            // Use Dispatcher.BeginInvoke in order to ensure that scale objects and their interval header items are properly created before setting their HeaderContent values.
-            // Use DispatcherPriority.Render to apply the changes when rendering the view.
-            Dispatcher.BeginInvoke((Action)delegate
-            {
-                // Scales use zero based indexes because non working highlighting special scale is not inserted at position zero during control initialization (behind the scenes), as we have set IsNonworkingTimeHighlighted to false.
-                Scale daysScale = GanttChartDataGrid.Scales[3];
-                // Clear previous and add updated scale intervals according to the current timeline page settings.
-                daysScale.Intervals.Clear();
-                for (DateTime dateTime = GanttChartDataGrid.TimelinePageStart; dateTime <= GanttChartDataGrid.TimelinePageFinish; dateTime = dateTime.AddDays(1))
-                    daysScale.Intervals.Add(new ScaleInterval(dateTime, dateTime.AddDays(1)) { HeaderContent = dateTime.ToString("ddd") });
-            },
-            DispatcherPriority.Render);
         }
     }
 }

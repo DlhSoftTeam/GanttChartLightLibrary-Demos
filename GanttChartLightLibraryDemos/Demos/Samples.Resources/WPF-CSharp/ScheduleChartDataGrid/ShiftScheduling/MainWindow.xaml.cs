@@ -31,6 +31,17 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.ShiftScheduling
             ScheduleChartDataGrid.SetTimelinePage(timelinePageStart, timelinePageFinish);
             ScheduleChartDataGrid.DisplayedTime = timelinePageStart;
 
+            // Setup hour scale.
+            Scale hoursScale = ScheduleChartDataGrid.GetScale(2);
+            hoursScale.Intervals.Clear();
+            for (DateTime dateTime = ScheduleChartDataGrid.TimelinePageStart.Date.AddDays(-1).AddHours(23); dateTime <= ScheduleChartDataGrid.TimelinePageFinish; dateTime = dateTime.AddHours(8))
+            {
+                var start = dateTime;
+                if (start < ScheduleChartDataGrid.TimelinePageStart)
+                    start = ScheduleChartDataGrid.TimelinePageStart;
+                hoursScale.Intervals.Add(new ScaleInterval(start, dateTime.AddHours(8)) { HeaderContent = dateTime.ToString("HH") });
+            }
+
             // Set up the actual shifts for engineers and managers (resource assignments).
             Brush engineerMorning = new SolidColorBrush(Color.FromArgb(128, 104, 168, 96));
             Brush engineerAfternoon = new SolidColorBrush(Color.FromArgb(128, 239, 156, 80));
@@ -107,24 +118,6 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.ShiftScheduling
                 return;
             var themeResourceDictionary = new ResourceDictionary { Source = new Uri("/" + GetType().Assembly.GetName().Name + ";component/Themes/" + theme + ".xaml", UriKind.Relative) };
             ScheduleChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary);
-        }
-
-        private void ScheduleChartDataGrid_TimelinePageChanged(object sender, EventArgs e)
-        {
-            // Add custom time intervals.
-            Dispatcher.BeginInvoke((Action)delegate
-            {
-                Scale hoursScale = ScheduleChartDataGrid.Scales[3];
-                hoursScale.Intervals.Clear();
-                for (DateTime dateTime = ScheduleChartDataGrid.TimelinePageStart.Date.AddDays(-1).AddHours(23); dateTime <= ScheduleChartDataGrid.TimelinePageFinish; dateTime = dateTime.AddHours(8))
-                {
-                    var start = dateTime;
-                    if (start < ScheduleChartDataGrid.TimelinePageStart)
-                        start = ScheduleChartDataGrid.TimelinePageStart;
-                    hoursScale.Intervals.Add(new ScaleInterval(start, dateTime.AddHours(8)) { HeaderContent = dateTime.ToString("HH") });
-                }
-            },
-            DispatcherPriority.Render);
         }
     }
 }

@@ -84,7 +84,7 @@ Partial Public Class MainWindow
             Return
         End If
         Dim scaleType As ScaleType = CType(MajorScaleTypeComboBox.SelectedItem, ScaleType)
-        GanttChartDataGrid.Scales(1).ScaleType = GetActualScaleType(scaleType)
+        GanttChartDataGrid.GetScale(0).ScaleType = GetActualScaleType(scaleType)
         UpdateFromSelectedMajorScaleType(scaleType)
     End Sub
     Private Sub UpdateFromSelectedMajorScaleType(scaleType As ScaleType)
@@ -118,7 +118,7 @@ Partial Public Class MainWindow
             Return
         End If
         Dim scaleType = CType(MinorScaleTypeComboBox.SelectedItem, ScaleType)
-        GanttChartDataGrid.Scales(2).ScaleType = GetActualScaleType(scaleType)
+        GanttChartDataGrid.GetScale(1).ScaleType = GetActualScaleType(scaleType)
         UpdateFromSelectedMinorScaleType(scaleType)
     End Sub
     Private Sub UpdateFromSelectedMinorScaleType(scaleType As ScaleType)
@@ -156,14 +156,14 @@ Partial Public Class MainWindow
             Return
         End If
         Dim headerFormat As TimeScaleTextFormat = CType(MajorScaleHeaderFormatComboBox.SelectedItem, TimeScaleTextFormat)
-        GanttChartDataGrid.Scales(1).HeaderContentFormat = headerFormat
+        GanttChartDataGrid.GetScale(0).HeaderContentFormat = headerFormat
     End Sub
     Private Sub MinorScaleHeaderFormatComboBox_SelectionChanged(sender As Object, e As SelectionChangedEventArgs)
         If GanttChartDataGrid Is Nothing Then
             Return
         End If
         Dim headerFormat As TimeScaleTextFormat = CType(MinorScaleHeaderFormatComboBox.SelectedItem, TimeScaleTextFormat)
-        GanttChartDataGrid.Scales(2).HeaderContentFormat = headerFormat
+        GanttChartDataGrid.GetScale(1).HeaderContentFormat = headerFormat
     End Sub
 
     Private Sub MajorScaleSeparatorCheckBox_Checked(sender As Object, e As RoutedEventArgs)
@@ -171,9 +171,9 @@ Partial Public Class MainWindow
             Return
         End If
         If MajorScaleSeparatorCheckBox.IsChecked = True Then
-            GanttChartDataGrid.Scales(1).BorderThickness = New Thickness(0, 0, 1, 0)
+            GanttChartDataGrid.GetScale(0).BorderThickness = New Thickness(0, 0, 1, 0)
         Else
-            GanttChartDataGrid.Scales(1).BorderThickness = New Thickness(0)
+            GanttChartDataGrid.GetScale(0).BorderThickness = New Thickness(0)
         End If
     End Sub
     Private Sub MinorScaleSeparatorCheckBox_Checked(sender As Object, e As RoutedEventArgs)
@@ -181,10 +181,10 @@ Partial Public Class MainWindow
             Return
         End If
         If MinorScaleSeparatorCheckBox.IsChecked = True Then
-            GanttChartDataGrid.Scales(2).BorderThickness = New Thickness(0, 0, 1, 0)
-            GanttChartDataGrid.Scales(2).BorderBrush = GanttChartDataGrid.Scales(1).BorderBrush
+            GanttChartDataGrid.GetScale(1).BorderThickness = New Thickness(0, 0, 1, 0)
+            GanttChartDataGrid.GetScale(1).BorderBrush = GanttChartDataGrid.GetScale(0).BorderBrush
         Else
-            GanttChartDataGrid.Scales(2).BorderThickness = New Thickness(0)
+            GanttChartDataGrid.GetScale(1).BorderThickness = New Thickness(0)
         End If
     End Sub
 

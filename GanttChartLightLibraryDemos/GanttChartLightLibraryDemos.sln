@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demos", "Demos\Demos.csproj", "{167861E1-341B-4D34-A6AB-6DA591CA675C}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -2191,5 +2191,8 @@ Global
 		{97FD4029-48CA-4C7B-932A-5743AFA76272} = {67073FA1-D145-4337-8160-7DF9D6056DE2}
 		{4CF9D1AA-7051-4727-922E-18A28DB9C990} = {AE54A391-FB6D-48D4-A4C7-A8D4E78AEF2A}
 		{79050AE8-F923-45D9-95DC-CFC50C6A740E} = {90664756-24B9-4446-8E44-BE6BBBAED316}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2612E27-4D5C-4C5A-8DC1-FB83D0E8F34D}
 	EndGlobalSection
 EndGlobal

@@ -225,6 +225,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             GanttChartDataGrid.Items.Add(item);
             GanttChartDataGrid.SelectedItem = item;
             GanttChartDataGrid.ScrollTo(item);
+            GanttChartDataGrid.ScrollTo(item.Start);
         }
         private void InsertNewButton_Click(object sender, RoutedEventArgs e)
         {
@@ -238,6 +239,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             GanttChartDataGrid.Items.Insert(GanttChartDataGrid.SelectedIndex, item);
             GanttChartDataGrid.SelectedItem = item;
             GanttChartDataGrid.ScrollTo(item);
+            GanttChartDataGrid.ScrollTo(item.Start);
         }
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
@@ -766,6 +768,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             {
                 GanttChartDataGrid.LoadProjectXml(stream, assignableResources);
             }
+            GanttChartDataGrid.ScrollToVerticalOffset(0);
         }
         private void PrintButton_Click(object sender, RoutedEventArgs e)
         {
