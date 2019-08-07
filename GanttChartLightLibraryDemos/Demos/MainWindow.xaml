@@ -211,6 +211,7 @@
                     <ComboBoxItem Content="Light-blue" Tag="Light-blue"/>
                     <ComboBoxItem Content="Yellow-green" Tag="Yellow-green"/>
                     <ComboBoxItem Content="Green-blue" Tag="Green-blue"/>
+                    <ComboBoxItem Content="Default-2010" Tag="Default-2010"/>
                     <ComboBoxItem Content="Generic-bright-2016" Tag="Generic-bright-2016"/>
                     <ComboBoxItem Content="Generic-blue-2016" Tag="Generic-blue-2016"/>
                 </ComboBox>

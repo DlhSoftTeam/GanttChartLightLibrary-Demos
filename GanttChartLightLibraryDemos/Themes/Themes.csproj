@@ -164,6 +164,12 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Default-2010.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
@@ -171,6 +177,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>for /d %25%25t in ("$(SolutionDir)\Demos\Samples\WPF-*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in ("%25%25c\*") do xcopy /y "$(ProjectDir)*.xaml" "%25%25f\Themes\"
+for /d %25%25t in ("$(SolutionDir)\Demos\Samples.Resources\WPF-*") do xcopy /y "$(ProjectDir)*.xaml" "%25%25t\Themes\"
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -623,7 +623,7 @@ namespace Demos
                 var file = selectedFileItem.Tag as string;
                 try
                 {
-                    var resourceStreamInfo = Application.GetResourceStream(new Uri("/Samples.Resources/" + technology + "/" + component + "/" + feature + "/" + selectedFileUrl, UriKind.Relative));
+                    var resourceStreamInfo = Application.GetResourceStream(new Uri("/Samples.Resources/" + technology + "/" + (file.StartsWith("Themes/") ? selectedFileUrl : (component + "/" + feature + "/" + selectedFileUrl)), UriKind.Relative));
                     using (var resourceStreamReader = new StreamReader(resourceStreamInfo.Stream))
                     {
                         ContentTextBox.Text = resourceStreamReader.ReadToEnd();
