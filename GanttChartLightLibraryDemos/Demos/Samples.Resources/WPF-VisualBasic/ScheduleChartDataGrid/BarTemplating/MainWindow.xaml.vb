@@ -13,19 +13,19 @@ Partial Public Class MainWindow
 
         Dim task1 As CustomGanttChartItem = TryCast(ScheduleChartDataGrid.Items(0).GanttChartItems(0), CustomGanttChartItem)
         task1.Start = Date.Today.Add(TimeSpan.Parse("08:00:00"))
-        task1.Finish = Date.Today.Add(TimeSpan.Parse("16:00:00"))
+        task1.Finish = Date.Today.AddDays(3).Add(TimeSpan.Parse("16:00:00"))
         task1.CompletedFinish = Date.Today.Add(TimeSpan.Parse("12:00:00"))
         task1.Icon = New BitmapImage(New Uri(String.Format("pack://application:,,,/{0};component/Images/Check.png", applicationName), UriKind.Absolute))
         task1.EstimatedStart = Date.Today.AddDays(-1).Add(TimeSpan.Parse("08:00:00"))
         task1.EstimatedFinish = Date.Today.AddDays(-1).Add(TimeSpan.Parse("16:00:00"))
 
         Dim task21 As CustomGanttChartItem = TryCast(ScheduleChartDataGrid.Items(0).GanttChartItems(1), CustomGanttChartItem)
-        task21.Start = Date.Today.AddDays(1).Add(TimeSpan.Parse("12:00:00"))
-        task21.Finish = Date.Today.AddDays(5).Add(TimeSpan.Parse("16:00:00"))
+        task21.Start = Date.Today.AddDays(4).Add(TimeSpan.Parse("12:00:00"))
+        task21.Finish = Date.Today.AddDays(8).Add(TimeSpan.Parse("16:00:00"))
         task21.AssignmentsContent = "50%"
         task21.Icon = New BitmapImage(New Uri(String.Format("pack://application:,,,/{0};component/Images/Person.png", applicationName), UriKind.Absolute))
-        task21.Markers.Add(New Marker With {.DateTime = Date.Today.AddDays(1).Add(TimeSpan.Parse("09:00:00")), .Icon = New BitmapImage(New Uri(String.Format("pack://application:,,,/{0};component/Images/Warning.png", applicationName), UriKind.Absolute)), .Note = "Validation required for Task 2"})
-        task21.Markers.Add(New Marker With {.DateTime = Date.Today.AddDays(3).Add(TimeSpan.Parse("14:00:00")), .Icon = New BitmapImage(New Uri(String.Format("pack://application:,,,/{0};component/Images/Error.png", applicationName), UriKind.Absolute)), .Note = "Impossible to finish Task 2"})
+        task21.Markers.Add(New Marker With {.DateTime = Date.Today.AddDays(6).Add(TimeSpan.Parse("09:00:00")), .Icon = New BitmapImage(New Uri(String.Format("pack://application:,,,/{0};component/Images/Warning.png", applicationName), UriKind.Absolute)), .Note = "Validation required for Task 2"})
+        task21.Markers.Add(New Marker With {.DateTime = Date.Today.AddDays(7).Add(TimeSpan.Parse("14:00:00")), .Icon = New BitmapImage(New Uri(String.Format("pack://application:,,,/{0};component/Images/Error.png", applicationName), UriKind.Absolute)), .Note = "Impossible to finish Task 2"})
 
         Dim task22 As CustomGanttChartItem = TryCast(ScheduleChartDataGrid.Items(1).GanttChartItems(0), CustomGanttChartItem)
         task22.Start = Date.Today.AddDays(1).Add(TimeSpan.Parse("12:00:00"))

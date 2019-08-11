@@ -13,7 +13,12 @@
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" StandardBarCornerRadius="1" IsMouseWheelZoomEnabled="False">
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" ItemHeight="30" BarHeight="21" StandardBarCornerRadius="1" IsMouseWheelZoomEnabled="False">
+            <pdgcc:GanttChartDataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Margin" Value="0,4.5"/>
+                </Style>
+            </pdgcc:GanttChartDataGrid.CellStyle>
             <!-- Define the custom bar template for standard tasks. -->
             <pdgcc:GanttChartDataGrid.StandardTaskTemplate>
                 <DataTemplate>

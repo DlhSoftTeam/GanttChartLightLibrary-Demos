@@ -18,19 +18,19 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.BarTemplating
 
             CustomGanttChartItem task1 = ScheduleChartDataGrid.Items[0].GanttChartItems[0] as CustomGanttChartItem;
             task1.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
-            task1.Finish = DateTime.Today.Add(TimeSpan.Parse("16:00:00"));
+            task1.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("16:00:00"));
             task1.CompletedFinish = DateTime.Today.Add(TimeSpan.Parse("12:00:00"));
             task1.Icon = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Check.png", applicationName), UriKind.Absolute));
             task1.EstimatedStart = DateTime.Today.AddDays(-1).Add(TimeSpan.Parse("08:00:00"));
             task1.EstimatedFinish = DateTime.Today.AddDays(-1).Add(TimeSpan.Parse("16:00:00"));
 
             CustomGanttChartItem task21 = ScheduleChartDataGrid.Items[0].GanttChartItems[1] as CustomGanttChartItem;
-            task21.Start = DateTime.Today.AddDays(1).Add(TimeSpan.Parse("12:00:00"));
-            task21.Finish = DateTime.Today.AddDays(5).Add(TimeSpan.Parse("16:00:00"));
+            task21.Start = DateTime.Today.AddDays(4).Add(TimeSpan.Parse("12:00:00"));
+            task21.Finish = DateTime.Today.AddDays(8).Add(TimeSpan.Parse("16:00:00"));
             task21.AssignmentsContent = "50%";
             task21.Icon = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Person.png", applicationName), UriKind.Absolute));
-            task21.Markers.Add(new Marker { DateTime = DateTime.Today.AddDays(1).Add(TimeSpan.Parse("09:00:00")), Icon = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Warning.png", applicationName), UriKind.Absolute)), Note = "Validation required for Task 2" });
-            task21.Markers.Add(new Marker { DateTime = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("14:00:00")), Icon = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Error.png", applicationName), UriKind.Absolute)), Note = "Impossible to finish Task 2" });
+            task21.Markers.Add(new Marker { DateTime = DateTime.Today.AddDays(6).Add(TimeSpan.Parse("09:00:00")), Icon = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Warning.png", applicationName), UriKind.Absolute)), Note = "Validation required for Task 2" });
+            task21.Markers.Add(new Marker { DateTime = DateTime.Today.AddDays(7).Add(TimeSpan.Parse("14:00:00")), Icon = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Error.png", applicationName), UriKind.Absolute)), Note = "Impossible to finish Task 2" });
 
             CustomGanttChartItem task22 = ScheduleChartDataGrid.Items[1].GanttChartItems[0] as CustomGanttChartItem;
             task22.Start = DateTime.Today.AddDays(1).Add(TimeSpan.Parse("12:00:00"));

@@ -12,7 +12,12 @@
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
-        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.05*" StandardBarCornerRadius="1" IsMouseWheelZoomEnabled="False">
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" ItemHeight="30" BarHeight="21" DataGridWidth="0.05*" StandardBarCornerRadius="1" IsMouseWheelZoomEnabled="False">
+            <pdgcc:ScheduleChartDataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Margin" Value="0,4.5"/>
+                </Style>
+            </pdgcc:ScheduleChartDataGrid.CellStyle>
             <!-- Define the custom bar template for standard tasks. -->
             <pdgcc:ScheduleChartDataGrid.StandardTaskTemplate>
                 <DataTemplate>
