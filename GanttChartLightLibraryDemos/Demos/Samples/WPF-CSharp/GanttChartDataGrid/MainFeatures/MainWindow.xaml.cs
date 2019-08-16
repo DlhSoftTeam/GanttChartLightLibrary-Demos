@@ -177,6 +177,15 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             GanttChartDataGrid.DefaultResourceHourCost = 10;
             GanttChartDataGrid.SpecificResourceHourCosts = new Dictionary<string, double> { { "Resource 1", 20 }, { "Material 2", 0.5 } };
 
+            // Optionally, set HasFixedEffort to automatically update item assignment allocation units rather than effort upon duration changes.
+            // item6.HasFixedEffort = true;
+
+            // Optionally, set RequiresMinSchedulingBreaks to ensure specific items are scheduled with the minimum possible number of nonworking time breaks (e.g. nights, weekends).
+            // item6.RequiresMinSchedulingBreaks = true;
+
+            // Optionally, set LevelingPrority values to be considered upon leveling resources (default is zero).
+            // item6.LevelingPriority = 1000;
+
             // Optionally, set AreHierarchyConstraintsEnabled to false to increase performance when you perform hierarchy validation in your application.
             GanttChartDataGrid.AreHierarchyConstraintsEnabled = false;
 
