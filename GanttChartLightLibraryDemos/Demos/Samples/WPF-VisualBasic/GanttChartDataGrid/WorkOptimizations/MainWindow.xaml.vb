@@ -43,6 +43,9 @@ Partial Public Class MainWindow
         item7.Predecessors.Add(New PredecessorItem With {.Item = item6})
         item7.AssignmentsContent = "Resource 2"
 
+        ' Optionally, set LevelingPrority values to be considered upon leveling resources (default is zero).
+        ' item6.LevelingPriority = 1000
+
         For i As Integer = 3 To 25
             GanttChartDataGrid.Items.Add(New GanttChartItem With {.Content = "Task " & i, .Indentation = If(i Mod 3 = 0, 0, 1), .Start = Date.Today.AddDays(If(i <= 8, (i - 4) * 2, i - 8)), .Finish = Date.Today.AddDays((If(i <= 8, (i - 4) * 2 + (If(i > 8, 6, 1)), i - 2)) + 2), .CompletedFinish = Date.Today.AddDays(If(i <= 8, (i - 4) * 2, i - 8)).AddDays(If(i Mod 6 = 4, 3, 0)), .AssignmentsContent = If(i Mod 3 = 0, "Resource 2", "Resource 1")})
         Next i

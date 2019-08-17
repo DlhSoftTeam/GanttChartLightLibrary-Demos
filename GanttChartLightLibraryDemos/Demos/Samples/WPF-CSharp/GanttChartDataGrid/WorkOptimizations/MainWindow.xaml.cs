@@ -49,6 +49,9 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.WorkOptimizations
             item7.Predecessors.Add(new PredecessorItem { Item = item6 });
             item7.AssignmentsContent = "Resource 2";
 
+            // Optionally, set LevelingPrority values to be considered upon leveling resources (default is zero).
+            // item6.LevelingPriority = 1000;
+
             for (int i = 3; i <= 25; i++)
             {
                 GanttChartDataGrid.Items.Add(

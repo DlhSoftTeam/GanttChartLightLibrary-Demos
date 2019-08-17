@@ -135,6 +135,9 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             //    });
             // GanttChartDataGrid.IsIndividualItemNonworkingTimeHighlighted = true;
 
+            // Optionally, disable auto-scheduling for individual items (i.e. turn on manual scheduling) by setting item.AreDependencyConstraintsEnabled = false (overriding component.AreTaskDependencyConstraintsEnabled == true).
+            // item2.AreDependencyConstraintsEnabled = false;
+
             for (int i = 6; i <= 25; i++)
             {
                 GanttChartDataGrid.Items.Add(

@@ -40,6 +40,15 @@ Partial Public Class MainWindow
         item7.Predecessors.Add(New PredecessorItem With {.Item = item4})
         item7.Predecessors.Add(New PredecessorItem With {.Item = item6})
 
+        ' Optionally, disable auto-scheduling for individual items (i.e. turn on manual scheduling) by setting item.AreDependencyConstraintsEnabled = false (overriding component.AreTaskDependencyConstraintsEnabled == true).
+        ' item2.AreDependencyConstraintsEnabled = False
+
+        ' Optionally, set HasFixedEffort to automatically update item assignment allocation units rather than effort upon duration changes.
+        ' item6.HasFixedEffort = True
+
+        ' Optionally, set RequiresMinSchedulingBreaks to ensure specific items are scheduled with the minimum possible number of nonworking time breaks (e.g. nights, weekends).
+        ' item6.RequiresMinSchedulingBreaks = True
+
         For i As Integer = 3 To 25
             GanttChartDataGrid.Items.Add(New GanttChartItem With {.Content = "Task " & i, .Indentation = If(i Mod 3 = 0, 0, 1), .Start = Date.Today.AddDays(If(i <= 8, (i - 4) * 2, i - 8)), .Finish = Date.Today.AddDays((If(i <= 8, (i - 4) * 2 + (If(i > 8, 6, 1)), i - 2)) + 2), .CompletedFinish = Date.Today.AddDays(If(i <= 8, (i - 4) * 2, i - 8)).AddDays(If(i Mod 6 = 4, 3, 0))})
         Next i

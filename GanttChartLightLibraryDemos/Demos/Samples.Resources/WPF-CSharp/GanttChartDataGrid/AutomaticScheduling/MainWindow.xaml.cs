@@ -44,6 +44,15 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.AutomaticScheduling
             item7.Predecessors.Add(new PredecessorItem { Item = item4 });
             item7.Predecessors.Add(new PredecessorItem { Item = item6 });
 
+            // Optionally, disable auto-scheduling for individual items (i.e. turn on manual scheduling) by setting item.AreDependencyConstraintsEnabled = false (overriding component.AreTaskDependencyConstraintsEnabled == true).
+            // item2.AreDependencyConstraintsEnabled = false;
+
+            // Optionally, set HasFixedEffort to automatically update item assignment allocation units rather than effort upon duration changes.
+            // item6.HasFixedEffort = true;
+
+            // Optionally, set RequiresMinSchedulingBreaks to ensure specific items are scheduled with the minimum possible number of nonworking time breaks (e.g. nights, weekends).
+            // item6.RequiresMinSchedulingBreaks = true;
+
             for (int i = 3; i <= 25; i++)
             {
                 GanttChartDataGrid.Items.Add(

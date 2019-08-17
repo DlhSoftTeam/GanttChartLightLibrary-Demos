@@ -94,6 +94,9 @@ Class MainWindow
         '                                                                                                                                                                                                                                                            End Function)
         ' GanttChartDataGrid.IsIndividualItemNonworkingTimeHighlighted = True
 
+        ' Optionally, disable auto-scheduling for individual items (i.e. turn on manual scheduling) by setting item.AreDependencyConstraintsEnabled = false (overriding component.AreTaskDependencyConstraintsEnabled == true).
+        ' item2.AreDependencyConstraintsEnabled = False
+
         For i As Integer = 5 To 25
             GanttChartDataGrid.Items.Add(
                 New GanttChartItem With
