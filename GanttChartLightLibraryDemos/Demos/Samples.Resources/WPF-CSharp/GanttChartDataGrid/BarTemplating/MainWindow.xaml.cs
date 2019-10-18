@@ -50,10 +50,10 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.BarTemplating
 
             CustomGanttChartItem item6 = GanttChartDataGrid.Items[6] as CustomGanttChartItem;
             item6.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
-            item6.Finish = DateTime.Today.AddDays(6).Add(TimeSpan.Parse("12:00:00"));
+            item6.Finish = DateTime.Today.AddDays(8).Add(TimeSpan.Parse("12:00:00"));
             item6.EstimatedStart = DateTime.Today.AddDays(+1).Add(TimeSpan.Parse("08:00:00"));
             item6.EstimatedFinish = DateTime.Today.AddDays(8 - 1).Add(TimeSpan.Parse("12:00:00"));
-            item6.Interruptions.Add(new Interruption { Start = DateTime.Today.AddDays(5).Add(TimeSpan.Parse("14:00:00")), Finish = DateTime.Today.AddDays(6).Add(TimeSpan.Parse("10:00:00")) });
+            item6.Interruptions.Add(new Interruption { Start = DateTime.Today.AddDays(4).Add(TimeSpan.Parse("14:00:00")), Finish = DateTime.Today.AddDays(6).Add(TimeSpan.Parse("10:00:00")) });
 
             CustomGanttChartItem item7 = GanttChartDataGrid.Items[7] as CustomGanttChartItem;
             item7.Start = DateTime.Today.AddDays(5);

@@ -45,10 +45,10 @@ Partial Public Class MainWindow
 
         Dim item6 As CustomGanttChartItem = TryCast(GanttChartDataGrid.Items(6), CustomGanttChartItem)
         item6.Start = Date.Today.Add(TimeSpan.Parse("08:00:00"))
-        item6.Finish = Date.Today.AddDays(6).Add(TimeSpan.Parse("12:00:00"))
+        item6.Finish = Date.Today.AddDays(8).Add(TimeSpan.Parse("12:00:00"))
         item6.EstimatedStart = Date.Today.AddDays(+1).Add(TimeSpan.Parse("08:00:00"))
         item6.EstimatedFinish = Date.Today.AddDays(8 - 1).Add(TimeSpan.Parse("12:00:00"))
-        item6.Interruptions.Add(New Interruption With {.Start = Date.Today.AddDays(5).Add(TimeSpan.Parse("14:00:00")), .Finish = Date.Today.AddDays(6).Add(TimeSpan.Parse("10:00:00"))})
+        item6.Interruptions.Add(New Interruption With {.Start = Date.Today.AddDays(4).Add(TimeSpan.Parse("14:00:00")), .Finish = Date.Today.AddDays(6).Add(TimeSpan.Parse("10:00:00"))})
 
         Dim item7 As CustomGanttChartItem = TryCast(GanttChartDataGrid.Items(7), CustomGanttChartItem)
         item7.Start = Date.Today.AddDays(5)

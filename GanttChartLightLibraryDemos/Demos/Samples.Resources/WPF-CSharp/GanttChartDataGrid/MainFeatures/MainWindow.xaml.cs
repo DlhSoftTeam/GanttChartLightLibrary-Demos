@@ -200,7 +200,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
         }
 
         private ResourceDictionary themeResourceDictionary;
-        private string theme = "Generic-bright";
+        private string theme = "Dark-black";
         public MainWindow(string theme) : this()
         {
             this.theme = theme;

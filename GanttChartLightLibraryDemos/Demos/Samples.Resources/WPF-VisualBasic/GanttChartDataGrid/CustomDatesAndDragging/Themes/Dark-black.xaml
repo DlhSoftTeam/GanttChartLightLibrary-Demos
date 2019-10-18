@@ -27,6 +27,30 @@
     <DataTemplate x:Key="LocalAssignmentsTemplate">
         <ContentControl Content="{Binding AssignmentsContent}" Foreground="#eeeeee" IsHitTestVisible="False" IsTabStop="False"/>
     </DataTemplate>
+    <ControlTemplate x:Key="LocalExpanderTemplate" TargetType="ToggleButton">
+        <Border Background="Transparent" Height="16" Padding="5" Width="16">
+            <Path x:Name="ExpandPath" Data="M0,0 L0,6 6,0 z" Fill="Transparent" Stroke="#FF777777">
+                <Path.RenderTransform>
+                    <RotateTransform Angle="135" CenterY="3" CenterX="3"/>
+                </Path.RenderTransform>
+            </Path>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Stroke" TargetName="ExpandPath" Value="#FF1BBBFA"/>
+                <Setter Property="Fill" TargetName="ExpandPath" Value="Transparent"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="RenderTransform" TargetName="ExpandPath">
+                    <Setter.Value>
+                        <RotateTransform Angle="180" CenterY="3" CenterX="3"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Fill" TargetName="ExpandPath" Value="#FF777777"/>
+                <Setter Property="Stroke" TargetName="ExpandPath" Value="#FF777777"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
     <Style TargetType="pdgcc:GanttChartView" BasedOn="{StaticResource GanttChartViewTemplates2}">
         <Setter Property="Background" Value="#222222"/>
         <Setter Property="Foreground" Value="#eeeeee"/>
@@ -55,6 +79,7 @@
         <Setter Property="MilestoneBarStroke" Value="Gray"/>
         <Setter Property="MilestoneBarFill" Value="#ffbb00"/>
         <Setter Property="AssignmentsTemplate" Value="{StaticResource LocalAssignmentsTemplate}"/>
+        <Setter Property="ExpanderTemplate" Value="{StaticResource LocalExpanderTemplate}"/>
     </Style>
     <Style TargetType="pdgcc:ScheduleChartView" BasedOn="{StaticResource ScheduleChartViewTemplates2}">
         <Setter Property="Background" Value="#222222"/>
@@ -84,6 +109,7 @@
         <Setter Property="MilestoneBarStroke" Value="Gray"/>
         <Setter Property="MilestoneBarFill" Value="#ffbb00"/>
         <Setter Property="AssignmentsTemplate" Value="{StaticResource LocalAssignmentsTemplate}"/>
+        <Setter Property="ExpanderTemplate" Value="{StaticResource LocalExpanderTemplate}"/>
     </Style>
     <Style TargetType="pdgcc:LoadChartView" BasedOn="{StaticResource LoadChartViewTemplates2}">
         <Setter Property="Background" Value="#222222"/>
@@ -103,6 +129,7 @@
         <Setter Property="NonworkingTimeBackground" Value="#333333"/>
         <Setter Property="CurrentTimeLineStroke" Value="#289451"/>
         <Setter Property="AssignmentsTemplate" Value="{StaticResource LocalAssignmentsTemplate}"/>
+        <Setter Property="ExpanderTemplate" Value="{StaticResource LocalExpanderTemplate}"/>
     </Style>
     <Style TargetType="pdpcc:PertChartView" BasedOn="{StaticResource PertChartViewTemplates2}"/>
     <Style TargetType="pdpcc:NetworkDiagramView" BasedOn="{StaticResource NetworkDiagramViewTemplates2}"/>

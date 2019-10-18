@@ -37,7 +37,7 @@
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Canvas>
-                                            <Grid Canvas.Left="{Binding Left}" Width="{Binding Width}" Height="20">
+                                            <Grid Canvas.Left="{Binding Left}" Width="{Binding Width}" Height="21">
                                                 <!-- Corner radius values are set to a small value to generate less rounded rectangle corners. -->
                                                 <Rectangle Fill="{Binding Path=Item.(pdgcc:GanttChartView.StandardBarFill)}" Stroke="{Binding Path=Item.(pdgcc:GanttChartView.StandardBarStroke)}" StrokeThickness="{Binding GanttChartView.StandardBarStrokeThickness}" RadiusX="{Binding GanttChartView.StandardBarCornerRadius}" RadiusY="{Binding GanttChartView.StandardBarCornerRadius}"/>
                                                 <!-- Add a light cyan effect rectangle inside the task bar. -->
