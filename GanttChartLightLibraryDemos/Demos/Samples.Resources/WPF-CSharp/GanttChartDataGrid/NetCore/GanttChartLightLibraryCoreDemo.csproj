@@ -1,0 +1,89 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\AddNew.png" />
+    <None Remove="Images\Baseline.png" />
+    <None Remove="Images\Copy.png" />
+    <None Remove="Images\CriticalPath.png" />
+    <None Remove="Images\DecreaseIndentation.png" />
+    <None Remove="Images\DecreaseTimelinePage.png" />
+    <None Remove="Images\Delete.png" />
+    <None Remove="Images\DependencyConstraints.png" />
+    <None Remove="Images\Edit.png" />
+    <None Remove="Images\ExportImage.png" />
+    <None Remove="Images\FitToTimelinePage.png" />
+    <None Remove="Images\IncreaseIndentation.png" />
+    <None Remove="Images\IncreaseTimelinePage.png" />
+    <None Remove="Images\InsertNew.png" />
+    <None Remove="Images\LevelResources.png" />
+    <None Remove="Images\LoadChart.png" />
+    <None Remove="Images\LoadProjectXml.png" />
+    <None Remove="Images\MoveDown.png" />
+    <None Remove="Images\MoveUp.png" />
+    <None Remove="Images\NetworkDiagram.png" />
+    <None Remove="Images\Paste.png" />
+    <None Remove="Images\PertChart.png" />
+    <None Remove="Images\Print.png" />
+    <None Remove="Images\ProjectStatistics.png" />
+    <None Remove="Images\Redo.png" />
+    <None Remove="Images\Resources.png" />
+    <None Remove="Images\SaveProjectXml.png" />
+    <None Remove="Images\ScheduleChart.png" />
+    <None Remove="Images\SetColor.png" />
+    <None Remove="Images\ShowWeekends.png" />
+    <None Remove="Images\SplitRemainingWork.png" />
+    <None Remove="Images\Task.Icon.png" />
+    <None Remove="Images\Undo.png" />
+    <None Remove="Images\WorkOnWeekends.png" />
+    <None Remove="Images\ZoomIn.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DlhSoft.GanttChartLightLibrary" Version="4.3.43.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\AddNew.png" />
+    <Resource Include="Images\Baseline.png" />
+    <Resource Include="Images\Copy.png" />
+    <Resource Include="Images\CriticalPath.png" />
+    <Resource Include="Images\DecreaseIndentation.png" />
+    <Resource Include="Images\DecreaseTimelinePage.png" />
+    <Resource Include="Images\Delete.png" />
+    <Resource Include="Images\DependencyConstraints.png" />
+    <Resource Include="Images\Edit.png" />
+    <Resource Include="Images\ExportImage.png" />
+    <Resource Include="Images\FitToTimelinePage.png" />
+    <Resource Include="Images\IncreaseIndentation.png" />
+    <Resource Include="Images\IncreaseTimelinePage.png" />
+    <Resource Include="Images\InsertNew.png" />
+    <Resource Include="Images\LevelResources.png" />
+    <Resource Include="Images\LoadChart.png" />
+    <Resource Include="Images\LoadProjectXml.png" />
+    <Resource Include="Images\MoveDown.png" />
+    <Resource Include="Images\MoveUp.png" />
+    <Resource Include="Images\NetworkDiagram.png" />
+    <Resource Include="Images\Paste.png" />
+    <Resource Include="Images\PertChart.png" />
+    <Resource Include="Images\Print.png" />
+    <Resource Include="Images\ProjectStatistics.png" />
+    <Resource Include="Images\Redo.png" />
+    <Resource Include="Images\Resources.png" />
+    <Resource Include="Images\SaveProjectXml.png" />
+    <Resource Include="Images\ScheduleChart.png" />
+    <Resource Include="Images\SetColor.png" />
+    <Resource Include="Images\ShowWeekends.png" />
+    <Resource Include="Images\SplitRemainingWork.png" />
+    <Resource Include="Images\Task.Icon.png" />
+    <Resource Include="Images\Undo.png" />
+    <Resource Include="Images\WorkOnWeekends.png" />
+    <Resource Include="Images\ZoomIn.png" />
+  </ItemGroup>
+
+</Project>

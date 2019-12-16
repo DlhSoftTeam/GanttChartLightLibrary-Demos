@@ -203,7 +203,8 @@ namespace Demos
                                         new SampleInfo { Tag = "SummaryValues", Title = "Summary values", Description = "Shows how you can hierarchically summarize custom values such as custom task costs" },
                                         new SampleInfo { Tag = "HierarchicalVirtualization", Title = "Hierarchical virtualization", Description = "Shows how to develop summary task virtualization and lazy load child tasks only upon parent node expansion" },
                                         new SampleInfo { Tag = "AssignmentsTree", Title = "Assignments tree (using DataTreeGrid)", Description = "Shows how to show a custom popup allowing the end user to select assigned resources (or departments) from an organizational hierarchy – using DataTreeGrid control from DlhSoft Hierarchical Data Light Library, licensed separately" },
-                                        new SampleInfo { Tag = "Database", IsLink = true, Title = "SQL Server® database integration", Description = "Load tasks from and save changes to a SQL Server® database" }
+                                        new SampleInfo { Tag = "Database", IsLink = true, Title = "SQL Server® database integration", Description = "Load tasks from and save changes to a SQL Server® database" },
+                                        new SampleInfo { Tag = "NetCore", IsLink = true, Title = ".NET Core support", Description = "Using the WPF components within a .NET Core desktop application" }
                                     }
                                 },
                                 new ComponentInfo

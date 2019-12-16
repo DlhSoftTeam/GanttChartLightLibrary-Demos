@@ -30,7 +30,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>14</ApplicationRevision>
+    <ApplicationRevision>16</ApplicationRevision>
     <ApplicationVersion>1.1.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -108,6 +108,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="FileNameConverter.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NetCore\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Samples.Resources\WPF-VisualBasic\Themes\Yellow-green.xaml">
       <SubType>Designer</SubType>
     </Resource>
@@ -1217,6 +1220,7 @@
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\GanttChartIntegration\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\DependencyLineTemplating\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\MainWindow.xaml.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NetCore\MainWindow.xaml.cs" />
     <Compile Include="UppercaseConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
