@@ -76,7 +76,7 @@ Partial Public Class MainWindow
             Return
         End If
         Dim item As GanttChartItem = New GanttChartItem With {.Content = "New Task", .Indentation = selectedItem.Indentation, .Start = Date.Today, .Finish = Date.Today.AddDays(1)}
-        GanttChartDataGrid.Items.Insert(GanttChartDataGrid.SelectedIndex, item)
+        GanttChartDataGrid.Items.Insert(selectedItem.Index, item)
         GanttChartDataGrid.SelectedItem = item
         GanttChartDataGrid.ScrollTo(item)
     End Sub

@@ -127,7 +127,7 @@ namespace Demos.WPF.CSharp.LoadChartDataGrid.MainFeatures
             }
             LoadChartItem item = new LoadChartItem { Content = "New Resource" };
             item.GanttChartItems.Add(new AllocationItem { Content = "New Task", Start = DateTime.Today, Finish = DateTime.Today.AddDays(1) });
-            LoadChartDataGrid.Items.Insert(LoadChartDataGrid.SelectedIndex, item);
+            LoadChartDataGrid.Items.Insert(selectedItem.Index, item);
             LoadChartDataGrid.SelectedItem = item;
         }
         private void DeleteButton_Click(object sender, RoutedEventArgs e)

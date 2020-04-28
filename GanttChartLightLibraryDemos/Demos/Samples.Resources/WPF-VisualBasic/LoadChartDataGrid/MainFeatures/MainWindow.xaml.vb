@@ -100,7 +100,7 @@ Partial Public Class MainWindow
         End If
         Dim item As LoadChartItem = New LoadChartItem With {.Content = "New Resource"}
         item.GanttChartItems.Add(New AllocationItem With {.Content = "New Task", .Start = Date.Today, .Finish = Date.Today.AddDays(1)})
-        LoadChartDataGrid.Items.Insert(LoadChartDataGrid.SelectedIndex, item)
+        LoadChartDataGrid.Items.Insert(selectedItem.Index, item)
         LoadChartDataGrid.SelectedItem = item
     End Sub
     Private Sub DeleteButton_Click(sender As Object, e As RoutedEventArgs)

@@ -118,7 +118,7 @@ Partial Public Class MainWindow
         End If
         Dim item As ScheduleChartItem = New ScheduleChartItem With {.Content = "New Resource"}
         item.GanttChartItems.Add(New GanttChartItem With {.Content = "New Task", .Start = Date.Today, .Finish = Date.Today.AddDays(1)})
-        ScheduleChartDataGrid.Items.Insert(ScheduleChartDataGrid.SelectedIndex, item)
+        ScheduleChartDataGrid.Items.Insert(selectedItem.Index, item)
         ScheduleChartDataGrid.SelectedItem = item
         ScheduleChartDataGrid.ScrollTo(item.GanttChartItems(0))
         ScheduleChartDataGrid.ScrollTo(item.GanttChartItems(0).Start)

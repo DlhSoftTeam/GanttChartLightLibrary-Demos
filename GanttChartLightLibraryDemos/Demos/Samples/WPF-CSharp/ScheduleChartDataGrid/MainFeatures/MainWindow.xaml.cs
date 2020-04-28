@@ -145,7 +145,7 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
             }
             ScheduleChartItem item = new ScheduleChartItem { Content = "New Resource" };
             item.GanttChartItems.Add(new GanttChartItem { Content = "New Task", Start = DateTime.Today, Finish = DateTime.Today.AddDays(1) });
-            ScheduleChartDataGrid.Items.Insert(ScheduleChartDataGrid.SelectedIndex, item);
+            ScheduleChartDataGrid.Items.Insert(selectedItem.Index, item);
             ScheduleChartDataGrid.SelectedItem = item;
             ScheduleChartDataGrid.ScrollTo(item.GanttChartItems[0]);
             ScheduleChartDataGrid.ScrollTo(item.GanttChartItems[0].Start);

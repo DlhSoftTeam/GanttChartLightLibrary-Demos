@@ -105,7 +105,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.GridColumns
                 return;
             }
             GanttChartItem item = new CustomGanttChartItem { Content = "New Task", Indentation = selectedItem.Indentation, Start = DateTime.Today, Finish = DateTime.Today.AddDays(1) };
-            GanttChartDataGrid.Items.Insert(GanttChartDataGrid.SelectedIndex, item);
+            GanttChartDataGrid.Items.Insert(selectedItem.Index, item);
             GanttChartDataGrid.SelectedItem = item;
             GanttChartDataGrid.ScrollTo(item);
         }
