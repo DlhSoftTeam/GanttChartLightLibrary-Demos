@@ -16,7 +16,7 @@
             <SolidColorBrush x:Key="StandardCompletedBarStroke" Color="#6b8fb0"/>
             <SolidColorBrush x:Key="MilestoneBarFill" Color="Green"/>
             <SolidColorBrush x:Key="VerticalGridLinesBrush" Color="LightGray"/>
-            <SolidColorBrush x:Key="AlternatingItemBackground" Color="#999999"/>
+            <SolidColorBrush x:Key="AlternatingItemBackground" Color="#cccccc"/>
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
