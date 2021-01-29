@@ -1,6 +1,7 @@
 ﻿using DlhSoft.Windows.Controls;
 using System;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace Demos.WPF.CSharp.GanttChartDataGrid.BarTemplating
@@ -48,8 +49,10 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.BarTemplating
             item4.Markers.Add(new Marker { DateTime = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("09:00:00")), Icon = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Warning.png", applicationName), UriKind.Absolute)), Note = "Validation required" });
             item4.Markers.Add(new Marker { DateTime = DateTime.Today.AddDays(4).Add(TimeSpan.Parse("14:00:00")), Icon = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Error.png", applicationName), UriKind.Absolute)), Note = "Impossible to finish the task" });
 
+            CustomGanttChartItem item5 = GanttChartDataGrid.Items[5] as CustomGanttChartItem;
+
             CustomGanttChartItem item6 = GanttChartDataGrid.Items[6] as CustomGanttChartItem;
-            item6.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
+            item6.Start = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("08:00:00"));
             item6.Finish = DateTime.Today.AddDays(8).Add(TimeSpan.Parse("12:00:00"));
             item6.EstimatedStart = DateTime.Today.AddDays(+1).Add(TimeSpan.Parse("08:00:00"));
             item6.EstimatedFinish = DateTime.Today.AddDays(8 - 1).Add(TimeSpan.Parse("12:00:00"));
@@ -73,6 +76,13 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.BarTemplating
                         CompletedFinish = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8).AddDays(i % 6 == 1 ? 3 : 0)
                     });
             }
+
+            // Optionally, set up summary background brushes as well.
+            item0.Background = Brushes.Blue;
+            item3.Background = Brushes.Yellow;
+            item5.Background = Brushes.Green;
+            for (var i = 8; i <= 30; i += 3)
+                (GanttChartDataGrid.Items[i] as CustomGanttChartItem).Background = i % 2 == 0 ? Brushes.Orange : Brushes.Brown;
         }
 
         private string theme = "Generic-bright";

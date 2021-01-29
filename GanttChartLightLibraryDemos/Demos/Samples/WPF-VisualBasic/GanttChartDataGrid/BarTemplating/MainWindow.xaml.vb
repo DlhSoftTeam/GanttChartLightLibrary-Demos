@@ -43,8 +43,10 @@ Partial Public Class MainWindow
         item4.Markers.Add(New Marker With {.DateValue = Date.Today.AddDays(3).Add(TimeSpan.Parse("09:00:00")), .Icon = New BitmapImage(New Uri(String.Format("pack://application:,,,/{0};component/Images/Warning.png", applicationName), UriKind.Absolute)), .Note = "Validation required"})
         item4.Markers.Add(New Marker With {.DateValue = Date.Today.AddDays(4).Add(TimeSpan.Parse("14:00:00")), .Icon = New BitmapImage(New Uri(String.Format("pack://application:,,,/{0};component/Images/Error.png", applicationName), UriKind.Absolute)), .Note = "Impossible to finish the task"})
 
+        Dim item5 As CustomGanttChartItem = TryCast(GanttChartDataGrid.Items(5), CustomGanttChartItem)
+
         Dim item6 As CustomGanttChartItem = TryCast(GanttChartDataGrid.Items(6), CustomGanttChartItem)
-        item6.Start = Date.Today.Add(TimeSpan.Parse("08:00:00"))
+        item6.Start = Date.Today.AddDays(3).Add(TimeSpan.Parse("08:00:00"))
         item6.Finish = Date.Today.AddDays(8).Add(TimeSpan.Parse("12:00:00"))
         item6.EstimatedStart = Date.Today.AddDays(+1).Add(TimeSpan.Parse("08:00:00"))
         item6.EstimatedFinish = Date.Today.AddDays(8 - 1).Add(TimeSpan.Parse("12:00:00"))
@@ -58,6 +60,14 @@ Partial Public Class MainWindow
 
         For i As Integer = 3 To 25
             GanttChartDataGrid.Items.Add(New CustomGanttChartItem With {.Content = "Task " & i, .Indentation = If(i Mod 3 = 0, 0, 1), .Start = Date.Today.AddDays(If(i <= 8, (i - 4) * 3, i - 8)), .Finish = Date.Today.AddDays((If(i <= 8, (i - 4) * 3 + (If(i > 8, 6, 1)), i - 2)) + 1 + 2), .CompletedFinish = Date.Today.AddDays(If(i <= 8, (i - 4) * 3, i - 8)).AddDays(If(i Mod 6 = 1, 3, 0))})
+        Next i
+
+        'Optionally, set up summary background brushes as well.
+        item0.Background = Brushes.Blue
+        item3.Background = Brushes.Yellow
+        item5.Background = Brushes.Green
+        For i = 8 To 30 Step 3
+            TryCast(GanttChartDataGrid.Items(i), CustomGanttChartItem).Background = IIf(i Mod 2 = 0, Brushes.Orange, Brushes.Brown)
         Next i
     End Sub
 

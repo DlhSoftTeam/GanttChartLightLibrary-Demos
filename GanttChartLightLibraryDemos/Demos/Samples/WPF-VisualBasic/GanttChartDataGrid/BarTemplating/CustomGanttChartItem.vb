@@ -148,6 +148,24 @@ Friend Class CustomGanttChartItem
         Public Property Width() As Double
     End Class
 
+    'Optional background support for summary items.
+    Private backgroundValue As Brush
+    Public Property Background() As Brush
+        Get
+            Return backgroundValue
+        End Get
+        Set(value As Brush)
+            backgroundValue = value
+            OnPropertyChanged("Background")
+        End Set
+    End Property
+
+    Public ReadOnly Property VisibleItemCountHeight() As Double
+        Get
+            Return (1 + AllChildren.Where(Function(i) i.IsVisible).Count()) * GanttChartView.ItemHeight
+        End Get
+    End Property
+
     Protected Overrides Sub OnPropertyChanged(propertyName As String)
         MyBase.OnPropertyChanged(propertyName)
         Select Case propertyName

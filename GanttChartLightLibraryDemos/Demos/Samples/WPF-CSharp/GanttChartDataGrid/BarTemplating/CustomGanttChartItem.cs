@@ -142,6 +142,26 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.BarTemplating
             public double Width { get; set; }
         }
 
+        // Optional background support for summary items.
+        private Brush background;
+        public Brush Background
+        {
+            get { return background; }
+            set
+            {
+                background = value;
+                OnPropertyChanged("Background");
+            }
+        }
+
+        public double VisibleItemCountHeight
+        {
+            get
+            {
+                return (1 + AllChildren.Where(i => i.IsVisible).Count()) * GanttChartView.ItemHeight;
+            }
+        }
+
         protected override void OnPropertyChanged(string propertyName)
         {
             base.OnPropertyChanged(propertyName);
@@ -178,6 +198,17 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.BarTemplating
                     Dispatcher.BeginInvoke((Action)delegate
                     {
                         OnPropertyChanged("ComputedInterruptedBars");
+                    });
+                    break;
+            }
+            switch (propertyName)
+            {
+                case "IsExpanded":
+                    Dispatcher.BeginInvoke((Action)delegate
+                    {
+                        OnPropertyChanged("VisibleItemCountHeight");
+                        foreach (var parent in AllParents.Cast<CustomGanttChartItem>())
+                            parent.OnPropertyChanged("VisibleItemCountHeight");
                     });
                     break;
             }

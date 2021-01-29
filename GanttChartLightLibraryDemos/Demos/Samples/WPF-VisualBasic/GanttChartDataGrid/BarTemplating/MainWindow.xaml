@@ -74,6 +74,38 @@
                     </Grid>
                 </DataTemplate>
             </pdgcc:GanttChartDataGrid.StandardTaskTemplate>
+            <!-- Optionally, also define the custom bar template for summary tasks. -->
+            <pdgcc:GanttChartDataGrid.SummaryTaskTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Canvas Margin="-10,0">
+                            <Rectangle Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Panel}}"
+                                       Height="{Binding VisibleItemCountHeight}"
+                                       Fill="{Binding Background}" Opacity="0.1"/>
+                        </Canvas>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.2*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.3*"/>
+                            </Grid.RowDefinitions>
+                            <Rectangle Grid.Column="1" Grid.Row="1" Fill="{Binding Path=(pdgcc:GanttChartView.SummaryBarFill)}" Stroke="{Binding Path=(pdgcc:GanttChartView.SummaryBarStroke)}" StrokeThickness="{Binding GanttChartView.SummaryBarStrokeThickness}"/>
+                            <Rectangle Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Width="{Binding ComputedSummaryCompletedBarWidth}" VerticalAlignment="Top" Height="{Binding GanttChartView.CompletedBarHeight}" MaxHeight="4" Fill="{Binding Path=(pdgcc:GanttChartView.SummaryCompletedBarFill)}" Margin="1" Visibility="{Binding GanttChartView.SummaryTaskCompletedEffortVisibility}" IsHitTestVisible="False"/>
+                            <Line Grid.Column="1" Grid.Row="2" Stroke="{Binding Path=(pdgcc:GanttChartView.StandardBarStroke)}" StrokeThickness="1" StrokeDashArray="1,1" Y1="1" Y2="1" X1="0" X2="{Binding ComputedBarWidth}" Visibility="{Binding ExpansionVisibility}"/>
+                            <Polygon Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Fill="{Binding Path=(pdgcc:GanttChartView.SummaryBarFill)}" Stroke="{Binding Path=(pdgcc:GanttChartView.SummaryBarStroke)}" StrokeThickness="{Binding GanttChartView.SummaryBarStrokeThickness}" Width="{Binding GanttChartView.BarHeight}" Stretch="Fill"
+                                     Points="0,0 0,0.5 0.5,0.8 1,0.5 1,0"/>
+                            <Polygon Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" Fill="{Binding Path=(pdgcc:GanttChartView.SummaryBarFill)}" Stroke="{Binding Path=(pdgcc:GanttChartView.SummaryBarStroke)}" StrokeThickness="{Binding GanttChartView.SummaryBarStrokeThickness}" Width="{Binding GanttChartView.BarHeight}" Stretch="Fill"
+                                     Points="1,0 1,0.5 0.5,0.8 0,0.5 0,0"/>
+                        </Grid>
+                        <pdgcc:TaskExpander/>
+                    </Grid>
+                </DataTemplate>
+            </pdgcc:GanttChartDataGrid.SummaryTaskTemplate>
             <pdgcc:GanttChartDataGrid.Items>
                 <!-- Use a custom item that inherits from GanttChartItem (see code behind). -->
                 <!-- Some item properties are set in code behind. -->
