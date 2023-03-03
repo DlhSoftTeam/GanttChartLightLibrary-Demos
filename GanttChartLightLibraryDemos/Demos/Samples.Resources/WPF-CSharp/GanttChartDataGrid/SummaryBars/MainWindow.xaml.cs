@@ -254,7 +254,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.SummaryBars
                     }
                     else
                     {
-                        IEnumerable<GanttChartItem> parentItems = clone.Tag as IEnumerable<GanttChartItem>;
+                        IEnumerable<GanttChartItem> parentItems = (clone.Tag as ItemHierarchyInfo).ParentItems;
                         foreach (GanttChartItem parentItem in parentItems)
                         {
                             if (parentItem.IsVisible)
