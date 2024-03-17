@@ -522,6 +522,9 @@ namespace Demos
                         case "BarTemplating":
                             fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml" + (!isVisualBasic ? ".cs" : ".vb"), "CustomGanttChartItem" + (!isVisualBasic ? ".cs" : ".vb"), "Interruption" + (!isVisualBasic ? ".cs" : ".vb"), "Marker" + (!isVisualBasic ? ".cs" : ".vb") };
                             break;
+                        case "Printing":
+                            fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml" + (!isVisualBasic ? ".cs" : ".vb"), "PrintDialog.xaml", "PrintDialog.xaml" + (!isVisualBasic ? ".cs" : ".vb") };
+                            break;
                         case "NumericDays":
                             fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml" + (!isVisualBasic ? ".cs" : ".vb"), "NumericDayStringConverter" + (!isVisualBasic ? ".cs" : ".vb") };
                             break;

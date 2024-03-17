@@ -43,7 +43,7 @@ Partial Public Class MainWindow
         item7.Predecessors.Add(New PredecessorItem With {.Item = item4})
         item7.Predecessors.Add(New PredecessorItem With {.Item = item6})
 
-        For i As Integer = 3 To 25
+        For i As Integer = 3 To 50
             GanttChartDataGrid.Items.Add(New GanttChartItem With {.Content = "Task " & i, .Indentation = If(i Mod 3 = 0, 0, 1), .Start = Date.Today.AddDays(If(i <= 8, (i - 4) * 2, i - 8)), .Finish = Date.Today.AddDays((If(i <= 8, (i - 4) * 2 + (If(i > 8, 6, 1)), i - 2)) + 2), .CompletedFinish = Date.Today.AddDays(If(i <= 8, (i - 4) * 2, i - 8)).AddDays(If(i Mod 6 = 4, 3, 0))})
         Next i
     End Sub
@@ -68,6 +68,8 @@ Partial Public Class MainWindow
     End Sub
 
     Private Sub PrintButton_Click(sender As Object, e As RoutedEventArgs)
-        GanttChartDataGrid.Print("GanttChartDataGrid Sample Document")
+        Dim printDialog As PrintDialog = New PrintDialog With {.Owner = Me}
+        printDialog.Load()
+        printDialog.ShowDialog()
     End Sub
 End Class

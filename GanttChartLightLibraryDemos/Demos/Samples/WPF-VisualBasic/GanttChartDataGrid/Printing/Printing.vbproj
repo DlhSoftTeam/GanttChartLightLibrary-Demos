@@ -81,6 +81,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PrintDialog.xaml.vb">
+      <DependentUpon>PrintDialog.xaml</DependentUpon>
+    </Compile>
     <Page Include="AppResources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -98,6 +101,10 @@
       <SubType>
       </SubType>
     </Compile>
+    <Page Include="PrintDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Blue-navy.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

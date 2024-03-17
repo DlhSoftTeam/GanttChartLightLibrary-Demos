@@ -35,15 +35,149 @@
         <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" IsUndoEnabled="True">
             <pdgcc:GanttChartDataGrid.Items>
                 <!-- Some item properties are set in code behind. -->
-                <pdgcc:GanttChartItem Content="Task 1"/>
-                <pdgcc:GanttChartItem Content="Task 1.1" Indentation="1"/>
-                <pdgcc:GanttChartItem Content="Task 1.2" Indentation="1"/>
-                <pdgcc:GanttChartItem Content="Task 2"/>
-                <pdgcc:GanttChartItem Content="Task 2.1" Indentation="1"/>
-                <pdgcc:GanttChartItem Content="Task 2.2" Indentation="1"/>
-                <pdgcc:GanttChartItem Content="Task 2.2.1" Indentation="2"/>
-                <pdgcc:GanttChartItem Content="Task 2.2.2" Indentation="2"/>
+                <pdgcc:GanttChartItem Content="Planning"/>
+                <pdgcc:GanttChartItem Content="Requirements" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Arhitecture" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Development"/>
+                <pdgcc:GanttChartItem Content="Date-times" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Chart" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Bars" Indentation="2"/>
+                <pdgcc:GanttChartItem Content="Review" Indentation="2"/>
+                <pdgcc:GanttChartItem Content="Chart" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Schedules" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Links" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Design"/>
+                <pdgcc:GanttChartItem Content="Summary bars" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Bars" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Milestone" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Scales" Indentation="1"/>
             </pdgcc:GanttChartDataGrid.Items>
+            <pdgcc:GanttChartDataGrid.Columns>
+                <pdgcc:DataGridColumnCollection>
+                    <DataGridTextColumn Header="" Binding="{Binding IndexString}" IsReadOnly="True">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Right"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <hdc:DataTreeGridColumn Header="Task" MinWidth="148"/>
+                    <DataGridTemplateColumn Header="Start" MinWidth="116">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding Start, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <!-- Optionally use StartPreservingEffort property to also update task finish when end user changes start, preserving task effort and duration. -->
+                                <DatePicker SelectedDate="{Binding Start, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Duration" MinWidth="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <!-- Optionally, use ConverterParameter=0.##d/8 for DurationStringConverter to display the value in working days of 8 hours.-->
+                                <ContentControl Content="{Binding Duration, Converter={StaticResource DurationStringConverter}, ConverterParameter=0.##d/8}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Duration, Converter={StaticResource DurationStringConverter}, ConverterParameter=0.##d/8, Mode=TwoWay}" IsReadOnly="{Binding HasChildren}" BorderThickness="0" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Finish" MinWidth="116">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding Finish, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <!-- Optionally use FinishPreservingEffort property to also update task start when end user changes finish, preserving task effort and duration. -->
+                                <DatePicker SelectedDate="{Binding Finish, Converter={StaticResource FinishDateConverter}, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Milestone">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Name="TextBlock" Text="✓" Visibility="Hidden" HorizontalAlignment="Center" Padding="4,0,10,8"/>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding IsMilestone}" Value="True">
+                                        <Setter TargetName="TextBlock" Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsMilestone, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="%" MinWidth="45">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding Completion, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Completion, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%, Mode=TwoWay}" IsReadOnly="{Binding HasChildren}" BorderThickness="0" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Predecessors" MinWidth="72">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <!-- Optionally you may set GanttChartDataGrid.PredecessorsString{DependencyTypeAbbreviations|LagFormat|LagScale} properties to further control bound PredecessorsString values. -->
+                                <ContentControl Content="{Binding PredecessorsString}" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding PredecessorsString, Mode=TwoWay}" BorderThickness="0" Padding="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Assignments" MinWidth="160">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding AssignmentsContent}" VerticalAlignment="Center" Padding="4"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <pdgcc:AssignmentComboBox AvailableItemsSource="{Binding AssignableResources, RelativeSource={RelativeSource AncestorType=pdgcc:GanttChartDataGrid}}" SelectedContent="{Binding AssignmentsContent, Mode=TwoWay}"/>
+                                <!-- Alternatively you may use a simple editable ComboBox instead as indicated in the next line of markup. -->
+                                <!-- <ComboBox ItemsSource="{Binding AssignableResources, RelativeSource={RelativeSource AncestorType=pdgcc:GanttChartDataGrid}}" Text="{Binding AssignmentsContent, Mode=TwoWay}" IsEditable="True"/> -->
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                </pdgcc:DataGridColumnCollection>
+            </pdgcc:GanttChartDataGrid.Columns>
+            <pdgcc:GanttChartDataGrid.PrintingTemplate>
+                <DataTemplate>
+                    <Grid Margin="32">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0" Margin="0,16" BorderBrush="DarkGray" BorderThickness="1">
+                            <ContentPresenter Content="{Binding Content, Mode=OneTime}"/>
+                        </Border>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock Text="{Binding PageIndex, Mode=OneTime}"/>
+                            <TextBlock Text="/"/>
+                            <TextBlock Text="{Binding PageCount, Mode=OneTime}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </pdgcc:GanttChartDataGrid.PrintingTemplate>
         </pdgcc:GanttChartDataGrid>
     </DockPanel>
 </Window>

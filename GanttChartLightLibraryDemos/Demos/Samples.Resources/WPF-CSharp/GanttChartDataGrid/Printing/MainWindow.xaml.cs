@@ -24,12 +24,12 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.Printing
             item1.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
             item1.Finish = DateTime.Today.Add(TimeSpan.Parse("16:00:00"));
             item1.CompletedFinish = DateTime.Today.Add(TimeSpan.Parse("12:00:00"));
-            item1.AssignmentsContent = "Resource 1";
+            item1.AssignmentsContent = "David";
 
             GanttChartItem item2 = GanttChartDataGrid.Items[2];
             item2.Start = DateTime.Today.AddDays(1).Add(TimeSpan.Parse("08:00:00"));
             item2.Finish = DateTime.Today.AddDays(2).Add(TimeSpan.Parse("16:00:00"));
-            item2.AssignmentsContent = "Resource 1, Resource 2";
+            item2.AssignmentsContent = "David, Anna";
             item2.Predecessors.Add(new PredecessorItem { Item = item1 });
 
             GanttChartItem item3 = GanttChartDataGrid.Items[3];
@@ -49,7 +49,39 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.Printing
             item7.Predecessors.Add(new PredecessorItem { Item = item4 });
             item7.Predecessors.Add(new PredecessorItem { Item = item6 });
 
-            for (int i = 3; i <= 25; i++)
+            GanttChartItem item8 = GanttChartDataGrid.Items[8];
+            item8.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
+            item8.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
+
+            GanttChartItem item9 = GanttChartDataGrid.Items[9];
+            item9.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
+            item9.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
+
+            GanttChartItem item10 = GanttChartDataGrid.Items[10];
+            item10.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
+            item10.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
+
+            GanttChartItem item11 = GanttChartDataGrid.Items[11];
+            item11.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
+            item11.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
+
+            GanttChartItem item12 = GanttChartDataGrid.Items[12];
+            item12.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
+            item12.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
+
+            GanttChartItem item13 = GanttChartDataGrid.Items[13];
+            item13.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
+            item13.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
+
+            GanttChartItem item14 = GanttChartDataGrid.Items[14];
+            item14.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
+            item14.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
+
+            GanttChartItem item15 = GanttChartDataGrid.Items[15];
+            item15.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
+            item15.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
+
+            for (int i = 16; i <= 50; i++)
             {
                 GanttChartDataGrid.Items.Add(
                     new GanttChartItem
@@ -85,7 +117,9 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.Printing
 
         private void PrintButton_Click(object sender, RoutedEventArgs e)
         {
-            GanttChartDataGrid.Print("GanttChartDataGrid Sample Document");
+            PrintDialog printDialog = new PrintDialog { Owner = this };
+            printDialog.Load();
+            printDialog.ShowDialog();
         }
     }
 }

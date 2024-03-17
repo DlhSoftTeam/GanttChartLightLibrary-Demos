@@ -1,0 +1,61 @@
+﻿<Window x:Class="Demos.WPF.CSharp.GanttChartDataGrid.Printing.PrintDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:local="clr-namespace:Demos.WPF.CSharp.GanttChartDataGrid.Printing"
+        Title="Printing Options" SizeToContent="WidthAndHeight"
+        WindowStyle="ToolWindow" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Margin="4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="TIMELINE" VerticalAlignment="Center" Style="{StaticResource TextBlockEditForm}"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Start date:" VerticalAlignment="Center" Style="{StaticResource TextBlockEditForm}"/>
+            <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding TimelinePageStart, RelativeSource={RelativeSource AncestorType=local:PrintDialog}, UpdateSourceTrigger=LostFocus}"
+                VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource DatePickerEdit}"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="End date:" VerticalAlignment="Center" Style="{StaticResource TextBlockEditForm}"/>
+            <DatePicker Grid.Row="2" Grid.Column="1" SelectedDate="{Binding TimelinePageFinish, RelativeSource={RelativeSource AncestorType=local:PrintDialog}, UpdateSourceTrigger=LostFocus}"
+                VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource DatePickerEdit}"/>
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="GRID COLUMNS" VerticalAlignment="Center" Margin="4,8,4,4" Style="{StaticResource TextBlockEditForm}"/>
+            <DataGrid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" x:Name="ColumnsDataGrid" ItemsSource="{Binding GridColumns, RelativeSource={RelativeSource AncestorType=local:PrintDialog}}"
+                HorizontalAlignment="Stretch" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                Style="{StaticResource DataGridStyle}" RowHeaderWidth="0" MaxHeight="307" Margin="4" BorderThickness="1">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Select">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Name" Width="268" Binding="{Binding Header}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button x:Name="PrintButton" Content="Print" Margin="4" Padding="10,5" MinWidth="100" IsDefault="True" Click="PrintButton_Click" Style="{StaticResource Button}"/>
+            <Button x:Name="CloseButton" Content="Cancel" Margin="4" Padding="10,5" MinWidth="100" IsCancel="True" Click="CloseButton_Click" Style="{StaticResource Button}"/>
+        </StackPanel>
+    </Grid>
+</Window>

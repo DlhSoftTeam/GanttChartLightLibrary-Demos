@@ -161,4 +161,97 @@
     <Style x:Key="RibbonCommandSeparatorStyle" TargetType="Border">
         <Setter Property="Margin" Value="3,0"/>
     </Style>
+    <SolidColorBrush x:Key="ForegroundBlue" Color="#0078d2"/>
+    <Style TargetType="TextBlock" x:Key="TextBlockEditForm">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBlue}"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="Margin" Value="4"/>
+    </Style>
+    <Style TargetType="DatePicker" x:Key="DatePickerEdit">
+        <Setter Property="BorderBrush" Value="DarkGray"/>
+        <Setter Property="Margin" Value="4"/>
+        <Setter Property="Height" Value="26"/>
+        <Setter Property="Width" Value="152"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+    <Style TargetType="Button" x:Key="Button">
+        <Setter Property="Padding" Value="12,3"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="Margin" Value="3"/>
+    </Style>
+    <Style x:Key="RowStyle" TargetType="DataGridRow">
+        <Setter Property="Foreground" Value="#373737"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DataGridRow">
+                    <Border x:Name="DGR_Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                        <SelectiveScrollingGrid>
+                            <SelectiveScrollingGrid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </SelectiveScrollingGrid.ColumnDefinitions>
+                            <SelectiveScrollingGrid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </SelectiveScrollingGrid.RowDefinitions>
+                            <DataGridCellsPresenter Grid.Column="1" ItemsPanel="{TemplateBinding ItemsPanel}" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            <DataGridDetailsPresenter Grid.Column="1" Grid.Row="1" SelectiveScrollingGrid.SelectiveScrollingOrientation="{Binding AreRowDetailsFrozen, ConverterParameter={x:Static SelectiveScrollingOrientation.Vertical}, Converter={x:Static DataGrid.RowDetailsScrollingConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Visibility="{TemplateBinding DetailsVisibility}"/>
+                            <DataGridRowHeader Grid.RowSpan="2" SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Row}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                        </SelectiveScrollingGrid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="DGR_Border" Property="Background" Value="#cce3f7" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="CellStyle" TargetType="DataGridCell">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DataGridCell">
+                    <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsSelected}" Value="true">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{Binding Background, RelativeSource={RelativeSource Self}}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsFocused}" Value="true">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{Binding Background, RelativeSource={RelativeSource Self}}"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="DataGrid" x:Key="DataGridStyle">
+        <Style.Resources>
+            <!-- Optionally, override highlighing color for selection. -->
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#90BDE5"/>
+        </Style.Resources>
+        <Setter Property="Foreground" Value="#373737"/>
+        <Setter Property="HorizontalGridLinesBrush" Value="Silver"/>
+        <Setter Property="VerticalGridLinesBrush" Value="Silver"/>
+        <Setter Property="BorderBrush" Value="Silver"/>
+        <Setter Property="RowHeight" Value="30"/>
+        <Setter Property="RowBackground" Value="#fff"/>
+        <Setter Property="AlternatingRowBackground" Value="#f9f9f9"/>
+        <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+        <Setter Property="CellStyle" Value="{StaticResource CellStyle}"/>
+        <Setter Property="RowStyle" Value="{StaticResource RowStyle}"/>
+    </Style>
+    <Style TargetType="DataGridColumnHeader">
+        <Setter Property="Height" Value="36"/>
+        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="Background" Value="#efefef"/>
+        <Setter Property="BorderBrush" Value="Silver"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBlue}"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+    </Style>
 </ResourceDictionary>

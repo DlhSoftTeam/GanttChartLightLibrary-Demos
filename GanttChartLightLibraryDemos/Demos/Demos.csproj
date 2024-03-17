@@ -66,7 +66,7 @@
     <AssemblyOriginatorKeyFile>Properties\GanttChartLightLibraryDemos.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>1C8463FDEE6A9109CE444DFC1E63407FA381F7DB</ManifestCertificateThumbprint>
@@ -126,6 +126,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="FileNameConverter.cs" />
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\Printing\PrintDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Printing\PrintDialog.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NetCore\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Resource>
@@ -1239,6 +1246,7 @@
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\DependencyLineTemplating\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\SummaryDragging\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\NetCore\MainWindow.xaml.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\GanttChartDataGrid\Printing\PrintDialog.xaml.cs" />
     <Compile Include="UppercaseConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -1910,7 +1918,9 @@
     <Resource Include="Samples.Resources\Silverlight-VisualBasic\GanttChartDataGrid\MainFeatures\EditItemDialog.xaml.vb" />
     <Resource Include="Samples.Resources\Silverlight-VisualBasic\GanttChartDataGrid\MainFeatures\MainPage.xaml.vb" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\Printing\PrintDialog.xaml.vb" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\Database\MainWindow.xaml.vb" />
   </ItemGroup>
