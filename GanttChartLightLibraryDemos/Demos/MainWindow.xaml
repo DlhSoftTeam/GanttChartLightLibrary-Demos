@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Demos"
         mc:Ignorable="d"
-        Title="Demos - Gantt Chart Light Library - DlhSoft"
+        Title="Demos - Gantt Chart Library - DlhSoft"
         Width="1200" Height="800"
         WindowState="Maximized"
         Closing="Window_Closing">
@@ -126,27 +126,27 @@
                 <TextBlock>
                     <Span>DEMOS</Span>
                     <Span> – </Span>
-                    <Hyperlink NavigateUri="http://DlhSoft.com/GanttChartLightLibrary">
-                        GANTT CHART LIGHT LIBRARY
+                    <Hyperlink NavigateUri="http://DlhSoft.com/GanttChartLibrary.wpf">
+                        GANTT CHART LIBRARY
                     </Hyperlink>
                 </TextBlock>
                 <TextBlock>
-                    <Hyperlink NavigateUri="http://DlhSoft.com/Goto.aspx?Url=GanttChartLightLibrary/Documentation/index.html">
+                    <Hyperlink NavigateUri="http://DlhSoft.com/Goto.aspx?Url=GanttChartLibrary.wpf/Documentation/index.html">
                         DOCUMENTATION
                     </Hyperlink>
                 </TextBlock>
                 <TextBlock>
-                    <Hyperlink NavigateUri="http://DlhSoft.com/GanttChartLightLibrary/Download.aspx">
+                    <Hyperlink NavigateUri="http://DlhSoft.com/GanttChartLibrary.wpf/Download.aspx">
                         DOWNLOADS
                     </Hyperlink>
                 </TextBlock>
                 <TextBlock>
-                    <Hyperlink NavigateUri="http://DlhSoft.com/GanttChartLightLibrary/Purchase.aspx">
+                    <Hyperlink NavigateUri="http://DlhSoft.com/GanttChartLibrary.wpf/Purchase.aspx">
                         ORDER LICENSES
                     </Hyperlink>
                 </TextBlock>
                 <TextBlock>
-                    <Hyperlink NavigateUri="http://DlhSoft.com/GanttChartLightLibrary/Support.aspx">
+                    <Hyperlink NavigateUri="http://DlhSoft.com/GanttChartLibrary.wpf/Support.aspx">
                         SUPPORT
                     </Hyperlink>
                 </TextBlock>
