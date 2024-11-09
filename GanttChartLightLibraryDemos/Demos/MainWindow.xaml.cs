@@ -650,7 +650,7 @@ namespace Demos
             var component = selectedTreeViewParentItem.Tag as string;
             var feature = selectedTreeViewItem.Tag as string;
             var technology = selectedTechnologyItem.Tag as string;
-            string url = "http://DlhSoft.com/GanttChartLightLibrary/Demos/Samples/" + technology + "/" + component + "/" + feature + ".zip";
+            string url = "https://DlhSoft.com/GanttChartLibrary.wpf/Demos/Samples/" + technology + "/" + component + "/" + feature + ".zip";
             Process.Start(new ProcessStartInfo(url));
         }
 
