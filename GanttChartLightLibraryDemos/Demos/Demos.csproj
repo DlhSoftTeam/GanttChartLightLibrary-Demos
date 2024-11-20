@@ -2163,21 +2163,21 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>xcopy /s /y "$(ProjectDir)\Samples" "$(ProjectDir)\Samples.Resources"
+    <PreBuildEvent>:: xcopy /s /y "$(ProjectDir)\Samples" "$(ProjectDir)\Samples.Resources" %25%25
 </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\obj
-for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\bin
-for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do del "%25%25f\*.*.*proj*"
-for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do cd %25%25f &amp; "$(ProjectDir)\Tools\SampleUpdater.exe"
+    <PostBuildEvent>:: for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\obj
+:: for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do rd /s /q %25%25f\bin
+:: for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do del "%25%25f\*.*.*proj*"
+:: for /d %25%25t in ("$(ProjectDir)\Samples.Resources\*") do for /d %25%25c in ("%25%25t\*") do for /d %25%25f in (%25%25c\*) do cd %25%25f &amp; "$(ProjectDir)\Tools\SampleUpdater.exe"
 
-rd /s /q "$(ProjectDir)\publish\Samples"
-md "$(ProjectDir)\publish\Samples"
-xcopy /s /y "$(ProjectDir)\Samples.Resources" "$(ProjectDir)\publish\Samples"
-for /d %25%25t in ("$(ProjectDir)\publish\Samples\*") do rd /s /q "%25%25t\Themes"
-for /d %25%25t in ("$(ProjectDir)\publish\Samples\*") do for /d %25%25c in ("%25%25t\*") do cd "%25%25c" &amp; for /d %25%25f in (*) do "$(ProjectDir)\Tools\ArchiveBuilder.exe" %25%25f.zip %25%25f
-for /d %25%25t in ("$(ProjectDir)\publish\Samples\*") do for /d %25%25c in ("%25%25t\*") do cd "%25%25c" &amp; for /d %25%25f in (*) do rd /s /q %25%25f
+:: rd /s /q "$(ProjectDir)\publish\Samples"
+:: md "$(ProjectDir)\publish\Samples"
+:: xcopy /s /y "$(ProjectDir)\Samples.Resources" "$(ProjectDir)\publish\Samples"
+:: for /d %25%25t in ("$(ProjectDir)\publish\Samples\*") do rd /s /q "%25%25t\Themes"
+:: for /d %25%25t in ("$(ProjectDir)\publish\Samples\*") do for /d %25%25c in ("%25%25t\*") do cd "%25%25c" &amp; for /d %25%25f in (*) do "$(ProjectDir)\Tools\ArchiveBuilder.exe" %25%25f.zip %25%25f
+:: for /d %25%25t in ("$(ProjectDir)\publish\Samples\*") do for /d %25%25c in ("%25%25t\*") do cd "%25%25c" &amp; for /d %25%25f in (*) do rd /s /q %25%25f
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

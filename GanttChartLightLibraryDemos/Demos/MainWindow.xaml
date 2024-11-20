@@ -88,7 +88,7 @@
         </Style>
         <Style TargetType="TreeViewItem">
             <Setter Property="Padding" Value="8"/>
-            <EventSetter Event="Expanded" Handler="TreeViewItem_Expanded"/>
+            <!--<EventSetter Event="Expanded" Handler="TreeViewItem_Expanded"/>-->
             <Style.Triggers>
                 <Trigger Property="HasItems" Value="True">
                     <Setter Property="HeaderTemplate">
@@ -112,6 +112,40 @@
                 <Trigger Property="HasItems" Value="True">
                     <Setter Property="Foreground" Value="#e31d3b"/>
                 </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TabControl">
+            <Setter Property="BorderThickness" Value="1,1,1,1"/>
+            <Setter Property="BorderBrush" Value="#C4C9C4"/>
+        </Style>
+        <Style TargetType="TabItem">
+            <Setter Property="Padding" Value="4,8"/>
+            <Setter Property="Foreground" Value="#4c4c4c"/>
+            <Setter Property="Background" Value="#fefefe"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#ddd"/>
+                </Trigger>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="BorderBrush" Value="#e31d3b"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Foreground" Value="#e31d3b"/>
+                    <Setter Property="Margin" Value="0"/>
+                    <!--<Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <ContentPresenter Content="{Binding Converter={StaticResource UppercaseConverter}}"/>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>-->
+                </Trigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True"/>
+                        <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="False"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Background" Value="#eee"/>
+                </MultiDataTrigger>
             </Style.Triggers>
         </Style>
     </Window.Resources>
@@ -235,7 +269,16 @@
                         <TextBox Name="TreeViewSearchTextBox" DockPanel.Dock="Bottom" Text="Search..." Padding="4" Background="White" Foreground="Gray" 
                                  GotKeyboardFocus="TreeViewSearchTextBox_GotKeyboardFocus" LostKeyboardFocus="TreeViewSearchTextBox_LostKeyboardFocus"
                                  TextChanged="TreeViewSearchTextBox_TextChanged"/>
-                        <TreeView Name="TreeView" Loaded="TreeView_Loaded" SelectedItemChanged="TreeView_SelectedItemChanged"/>
+                        <!--<TreeView Name="TreeView" Loaded="TreeView_Loaded" SelectedItemChanged="TreeView_SelectedItemChanged"/>-->
+                        <TabControl x:Name="TabControl" Loaded="TabControl_Loaded" TabStripPlacement="Left" SelectionChanged="TabControl_SelectionChanged">
+                            <TabControl.Resources>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="Margin" Value="4,0"/>
+                                    <Setter Property="Padding" Value="10,4"/>
+                                    <Setter Property="Background" Value="#fefefe"/>
+                                </Style>
+                            </TabControl.Resources>
+                        </TabControl>
                     </DockPanel>
                     <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Stretch" Background="Transparent"/>
                     <Border Grid.Column="2" BorderThickness="1,0,0,0" BorderBrush="#ccc">
