@@ -83,8 +83,9 @@
             </Setter>
         </Style>
         <Style TargetType="TabControl">
-            <Setter Property="Margin" Value="2,0,0,0"/>
+            <Setter Property="Margin" Value="-1,0,0,0"/>
             <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="#fff"/>
         </Style>
         <Style TargetType="TabItem">
             <Setter Property="Foreground" Value="#4c4c4c"/>
@@ -92,7 +93,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TabItem">
-                        <Border Name="Border" BorderThickness="1" BorderBrush="#C4C9C4" Background="#fefefe" CornerRadius="0" Padding="4" Margin="2,2,0,0">
+                        <Border Name="Border" BorderThickness="1" BorderBrush="#C4C9C4" Background="#efefef" CornerRadius="0" Padding="4" Margin="2,2,0,0">
                             <StackPanel>
                                 <TextBlock Name="Text" Text="{Binding Header, RelativeSource={RelativeSource TemplatedParent}}" 
                                     TextAlignment="Center" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
@@ -109,7 +110,7 @@
                                     <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True"/>
                                     <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="False"/>
                                 </MultiDataTrigger.Conditions>
-                                <Setter TargetName="Border" Property="Background" Value="#eee"/>
+                                <Setter TargetName="Border" Property="Background" Value="#b7e1f7"/>
                             </MultiDataTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -234,18 +235,18 @@
                         <ColumnDefinition Width="3.84*"/>
                     </Grid.ColumnDefinitions>
                     <DockPanel Grid.Column="0">
-                        <TextBox Name="TreeViewSearchTextBox" DockPanel.Dock="Top" Text="Search..." Padding="4" Margin="5,0,2,0" Background="White" Foreground="Gray" 
+                        <TextBox Name="TreeViewSearchTextBox" DockPanel.Dock="Top" Text="Search..." Padding="4" Margin="3,0,2,0" Background="White" Foreground="Gray" 
                                  GotKeyboardFocus="TreeViewSearchTextBox_GotKeyboardFocus" LostKeyboardFocus="TreeViewSearchTextBox_LostKeyboardFocus"
                                  TextChanged="TreeViewSearchTextBox_TextChanged"/>
                         <TabControl x:Name="TabControl" TabStripPlacement="Bottom" SelectionChanged="TabControl_SelectionChanged">
                             <TabControl.Resources>
                                 <Style TargetType="ListBox">
-                                    <Setter Property="Margin" Value="1,0,0,0"/>
+                                    <Setter Property="Margin" Value="2,0,0,-1"/>
                                 </Style>
                                 <Style TargetType="ListBoxItem">
                                     <Setter Property="Margin" Value="1,2"/>
                                     <Setter Property="Padding" Value="2"/>
-                                    <Setter Property="Background" Value="#fefefe"/>
+                                    <Setter Property="Background" Value="#fff"/>
                                 </Style>
                             </TabControl.Resources>
                         </TabControl>
