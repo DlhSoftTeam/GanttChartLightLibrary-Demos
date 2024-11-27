@@ -72,6 +72,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomGanttChartItem.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -205,6 +206,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\InsertNew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CustomScales.png" />
+    <Resource Include="Images\Error.png" />
+    <Resource Include="Images\Flag.png" />
+    <Resource Include="Images\Help.png" />
+    <Resource Include="Images\MoveDown.png" />
+    <Resource Include="Images\MoveUp.png" />
+    <Resource Include="Images\Person.png" />
+    <Resource Include="Images\ResourceAdd.png" />
+    <Resource Include="Images\ResourceDelete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

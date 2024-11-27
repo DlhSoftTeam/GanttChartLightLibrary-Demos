@@ -507,6 +507,10 @@ namespace Demos
                 case "ScheduleChartDataGrid":
                     switch (feature)
                     {
+                        case "MainFeatures":
+                            if (!isVisualBasic)
+                                fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml" + (!isVisualBasic ? ".cs" : ".vb"), "CustomGanttChartItem.cs" };
+                            break;
                         case "BarTemplating":
                             fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml" + (!isVisualBasic ? ".cs" : ".vb"), "CustomGanttChartItem" + (!isVisualBasic ? ".cs" : ".vb"), "Interruption" + (!isVisualBasic ? ".cs" : ".vb"), "Marker" + (!isVisualBasic ? ".cs" : ".vb") };
                             break;
