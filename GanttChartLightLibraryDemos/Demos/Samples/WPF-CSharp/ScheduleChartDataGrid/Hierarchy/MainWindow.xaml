@@ -3,16 +3,76 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
         xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
+        xmlns:pdgccConverters="clr-namespace:DlhSoft.Windows.Converters;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:local="clr-namespace:Demos.WPF.CSharp.ScheduleChartDataGrid.Hierarchy"
         Title="ScheduleChartDataGrid Hierarchy Sample" Width="800" Height="600">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="AppResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <pdgccConverters:NumberStringConverter x:Key="NumberStringConverter"/>
+            <pdgccConverters:DateTimeStringConverter x:Key="DateTimeStringConverter"/>
+            <pdgccConverters:DurationStringConverter x:Key="DurationStringConverter"/>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
-        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.1*">
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.14*" PreviewMouseLeftButtonUp="ScheduleChartDataGrid_PreviewMouseLeftButtonUp" AlternatingItemBackground="#f9f9f9">
+            <pdgcc:ScheduleChartDataGrid.StandardTaskTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid x:Name="TaskGrid">
+                            <Rectangle Fill="#c0b7e1f7" RadiusX="{Binding GanttChartView.StandardBarCornerRadius}" RadiusY="{Binding GanttChartView.StandardBarCornerRadius}" Margin="-4" Visibility="{Binding Path=(local:MainWindow.IsSelected), Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                            <Rectangle x:Name="HoveredTaskRectangle" Fill="#80b7e1f7" RadiusX="{Binding GanttChartView.StandardBarCornerRadius}" RadiusY="{Binding GanttChartView.StandardBarCornerRadius}" Margin="-4" Visibility="Collapsed"/>
+                            <Border Background="{Binding (pdgcc:GanttChartView.StandardBarFill)}" CornerRadius="{Binding GanttChartView.StandardBarCornerRadius}" BorderBrush="{Binding (pdgcc:GanttChartView.StandardBarStroke)}" BorderThickness="{Binding GanttChartView.StandardBarStrokeThickness}"/>
+                            <pdgcc:DragTaskThumb IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskStartThumbEnabled}" Role="UpdateStart" Visibility="{Binding GanttChartView.ThumbVisibility}"/>
+                            <pdgcc:DragTaskThumb HorizontalAlignment="Right" IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskFinishThumbEnabled}" Role="UpdateFinish" Visibility="{Binding GanttChartView.ThumbVisibility}" Width="2"/>
+                            <pdgcc:DragTaskThumb HorizontalAlignment="Left" IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskStartOnlyThumbEnabled}" Margin="-2,0,0,0" Role="UpdateStartOnly" Visibility="{Binding GanttChartView.ThumbVisibility}" Width="2"/>
+                        </Grid>
+                        <Grid Margin="0,0,0,-2" Visibility="{Binding Path=GanttChartView.(pdgcc:ScheduleChartView.AssignmentThumbVisibility)}">
+                            <pdgcc:DragAssignmentThumb Visibility="{Binding GanttChartView.ThumbVisibility}"/>
+                        </Grid>
+                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Visibility="{Binding GanttChartView.TaskCompletedEffortVisibility}" VerticalAlignment="Center">
+                            <Rectangle Fill="{Binding (pdgcc:GanttChartView.StandardCompletedBarFill)}" Height="{Binding GanttChartView.CompletedBarHeight}" IsHitTestVisible="False" RadiusY="{Binding GanttChartView.StandardCompletedBarCornerRadius}" RadiusX="{Binding GanttChartView.StandardCompletedBarCornerRadius}" Stroke="{Binding (pdgcc:GanttChartView.StandardCompletedBarStroke)}" StrokeThickness="{Binding GanttChartView.StandardCompletedBarStrokeThickness}" VerticalAlignment="Center" Width="{Binding ComputedCompletedBarWidth}" Opacity="0.5"/>
+                            <pdgcc:DragTaskThumb Height="{Binding GanttChartView.BarHeight}" IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskCompletionThumbEnabled}" Role="UpdateCompletedFinish" Visibility="{Binding GanttChartView.ThumbVisibility}" Width="8">
+                                <pdgcc:DragTaskThumb.ToolTip>
+                                    <Binding Path="Completion" Converter="{StaticResource NumberStringConverter}" ConverterParameter="0.##%"/>
+                                </pdgcc:DragTaskThumb.ToolTip>
+                            </pdgcc:DragTaskThumb>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="3,1" IsHitTestVisible="False">
+                            <!-- An image can be used to display the custom icon on the task bar in the chart. -->
+                            <Image Grid.Column="0" Source="{Binding Icon}" IsHitTestVisible="False" Height="16"/>
+                            <TextBlock Text="{Binding Content, Mode=TwoWay}" Height="14"  FontFamily="Arial" FontSize="11" Padding="1" Foreground="#403C3B" TextTrimming="WordEllipsis" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                        <!-- A text block can be used to display the custom note under the task bar in the chart. -->
+                        <Canvas>
+                            <TextBlock Canvas.Top="18" Text="{Binding Note}" FontFamily="Arial" FontStyle="Italic" FontSize="10" Foreground="Gray"/>
+                        </Canvas>
+                    </Grid>
+                    <DataTemplate.Triggers>
+                        <Trigger SourceName="TaskGrid" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="HoveredTaskRectangle" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </pdgcc:ScheduleChartDataGrid.StandardTaskTemplate>
+            <pdgcc:GanttChartDataGrid.MilestoneTaskTemplate>
+                <DataTemplate>
+                    <Grid x:Name="MilestoneGrid">
+                        <Polygon Fill="#c0b7e1f7" Points="0.5,0 1,0.5 0.5,1 0,0.5" Stretch="UniformToFill" Stroke="{Binding (pdgcc:GanttChartView.MilestoneBarStroke)}" StrokeThickness="{Binding GanttChartView.MilestoneBarStrokeThickness}" Margin="-4" Visibility="{Binding Path=(local:MainWindow.IsSelected), Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        <Polygon x:Name="HoveredTaskPolygon" Fill="#80b7e1f7" Points="0.5,0 1,0.5 0.5,1 0,0.5" Stretch="UniformToFill" Margin="-4" Visibility="Collapsed"/>
+                        <Polygon Fill="{Binding (pdgcc:GanttChartView.MilestoneBarFill)}" Points="0.5,0 1,0.5 0.5,1 0,0.5" Stretch="UniformToFill" Stroke="{Binding (pdgcc:GanttChartView.MilestoneBarStroke)}" StrokeThickness="{Binding GanttChartView.MilestoneBarStrokeThickness}"/>
+                        <pdgcc:DragTaskThumb IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskStartThumbEnabled}" Role="UpdateStart" Visibility="{Binding GanttChartView.ThumbVisibility}"/>
+                    </Grid>
+                    <DataTemplate.Triggers>
+                        <Trigger SourceName="MilestoneGrid" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="HoveredTaskPolygon" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </pdgcc:GanttChartDataGrid.MilestoneTaskTemplate>
             <!-- DataTreeGridColumn (within a fully defined custom Columns collection) is required to present hierarchical resources. -->
             <pdgcc:ScheduleChartDataGrid.Columns>
                 <pdgcc:DataGridColumnCollection>

@@ -109,8 +109,8 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
             task53.Start = DateTime.Today.AddDays(9).Add(TimeSpan.Parse("12:00:00"));
             task53.Finish = DateTime.Today.AddDays(12).Add(TimeSpan.Parse("16:00:00"));
 
-            var pred51 = new PredecessorItem();
-            pred51.Item = task51;
+            var pred51 = new PredecessorItem { Item = task51 };
+            task52.Predecessors.Add(pred51);
 
             var succ53 = new PredecessorItem { Item = task53, DependencyType = DependencyType.FinishFinish };
             task52.Predecessors.Add(succ53);
