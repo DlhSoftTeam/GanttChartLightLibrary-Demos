@@ -32,17 +32,6 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
             }
         }
 
-        private double selectedTaskBarHeight;
-        public double SelectedTaskBarHeight
-        {
-            get { return selectedTaskBarHeight; }
-            set
-            {
-                SelectedTaskBarHeight = value;
-                OnPropertyChanged("SelectedTaskBarHeight");
-            }
-        }
-
         protected override void OnPropertyChanged(string propertyName)
         {
             base.OnPropertyChanged(propertyName);
