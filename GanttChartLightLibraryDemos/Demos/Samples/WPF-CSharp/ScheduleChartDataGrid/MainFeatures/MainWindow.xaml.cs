@@ -405,7 +405,79 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
         }
         private void PrintButton_Click(object sender, RoutedEventArgs e)
         {
-            ScheduleChartDataGrid.Print("ScheduleChartDataGrid Sample Document");
+            var oldStart = ScheduleChartDataGrid.TimelinePageStart;
+            var oldFinish = ScheduleChartDataGrid.TimelinePageFinish; 
+
+            try
+            {
+                var dialog = new System.Windows.Controls.PrintDialog();
+                // Optional: dialog.PrintTicket.PageOrientation = PageOrientation.Landscape;
+
+                var timelinePageStart = ScheduleChartDataGrid.GetProjectStart().AddDays(-1);
+                var timelinePageFinish = ScheduleChartDataGrid.GetProjectFinish().AddDays(1);
+
+                var timelineHours = ScheduleChartDataGrid.GetEffort(ScheduleChartDataGrid.GetProjectStart(), ScheduleChartDataGrid.GetProjectFinish(), ScheduleChartDataGrid.GetVisibilitySchedule()).TotalHours;
+                var gridWidth = ScheduleChartDataGrid.Columns.Sum(c => c.ActualWidth);
+
+                if (dialog.ShowDialog() == true)
+                {
+                    ScheduleChartDataGrid.SetTimelinePage(timelinePageStart, timelinePageFinish);
+                    var exportedSize = ScheduleChartDataGrid.GetExportSize();
+
+                    //Printing on a single page, if the content fits (considering the margins defined in PrintingTemplate as well).
+                    if (exportedSize.Width + 2 * 48 <= dialog.PrintableAreaWidth && exportedSize.Height + 2 * 32 <= dialog.PrintableAreaHeight)
+                    {
+                        ScheduleChartDataGrid.Export((Action)delegate
+                        {
+                            // Get a DrawingVisual representing the Gantt Chart content.
+                            var exportedVisual = ScheduleChartDataGrid.GetExportDrawingVisual();
+                            // Apply necessary transforms for the content to fit into the output page.
+                            exportedVisual.Transform = GetPageFittingTransform(dialog);
+                            // Actually print the visual.
+                            var container = new Border();
+                            container.Padding = new Thickness(48, 32, 48, 32);
+                            container.Child = new Rectangle { Fill = new VisualBrush(exportedVisual), Width = exportedSize.Width, Height = exportedSize.Height };
+                            dialog.PrintVisual(container, "Schedule Chart Document");
+                        });
+                    }
+                    else
+                    {
+                        var documentPaginator = new DlhSoft.Windows.Controls.GanttChartDataGrid.DocumentPaginator(ScheduleChartDataGrid);
+                        documentPaginator.PageSize = new Size(dialog.PrintableAreaWidth, dialog.PrintableAreaHeight);
+                        dialog.PrintDocument(documentPaginator, "Schedule Chart Document");
+                    }
+
+                    Close();
+                }
+            }
+            finally
+            {
+                Dispatcher.BeginInvoke((Action)delegate
+                {
+                    ScheduleChartDataGrid.SetTimelinePage(oldStart, oldFinish);
+                });
+            }
+            //ScheduleChartDataGrid.Print("ScheduleChartDataGrid Sample Document");
+        }
+        private TransformGroup GetPageFittingTransform(System.Windows.Controls.PrintDialog printDialog)
+        {
+            // Determine scale to apply for page fitting.
+            var scale = GetPageFittingScaleRatio(printDialog);
+            // Set up a transform group in order to allow multiple transforms, if needed.
+            var transformGroup = new TransformGroup();
+            transformGroup.Children.Add(new ScaleTransform(scale, scale));
+            // Optionally, add other transforms, such as supplemental translation, scale, or rotation as you need for the output presentation.
+            return transformGroup;
+        }
+
+        private double GetPageFittingScaleRatio(System.Windows.Controls.PrintDialog printDialog)
+        {
+            // Determine the appropriate scale to apply based on export size and printable area size.
+            var outputSize = ScheduleChartDataGrid.GetExportSize();
+            var scaleX = printDialog.PrintableAreaWidth / outputSize.Width;
+            var scaleY = printDialog.PrintableAreaHeight / outputSize.Height;
+            var scale = Math.Min(scaleX, scaleY);
+            return scale;
         }
         private void ExportImageButton_Click(object sender, RoutedEventArgs e)
         {

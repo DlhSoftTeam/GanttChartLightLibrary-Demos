@@ -135,7 +135,7 @@
             </StackPanel>
         </Border>
         <!-- Optionally, set IsUndoEnabled to true to enable undo queue recording; you may call Undo and Redo methods for undoing and redoing recorded actions (see code behind). -->
-        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.14*" IsUndoEnabled="True" UseMultipleLinesPerRow="True" PreviewMouseLeftButtonUp="ScheduleChartDataGrid_MouseLeftButtonUp">
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.1*" IsUndoEnabled="True" UseMultipleLinesPerRow="True" PreviewMouseLeftButtonUp="ScheduleChartDataGrid_MouseLeftButtonUp">
             <FrameworkElement.Resources>
                 <Style TargetType="ToolTip">
                     <Setter Property="BorderBrush" Value="#ccc"/>
@@ -232,7 +232,7 @@
             <!-- DataTreeGridColumn (within a fully defined custom Columns collection) is required to present hierarchical resources. -->
             <pdgcc:ScheduleChartDataGrid.Columns>
                 <pdgcc:DataGridColumnCollection>
-                    <hdc:DataTreeGridColumn Header="Resource" Width="200"/>
+                    <hdc:DataTreeGridColumn Header="Resource" Width="132"/>
                 </pdgcc:DataGridColumnCollection>
             </pdgcc:ScheduleChartDataGrid.Columns>
             <pdgcc:ScheduleChartDataGrid.Items>
