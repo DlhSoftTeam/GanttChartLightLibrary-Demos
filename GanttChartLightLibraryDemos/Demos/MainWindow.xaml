@@ -82,37 +82,40 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style TargetType="TreeView">
+        <Style TargetType="TabControl">
+            <Setter Property="Margin" Value="-1,0,0,0"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="Background" Value="#fff"/>
         </Style>
-        <Style TargetType="TreeViewItem">
-            <Setter Property="Padding" Value="8"/>
-            <EventSetter Event="Expanded" Handler="TreeViewItem_Expanded"/>
-            <Style.Triggers>
-                <Trigger Property="HasItems" Value="True">
-                    <Setter Property="HeaderTemplate">
-                        <Setter.Value>
-                            <DataTemplate>
-                                <ContentPresenter Content="{Binding Converter={StaticResource UppercaseConverter}}"/>
-                            </DataTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Trigger>
-                <Trigger Property="HasItems" Value="False">
-                    <Setter Property="FontWeight" Value="Normal"/>
-                </Trigger>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-        <Style x:Key="SelectedTreeViewItemParentStyle" TargetType="TreeViewItem" BasedOn="{StaticResource {x:Type TreeViewItem}}">
-            <Style.Triggers>
-                <Trigger Property="HasItems" Value="True">
-                    <Setter Property="Foreground" Value="#e31d3b"/>
-                </Trigger>
-            </Style.Triggers>
+        <Style TargetType="TabItem">
+            <Setter Property="Foreground" Value="#4c4c4c"/>
+            <Setter Property="Background" Value="#fefefe"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Border Name="Border" BorderThickness="1" BorderBrush="#C4C9C4" Background="#efefef" CornerRadius="0" Padding="4" Margin="2,2,0,0">
+                            <StackPanel>
+                                <TextBlock Name="Text" Text="{Binding Header, RelativeSource={RelativeSource TemplatedParent}}" 
+                                    TextAlignment="Center" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#e31d3b"/>
+                                <Setter TargetName="Border" Property="Background" Value="#e31d3b"/>
+                                <Setter TargetName="Text" Property="TextElement.Foreground" Value="White"/>
+                            </Trigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True"/>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="False"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter TargetName="Border" Property="Background" Value="#b7e1f7"/>
+                            </MultiDataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
     <DockPanel>
@@ -229,13 +232,24 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="3.5*"/>
                     </Grid.ColumnDefinitions>
                     <DockPanel Grid.Column="0">
-                        <TextBox Name="TreeViewSearchTextBox" DockPanel.Dock="Bottom" Text="Search..." Padding="4" Background="White" Foreground="Gray" 
+                        <TextBox Name="TreeViewSearchTextBox" DockPanel.Dock="Top" Text="Search..." Padding="4" Margin="3,0,2,0" Background="White" Foreground="Gray" 
                                  GotKeyboardFocus="TreeViewSearchTextBox_GotKeyboardFocus" LostKeyboardFocus="TreeViewSearchTextBox_LostKeyboardFocus"
                                  TextChanged="TreeViewSearchTextBox_TextChanged"/>
-                        <TreeView Name="TreeView" Loaded="TreeView_Loaded" SelectedItemChanged="TreeView_SelectedItemChanged"/>
+                        <TabControl x:Name="TabControl" TabStripPlacement="Bottom" SelectionChanged="TabControl_SelectionChanged">
+                            <TabControl.Resources>
+                                <Style TargetType="ListBox">
+                                    <Setter Property="Margin" Value="2,0,0,-1"/>
+                                </Style>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="Margin" Value="1"/>
+                                    <Setter Property="Padding" Value="2,3"/>
+                                    <Setter Property="Background" Value="#fff"/>
+                                </Style>
+                            </TabControl.Resources>
+                        </TabControl>
                     </DockPanel>
                     <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Stretch" Background="Transparent"/>
                     <Border Grid.Column="2" BorderThickness="1,0,0,0" BorderBrush="#ccc">

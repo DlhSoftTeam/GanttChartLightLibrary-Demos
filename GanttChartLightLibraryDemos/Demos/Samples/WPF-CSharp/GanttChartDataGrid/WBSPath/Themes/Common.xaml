@@ -12,9 +12,9 @@
     </pdgcc:ScaleCollection>
     <LinearGradientBrush x:Key="SummaryBarFill" StartPoint="0.5,0" EndPoint="0.5,1">
         <LinearGradientBrush.GradientStops>
-            <GradientStop Color="#666" Offset="0"/>
+            <GradientStop Color="#777" Offset="0"/>
             <GradientStop Color="Gray" Offset="0.2"/>
-            <GradientStop Color="#666" Offset="0.6"/>
+            <GradientStop Color="#777" Offset="0.6"/>
         </LinearGradientBrush.GradientStops>
     </LinearGradientBrush>
     <Style x:Key="ColumnHeaderStyle" TargetType="DataGridColumnHeader">
@@ -43,7 +43,7 @@
         <Setter Property="StandardCompletedBarStroke" Value="#8abbed"/>
         <Setter Property="StandardCompletedBarFill" Value="#3b87d9"/>
         <Setter Property="SummaryBarFill" Value="{StaticResource SummaryBarFill}"/>
-        <Setter Property="MilestoneBarFill" Value="#666"/>
+        <Setter Property="MilestoneBarFill" Value="#777"/>
         <Setter Property="DependencyLineStroke" Value="{Binding StandardBarStroke, RelativeSource={RelativeSource Self}}"/>
         <Setter Property="Scales" Value="{StaticResource Scales}"/>
     </Style>
@@ -65,7 +65,7 @@
         <Setter Property="StandardCompletedBarStroke" Value="#8abbed"/>
         <Setter Property="StandardCompletedBarFill" Value="#3b87d9"/>
         <Setter Property="SummaryBarFill" Value="{StaticResource SummaryBarFill}"/>
-        <Setter Property="MilestoneBarFill" Value="#666"/>
+        <Setter Property="MilestoneBarFill" Value="#777"/>
         <Setter Property="CellStyle" Value="{StaticResource CellStyle}"/>
         <Setter Property="DependencyLineStroke" Value="{Binding StandardBarStroke, RelativeSource={RelativeSource Self}}"/>
         <Setter Property="Scales" Value="{StaticResource Scales}"/>
@@ -86,7 +86,7 @@
         <Setter Property="StandardBarFill" Value="#8abbed"/>
         <Setter Property="StandardCompletedBarStroke" Value="#8abbed"/>
         <Setter Property="StandardCompletedBarFill" Value="#3b87d9"/>
-        <Setter Property="MilestoneBarFill" Value="#666"/>
+        <Setter Property="MilestoneBarFill" Value="#777"/>
         <Setter Property="Scales" Value="{StaticResource Scales}"/>
     </Style>
     <Style x:Key="ScheduleChartDataGridTemplates" TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:ScheduleChartDataGrid}}">
@@ -106,7 +106,7 @@
         <Setter Property="StandardBarFill" Value="#8abbed"/>
         <Setter Property="StandardCompletedBarStroke" Value="#8abbed"/>
         <Setter Property="StandardCompletedBarFill" Value="#3b87d9"/>
-        <Setter Property="MilestoneBarFill" Value="#666"/>
+        <Setter Property="MilestoneBarFill" Value="#777"/>
         <Setter Property="CellStyle" Value="{StaticResource CellStyle}"/>
         <Setter Property="Scales" Value="{StaticResource Scales}"/>
     </Style>
@@ -165,8 +165,9 @@
         <ContentControl Content="{Binding AssignmentsContent}" Foreground="Black" IsHitTestVisible="False" IsTabStop="False"/>
     </DataTemplate>
     <Style x:Key="ColumnHeaderStyle2" TargetType="DataGridColumnHeader">
-        <Setter Property="Background" Value="Gray"/>
-        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="Background" Value="#fefefe"/>
+        <Setter Property="BorderBrush" Value="Silver"/>
+        <Setter Property="Foreground" Value="#444"/>
         <Setter Property="BorderThickness" Value="0,0,1,1"/>
         <Setter Property="Padding" Value="4"/>
     </Style>
@@ -213,11 +214,11 @@
     <Style x:Key="GanttChartViewTemplates2" TargetType="pdgcc:GanttChartView" BasedOn="{StaticResource GanttChartViewTemplates}">
         <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="FontSize" Value="12"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="HeaderBackground" Value="Gray"/>
+        <Setter Property="Foreground" Value="#444"/>
+        <Setter Property="HeaderBackground" Value="#fefefe"/>
         <Setter Property="HeaderHeight" Value="44"/>
         <Setter Property="ScaleHeaderHeight" Value="22"/>
-        <Setter Property="NonworkingTimeBackground" Value="#f2f2f2"/>
+        <Setter Property="NonworkingTimeBackground" Value="#ccf2f2f2"/>
         <Setter Property="AssignmentsTemplate" Value="{StaticResource AssignmentsTemplate2}"/>
         <Setter Property="StandardBarCornerRadius" Value="2"/>
         <Setter Property="StandardCompletedBarCornerRadius" Value="2"/>
@@ -231,14 +232,14 @@
         </Style.Resources>
         <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="FontSize" Value="12"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="HeaderBackground" Value="Gray"/>
+        <Setter Property="Foreground" Value="#444"/>
+        <Setter Property="HeaderBackground" Value="#fefefe"/>
         <Setter Property="HeaderHeight" Value="44"/>
         <Setter Property="ColumnHeaderStyle" Value="{StaticResource ColumnHeaderStyle2}"/>
         <Setter Property="RowStyle" Value="{StaticResource RowStyle2}"/>
         <Setter Property="CellStyle" Value="{StaticResource CellStyle2}"/>
         <Setter Property="ScaleHeaderHeight" Value="22"/>
-        <Setter Property="NonworkingTimeBackground" Value="#f2f2f2"/>
+        <Setter Property="NonworkingTimeBackground" Value="#ccf2f2f2"/>
         <Setter Property="AssignmentsTemplate" Value="{StaticResource AssignmentsTemplate2}"/>
         <Setter Property="StandardBarCornerRadius" Value="2"/>
         <Setter Property="StandardCompletedBarCornerRadius" Value="2"/>
@@ -248,11 +249,11 @@
     <Style x:Key="ScheduleChartViewTemplates2" TargetType="pdgcc:ScheduleChartView" BasedOn="{StaticResource ScheduleChartViewTemplates}">
         <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="FontSize" Value="12"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="HeaderBackground" Value="Gray"/>
+        <Setter Property="Foreground" Value="#444"/>
+        <Setter Property="HeaderBackground" Value="#fefefe"/>
         <Setter Property="HeaderHeight" Value="44"/>
         <Setter Property="ScaleHeaderHeight" Value="22"/>
-        <Setter Property="NonworkingTimeBackground" Value="#f2f2f2"/>
+        <Setter Property="NonworkingTimeBackground" Value="#ccf2f2f2"/>
         <Setter Property="AssignmentsTemplate" Value="{StaticResource AssignmentsTemplate2}"/>
         <Setter Property="StandardBarCornerRadius" Value="2"/>
         <Setter Property="StandardCompletedBarCornerRadius" Value="2"/>
@@ -264,14 +265,14 @@
         </Style.Resources>
         <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="FontSize" Value="12"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="HeaderBackground" Value="Gray"/>
+        <Setter Property="Foreground" Value="#444"/>
+        <Setter Property="HeaderBackground" Value="#fefefe"/>
         <Setter Property="HeaderHeight" Value="44"/>
         <Setter Property="ColumnHeaderStyle" Value="{StaticResource ColumnHeaderStyle2}"/>
         <Setter Property="RowStyle" Value="{StaticResource RowStyle2}"/>
         <Setter Property="CellStyle" Value="{StaticResource CellStyle2}"/>
         <Setter Property="ScaleHeaderHeight" Value="22"/>
-        <Setter Property="NonworkingTimeBackground" Value="#f2f2f2"/>
+        <Setter Property="NonworkingTimeBackground" Value="#ccf2f2f2"/>
         <Setter Property="AssignmentsTemplate" Value="{StaticResource AssignmentsTemplate2}"/>
         <Setter Property="StandardBarCornerRadius" Value="2"/>
         <Setter Property="StandardCompletedBarCornerRadius" Value="2"/>
@@ -279,11 +280,11 @@
     <Style x:Key="LoadChartViewTemplates2" TargetType="pdgcc:LoadChartView" BasedOn="{StaticResource LoadChartViewTemplates}">
         <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="FontSize" Value="12"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="HeaderBackground" Value="Gray"/>
+        <Setter Property="Foreground" Value="#444"/>
+        <Setter Property="HeaderBackground" Value="#fefefe"/>
         <Setter Property="HeaderHeight" Value="44"/>
         <Setter Property="ScaleHeaderHeight" Value="22"/>
-        <Setter Property="NonworkingTimeBackground" Value="#f2f2f2"/>
+        <Setter Property="NonworkingTimeBackground" Value="#ccf2f2f2"/>
         <Setter Property="StandardBarCornerRadius" Value="2"/>
         <Setter Property="StandardCompletedBarCornerRadius" Value="2"/>
     </Style>
@@ -294,14 +295,14 @@
         </Style.Resources>
         <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="FontSize" Value="12"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="HeaderBackground" Value="Gray"/>
+        <Setter Property="Foreground" Value="#444"/>
+        <Setter Property="HeaderBackground" Value="#fefefe"/>
         <Setter Property="HeaderHeight" Value="44"/>
         <Setter Property="ColumnHeaderStyle" Value="{StaticResource ColumnHeaderStyle2}"/>
         <Setter Property="RowStyle" Value="{StaticResource RowStyle2}"/>
         <Setter Property="CellStyle" Value="{StaticResource CellStyle2}"/>
         <Setter Property="ScaleHeaderHeight" Value="22"/>
-        <Setter Property="NonworkingTimeBackground" Value="#f2f2f2"/>
+        <Setter Property="NonworkingTimeBackground" Value="#ccf2f2f2"/>
         <Setter Property="StandardBarCornerRadius" Value="2"/>
         <Setter Property="StandardCompletedBarCornerRadius" Value="2"/>
     </Style>

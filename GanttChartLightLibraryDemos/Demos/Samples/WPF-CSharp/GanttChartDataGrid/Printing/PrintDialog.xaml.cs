@@ -20,8 +20,8 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.Printing
             InitializeComponent();
         }
 
-        public MainWindow MainWindow => Owner as MainWindow;
-        public DlhSoft.Windows.Controls.GanttChartDataGrid GanttChartDataGrid => MainWindow.GanttChartDataGrid;
+        public MainWindow MainWindow => Tag as MainWindow;
+        public DlhSoft.Windows.Controls.GanttChartDataGrid GanttChartDataGrid => Tag as DlhSoft.Windows.Controls.GanttChartDataGrid;
         public List<ColumnSelector> GridColumns { get; set; } = new List<ColumnSelector>();
         public DateTime TimelinePageStart { get; set; }
         public DateTime TimelinePageFinish { get; set; }

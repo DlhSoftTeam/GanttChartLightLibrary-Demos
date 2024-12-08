@@ -29,36 +29,129 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
         {
             InitializeComponent();
 
-            GanttChartItem task1 = ScheduleChartDataGrid.Items[0].GanttChartItems[0];
-            task1.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
-            task1.Finish = DateTime.Today.Add(TimeSpan.Parse("16:00:00"));
-            task1.CompletedFinish = DateTime.Today.Add(TimeSpan.Parse("12:00:00"));
+            string applicationName = GetType().Namespace;
 
-            GanttChartItem task21 = ScheduleChartDataGrid.Items[0].GanttChartItems[1];
-            task21.Start = DateTime.Today.AddDays(1).Add(TimeSpan.Parse("12:00:00"));
-            task21.Finish = DateTime.Today.AddDays(2).Add(TimeSpan.Parse("16:00:00"));
-            task21.AssignmentsContent = "50%";
+            #region ganttchartitems
+            ScheduleChartItem unassignedScheduleChartItem = ScheduleChartDataGrid.Items[0];
 
-            GanttChartItem task22 = ScheduleChartDataGrid.Items[1].GanttChartItems[0];
-            task22.Start = DateTime.Today.AddDays(1).Add(TimeSpan.Parse("12:00:00"));
-            task22.Finish = DateTime.Today.AddDays(2).Add(TimeSpan.Parse("16:00:00"));
+            CustomGanttChartItem item1 = new CustomGanttChartItem
+            { Content = "Project delivery", Start = DateTime.Today.AddDays(1), Finish = DateTime.Today.AddDays(5) };
+            unassignedScheduleChartItem.GanttChartItems.Add(item1);
 
-            for (int i = 3; i <= 16; i++)
+            CustomGanttChartItem item2 = new CustomGanttChartItem
+            { Content = "Maintaince", Start = DateTime.Today.AddDays(2), Finish = DateTime.Today.AddDays(6) };
+            unassignedScheduleChartItem.GanttChartItems.Add(item2);
+
+            CustomGanttChartItem item3 = new CustomGanttChartItem
+            { Content = "Marketing", Start = DateTime.Today.AddDays(3), IsMilestone = true };
+            unassignedScheduleChartItem.GanttChartItems.Add(item3);
+
+            CustomGanttChartItem item4 = new CustomGanttChartItem
+            { Content = "Colors", Start = DateTime.Today.AddDays(4), Finish = DateTime.Today.AddDays(8) };
+            unassignedScheduleChartItem.GanttChartItems.Add(item4);
+
+            CustomGanttChartItem item5 = new CustomGanttChartItem
+            { Content = "Logo", Start = DateTime.Today.AddDays(5), Finish = DateTime.Today.AddDays(9) };
+            unassignedScheduleChartItem.GanttChartItems.Add(item5);
+
+            CustomGanttChartItem item6 = new CustomGanttChartItem
             {
-                ScheduleChartItem item = new ScheduleChartItem { Content = "Resource " + i };
-                for (int j = 1; j <= (i - 1) % 4 + 1; j++)
-                {
-                    item.GanttChartItems.Add(
-                        new GanttChartItem
-                        {
-                            Content = "Task " + i + "." + j,
-                            Start = DateTime.Today.AddDays(i + (i - 1) * (j - 1)),
-                            Finish = DateTime.Today.AddDays(i * 1.2 + (i - 1) * (j - 1) + 1),
-                            CompletedFinish = DateTime.Today.AddDays(i + (i - 1) * (j - 1)).AddDays((i + j) % 5 == 2 ? 2 : 0)
-                        });
-                }
-                ScheduleChartDataGrid.Items.Add(item);
-            }
+                Content = "Samples app",
+                Start = DateTime.Today.AddDays(6),
+                Finish = DateTime.Today.AddDays(10),
+                Icon = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Flag.png", applicationName), UriKind.Absolute))
+            };
+            unassignedScheduleChartItem.GanttChartItems.Add(item6);
+
+            CustomGanttChartItem item7 = new CustomGanttChartItem
+            { Content = "Screenshots", Start = DateTime.Today.AddDays(7), Finish = DateTime.Today.AddDays(11) };
+            unassignedScheduleChartItem.GanttChartItems.Add(item7);
+
+            CustomGanttChartItem item8 = new CustomGanttChartItem
+            { Content = "Videos", Start = DateTime.Today.AddDays(8), Finish = DateTime.Today.AddDays(12) };
+            unassignedScheduleChartItem.GanttChartItems.Add(item8);
+
+            #endregion
+
+            CustomGanttChartItem task21 = ScheduleChartDataGrid.Items[2].GanttChartItems[0] as CustomGanttChartItem;
+            task21.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
+            task21.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("16:00:00"));
+            task21.CompletedFinish = DateTime.Today.Add(TimeSpan.Parse("16:00:00"));
+
+            CustomGanttChartItem task22 = ScheduleChartDataGrid.Items[2].GanttChartItems[1] as CustomGanttChartItem;
+            task22.Start = DateTime.Today.AddDays(4).Add(TimeSpan.Parse("08:00:00"));
+            task22.Finish = DateTime.Today.AddDays(8).Add(TimeSpan.Parse("16:00:00"));
+            task22.CompletedFinish = DateTime.Today.AddDays(4).Add(TimeSpan.Parse("12:00:00"));
+            task22.Icon = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Person.png", applicationName), UriKind.Absolute));
+            task22.Note = "This task is very important.";
+
+            var pred21 = new PredecessorItem();
+            pred21.Item = task21;
+            task22.Predecessors.Add(pred21);
+
+            CustomGanttChartItem task31 = ScheduleChartDataGrid.Items[3].GanttChartItems[0] as CustomGanttChartItem;
+            task31.Start = DateTime.Today.AddDays(1).Add(TimeSpan.Parse("12:00:00"));
+            task31.Finish = DateTime.Today.AddDays(8).Add(TimeSpan.Parse("16:00:00"));
+            task31.Icon = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Person.png", applicationName), UriKind.Absolute));
+            task31.AssignmentsContent = "50%";
+
+            CustomGanttChartItem task51 = ScheduleChartDataGrid.Items[5].GanttChartItems[0] as CustomGanttChartItem;
+            task51.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
+            task51.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("16:00:00"));
+            task51.CompletedFinish = DateTime.Today.Add(TimeSpan.Parse("16:00:00"));
+
+            CustomGanttChartItem task52 = ScheduleChartDataGrid.Items[5].GanttChartItems[1] as CustomGanttChartItem;
+            task52.Start = DateTime.Today.AddDays(5).Add(TimeSpan.Parse("12:00:00"));
+            task52.Finish = DateTime.Today.AddDays(8).Add(TimeSpan.Parse("16:00:00"));
+
+            CustomGanttChartItem task53 = ScheduleChartDataGrid.Items[5].GanttChartItems[2] as CustomGanttChartItem;
+            task53.Start = DateTime.Today.AddDays(9).Add(TimeSpan.Parse("12:00:00"));
+            task53.Finish = DateTime.Today.AddDays(12).Add(TimeSpan.Parse("16:00:00"));
+
+            var pred51 = new PredecessorItem { Item = task51 };
+            task52.Predecessors.Add(pred51);
+
+            var succ53 = new PredecessorItem { Item = task53, DependencyType = DependencyType.FinishFinish };
+            task52.Predecessors.Add(succ53);
+
+            CustomGanttChartItem task61 = ScheduleChartDataGrid.Items[6].GanttChartItems[0] as CustomGanttChartItem;
+            task61.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
+            task61.Finish = DateTime.Today.AddDays(2).Add(TimeSpan.Parse("16:00:00"));
+            task61.CompletedFinish = DateTime.Today.Add(TimeSpan.Parse("16:00:00"));
+
+            CustomGanttChartItem task62 = ScheduleChartDataGrid.Items[6].GanttChartItems[1] as CustomGanttChartItem;
+            task62.Start = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
+            task62.Finish = DateTime.Today.AddDays(6).Add(TimeSpan.Parse("16:00:00"));
+            task62.Icon = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Flag.png", applicationName), UriKind.Absolute));
+
+            CustomGanttChartItem task63 = ScheduleChartDataGrid.Items[6].GanttChartItems[2] as CustomGanttChartItem;
+            task63.Start = DateTime.Today.AddDays(7).Add(TimeSpan.Parse("12:00:00"));
+            task63.Finish = DateTime.Today.AddDays(9).Add(TimeSpan.Parse("16:00:00"));
+
+            CustomGanttChartItem task71 = ScheduleChartDataGrid.Items[7].GanttChartItems[0] as CustomGanttChartItem;
+            task71.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
+            task71.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("16:00:00"));
+            task71.CompletedFinish = DateTime.Today.Add(TimeSpan.Parse("16:00:00"));
+
+            CustomGanttChartItem task81 = ScheduleChartDataGrid.Items[8].GanttChartItems[0] as CustomGanttChartItem;
+            task81.Start = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
+            task81.Finish = DateTime.Today.AddDays(6).Add(TimeSpan.Parse("16:00:00"));
+
+            CustomGanttChartItem task91 = ScheduleChartDataGrid.Items[9].GanttChartItems[0] as CustomGanttChartItem;
+            task91.Start = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
+            task91.Finish = DateTime.Today.AddDays(6).Add(TimeSpan.Parse("16:00:00"));
+
+            CustomGanttChartItem task111 = ScheduleChartDataGrid.Items[11].GanttChartItems[0] as CustomGanttChartItem;
+            task111.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
+            task111.Finish = DateTime.Today.AddDays(6).Add(TimeSpan.Parse("16:00:00"));
+            task111.CompletedFinish = DateTime.Today.Add(TimeSpan.Parse("16:00:00"));
+
+            CustomGanttChartItem task112 = ScheduleChartDataGrid.Items[11].GanttChartItems[1] as CustomGanttChartItem;
+            task112.Start = DateTime.Today.AddDays(7).Add(TimeSpan.Parse("12:00:00"));
+            task112.Finish = DateTime.Today.AddDays(12).Add(TimeSpan.Parse("16:00:00"));
+
+            //Code for enable creation of dependencies between tasks
+            ScheduleChartDataGrid.DependencyCreationValidator = (i1, i2) => i1 != i2;
 
             // You may uncomment the next lines of code to test the component performance:
             // for (int i = 17; i <= 1024; i++)
@@ -125,6 +218,54 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
             ScheduleChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary);
         }
 
+        public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.RegisterAttached("IsSelected", typeof(bool), typeof(MainWindow), new PropertyMetadata(false));
+        
+        public static bool GetIsSelected(DependencyObject obj)
+        {
+            return (bool)obj.GetValue(IsSelectedProperty);
+        }
+
+        public static void SetIsSelected(DependencyObject obj, bool value)
+        {
+            obj.SetValue(IsSelectedProperty, value);
+        }
+
+        private GanttChartItem SelectedItem;
+
+        private void ScheduleChartDataGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Point controlPosition = e.GetPosition(ScheduleChartDataGrid);
+            if (controlPosition.X < ScheduleChartDataGrid.ActualWidth - ScheduleChartDataGrid.GanttChartView.ActualWidth)
+                return;
+
+            GanttChartItem item = null;
+            FrameworkElement frameworkElement = e.OriginalSource as FrameworkElement;
+            if (frameworkElement != null)
+                item = frameworkElement.DataContext as GanttChartItem;
+
+            if (SelectedItem != null)
+            {
+                SetIsSelected(SelectedItem, false);
+                SelectedItem = null;
+            }
+
+            if (item == null)
+                return;
+
+            SelectedItem = item;
+            SetIsSelected(SelectedItem, true);
+        }
+
+        public static readonly DependencyProperty OpacityProperty = DependencyProperty.RegisterAttached("Opacity", typeof(double), typeof(MainWindow), new PropertyMetadata(1.0));
+        public static double GetOpacity(DependencyObject obj)
+        {
+            return (double)obj.GetValue(OpacityProperty);
+        }
+        public static void SetOpacity(DependencyObject obj, double value)
+        {
+            obj.SetValue(OpacityProperty, value);
+        }
+
         // Control area commands.
         private void AddNewButton_Click(object sender, RoutedEventArgs e)
         {
@@ -166,6 +307,7 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
                 ScheduleChartDataGrid.Items.Remove(item);
             // ScheduleChartDataGrid.EndInit();
         }
+
         private void SetColorButton_Click(object sender, RoutedEventArgs e)
         {
             List<ScheduleChartItem> items = new List<ScheduleChartItem>();
@@ -265,8 +407,83 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
         }
         private void PrintButton_Click(object sender, RoutedEventArgs e)
         {
-            ScheduleChartDataGrid.Print("ScheduleChartDataGrid Sample Document");
+            // Simple alternative:
+            // ScheduleChartDataGrid.Print("ScheduleChartDataGrid Sample Document");
+
+            var oldStart = ScheduleChartDataGrid.TimelinePageStart;
+            var oldFinish = ScheduleChartDataGrid.TimelinePageFinish; 
+
+            try
+            {
+                var dialog = new System.Windows.Controls.PrintDialog();
+                // Optional: dialog.PrintTicket.PageOrientation = PageOrientation.Landscape;
+
+                var timelinePageStart = ScheduleChartDataGrid.GetProjectStart().AddDays(-1);
+                var timelinePageFinish = ScheduleChartDataGrid.GetProjectFinish().AddDays(1);
+
+                var timelineHours = ScheduleChartDataGrid.GetEffort(ScheduleChartDataGrid.GetProjectStart(), ScheduleChartDataGrid.GetProjectFinish(), ScheduleChartDataGrid.GetVisibilitySchedule()).TotalHours;
+                var gridWidth = ScheduleChartDataGrid.Columns.Sum(c => c.ActualWidth);
+
+                if (dialog.ShowDialog() == true)
+                {
+                    ScheduleChartDataGrid.SetTimelinePage(timelinePageStart, timelinePageFinish);
+                    var exportedSize = ScheduleChartDataGrid.GetExportSize();
+
+                    //Printing on a single page, if the content fits (considering the margins defined in PrintingTemplate as well).
+                    if (exportedSize.Width + 2 * 48 <= dialog.PrintableAreaWidth && exportedSize.Height + 2 * 32 <= dialog.PrintableAreaHeight)
+                    {
+                        ScheduleChartDataGrid.Export((Action)delegate
+                        {
+                            // Get a DrawingVisual representing the Gantt Chart content.
+                            var exportedVisual = ScheduleChartDataGrid.GetExportDrawingVisual();
+                            // Apply necessary transforms for the content to fit into the output page.
+                            exportedVisual.Transform = GetPageFittingTransform(dialog);
+                            // Actually print the visual.
+                            var container = new Border();
+                            container.Padding = new Thickness(48, 32, 48, 32);
+                            container.Child = new Rectangle { Fill = new VisualBrush(exportedVisual), Width = exportedSize.Width, Height = exportedSize.Height };
+                            dialog.PrintVisual(container, "Schedule Chart Document");
+                        });
+                    }
+                    else
+                    {
+                        var documentPaginator = new DlhSoft.Windows.Controls.GanttChartDataGrid.DocumentPaginator(ScheduleChartDataGrid);
+                        documentPaginator.PageSize = new Size(dialog.PrintableAreaWidth, dialog.PrintableAreaHeight);
+                        dialog.PrintDocument(documentPaginator, "Schedule Chart Document");
+                    }
+
+                    Close();
+                }
+            }
+            finally
+            {
+                Dispatcher.BeginInvoke((Action)delegate
+                {
+                    ScheduleChartDataGrid.SetTimelinePage(oldStart, oldFinish);
+                });
+            }
         }
+        private TransformGroup GetPageFittingTransform(System.Windows.Controls.PrintDialog printDialog)
+        {
+            // Determine scale to apply for page fitting.
+            var scale = GetPageFittingScaleRatio(printDialog);
+            // Set up a transform group in order to allow multiple transforms, if needed.
+            var transformGroup = new TransformGroup();
+            transformGroup.Children.Add(new ScaleTransform(scale, scale));
+            // Optionally, add other transforms, such as supplemental translation, scale, or rotation as you need for the output presentation.
+            return transformGroup;
+        }
+
+        private double GetPageFittingScaleRatio(System.Windows.Controls.PrintDialog printDialog)
+        {
+            // Determine the appropriate scale to apply based on export size and printable area size.
+            var outputSize = ScheduleChartDataGrid.GetExportSize();
+            var scaleX = printDialog.PrintableAreaWidth / outputSize.Width;
+            var scaleY = printDialog.PrintableAreaHeight / outputSize.Height;
+            var scale = Math.Min(scaleX, scaleY);
+            return scale;
+        }
+
         private void ExportImageButton_Click(object sender, RoutedEventArgs e)
         {
             ScheduleChartDataGrid.Export((Action)delegate
@@ -282,6 +499,63 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
                     pngBitmapEncoder.Save(stream);
                 }
             });
+        }
+
+        private void AddNewTaskButton_Click(object sender, RoutedEventArgs e)
+        {
+            ScheduleChartItem selectedItem = ScheduleChartDataGrid.SelectedItem as ScheduleChartItem;
+            if (selectedItem == null)
+            {
+                MessageBox.Show("Cannot add a new task if the selection of a resource is empty; you can either add a new resource to the end of the list instead, or select an item first.", "Information", MessageBoxButton.OK);
+                return;
+            }
+
+            GanttChartItem task = new CustomGanttChartItem { Content = "New Task", Start = DateTime.Today, Finish = DateTime.Today.AddDays(1) };
+            selectedItem.GanttChartItems.Insert(0, task);
+            ScheduleChartDataGrid.ScrollTo(task.Start);
+        }
+
+        // Actual task deletion is slightly delayed for opacity animation.
+        private static void DeleteTask(CustomGanttChartItem itemToDelete)
+        {
+            var timer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(5) };
+            timer.Tick += (ts, te) =>
+            {
+                var opacity = GetOpacity(itemToDelete);
+                opacity -= 0.05;
+                if (opacity <= 0)
+                {
+                    timer.Stop();
+
+                    var parent = itemToDelete.ScheduleChartItem;
+                    parent.GanttChartItems.Remove(itemToDelete);
+                }
+                SetOpacity(itemToDelete, opacity);
+            };
+            timer.Start();
+        }
+
+        private void DeleteTaskMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            CustomGanttChartItem itemToDelete = (sender as MenuItem).DataContext as CustomGanttChartItem;
+            if (itemToDelete == null) { return; }
+            if (MessageBox.Show("Are you sure you want to delete this task?", "Question", MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+                return;
+            DeleteTask(itemToDelete);
+        }
+
+        private void DeleteTaskButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedItem == null) {
+                MessageBox.Show("Cannot delete a task if the selection is empty.", "Information", MessageBoxButton.OK);
+                return; 
+            }
+
+            CustomGanttChartItem itemToDelete = SelectedItem as CustomGanttChartItem;
+            if (itemToDelete == null) { return; }
+            if (MessageBox.Show("Are you sure you want to delete this task?", "Question", MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+                return;
+            DeleteTask(itemToDelete);
         }
     }
 }

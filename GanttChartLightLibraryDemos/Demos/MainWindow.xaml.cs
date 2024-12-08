@@ -6,17 +6,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace Demos
@@ -28,16 +22,8 @@ namespace Demos
     {
         public MainWindow()
         {
-            try
-            {
-                var queryString = ApplicationDeployment.CurrentDeployment.ActivationUri.Query;
-                initialSelection = !string.IsNullOrEmpty(queryString) ? queryString.Substring(1).Replace('-', ' ') : null;
-            }
-            catch (DeploymentException) { }
             InitializeComponent();
         }
-
-        private string initialSelection;
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
@@ -45,95 +31,16 @@ namespace Demos
             e.Handled = true;
         }
 
-        private void TreeView_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(initialSelection))
-            {
-                foreach (TreeViewItem item in TreeView.Items)
-                {
-                    if (item.HasItems && item.Tag as string == initialSelection)
-                    {
-                        item.IsSelected = true;
-                        break;
-                    }
-                }
-            }
-            if (TreeView.SelectedItem == null)
-            {
-                var firstItem = TreeView.Items[0] as TreeViewItem;
-                firstItem.IsSelected = true;
-            }
-            TreeView.Focus();
-        }
-        private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-        {
-            var selectedItem = e.NewValue as TreeViewItem;
-            if (selectedItem == null)
-                return;
-            if (selectedItem.HasItems)
-            {
-                var previouslySelectedChildItem = e.OldValue as TreeViewItem;
-                if (previouslySelectedChildItem != null && previouslySelectedChildItem.HasItems)
-                    previouslySelectedChildItem = null;
-                SelectComponent(selectedItem, previouslySelectedChildItem);
-                return;
-            }
-            else
-            {
-                if (previousSelectedParentItem != null)
-                    previousSelectedParentItem.Style = previousSelectedParentItemStyle;
-                var parentItem = selectedItem.Parent as TreeViewItem;
-                previousSelectedParentItem = parentItem;
-                previousSelectedParentItemStyle = parentItem.Style;
-                parentItem.Style = Resources["SelectedTreeViewItemParentStyle"] as Style;
-                Dispatcher.BeginInvoke((Action)LoadFiles);
-                Dispatcher.BeginInvoke((Action)LoadContent);
-            }
-        }
-        private void SelectComponent(TreeViewItem selectedItem, TreeViewItem previouslySelectedChildItem)
-        {
-            TreeViewItem itemToSelect = null;
-            if (previouslySelectedChildItem != null)
-            {
-                foreach (TreeViewItem item in selectedItem.Items)
-                {
-                    if (item.Tag == previouslySelectedChildItem.Tag)
-                    {
-                        itemToSelect = item;
-                        break;
-                    }
-                }
-            }
-            if (itemToSelect == null)
-                itemToSelect = selectedItem.Items[0] as TreeViewItem;
-            itemToSelect.IsSelected = true;
-            selectedItem.IsExpanded = true;
-        }
-        private TreeViewItem previousSelectedParentItem;
-        private Style previousSelectedParentItemStyle;
-        private void TreeViewItem_Expanded(object sender, RoutedEventArgs e)
-        {
-            var expandedItem = sender as TreeViewItem;
-            if (!expandedItem.HasItems || !expandedItem.IsExpanded)
-                return;
-            expandedItem.IsSelected = true;
-            foreach (TreeViewItem item in TreeView.Items)
-            {
-                if (item.HasItems && item.IsExpanded && item != expandedItem)
-                    item.IsExpanded = false;
-            }
-        }
-
         private void TechnologyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Dispatcher.BeginInvoke((Action)LoadTreeView);
+            Dispatcher.BeginInvoke((Action)LoadTabControl);
             Dispatcher.BeginInvoke((Action)LoadFiles);
             Dispatcher.BeginInvoke((Action)LoadContent);
         }
 
-        private void LoadTreeView()
+        private void LoadTabControl()
         {
-            TreeView.Items.Clear();
+            TabControl.Items.Clear();
             var selectedTechnologyItem = TechnologyComboBox?.SelectedItem as ComboBoxItem;
             if (selectedTechnologyItem == null)
                 return;
@@ -153,6 +60,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "GanttChartDataGrid",
+                                    Header = "GanttChart\nDataGrid",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
@@ -165,7 +73,7 @@ namespace Demos
                                         new SampleInfo { Tag = "DataBinding", Title = "Data binding", Description = "Shows how you can data bind the component to a custom task item collection" },
                                         new SampleInfo { Tag = "GridColumns", Title = "Grid columns (built-in and custom)", Description = "Shows how to add built-in and custom grid columns including a column presenting task icon thumbs that offer vertical drag and drop support" },
                                         new SampleInfo { Tag = "CustomAppearance", Title = "Custom appearance", Description = "Shows how you can set colors for all or for individual task items" },
-                                        new SampleInfo { Tag = "BarTemplating", Title = "Bar templating (interruptions, summary background)", Description = "Shows how you can define XAML templates for task bars displayed in the chart view (such as to display labels and interruptions for task bars, and/or summary background colors, and more)" },
+                                        new SampleInfo { Tag = "BarTemplating", Title = "Bar templates (interruptions, summary background)", Description = "Shows how you can define XAML templates for task bars displayed in the chart view (such as to display labels and interruptions for task bars, and/or summary background colors, and more)" },
                                         new SampleInfo { Tag = "DependencyLineTemplating", Title = "Dependency line colors and templating", Description = "Shows how you can define colors for dependency lines and/or an XAML template for displaying them in the chart view (such as to display dashed arrow lines and more)" },
                                         new SampleInfo { Tag = "AssignmentsTemplate", Title = "Assignments template (resource icons)", Description = "Shows how you can customize assignments template and show resource icons in the chart area" },
                                         new SampleInfo { Tag = "ZoomLevel", Title = "Zoom level (and disabling mouse wheel zooming)", Description = "Shows how you can set up zoom level settings for the chart area" },
@@ -210,6 +118,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "GanttChartView",
+                                    Header = "GanttChart\nView",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
@@ -218,6 +127,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "ScheduleChartDataGrid",
+                                    Header = "ScheduleChart\nDataGrid",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
@@ -226,7 +136,7 @@ namespace Demos
                                         new SampleInfo { Tag = "DataBinding", Title = "Data binding", Description = "Shows how you can data bind the component to a custom resource item collection" },
                                         new SampleInfo { Tag = "GanttChartIntegration", Title = "Gantt Chart integration", Description = "Shows how to generate a Schedule Chart view from Gantt Chart data" },
                                         new SampleInfo { Tag = "CustomAppearance", Title = "Custom appearance", Description = "Shows how you can set colors for all or for individual task items" },
-                                        new SampleInfo { Tag = "BarTemplating", Title = "Bar templating", Description = "Shows how you can define XAML templates for task bars displayed in the chart view" },
+                                        new SampleInfo { Tag = "BarTemplating", Title = "Bar templates", Description = "Shows how you can define XAML templates for task bars displayed in the chart view" },
                                         new SampleInfo { Tag = "CustomSchedule", Title = "Custom schedule and scales", Description = "Shows how you can define working and nonworking times for scheduling task items and custom scales and headers for the chart view" },
                                         new SampleInfo { Tag = "Hierarchy", Title = "Hierarchy", Description = "Shows how you can hierarchically display resource groups in the grid" },
                                         new SampleInfo { Tag = "MultipleLinesPerRow", Title = "Multiple lines per row", Description = "Shows how you can configure the component to display chart task bars using multiple lines per resource row automatically enlarging individual grid row height values" },
@@ -238,6 +148,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "ScheduleChartView",
+                                    Header = "ScheduleChart\nView",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
@@ -246,6 +157,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "LoadChartDataGrid",
+                                    Header = "LoadChart\nDataGrid",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
@@ -257,6 +169,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "LoadChartView",
+                                    Header = "LoadChart\nView",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
@@ -266,6 +179,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "PertChartView",
+                                    Header = "PertChart\nView",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
@@ -275,6 +189,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "NetworkDiagramView",
+                                    Header = "NetworkDiagram\nView",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
@@ -289,6 +204,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "GanttChartDataGrid",
+                                    Header = "GanttChartDataGrid",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
@@ -301,7 +217,7 @@ namespace Demos
                                         new SampleInfo { Tag = "DataBinding", Title = "Data binding", Description = "Shows how you can data bind the component to a custom task item collection" },
                                         new SampleInfo { Tag = "GridColumns", Title = "Grid columns (built-in and custom)", Description = "Shows how to add built-in and custom grid columns including a column presenting task icon thumbs that offer vertical drag and drop support" },
                                         new SampleInfo { Tag = "CustomAppearance", Title = "Custom appearance", Description = "Shows how you can set colors for all or for individual task items" },
-                                        new SampleInfo { Tag = "BarTemplating", Title = "Bar templating (interruptions, summary background)", Description = "Shows how you can define XAML templates for task bars displayed in the chart view (such as to display labels and interruptions for task bars, and/or summary background colors, and more)" },
+                                        new SampleInfo { Tag = "BarTemplating", Title = "Bar templates (interruptions, summary background)", Description = "Shows how you can define XAML templates for task bars displayed in the chart view (such as to display labels and interruptions for task bars, and/or summary background colors, and more)" },
                                         new SampleInfo { Tag = "DependencyLineTemplating", Title = "Dependency line colors and templating", Description = "Shows how you can define colors for dependency lines and/or an XAML template for displaying them in the chart view (such as to display dashed arrow lines and more)" },
                                         new SampleInfo { Tag = "AssignmentsTemplate", Title = "Assignments template (resource icons)", Description = "Shows how you can customize assignments template and show resource icons in the chart area" },
                                         new SampleInfo { Tag = "ZoomLevel", Title = "Zoom level (and disabling mouse wheel zooming)", Description = "Shows how you can set up zoom level settings for the chart area" },
@@ -361,7 +277,7 @@ namespace Demos
                                         new SampleInfo { Tag = "DataBinding", Title = "Data binding", Description = "Shows how you can data bind the component to a custom resource item collection" },
                                         new SampleInfo { Tag = "GanttChartIntegration", Title = "Gantt Chart integration", Description = "Shows how to generate a Schedule Chart view from Gantt Chart data" },
                                         new SampleInfo { Tag = "CustomAppearance", Title = "Custom appearance", Description = "Shows how you can set colors for all or for individual task items" },
-                                        new SampleInfo { Tag = "BarTemplating", Title = "Bar templating", Description = "Shows how you can define XAML templates for task bars displayed in the chart view" },
+                                        new SampleInfo { Tag = "BarTemplating", Title = "Bar templates", Description = "Shows how you can define XAML templates for task bars displayed in the chart view" },
                                         new SampleInfo { Tag = "CustomSchedule", Title = "Custom schedule and scales", Description = "Shows how you can define working and nonworking times for scheduling task items and custom scales and headers for the chart view" },
                                         new SampleInfo { Tag = "Hierarchy", Title = "Hierarchy", Description = "Shows how you can hierarchically display resource groups in the grid" },
                                         new SampleInfo { Tag = "MultipleLinesPerRow", Title = "Multiple lines per row", Description = "Shows how you can configure the component to display chart task bars using multiple lines per resource row automatically enlarging individual grid row height values" },
@@ -457,19 +373,49 @@ namespace Demos
             bool isFirst = true;
             foreach (var component in components.Where(c => c.Features != null))
             {
-                var componentItem = new TreeViewItem { Header = component.Name, Tag = component.Name, IsExpanded = isFirst };
+                var componentItem = new TabItem { Header = String.IsNullOrEmpty(component.Header) ? component.Name : component.Header, Tag = component.Name, IsSelected = isFirst };
+                var listBox = new ListBox();
+                listBox.SelectionMode = SelectionMode.Single;
+                listBox.Tag = component.Name;
                 foreach (var feature in component.Features)
                 {
-                    componentItem.Items.Add(new TreeViewItem { Header = feature.Title, Tag = feature.Tag, ToolTip = feature.Description, IsSelected = isFirst, Opacity = feature.IsLink ? 0.65 : 1 });
+                    listBox.Items.Add(new ListBoxItem { Content = feature.Title, Tag = feature.Tag, ToolTip = feature.Description, IsSelected = isFirst, Opacity = feature.IsLink ? 0.65 : 1 });
                     isFirst = false;
                 }
-                TreeView.Items.Add(componentItem);
+                componentItem.Content = listBox;
+                listBox.SelectionChanged += ListBox_SelectionChanged;
+                TabControl.Items.Add(componentItem);
+            }
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedTabItem = (sender as TabControl).SelectedItem as TabItem;
+            if (selectedTabItem == null)
+                return;
+            var listBox = selectedTabItem?.Content as ListBox;
+            if (listBox != null)
+            {
+                ListBoxItem listBoxItem = (listBox.SelectedItems.Count > 0 ? listBox.SelectedItems[0] as ListBoxItem : null) ?? listBox.Items[0] as ListBoxItem;
+                listBoxItem.IsSelected = true;
+            }
+            Dispatcher.BeginInvoke((Action)LoadFiles);
+            Dispatcher.BeginInvoke((Action)LoadContent);
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((e.AddedItems?.Count ?? 0) > 0)
+            {
+                Dispatcher.BeginInvoke((Action)LoadFiles);
+                Dispatcher.BeginInvoke((Action)LoadContent);
             }
         }
 
         internal class ComponentInfo
         {
             public string Name { get; set; }
+            public string Header { get; set; }
             public SampleInfo[] Features { get; set; }
         }
         internal class SampleInfo
@@ -492,13 +438,13 @@ namespace Demos
             }
             foreach (var item in removingItems)
                 FilesListBox.Items.Remove(item);
-            var selectedTreeViewItem = TreeView.SelectedItem as TreeViewItem;
-            var selectedTreeViewParentItem = selectedTreeViewItem?.Parent as TreeViewItem;
+            var selectedTabItem = TabControl.SelectedItem as TabItem;
+            var selectedListBoxItem = (selectedTabItem?.Content as ListBox)?.SelectedItem as ListBoxItem;
             var selectedTechnologyItem = TechnologyComboBox?.SelectedItem as ComboBoxItem;
-            if (selectedTreeViewItem == null || selectedTreeViewParentItem == null || selectedTechnologyItem == null)
+            if (selectedTabItem == null || selectedListBoxItem == null || selectedTechnologyItem == null)
                 return;
-            var component = selectedTreeViewParentItem.Tag as string;
-            var feature = selectedTreeViewItem.Tag as string;
+            var component = selectedTabItem.Tag as string;
+            var feature = selectedListBoxItem.Tag as string;
             var technology = selectedTechnologyItem.Tag as string;
             var isSilverlight = technology.StartsWith("Silverlight");
             var isVisualBasic = technology.EndsWith("VisualBasic");
@@ -550,6 +496,10 @@ namespace Demos
                 case "ScheduleChartDataGrid":
                     switch (feature)
                     {
+                        case "MainFeatures":
+                            if (!isVisualBasic)
+                                fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml" + (!isVisualBasic ? ".cs" : ".vb"), "CustomGanttChartItem.cs" };
+                            break;
                         case "BarTemplating":
                             fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml" + (!isVisualBasic ? ".cs" : ".vb"), "CustomGanttChartItem" + (!isVisualBasic ? ".cs" : ".vb"), "Interruption" + (!isVisualBasic ? ".cs" : ".vb"), "Marker" + (!isVisualBasic ? ".cs" : ".vb") };
                             break;
@@ -572,7 +522,7 @@ namespace Demos
             int index = 1;
             foreach (var fileItem in fileItems)
                 FilesListBox.Items.Insert(index++, new ListBoxItem { Content = fileItem, Tag = fileItem });
-            if (!isSilverlight && selectedTreeViewItem.Opacity == 1)
+            if (!isSilverlight && selectedListBoxItem.Opacity == 1)
                 FilesListBox.Items.Insert(index++, new ListBoxItem { Content = "AppResources.xaml", Tag = "AppResources.xaml" });
             if (FilesListBox.SelectedIndex > 0)
                 FilesListBox.SelectedIndex = 0;
@@ -590,13 +540,14 @@ namespace Demos
 
         private void LoadContent()
         {
-            var selectedTreeViewItem = TreeView.SelectedItem as TreeViewItem;
-            var selectedTreeViewParentItem = selectedTreeViewItem?.Parent as TreeViewItem;
+            var selectedTabItem = TabControl.SelectedItem as TabItem;
+            var selectedlistBoxItem = (selectedTabItem?.Content as ListBox)?.SelectedItem as ListBoxItem;
             var selectedTechnologyItem = TechnologyComboBox?.SelectedItem as ComboBoxItem;
-            if (selectedTreeViewItem == null || selectedTreeViewParentItem == null || selectedTechnologyItem == null)
+            if (selectedTabItem == null || selectedlistBoxItem == null || selectedTechnologyItem == null)
                 return;
-            var component = selectedTreeViewParentItem.Tag as string;
-            var feature = selectedTreeViewItem.Tag as string;
+
+            var feature = selectedlistBoxItem.Tag as string;
+            var component = selectedTabItem.Tag as string;
             var technology = selectedTechnologyItem.Tag as string;
             var technologySeparatorIndex = technology.IndexOf('-');
             var platform = technology.Substring(0, technologySeparatorIndex);
@@ -642,13 +593,13 @@ namespace Demos
 
         private void GetZipButton_Click(object sender, RoutedEventArgs e)
         {
-            var selectedTreeViewItem = TreeView.SelectedItem as TreeViewItem;
-            var selectedTreeViewParentItem = selectedTreeViewItem?.Parent as TreeViewItem;
+            var selectedTabItem = TabControl.SelectedItem as TabItem;
+            var selectedListBoxItem = (selectedTabItem?.Content as ListBox)?.SelectedItem as ListBoxItem;
             var selectedTechnologyItem = TechnologyComboBox?.SelectedItem as ComboBoxItem;
-            if (selectedTreeViewItem == null || selectedTreeViewParentItem == null || selectedTechnologyItem == null)
+            if (selectedTabItem == null || selectedListBoxItem == null || selectedTechnologyItem == null)
                 return;
-            var component = selectedTreeViewParentItem.Tag as string;
-            var feature = selectedTreeViewItem.Tag as string;
+            var component = selectedTabItem.Tag as string;
+            var feature = selectedListBoxItem.Tag as string;
             var technology = selectedTechnologyItem.Tag as string;
             string url = "https://DlhSoft.com/GanttChartLibrary.wpf/Demos/Samples/" + technology + "/" + component + "/" + feature + ".zip";
             Process.Start(new ProcessStartInfo(url));
@@ -668,7 +619,7 @@ namespace Demos
 
         private void TreeViewSearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (TreeView == null || string.IsNullOrEmpty(TreeViewSearchTextBox.Text) || TreeViewSearchTextBox.Foreground != Brushes.Black)
+            if (TabControl == null || string.IsNullOrEmpty(TreeViewSearchTextBox.Text) || TreeViewSearchTextBox.Foreground != Brushes.Black)
                 return;
 
             if (timer == null)
@@ -679,12 +630,7 @@ namespace Demos
                     timer.Stop();
                     if (TreeViewSearchTextBox.Foreground != Brushes.Black)
                         return;
-                    var item = FindTreeViewItem(TreeView.Items, TreeViewSearchTextBox.Text.ToLowerInvariant());
-                    if (item != null)
-                    {
-                        item.BringIntoView();
-                        item.IsSelected = true;
-                    }
+                    FindListBoxItem(TreeViewSearchTextBox.Text.ToLowerInvariant());
                 };
             }
             timer.Stop();
@@ -693,17 +639,26 @@ namespace Demos
 
         private DispatcherTimer timer;
 
-        private TreeViewItem FindTreeViewItem(ItemCollection items, string text)
+        private void FindListBoxItem(string text)
         {
-            foreach (TreeViewItem item in items)
+            foreach (TabItem tabItem in TabControl.Items)
             {
-                if ((item.Header as string ?? string.Empty).ToLowerInvariant().Contains(text))
-                    return item;
-                var matchingChildItem = FindTreeViewItem(item.Items, text);
-                if (matchingChildItem != null)
-                    return matchingChildItem;
+                var listBox = tabItem.Content as ListBox;
+                var items = listBox?.Items;
+                if (items != null)
+                {
+                    foreach (ListBoxItem item in items)
+                    {
+                        if ((item.Content as string ?? string.Empty).ToLowerInvariant().Contains(text))
+                        {
+                            tabItem.IsSelected = true;
+                            item.IsSelected = true;
+                            item.BringIntoView();
+                            return;
+                        }
+                    }
+                }
             }
-            return null;
         }
 
         private Window containerWindow;
