@@ -31,7 +31,6 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
 
             string applicationName = GetType().Namespace;
 
-            #region ganttchartitems
             ScheduleChartItem unassignedScheduleChartItem = ScheduleChartDataGrid.Items[0];
 
             CustomGanttChartItem item1 = new CustomGanttChartItem
@@ -70,8 +69,6 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
             CustomGanttChartItem item8 = new CustomGanttChartItem
             { Content = "Videos", Start = DateTime.Today.AddDays(8), Finish = DateTime.Today.AddDays(12) };
             unassignedScheduleChartItem.GanttChartItems.Add(item8);
-
-            #endregion
 
             CustomGanttChartItem task21 = ScheduleChartDataGrid.Items[2].GanttChartItems[0] as CustomGanttChartItem;
             task21.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
@@ -256,7 +253,7 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
             SetIsSelected(SelectedItem, true);
         }
 
-        public static readonly DependencyProperty OpacityProperty = DependencyProperty.RegisterAttached("Opacity", typeof(double), typeof(MainWindow), new PropertyMetadata(1.0));
+        public static new readonly DependencyProperty OpacityProperty = DependencyProperty.RegisterAttached("Opacity", typeof(double), typeof(MainWindow), new PropertyMetadata(1.0));
         public static double GetOpacity(DependencyObject obj)
         {
             return (double)obj.GetValue(OpacityProperty);

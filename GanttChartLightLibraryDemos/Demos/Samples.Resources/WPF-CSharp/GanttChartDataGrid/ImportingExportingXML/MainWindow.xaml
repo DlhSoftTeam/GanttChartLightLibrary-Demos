@@ -3,12 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
         xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:pdgccConverters="clr-namespace:DlhSoft.Windows.Converters;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:local="clr-namespace:Demos.WPF.CSharp.GanttChartDataGrid.ImportingExportingXML"
         Title="GanttChartDataGrid Importing and Exporting XML Sample" Width="800" Height="600">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="AppResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <pdgccConverters:DateTimeStringConverter x:Key="DateTimeStringConverter"/>
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
@@ -35,17 +38,29 @@
                 </Border>
             </StackPanel>
         </Border>
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" IsUndoEnabled="True">
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" IsUndoEnabled="True" IsBaselineVisible="True">
+            <pdgcc:GanttChartDataGrid.Columns>
+                <pdgcc:DataGridColumnCollection>
+                    <hdc:DataTreeGridColumn Header="Task"/>
+                    <!-- Define new columns for custom properties, using Tag prefix to refer the original custom data item properties. -->
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description, Mode=TwoWay}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="Start" Binding="{Binding Start, Mode=TwoWay, Converter={StaticResource DateTimeStringConverter}}"/>
+                    <DataGridTextColumn Header="Finish" Binding="{Binding Finish, Mode=TwoWay, Converter={StaticResource DateTimeStringConverter}}"/>
+                    <DataGridCheckBoxColumn Header="Is milestone" Binding="{Binding IsMilestone, Mode=TwoWay}"/>
+                    <DataGridCheckBoxColumn Header="Is completed" Binding="{Binding IsCompleted, Mode=TwoWay}"/>
+                    <DataGridTextColumn Header="Assignments" Binding="{Binding AssignmentsContent, Mode=TwoWay}"/>
+                </pdgcc:DataGridColumnCollection>
+            </pdgcc:GanttChartDataGrid.Columns>
             <pdgcc:GanttChartDataGrid.Items>
                 <!-- Some item properties are set in code behind. -->
-                <pdgcc:GanttChartItem Content="Task 1"/>
-                <pdgcc:GanttChartItem Content="Task 1.1" Indentation="1"/>
-                <pdgcc:GanttChartItem Content="Task 1.2" Indentation="1"/>
-                <pdgcc:GanttChartItem Content="Task 2"/>
-                <pdgcc:GanttChartItem Content="Task 2.1" Indentation="1"/>
-                <pdgcc:GanttChartItem Content="Task 2.2" Indentation="1"/>
-                <pdgcc:GanttChartItem Content="Task 2.2.1" Indentation="2"/>
-                <pdgcc:GanttChartItem Content="Task 2.2.2" Indentation="2"/>
+                <local:CustomGanttChartItem Content="Task 1" Description="Task 1 Description"/>
+                <local:CustomGanttChartItem Content="Task 1.1" Indentation="1" Description="Task 1.1 Description"/>
+                <local:CustomGanttChartItem Content="Task 1.2" Indentation="1" Description="Task 1.2 Description"/>
+                <local:CustomGanttChartItem Content="Task 2" Description="Task 2 Description"/>
+                <local:CustomGanttChartItem Content="Task 2.1" Indentation="1" Description="Task 2.1 Description"/>
+                <local:CustomGanttChartItem Content="Task 2.2" Indentation="1" Description="Task 2.2 Description"/>
+                <local:CustomGanttChartItem Content="Task 2.2.1" Indentation="2" Description="Task 2.2.1 Description"/>
+                <local:CustomGanttChartItem Content="Task 2.2.2" Indentation="2" Description="Task 2.2.2 Description"/>
             </pdgcc:GanttChartDataGrid.Items>
         </pdgcc:GanttChartDataGrid>
     </DockPanel>

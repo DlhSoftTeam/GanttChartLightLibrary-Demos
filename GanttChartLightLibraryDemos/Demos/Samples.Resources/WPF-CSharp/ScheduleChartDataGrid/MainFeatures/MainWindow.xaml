@@ -2,6 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
+        xmlns:pdgccConverters="clr-namespace:DlhSoft.Windows.Converters;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        xmlns:local="clr-namespace:Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures"
         Title="ScheduleChartDataGrid Sample" Width="800" Height="600">
     <Window.Resources>
         <ResourceDictionary>
@@ -13,7 +16,7 @@
             </DataTemplate>
             <pdgcc:ScaleCollection x:Key="WeeksScales">
                 <pdgcc:Scale ScaleType="Weeks" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
-                <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayOfWeekInitial" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayOfWeekInitial" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" BorderThickness="0,0,1,0" BorderBrush="Silver" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
             </pdgcc:ScaleCollection>
             <pdgcc:ScaleCollection x:Key="MonthsScales">
                 <pdgcc:Scale ScaleType="Months" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
@@ -26,11 +29,15 @@
             <LinearGradientBrush x:Key="CustomStandardBarFill" StartPoint="0.5,0" EndPoint="0.5,1">
                 <LinearGradientBrush.GradientStops>
                     <GradientStop Color="Transparent" Offset="0"/>
-                    <GradientStop Color="Tomato" Offset="0.25"/>
-                    <GradientStop Color="DarkRed" Offset="1"/>
+                    <GradientStop Color="LightBlue" Offset="0.25"/>
+                    <GradientStop Color="CornflowerBlue" Offset="1"/>
                 </LinearGradientBrush.GradientStops>
             </LinearGradientBrush>
-            <SolidColorBrush x:Key="CustomStandardBarStroke" Color="DarkRed"/>
+            <SolidColorBrush x:Key="CustomStandardBarStroke" Color="CornflowerBlue"/>
+            <pdgccConverters:NumberStringConverter x:Key="NumberStringConverter"/>
+            <pdgccConverters:DateTimeStringConverter x:Key="DateTimeStringConverter"/>
+            <pdgccConverters:DurationStringConverter x:Key="DurationStringConverter"/>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
@@ -38,8 +45,8 @@
         <Border DockPanel.Dock="Top" Style="{StaticResource RibbonContainerStyle}">
             <Border.Resources>
                 <Style TargetType="Image">
-                    <Setter Property="Width" Value="16"/>
-                    <Setter Property="Height" Value="16"/>
+                    <Setter Property="Width" Value="20"/>
+                    <Setter Property="Height" Value="20"/>
                 </Style>
             </Border.Resources>
             <StackPanel Style="{StaticResource RibbonStyle}">
@@ -47,13 +54,19 @@
                     <StackPanel>
                         <ContentControl Content="Items" Style="{StaticResource RibbonHeaderStyle}"/>
                         <StackPanel Style="{StaticResource RibbonCommandsAreaStyle}">
-                            <Button x:Name="AddNewButton" ToolTipService.ToolTip="Add new item" Click="AddNewButton_Click" Style="{StaticResource RibbonButtonStyle}">
-                                <Image Source="Images/AddNew.png"/>
+                            <Button x:Name="AddNewButton" ToolTipService.ToolTip="Add new resource" Click="AddNewButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/ResourceAdd.png"/>
                             </Button>
-                            <Button x:Name="InsertNewButton" ToolTipService.ToolTip="Insert new item before selection" Click="InsertNewButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                            <Button x:Name="InsertNewButton" ToolTipService.ToolTip="Insert new resource before selection" Click="InsertNewButton_Click" Style="{StaticResource RibbonButtonStyle}">
                                 <Image Source="Images/InsertNew.png"/>
                             </Button>
-                            <Button x:Name="DeleteButton" ToolTipService.ToolTip="Delete selected item(s)" Click="DeleteButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                            <Button x:Name="DeleteButton" ToolTipService.ToolTip="Delete selected resource(s)" Click="DeleteButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/ResourceDelete.png"/>
+                            </Button>
+                            <Button x:Name="AddNewTaskButton" ToolTipService.ToolTip="Add new task" Click="AddNewTaskButton_Click" Style="{StaticResource RibbonButtonStyle}">
+                                <Image Source="Images/AddNew.png"/>
+                            </Button>
+                            <Button x:Name="DeleteTaskButton" ToolTipService.ToolTip="Delete selected task" Click="DeleteTaskButton_Click" Style="{StaticResource RibbonButtonStyle}">
                                 <Image Source="Images/Delete.png"/>
                             </Button>
                             <Border Style="{StaticResource RibbonCommandSeparatorStyle}"/>
@@ -122,18 +135,158 @@
             </StackPanel>
         </Border>
         <!-- Optionally, set IsUndoEnabled to true to enable undo queue recording; you may call Undo and Redo methods for undoing and redoing recorded actions (see code behind). -->
-        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.05*" IsUndoEnabled="True">
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.1*" IsUndoEnabled="True" UseMultipleLinesPerRow="True" PreviewMouseLeftButtonUp="ScheduleChartDataGrid_MouseLeftButtonUp">
+            <FrameworkElement.Resources>
+                <Style TargetType="ToolTip">
+                    <Setter Property="BorderBrush" Value="#ccc"/>
+                    <Setter Property="Background" Value="#fefefe"/>
+                </Style>
+            </FrameworkElement.Resources>
+            <pdgcc:ScheduleChartDataGrid.ItemContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Delete" Click="DeleteTaskMenuItem_Click"/>
+                </ContextMenu>
+            </pdgcc:ScheduleChartDataGrid.ItemContextMenu>
+            <pdgcc:ScheduleChartDataGrid.StandardTaskTemplate>
+                <DataTemplate>
+                    <Grid Opacity="{Binding Path=(local:MainWindow.Opacity)}">
+                        <Grid x:Name="TaskGrid">
+                            <Rectangle Fill="#c0b7e1f7" RadiusX="{Binding GanttChartView.StandardBarCornerRadius}" RadiusY="{Binding GanttChartView.StandardBarCornerRadius}" Margin="-4" Visibility="{Binding Path=(local:MainWindow.IsSelected), Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                            <!-- Optional: hover/selection indicator. -->
+                            <Rectangle x:Name="HoveredTaskRectangle" Fill="#80b7e1f7" RadiusX="{Binding GanttChartView.StandardBarCornerRadius}" RadiusY="{Binding GanttChartView.StandardBarCornerRadius}" Margin="-4" Visibility="Collapsed"/>
+                            <Border Background="{Binding (pdgcc:GanttChartView.StandardBarFill)}" CornerRadius="{Binding GanttChartView.StandardBarCornerRadius}" BorderBrush="{Binding (pdgcc:GanttChartView.StandardBarStroke)}" BorderThickness="{Binding GanttChartView.StandardBarStrokeThickness}"/>
+                            <pdgcc:DragTaskThumb IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskStartThumbEnabled}" Role="UpdateStart" Visibility="{Binding GanttChartView.ThumbVisibility}"/>
+                            <pdgcc:DragTaskThumb HorizontalAlignment="Right" IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskFinishThumbEnabled}" Role="UpdateFinish" Visibility="{Binding GanttChartView.ThumbVisibility}" Width="2"/>
+                            <pdgcc:DragTaskThumb HorizontalAlignment="Left" IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskStartOnlyThumbEnabled}" Margin="-2,0,0,0" Role="UpdateStartOnly" Visibility="{Binding GanttChartView.ThumbVisibility}" Width="2"/>
+                        </Grid>
+                        <Grid Margin="0,0,0,-2" Visibility="{Binding Path=GanttChartView.(pdgcc:ScheduleChartView.AssignmentThumbVisibility)}">
+                            <pdgcc:DragAssignmentThumb Visibility="{Binding GanttChartView.ThumbVisibility}"/>
+                        </Grid>
+                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Visibility="{Binding GanttChartView.TaskCompletedEffortVisibility}" VerticalAlignment="Center">
+                            <Rectangle Fill="{Binding (pdgcc:GanttChartView.StandardCompletedBarFill)}" Height="{Binding GanttChartView.CompletedBarHeight}" IsHitTestVisible="False" RadiusY="{Binding GanttChartView.StandardCompletedBarCornerRadius}" RadiusX="{Binding GanttChartView.StandardCompletedBarCornerRadius}" Stroke="{Binding (pdgcc:GanttChartView.StandardCompletedBarStroke)}" StrokeThickness="{Binding GanttChartView.StandardCompletedBarStrokeThickness}" VerticalAlignment="Center" Width="{Binding ComputedCompletedBarWidth}" Opacity="0.5"/>
+                            <pdgcc:DragTaskThumb Height="{Binding GanttChartView.BarHeight}" IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskCompletionThumbEnabled}" Role="UpdateCompletedFinish" Visibility="{Binding GanttChartView.ThumbVisibility}" Width="8">
+                                <pdgcc:DragTaskThumb.ToolTip>
+                                    <Binding Path="Completion" Converter="{StaticResource NumberStringConverter}" ConverterParameter="0.##%"/>
+                                </pdgcc:DragTaskThumb.ToolTip>
+                            </pdgcc:DragTaskThumb>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="3,1" IsHitTestVisible="False">
+                            <!-- An image can be used to display the custom icon on the task bar in the chart. -->
+                            <Image Grid.Column="0" Source="{Binding Icon}" IsHitTestVisible="False" Height="16"/>
+                            <TextBlock Text="{Binding Content, Mode=TwoWay}" Height="14"  FontFamily="Arial" FontSize="11" Padding="1" Foreground="#403C3B" TextTrimming="WordEllipsis" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                        <!-- A text block can be used to display the custom note under the task bar in the chart. -->
+                        <Canvas>
+                            <TextBlock Canvas.Top="18" Text="{Binding Note}" FontFamily="Arial" FontStyle="Italic" FontSize="10" Foreground="Gray"/>
+                        </Canvas>
+                    </Grid>
+                    <DataTemplate.Triggers>
+                        <Trigger SourceName="TaskGrid" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="HoveredTaskRectangle" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </pdgcc:ScheduleChartDataGrid.StandardTaskTemplate>
+            <pdgcc:GanttChartDataGrid.MilestoneTaskTemplate>
+                <DataTemplate>
+                    <Grid x:Name="MilestoneGrid" Opacity="{Binding Path=(local:MainWindow.Opacity)}">
+                        <Polygon Fill="#c0b7e1f7" Points="0.5,0 1,0.5 0.5,1 0,0.5" Stretch="UniformToFill" Stroke="{Binding (pdgcc:GanttChartView.MilestoneBarStroke)}" StrokeThickness="{Binding GanttChartView.MilestoneBarStrokeThickness}" Margin="-4" Visibility="{Binding Path=(local:MainWindow.IsSelected), Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        <!-- Optional: hover/selection indicator. -->
+                        <Polygon x:Name="HoveredTaskPolygon" Fill="#80b7e1f7" Points="0.5,0 1,0.5 0.5,1 0,0.5" Stretch="UniformToFill" Margin="-4" Visibility="Collapsed"/>
+                        <Polygon Fill="{Binding (pdgcc:GanttChartView.MilestoneBarFill)}" Points="0.5,0 1,0.5 0.5,1 0,0.5" Stretch="UniformToFill" Stroke="{Binding (pdgcc:GanttChartView.MilestoneBarStroke)}" StrokeThickness="{Binding GanttChartView.MilestoneBarStrokeThickness}"/>
+                        <pdgcc:DragTaskThumb IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskStartThumbEnabled}" Role="UpdateStart" Visibility="{Binding GanttChartView.ThumbVisibility}"/>
+                    </Grid>
+                    <DataTemplate.Triggers>
+                        <Trigger SourceName="MilestoneGrid" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="HoveredTaskPolygon" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </pdgcc:GanttChartDataGrid.MilestoneTaskTemplate>
+            <pdgcc:ScheduleChartDataGrid.ToolTipTemplate>
+                <DataTemplate>
+                    <Grid Background="#fefefe">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.ColumnSpan="2" Grid.Row="0" FontWeight="Bold" Text="{Binding Content}" Margin="0,0,0,1"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Foreground="Gray" Text="Start date: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Start, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="2" Foreground="Gray" Text="Finish date: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding Finish, Converter={StaticResource DateTimeStringConverter}, ConverterParameter=g}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="3" Foreground="Gray" Text="Effort: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding TotalEffort, Converter={StaticResource DurationStringConverter}, ConverterParameter=0.##h}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="4" Foreground="Gray" Text="Completed: "/>
+                        <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding Completion, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%}"/>
+                    </Grid>
+                </DataTemplate>
+            </pdgcc:ScheduleChartDataGrid.ToolTipTemplate>
+            <!-- DataTreeGridColumn (within a fully defined custom Columns collection) is required to present hierarchical resources. -->
+            <pdgcc:ScheduleChartDataGrid.Columns>
+                <pdgcc:DataGridColumnCollection>
+                    <hdc:DataTreeGridColumn Header="Resource" Width="132"/>
+                </pdgcc:DataGridColumnCollection>
+            </pdgcc:ScheduleChartDataGrid.Columns>
             <pdgcc:ScheduleChartDataGrid.Items>
                 <!-- Some item properties are set in code behind. -->
-                <pdgcc:ScheduleChartItem Content="Resource 1">
+                <pdgcc:ScheduleChartItem Content="(Unassigned)"/>
+                <pdgcc:ScheduleChartItem Content="Project managers"/>
+                <pdgcc:ScheduleChartItem Content="Steven Bright" Indentation="1">
                     <pdgcc:ScheduleChartItem.GanttChartItems>
-                        <pdgcc:GanttChartItem Content="Task 1"/>
-                        <pdgcc:GanttChartItem Content="Task 2"/>
+                        <local:CustomGanttChartItem Content="Arhitecture"/>
+                        <local:CustomGanttChartItem Content="Requirements"/>
                     </pdgcc:ScheduleChartItem.GanttChartItems>
                 </pdgcc:ScheduleChartItem>
-                <pdgcc:ScheduleChartItem Content="Resource 2">
+                <pdgcc:ScheduleChartItem Content="Jane Gershwin" Indentation="1">
                     <pdgcc:ScheduleChartItem.GanttChartItems>
-                        <pdgcc:GanttChartItem Content="Task 2"/>
+                        <local:CustomGanttChartItem Content="Design"/>
+                    </pdgcc:ScheduleChartItem.GanttChartItems>
+                </pdgcc:ScheduleChartItem>
+                <pdgcc:ScheduleChartItem Content="Developers"/>
+                <pdgcc:ScheduleChartItem Content="Victor Duncan" Indentation="1">
+                    <pdgcc:ScheduleChartItem.GanttChartItems>
+                        <local:CustomGanttChartItem Content="Chart"/>
+                        <local:CustomGanttChartItem Content="Bars"/>
+                        <local:CustomGanttChartItem Content="Summary bars"/>
+                    </pdgcc:ScheduleChartItem.GanttChartItems>
+                </pdgcc:ScheduleChartItem>
+                <pdgcc:ScheduleChartItem Content="Johanna Mcamis" Indentation="1">
+                    <pdgcc:ScheduleChartItem.GanttChartItems>
+                        <local:CustomGanttChartItem Content="Date-times"/>
+                        <local:CustomGanttChartItem Content="Headers"/>
+                        <local:CustomGanttChartItem Content="Intervals"/>
+                    </pdgcc:ScheduleChartItem.GanttChartItems>
+                </pdgcc:ScheduleChartItem>
+                <pdgcc:ScheduleChartItem Content="Diane McField" Indentation="1">
+                    <pdgcc:ScheduleChartItem.GanttChartItems>
+                        <local:CustomGanttChartItem Content="Diagram functions"/>
+                    </pdgcc:ScheduleChartItem.GanttChartItems>
+                </pdgcc:ScheduleChartItem>
+                <pdgcc:ScheduleChartItem Content="Albert Makhow" Indentation="1">
+                    <pdgcc:ScheduleChartItem.GanttChartItems>
+                        <local:CustomGanttChartItem Content="Schedules"/>
+                    </pdgcc:ScheduleChartItem.GanttChartItems>
+                </pdgcc:ScheduleChartItem>
+                <pdgcc:ScheduleChartItem Content="Tyson Lamberson" Indentation="1">
+                    <pdgcc:ScheduleChartItem.GanttChartItems>
+                        <local:CustomGanttChartItem Content="Scales"/>
+                    </pdgcc:ScheduleChartItem.GanttChartItems>
+                </pdgcc:ScheduleChartItem>
+                <pdgcc:ScheduleChartItem Content="Testers"/>
+                <pdgcc:ScheduleChartItem Content="Denis Kaelin" Indentation="1">
+                    <pdgcc:ScheduleChartItem.GanttChartItems>
+                        <local:CustomGanttChartItem Content="Quality assurance"/>
+                        <local:CustomGanttChartItem Content="Automation testing functions"/>
                     </pdgcc:ScheduleChartItem.GanttChartItems>
                 </pdgcc:ScheduleChartItem>
             </pdgcc:ScheduleChartDataGrid.Items>

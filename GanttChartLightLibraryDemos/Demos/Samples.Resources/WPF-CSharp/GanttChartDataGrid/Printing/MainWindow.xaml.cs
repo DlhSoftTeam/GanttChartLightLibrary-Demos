@@ -117,7 +117,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.Printing
 
         private void PrintButton_Click(object sender, RoutedEventArgs e)
         {
-            PrintDialog printDialog = new PrintDialog { Owner = this };
+            PrintDialog printDialog = new PrintDialog { Owner = Application.Current.MainWindow, Tag = GanttChartDataGrid };
             printDialog.Load();
             printDialog.ShowDialog();
         }

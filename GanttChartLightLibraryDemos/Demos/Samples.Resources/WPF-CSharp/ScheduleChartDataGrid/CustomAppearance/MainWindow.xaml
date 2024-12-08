@@ -8,27 +8,37 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="AppResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <SolidColorBrush x:Key="StandardBarFill" Color="#95c4f3"/>
-            <SolidColorBrush x:Key="StandardBarStroke" Color="DarkGreen"/>
-            <SolidColorBrush x:Key="CustomStandardBarFill" Color="#00ab84"/>
-            <SolidColorBrush x:Key="CustomStandardBarStroke" Color="#402740"/>
+            <SolidColorBrush x:Key="StandardBarFill" Color="#8eb4fb"/>
+            <SolidColorBrush x:Key="StandardBarStroke" Color="#7b9aff"/>
+            <SolidColorBrush x:Key="StandardCompletedBarFill" Color="#bdf1ea"/>
+            <SolidColorBrush x:Key="StandardCompletedBarStroke" Color="#7b9aff"/>
+            <SolidColorBrush x:Key="MilestoneBarFill" Color="#ecab75"/>
+            <SolidColorBrush x:Key="MilestoneBarStroke" Color="#d0784e"/>
+            <SolidColorBrush x:Key="CustomStandardBarFill" Color="#9bcfcc"/>
+            <SolidColorBrush x:Key="CustomStandardBarStroke" Color="#8aeaaa"/>
+            <SolidColorBrush x:Key="DependencyLineStroke" Color="#9e8977"/>
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
         <!-- Set StandardBarFill, StandardBarStroke, and other similar properties to set up the general appearance of task bars. -->
-        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.05*" StandardBarFill="{StaticResource StandardBarFill}" StandardBarStroke="{StaticResource StandardBarStroke}" DependencyLineStroke="{StaticResource StandardBarStroke}">
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.05*" StandardBarFill="{StaticResource StandardBarFill}" StandardBarStroke="{StaticResource StandardBarStroke}" DependencyLineStroke="{StaticResource DependencyLineStroke}"
+                                     StandardCompletedBarFill="{StaticResource StandardCompletedBarFill}" StandardCompletedBarStroke="{StaticResource StandardCompletedBarStroke}"
+                                     MilestoneBarFill="{StaticResource MilestoneBarFill}" MilestoneBarStroke="{StaticResource MilestoneBarStroke}">
             <pdgcc:ScheduleChartDataGrid.Items>
                 <!-- Some item properties are set in code behind. -->
                 <pdgcc:ScheduleChartItem Content="Resource 1">
                     <pdgcc:ScheduleChartItem.GanttChartItems>
                         <pdgcc:GanttChartItem Content="Task 1"/>
                         <!-- Set GanttChartView.StandardBarFill, GanttChartView.StandardBarStroke, and other similar attached properties to set up the custom appearance of specific task bars. -->
-                        <pdgcc:GanttChartItem Content="Task 2" pdgcc:GanttChartView.StandardBarFill="{StaticResource CustomStandardBarFill}" pdgcc:GanttChartView.StandardBarStroke="{StaticResource CustomStandardBarStroke}"/>
+                        <pdgcc:GanttChartItem Content="Task 2" pdgcc:GanttChartView.StandardBarFill="{StaticResource CustomStandardBarFill}" pdgcc:GanttChartView.StandardBarStroke="{StaticResource CustomStandardBarStroke}"
+                                              pdgcc:GanttChartView.StandardCompletedBarFill="{StaticResource CustomStandardBarStroke}" pdgcc:GanttChartView.StandardCompletedBarStroke="{StaticResource CustomStandardBarStroke}"/>
                     </pdgcc:ScheduleChartItem.GanttChartItems>
                 </pdgcc:ScheduleChartItem>
                 <pdgcc:ScheduleChartItem Content="Resource 2">
                     <pdgcc:ScheduleChartItem.GanttChartItems>
-                        <pdgcc:GanttChartItem Content="Task 2" pdgcc:GanttChartView.StandardBarFill="{StaticResource CustomStandardBarFill}" pdgcc:GanttChartView.StandardBarStroke="{StaticResource CustomStandardBarStroke}"/>
+                        <pdgcc:GanttChartItem Content="Task 1" IsMilestone="True" pdgcc:GanttChartView.MilestoneBarFill="{StaticResource MilestoneBarFill}" pdgcc:GanttChartView.MilestoneBarStroke="{StaticResource MilestoneBarStroke}"/>
+                        <pdgcc:GanttChartItem Content="Task 2" pdgcc:GanttChartView.StandardBarFill="{StaticResource CustomStandardBarFill}" pdgcc:GanttChartView.StandardBarStroke="{StaticResource CustomStandardBarStroke}"
+                                              pdgcc:GanttChartView.StandardCompletedBarFill="{StaticResource CustomStandardBarStroke}" pdgcc:GanttChartView.StandardCompletedBarStroke="{StaticResource CustomStandardBarStroke}"/>
                     </pdgcc:ScheduleChartItem.GanttChartItems>
                 </pdgcc:ScheduleChartItem>
             </pdgcc:ScheduleChartDataGrid.Items>
