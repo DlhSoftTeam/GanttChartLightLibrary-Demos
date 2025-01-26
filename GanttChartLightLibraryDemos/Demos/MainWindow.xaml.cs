@@ -440,6 +440,8 @@ namespace Demos
                 FilesListBox.Items.Remove(item);
             var selectedTabItem = TabControl.SelectedItem as TabItem;
             var selectedListBoxItem = (selectedTabItem?.Content as ListBox)?.SelectedItem as ListBoxItem;
+            var runListBoxItem = FilesListBox.Items[0] as ListBoxItem;
+            runListBoxItem.Visibility = selectedListBoxItem != null && selectedListBoxItem.Opacity == 1 ? Visibility.Visible : Visibility.Collapsed;
             var selectedTechnologyItem = TechnologyComboBox?.SelectedItem as ComboBoxItem;
             if (selectedTabItem == null || selectedListBoxItem == null || selectedTechnologyItem == null)
                 return;
