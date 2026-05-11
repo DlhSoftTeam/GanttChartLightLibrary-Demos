@@ -93,7 +93,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TabItem">
-                        <Border Name="Border" BorderThickness="1" BorderBrush="#C4C9C4" Background="#efefef" CornerRadius="0" Padding="4" Margin="2,2,0,0">
+                        <Border Name="Border" BorderThickness="1" BorderBrush="#d4d9d4" Background="#E7EFF7" CornerRadius="2" Padding="1" Margin="1,1,0,0">
                             <StackPanel>
                                 <TextBlock Name="Text" Text="{Binding Header, RelativeSource={RelativeSource TemplatedParent}}" 
                                     TextAlignment="Center" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
@@ -101,8 +101,8 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="Border" Property="BorderBrush" Value="#e31d3b"/>
-                                <Setter TargetName="Border" Property="Background" Value="#e31d3b"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#4A86C5"/>
+                                <Setter TargetName="Border" Property="Background" Value="#4A86C5"/>
                                 <Setter TargetName="Text" Property="TextElement.Foreground" Value="White"/>
                             </Trigger>
                             <MultiDataTrigger>
@@ -110,7 +110,7 @@
                                     <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True"/>
                                     <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="False"/>
                                 </MultiDataTrigger.Conditions>
-                                <Setter TargetName="Border" Property="Background" Value="#b7e1f7"/>
+                                <Setter TargetName="Border" Property="Background" Value="#c7e1f7"/>
                             </MultiDataTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -163,12 +163,12 @@
                             <StackPanel Orientation="Horizontal" IsItemsHost="True"/>
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
-                    <ListBoxItem Content="Run" Foreground="#e31d3b" Margin="20,0" Style="{StaticResource RunListBoxItemStyle}"/>
+                    <ListBoxItem Content="Run" Foreground="#4A86C5" Margin="20,0" Style="{StaticResource RunListBoxItemStyle}"/>
                     <ListBoxItem Content="Common.xaml" Tag="Themes/Common.xaml" Style="{StaticResource ThemeListBoxItemStyle}"/>
                     <ListBoxItem Content="{Binding SelectedItem.Tag, ElementName=ThemeComboBox, Converter={StaticResource FileNameConverter}, ConverterParameter=.xaml}" Tag="{Binding SelectedItem.Tag, ElementName=ThemeComboBox, Converter={StaticResource FileNameConverter}, ConverterParameter=Themes/*.xaml}" Style="{StaticResource ThemeListBoxItemStyle}"/>
                 </ListBox>
                 <Button Name="GetZipButton" Content=".ZIP" Click="GetZipButton_Click"/>
-                <ComboBox Name="ThemeComboBox" Foreground="#e31d3b" SelectionChanged="ThemeComboBox_SelectionChanged">
+                <ComboBox Name="ThemeComboBox" Foreground="#4A86C5" SelectionChanged="ThemeComboBox_SelectionChanged">
                     <ComboBox.Style>
                         <Style TargetType="ComboBox" BasedOn="{StaticResource {x:Type ComboBox}}">
                             <Style.Triggers>
