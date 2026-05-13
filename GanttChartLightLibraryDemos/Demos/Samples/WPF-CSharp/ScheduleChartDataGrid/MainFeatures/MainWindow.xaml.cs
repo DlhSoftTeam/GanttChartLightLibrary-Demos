@@ -28,7 +28,6 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
         public MainWindow()
         {
             InitializeComponent();
-
             string applicationName = GetType().Namespace;
 
             ScheduleChartItem unassignedScheduleChartItem = ScheduleChartDataGrid.Items[0];
@@ -554,5 +553,32 @@ namespace Demos.WPF.CSharp.ScheduleChartDataGrid.MainFeatures
                 return;
             DeleteTask(itemToDelete);
         }
+
+        private void DragResourceThumb_CompletingDrag(object sender, DragResourceThumb.CompletingDragEventArgs e)
+        {
+            ScheduleChartItem resource = e.Item as ScheduleChartItem;
+            if (resource == null)
+                return;
+
+            if (resource.Content as string == "(Unassigned)")
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            ScheduleChartItem hoveredResource = e.HoveredItem as ScheduleChartItem;
+            if (hoveredResource != null && hoveredResource.Content as string == "(Unassigned)")
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            if (e.ToIndex <= 0)
+            {
+                e.Cancel = true;
+                return;
+            }
+        }
+
     }
 }

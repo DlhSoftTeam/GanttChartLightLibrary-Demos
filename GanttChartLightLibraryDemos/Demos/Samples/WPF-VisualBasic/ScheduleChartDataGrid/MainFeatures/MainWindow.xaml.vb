@@ -15,17 +15,17 @@ Partial Public Class MainWindow
     Public Sub New()
         InitializeComponent()
 
-        Dim task1 As GanttChartItem = ScheduleChartDataGrid.Items(0).GanttChartItems(0)
+        Dim task1 As GanttChartItem = ScheduleChartDataGrid.Items(2).GanttChartItems(0)
         task1.Start = Date.Today.Add(TimeSpan.Parse("08:00:00"))
         task1.Finish = Date.Today.Add(TimeSpan.Parse("16:00:00"))
         task1.CompletedFinish = Date.Today.Add(TimeSpan.Parse("12:00:00"))
 
-        Dim task21 As GanttChartItem = ScheduleChartDataGrid.Items(0).GanttChartItems(1)
+        Dim task21 As GanttChartItem = ScheduleChartDataGrid.Items(2).GanttChartItems(1)
         task21.Start = Date.Today.AddDays(1).Add(TimeSpan.Parse("12:00:00"))
         task21.Finish = Date.Today.AddDays(2).Add(TimeSpan.Parse("16:00:00"))
         task21.AssignmentsContent = "50%"
 
-        Dim task22 As GanttChartItem = ScheduleChartDataGrid.Items(1).GanttChartItems(0)
+        Dim task22 As GanttChartItem = ScheduleChartDataGrid.Items(3).GanttChartItems(0)
         task22.Start = Date.Today.AddDays(1).Add(TimeSpan.Parse("12:00:00"))
         task22.Finish = Date.Today.AddDays(2).Add(TimeSpan.Parse("16:00:00"))
 
@@ -238,4 +238,27 @@ Partial Public Class MainWindow
                                                End Using
                                            End Sub, Action))
     End Sub
+
+    Private Sub DragResourceThumb_CompletingDrag(sender As Object, e As DragResourceThumb.CompletingDragEventArgs)
+        Dim resource = TryCast(e.Item, ScheduleChartItem)
+        If resource Is Nothing Then
+            Return
+        End If
+
+        If Equals(resource.Content, "(Unassigned)") Then
+            e.Cancel = True
+            Return
+        End If
+
+        Dim hoveredResource = TryCast(e.HoveredItem, ScheduleChartItem)
+        If hoveredResource IsNot Nothing AndAlso Equals(hoveredResource.Content, "(Unassigned)") Then
+            e.Cancel = True
+            Return
+        End If
+
+        If e.ToIndex <= 0 Then
+            e.Cancel = True
+        End If
+    End Sub
+
 End Class

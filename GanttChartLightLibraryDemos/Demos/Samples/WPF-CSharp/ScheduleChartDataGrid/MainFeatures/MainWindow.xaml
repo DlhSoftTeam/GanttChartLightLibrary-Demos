@@ -234,6 +234,32 @@
             <!-- DataTreeGridColumn (within a fully defined custom Columns collection) is required to present hierarchical resources. -->
             <pdgcc:ScheduleChartDataGrid.Columns>
                 <pdgcc:DataGridColumnCollection>
+                    <DataGridTemplateColumn Width="40" Header="Reorder" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width="16" Height="16" IsHitTestVisible="False">
+                                        <Image.Style>
+                                            <Style TargetType="Image">
+                                                <Setter Property="Source" Value="Images/Person.png"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Indentation}" Value="0">
+                                                        <Setter Property="Source" Value="Images/People.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Content}" Value="(Unassigned)">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                    <pdgcc:DragResourceThumb Role="UpdateIndex" RoleParameter="True"
+                                                             CompletingDrag="DragResourceThumb_CompletingDrag">
+                                    </pdgcc:DragResourceThumb>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                     <hdc:DataTreeGridColumn Header="Resource" Width="132"/>
                 </pdgcc:DataGridColumnCollection>
             </pdgcc:ScheduleChartDataGrid.Columns>
