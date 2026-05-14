@@ -85,7 +85,7 @@
     <Style x:Key="RibbonComboBoxStyle" TargetType="ComboBox">
         <Setter Property="Margin" Value="1"/>
         <Setter Property="Padding" Value="4,2"/>
-        <Setter Property="Background" Value="#c0c0c0"/>
+        <Setter Property="Background" Value="#eee"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ComboBox">

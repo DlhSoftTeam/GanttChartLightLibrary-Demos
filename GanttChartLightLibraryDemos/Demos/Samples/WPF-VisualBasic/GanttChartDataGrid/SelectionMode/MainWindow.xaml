@@ -16,15 +16,15 @@
             <StackPanel Style="{StaticResource RibbonStyle}" Orientation="Vertical">
                 <StackPanel Margin="4,8">
                     <StackPanel Orientation="Horizontal">
-                        <Label Foreground="White">Selection mode:</Label>
+                        <Label Foreground="#333">Selection mode:</Label>
                         <ComboBox Name="SelectionModeComboBox" SelectedIndex="1" Width="80" Padding="5,4">
                             <DataGridSelectionMode>Single</DataGridSelectionMode>
                             <DataGridSelectionMode>Extended</DataGridSelectionMode>
                         </ComboBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Label Foreground="White">Count:</Label>
-                        <Label Foreground="White" Content="{Binding SelectedItems.Count, ElementName=GanttChartDataGrid}" Padding="0,5"/>
+                        <Label Foreground="#333">Count:</Label>
+                        <Label Foreground="#333" Content="{Binding SelectedItems.Count, ElementName=GanttChartDataGrid}" Padding="0,5"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

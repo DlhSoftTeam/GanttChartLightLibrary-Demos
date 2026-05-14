@@ -89,6 +89,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CustomGanttChartItem.vb" />
     <Page Include="Themes\Blue-navy.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -260,6 +261,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\ZoomIn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ResourceAdd.png" />
+    <Resource Include="Images\ResourceDelete.png" />
+    <Resource Include="Images\Flag.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\People.png" />

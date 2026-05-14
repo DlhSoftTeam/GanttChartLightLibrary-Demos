@@ -63,6 +63,8 @@ namespace Demos.WPF.CSharp.PertChartView.MultiTasksPerLine
             {
                 // Get PERT Chart items from Gantt Chart. The collection may contain generic links, i.e. virtual effort tasks.
                 var taskEvents = GanttChartDataGrid.GetPertChartItems();
+                if (taskEvents == null)
+                    return;
                 OptimizeTasks(taskEvents); // Comment this line to see default behavior of DlhSoft Gantt Chart Light Library components.
                 PertChartView.Items = taskEvents;
             }
@@ -71,6 +73,8 @@ namespace Demos.WPF.CSharp.PertChartView.MultiTasksPerLine
         // Optimize tasks between task events, by removing generic links and replacing them by multiple dependencies between the same two task events as appropriate.
         private static void OptimizeTasks(ObservableCollection<DlhSoft.Windows.Controls.Pert.PertChartItem> taskEvents)
         {
+            if (taskEvents == null)
+                return;
             foreach (var taskEvent in taskEvents.Where(te => te.Predecessors != null).ToArray())
             {
                 var tasks = taskEvent.Predecessors;
@@ -78,8 +82,8 @@ namespace Demos.WPF.CSharp.PertChartView.MultiTasksPerLine
                 // When a task event has only virtual effort links to other events, link the previous events directly to the current event.
                 if (tasks.Any() && tasks.All(t => t.IsEffortVirtual))
                 {
-                    var previousTaskEvents = tasks.Select(t => t.Item).ToArray();
-                    var previousTasks = previousTaskEvents.SelectMany(pte => pte.Predecessors).ToArray();
+                    var previousTaskEvents = tasks.Select(t => t.Item).Where(pte => pte != null).ToArray();
+                    var previousTasks = previousTaskEvents.Where(pte => pte.Predecessors != null).SelectMany(pte => pte.Predecessors).ToArray();
                     foreach (var pte in previousTaskEvents)
                         taskEvents.Remove(pte);
                     taskEvent.Predecessors.Clear();

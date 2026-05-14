@@ -53,6 +53,9 @@ Partial Public Class MainWindow
         If TabControl.SelectedItem Is PertChartTabItem Then
             ' Get PERT Chart items from Gantt Chart. The collection may contain generic links, i.e. virtual effort tasks.
             Dim taskEvents = GanttChartDataGrid.GetPertChartItems()
+            If taskEvents Is Nothing Then
+                Return
+            End If
             OptimizeTasks(taskEvents) ' Comment this line to see default behavior of DlhSoft Gantt Chart Light Library components.
             PertChartView.Items = taskEvents
         End If
@@ -60,13 +63,16 @@ Partial Public Class MainWindow
 
 		' Optimize tasks between task events, by removing generic links and replacing them by multiple dependencies between the same two task events as appropriate.
 		Private Shared Sub OptimizeTasks(taskEvents As ObservableCollection(Of DlhSoft.Windows.Controls.Pert.PertChartItem))
+			If taskEvents Is Nothing Then
+				Return
+			End If
 			For Each taskEvent In taskEvents.Where(Function(te) te.Predecessors IsNot Nothing).ToArray()
             Dim tasksValue = taskEvent.Predecessors
 
             ' When a task event has only virtual effort links to other events, link the previous events directly to the current event.
             If tasksValue.Any() AndAlso tasksValue.All(Function(t) t.IsEffortVirtual) Then
-                Dim previousTaskEvents = tasksValue.Select(Function(t) t.Item).ToArray()
-                Dim previousTasks = previousTaskEvents.SelectMany(Function(pte) pte.Predecessors).ToArray()
+                Dim previousTaskEvents = tasksValue.Select(Function(t) t.Item).Where(Function(pte) pte IsNot Nothing).ToArray()
+                Dim previousTasks = previousTaskEvents.Where(Function(pte) pte.Predecessors IsNot Nothing).SelectMany(Function(pte) pte.Predecessors).ToArray()
                 For Each pte In previousTaskEvents
                     taskEvents.Remove(pte)
                 Next pte

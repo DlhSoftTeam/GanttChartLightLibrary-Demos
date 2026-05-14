@@ -90,14 +90,17 @@
         <Style TargetType="TabItem">
             <Setter Property="Foreground" Value="#4c4c4c"/>
             <Setter Property="Background" Value="#fefefe"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TabItem">
                         <Border Name="Border" BorderThickness="1" BorderBrush="#d4d9d4" Background="#E7EFF7" CornerRadius="2" Padding="1" Margin="1,1,0,0">
-                            <StackPanel>
+                            <Grid>
                                 <TextBlock Name="Text" Text="{Binding Header, RelativeSource={RelativeSource TemplatedParent}}" 
-                                    TextAlignment="Center" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
-                            </StackPanel>
+                                    TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                    TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
+                            </Grid>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="True">
@@ -220,9 +223,9 @@
                 </ComboBox>
                 <ComboBox Name="TechnologyComboBox" HorizontalContentAlignment="Right" SelectionChanged="TechnologyComboBox_SelectionChanged">
                     <ComboBoxItem Content="WPF – C#" Tag="WPF-CSharp" IsSelected="True"/>
-                    <ComboBoxItem Content="WPF – Visual basic®" Tag="WPF-VisualBasic"/>
+                    <ComboBoxItem Content="WPF – VB.NET" Tag="WPF-VisualBasic"/>
                     <ComboBoxItem Content="Silverlight™ – C#" Tag="Silverlight-CSharp"/>
-                    <ComboBoxItem Content="Silverlight™ – Visual Basic®" Tag="Silverlight-VisualBasic"/>
+                    <ComboBoxItem Content="Silverlight™ – VB.NET" Tag="Silverlight-VisualBasic"/>
                 </ComboBox>
             </StackPanel>
         </Viewbox>
@@ -238,18 +241,23 @@
                         <TextBox Name="TreeViewSearchTextBox" DockPanel.Dock="Top" Text="Search..." Padding="4" Margin="3,0,2,0" Background="White" Foreground="Gray" 
                                  GotKeyboardFocus="TreeViewSearchTextBox_GotKeyboardFocus" LostKeyboardFocus="TreeViewSearchTextBox_LostKeyboardFocus"
                                  TextChanged="TreeViewSearchTextBox_TextChanged"/>
-                        <TabControl x:Name="TabControl" TabStripPlacement="Bottom" SelectionChanged="TabControl_SelectionChanged">
-                            <TabControl.Resources>
-                                <Style TargetType="ListBox">
-                                    <Setter Property="Margin" Value="2,0,0,-1"/>
-                                </Style>
-                                <Style TargetType="ListBoxItem">
-                                    <Setter Property="Margin" Value="1"/>
-                                    <Setter Property="Padding" Value="2,3"/>
-                                    <Setter Property="Background" Value="#fff"/>
-                                </Style>
-                            </TabControl.Resources>
-                        </TabControl>
+                <TabControl x:Name="TabControl" TabStripPlacement="Bottom" SelectionChanged="TabControl_SelectionChanged">
+                    <TabControl.Resources>
+                        <Style TargetType="ListBox">
+                            <Setter Property="Margin" Value="2,0,0,-1"/>
+                        </Style>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Margin" Value="1"/>
+                            <Setter Property="Padding" Value="2,3"/>
+                            <Setter Property="Background" Value="#fff"/>
+                        </Style>
+                        <Style TargetType="TabItem" BasedOn="{StaticResource {x:Type TabItem}}">
+                            <Setter Property="MinWidth" Value="104"/>
+                            <Setter Property="Height" Value="44"/>
+                            <Setter Property="Padding" Value="6,4"/>
+                        </Style>
+                    </TabControl.Resources>
+                </TabControl>
                     </DockPanel>
                     <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Stretch" Background="Transparent"/>
                     <Border Grid.Column="2" BorderThickness="1,0,0,0" BorderBrush="#ccc">

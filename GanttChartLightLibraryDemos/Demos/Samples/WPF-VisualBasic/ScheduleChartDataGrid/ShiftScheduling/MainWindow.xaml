@@ -21,9 +21,9 @@
                                      AreUpdateTimelinePageButtonsVisible="False">
             <pdgcc:GanttChartDataGrid.Scales>
                 <pdgcc:ScaleCollection>
-                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="ShortDate" HeaderBorderBrush="Silver" HeaderBorderThickness="0" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver"/>
-                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayOfWeek" HeaderBorderBrush="Silver" HeaderBorderThickness="0" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
-                    <pdgcc:Scale ScaleType="Custom" HeaderContentFormat="Custom" HeaderBorderBrush="Silver" HeaderBorderThickness="0" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,1" />
+                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="ShortDate" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver"/>
+                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayOfWeek" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                    <pdgcc:Scale ScaleType="Custom" HeaderContentFormat="Custom" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,1" />
                 </pdgcc:ScaleCollection>
             </pdgcc:GanttChartDataGrid.Scales>
         </pdgcc:ScheduleChartDataGrid>

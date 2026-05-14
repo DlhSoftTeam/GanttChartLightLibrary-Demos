@@ -40,6 +40,9 @@ namespace Demos
 
         private void LoadTabControl()
         {
+            var previouslySelectedTabItem = TabControl.SelectedItem as TabItem;
+            var previouslySelectedComponent = previouslySelectedTabItem?.Tag as string;
+            var previouslySelectedFeature = ((previouslySelectedTabItem?.Content as ListBox)?.SelectedItem as ListBoxItem)?.Tag as string;
             TabControl.Items.Clear();
             var selectedTechnologyItem = TechnologyComboBox?.SelectedItem as ComboBoxItem;
             if (selectedTechnologyItem == null)
@@ -204,7 +207,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "GanttChartDataGrid",
-                                    Header = "GanttChartDataGrid",
+                                    Header = "GanttChart\nDataGrid",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
@@ -261,6 +264,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "GanttChartView",
+                                    Header = "GanttChart\nView",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
@@ -269,6 +273,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "ScheduleChartDataGrid",
+                                    Header = "ScheduleChart\nDataGrid",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
@@ -289,6 +294,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "ScheduleChartView",
+                                    Header = "ScheduleChart\nView",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" }
@@ -297,6 +303,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "LoadChartDataGrid",
+                                    Header = "LoadChart\nDataGrid",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
@@ -308,6 +315,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "LoadChartView",
+                                    Header = "LoadChart\nView",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
@@ -317,6 +325,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "PertChartView",
+                                    Header = "PertChart\nView",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
@@ -326,6 +335,7 @@ namespace Demos
                                 new ComponentInfo
                                 {
                                     Name = "NetworkDiagramView",
+                                    Header = "NetworkDiagram\nView",
                                     Features = new[]
                                     {
                                         new SampleInfo { Tag = "MainFeatures", Title = "Main features", Description = "Shows the main features of the component" },
@@ -371,6 +381,8 @@ namespace Demos
             if (components == null)
                 return;
             bool isFirst = true;
+            TabItem matchedComponentItem = null;
+            ListBoxItem matchedFeatureItem = null;
             foreach (var component in components.Where(c => c.Features != null))
             {
                 var componentItem = new TabItem { Header = String.IsNullOrEmpty(component.Header) ? component.Name : component.Header, Tag = component.Name, IsSelected = isFirst };
@@ -379,12 +391,23 @@ namespace Demos
                 listBox.Tag = component.Name;
                 foreach (var feature in component.Features)
                 {
-                    listBox.Items.Add(new ListBoxItem { Content = feature.Title, Tag = feature.Tag, ToolTip = feature.Description, IsSelected = isFirst, Opacity = feature.IsLink ? 0.65 : 1 });
+                    var featureItem = new ListBoxItem { Content = feature.Title, Tag = feature.Tag, ToolTip = feature.Description, IsSelected = isFirst, Opacity = feature.IsLink ? 0.65 : 1 };
+                    listBox.Items.Add(featureItem);
+                    if (component.Name == previouslySelectedComponent && feature.Tag == previouslySelectedFeature)
+                    {
+                        matchedComponentItem = componentItem;
+                        matchedFeatureItem = featureItem;
+                    }
                     isFirst = false;
                 }
                 componentItem.Content = listBox;
                 listBox.SelectionChanged += ListBox_SelectionChanged;
                 TabControl.Items.Add(componentItem);
+            }
+            if (matchedComponentItem != null && matchedFeatureItem != null)
+            {
+                matchedComponentItem.IsSelected = true;
+                matchedFeatureItem.IsSelected = true;
             }
         }
 
@@ -499,8 +522,7 @@ namespace Demos
                     switch (feature)
                     {
                         case "MainFeatures":
-                            if (!isVisualBasic)
-                                fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml" + (!isVisualBasic ? ".cs" : ".vb"), "CustomGanttChartItem.cs" };
+                            fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml" + (!isVisualBasic ? ".cs" : ".vb"), "CustomGanttChartItem" + (!isVisualBasic ? ".cs" : ".vb") };
                             break;
                         case "BarTemplating":
                             fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml" + (!isVisualBasic ? ".cs" : ".vb"), "CustomGanttChartItem" + (!isVisualBasic ? ".cs" : ".vb"), "Interruption" + (!isVisualBasic ? ".cs" : ".vb"), "Marker" + (!isVisualBasic ? ".cs" : ".vb") };

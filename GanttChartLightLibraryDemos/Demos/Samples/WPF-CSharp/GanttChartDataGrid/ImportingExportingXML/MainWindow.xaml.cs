@@ -198,19 +198,19 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.ImportingExportingXML
                     task.BaselineFinish = DateTime.Parse(baselineElement.Element(XName.Get("Finish", xmlns))?.Value);
             }
 
-            task.Description = taskElement.Element(XName.Get("Description", xmlns))?.Value;
+            task.Description = taskElement.Element(XName.Get("Description", xmlns))?.Value ?? string.Empty;
         }
     }
 
     public class CustomGanttChartItem : GanttChartItem, INotifyPropertyChanged
     {
-        private string description;
+        private string description = string.Empty;
         public string Description
         {
-            get { return description; }
+            get { return description ?? string.Empty; }
             set
             {
-                description = value;
+                description = value ?? string.Empty;
                 OnPropertyChanged("Description");
             }
         }

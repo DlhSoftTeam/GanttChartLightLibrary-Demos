@@ -1,0 +1,35 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+        Title="ScheduleChartDataGrid Data Binding Sample" Width="800" Height="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <!-- DataContext is set to a custom resource collection in code behind, and items are bound using ResourceItemsConverter. -->
+        <pdgcc:ScheduleChartDataGrid x:Name="ScheduleChartDataGrid" DataGridWidth="0.15*">
+            <pdgcc:ScheduleChartDataGrid.Items>
+                <Binding>
+                    <Binding.Converter>
+                        <!-- Set *Member properties to identify custom item properties that need to be internally bound. -->
+                        <!-- Optionally, set UpdateTargetOnSourceChanges and/or UpdateSourceOnTargetChanges to true/false as needed in the application context. -->
+                        <pdgcc:ResourceItemsConverter ContentMember="Name" AssignedTasksMember="AssignedTasks"
+                                                      TaskContentMember="Name" TaskStartMember="StartDate" TaskFinishMember="FinishDate" TaskCompletedFinishMember="CompletionCurrentDate" TaskAssignmentsContentMember="AssignmentsString"/>
+                    </Binding.Converter>
+                </Binding>
+            </pdgcc:ScheduleChartDataGrid.Items>
+            <pdgcc:ScheduleChartDataGrid.Columns>
+                <pdgcc:DataGridColumnCollection>
+                    <DataGridTextColumn Header="Resource" Binding="{Binding Content, Mode=TwoWay}"/>
+                    <!-- Define new columns for custom properties, using Tag prefix to refer the original custom data item properties. -->
+                    <DataGridTextColumn Header="Description" Binding="{Binding Tag.Description, Mode=TwoWay}" IsReadOnly="False"/>
+                </pdgcc:DataGridColumnCollection>
+            </pdgcc:ScheduleChartDataGrid.Columns>
+        </pdgcc:ScheduleChartDataGrid>
+    </DockPanel>
+</Window>
