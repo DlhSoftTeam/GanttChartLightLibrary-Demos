@@ -167,6 +167,10 @@ Class MainWindow
         MyBase.OnApplyTemplate()
     End Sub
     Private Sub LoadTheme()
+        If Not themeResourceDictionary Is Nothing Then
+            GanttChartDataGrid.Resources.MergedDictionaries.Remove(themeResourceDictionary)
+            themeResourceDictionary = Nothing
+        End If
         If theme Is Nothing Or theme = "Default" Or theme = "Aero" Then Return
         themeResourceDictionary = New ResourceDictionary With {.Source = New Uri("/" + Me.GetType().Assembly.GetName().Name + ";component/Themes/" + theme + ".xaml", UriKind.Relative)}
         GanttChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary)

@@ -13,7 +13,7 @@
                 <ToggleButton Content="{Binding}" IsChecked="{x:Null}" Checked="SortingToggleButton_CheckedChanged" Unchecked="SortingToggleButton_CheckedChanged">
                     <ToggleButton.Template>
                         <ControlTemplate TargetType="ToggleButton">
-                            <Border Background="Transparent">
+                            <Border Background="Transparent" MinWidth="48">
                                 <StackPanel Orientation="Horizontal">
                                     <Path Name="ToggleButtonPath" Height="5" Data="M0,5 L3.5,0 L7,5 Z" Fill="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" VerticalAlignment="Center" Margin="0,0,4,0"/>
                                     <TextBlock Text="{Binding}" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=DataGridColumnHeader}}"/>

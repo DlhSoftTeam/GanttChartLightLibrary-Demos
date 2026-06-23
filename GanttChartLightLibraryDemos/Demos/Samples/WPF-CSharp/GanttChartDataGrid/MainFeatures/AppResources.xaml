@@ -3,6 +3,7 @@
     <Style x:Key="RibbonContainerStyle" TargetType="Border">
         <Setter Property="BorderBrush" Value="#ddd"/>
         <Setter Property="BorderThickness" Value="0,0,0,1"/>
+        <Setter Property="Background" Value="#fefefe"/>
     </Style>
     <Style x:Key="RibbonStyle" TargetType="StackPanel">
         <Setter Property="Orientation" Value="Horizontal"/>
@@ -12,17 +13,17 @@
         <Setter Property="Background" Value="#fefefe"/>
         <Setter Property="BorderBrush" Value="#ddd"/>
         <Setter Property="BorderThickness" Value="0,0,1,0"/>
-        <Setter Property="Padding" Value="0,0,0,2"/>
+        <Setter Property="Padding" Value="0,0,0,1"/>
     </Style>
     <Style x:Key="RibbonHeaderStyle" TargetType="ContentControl">
         <Setter Property="Background" Value="#eee"/>
-        <Setter Property="Padding" Value="4"/>
-        <Setter Property="Margin" Value="0,0,0,2"/>
+        <Setter Property="Padding" Value="8,6"/>
+        <Setter Property="Margin" Value="0,0,0,4"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ContentControl">
                     <Border Background="{TemplateBinding Background}">
-                        <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                        <ContentPresenter Margin="{TemplateBinding Padding}" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -30,14 +31,15 @@
     </Style>
     <Style x:Key="RibbonCommandsAreaStyle" TargetType="StackPanel">
         <Setter Property="Orientation" Value="Horizontal"/>
-        <Setter Property="Margin" Value="4,1"/>
+        <Setter Property="Margin" Value="2,4"/>
     </Style>
     <Style x:Key="RibbonCommandTextStyle" TargetType="TextBlock">
-        <Setter Property="Margin" Value="3,0,0,0"/>
+        <Setter Property="Margin" Value="4,0,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
     <Style x:Key="RibbonButtonStyle" TargetType="Button">
-        <Setter Property="Margin" Value="1"/>
-        <Setter Property="Padding" Value="2"/>
+        <Setter Property="Margin" Value="0,1"/>
+        <Setter Property="Padding" Value="3,2"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -71,8 +73,8 @@
         </Setter>
     </Style>
     <Style x:Key="RibbonToggleButtonStyle" TargetType="ToggleButton">
-        <Setter Property="Margin" Value="1"/>
-        <Setter Property="Padding" Value="2"/>
+        <Setter Property="Margin" Value="0,1"/>
+        <Setter Property="Padding" Value="3,2"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
@@ -111,8 +113,8 @@
         </Setter>
     </Style>
     <Style x:Key="RibbonComboBoxStyle" TargetType="ComboBox">
-        <Setter Property="Margin" Value="1"/>
-        <Setter Property="Padding" Value="4,2"/>
+        <Setter Property="Margin" Value="0,1"/>
+        <Setter Property="Padding" Value="5,3"/>
         <Setter Property="Background" Value="#eee"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -158,6 +160,6 @@
         </Setter>
     </Style>
     <Style x:Key="RibbonCommandSeparatorStyle" TargetType="Border">
-        <Setter Property="Margin" Value="3,0"/>
+        <Setter Property="Margin" Value="2,0"/>
     </Style>
 </ResourceDictionary>

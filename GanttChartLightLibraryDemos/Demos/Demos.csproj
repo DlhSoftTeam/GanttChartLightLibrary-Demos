@@ -163,22 +163,16 @@
     <Resource Include="Samples.Resources\WPF-VisualBasic\Themes\Gray-blue.xaml">
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Samples.Resources\WPF-VisualBasic\Themes\Generic-bright.xaml">
+    <Resource Include="Samples.Resources\WPF-VisualBasic\Themes\Coastal-blue.xaml">
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Samples.Resources\WPF-VisualBasic\Themes\Generic-bright-2016.xaml">
+    <Resource Include="Samples.Resources\WPF-VisualBasic\Themes\Generic-bright.xaml">
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Samples.Resources\WPF-VisualBasic\Themes\Generic-blue.xaml">
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Samples.Resources\WPF-VisualBasic\Themes\Generic-blue-2016.xaml">
-      <SubType>Designer</SubType>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-VisualBasic\Themes\DlhSoft-gray.xaml">
-      <SubType>Designer</SubType>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-VisualBasic\Themes\Default-2010.xaml">
+    <Resource Include="Samples.Resources\WPF-VisualBasic\Themes\DlhSoft.xaml">
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Samples.Resources\WPF-VisualBasic\Themes\Dark-black.xaml">
@@ -193,12 +187,6 @@
     <Resource Include="Samples.Resources\WPF-VisualBasic\Themes\Blue-navy.xaml">
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\Themes\Generic-blue-2016.xaml">
-      <SubType>Designer</SubType>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\Themes\Generic-bright-2016.xaml">
-      <SubType>Designer</SubType>
-    </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\Themes\Green-blue.xaml">
       <SubType>Designer</SubType>
     </Resource>
@@ -206,9 +194,6 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\Themes\Yellow-green.xaml">
-      <SubType>Designer</SubType>
-    </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\Themes\Default-2010.xaml">
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Samples.Resources\WPF-VisualBasic\GanttChartDataGrid\SummaryDragging\MainWindow.xaml">
@@ -853,13 +838,16 @@
     <Resource Include="Samples.Resources\WPF-CSharp\Themes\Gray-blue.xaml">
       <SubType>Designer</SubType>
     </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\Themes\Coastal-blue.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\Themes\Generic-bright.xaml">
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\Themes\Generic-blue.xaml">
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Samples.Resources\WPF-CSharp\Themes\DlhSoft-gray.xaml">
+    <Resource Include="Samples.Resources\WPF-CSharp\Themes\DlhSoft.xaml">
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\Themes\Dark-black.xaml">

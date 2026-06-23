@@ -9,9 +9,15 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="AppResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <DataTemplate x:Key="ScaleHeaderContentTemplate">
-                <ContentControl Content="{Binding}" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="2" IsTabStop="False" Width="40"/>
-            </DataTemplate>
+                <DataTemplate x:Key="CustomScaleHeaderContentTemplate">
+                    <Border Background="Transparent" MinWidth="48">
+                        <TextBlock Text="{Binding}"
+                                   Margin="6,0"
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Left"
+                                   FontWeight="SemiBold"/>
+                    </Border>
+                </DataTemplate>
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
@@ -19,9 +25,9 @@
             <pdgcc:GanttChartDataGrid.Scales>
                 <!-- Set the scales collection in order to set HeaderContentFormat to Custom and be able to set time interval header string values manually (see code behind). -->
                 <pdgcc:ScaleCollection>
-                    <pdgcc:Scale ScaleType="Months" HeaderContentFormat="Month" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
-                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="Day" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
-                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="Custom" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                    <pdgcc:Scale ScaleType="Months" HeaderContentFormat="Month" HeaderBorderBrush="#E4EBF2" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource CustomScaleHeaderContentTemplate}" BorderBrush="#E4EBF2" BorderThickness="0,0,1,0"/>
+                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="Day" HeaderBorderBrush="#E4EBF2" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource CustomScaleHeaderContentTemplate}"/>
+                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="Custom" HeaderBorderBrush="#E4EBF2" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource CustomScaleHeaderContentTemplate}"/>
                 </pdgcc:ScaleCollection>
             </pdgcc:GanttChartDataGrid.Scales>
             <pdgcc:GanttChartDataGrid.Items>
@@ -38,3 +44,12 @@
         </pdgcc:GanttChartDataGrid>
     </DockPanel>
 </Window>
+
+
+
+
+
+
+
+
+

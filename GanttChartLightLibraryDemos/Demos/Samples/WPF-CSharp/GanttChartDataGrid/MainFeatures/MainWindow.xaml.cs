@@ -200,7 +200,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
         }
 
         private ResourceDictionary themeResourceDictionary;
-        private string theme = "Generic-bright";
+        private string theme = "Coastal-blue";
         public MainWindow(string theme) : this()
         {
             this.theme = theme;
@@ -213,10 +213,48 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
         }
         private void LoadTheme()
         {
+            if (themeResourceDictionary != null)
+            {
+                GanttChartDataGrid.Resources.MergedDictionaries.Remove(themeResourceDictionary);
+                themeResourceDictionary = null;
+            }
             if (theme == null || theme == "Default" || theme == "Aero")
                 return;
             themeResourceDictionary = new ResourceDictionary { Source = new Uri("/" + GetType().Assembly.GetName().Name + ";component/Themes/" + theme + ".xaml", UriKind.Relative) };
             GanttChartDataGrid.Resources.MergedDictionaries.Add(themeResourceDictionary);
+        }
+
+        public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.RegisterAttached("IsSelected", typeof(bool), typeof(MainWindow), new PropertyMetadata(false));
+        public static bool GetIsSelected(DependencyObject obj)
+        {
+            return (bool)obj.GetValue(IsSelectedProperty);
+        }
+        public static void SetIsSelected(DependencyObject obj, bool value)
+        {
+            obj.SetValue(IsSelectedProperty, value);
+        }
+
+        private GanttChartItem highlightedItem;
+        private void GanttChartDataGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Point controlPosition = e.GetPosition(GanttChartDataGrid);
+            if (controlPosition.X < GanttChartDataGrid.ActualWidth - GanttChartDataGrid.GanttChartView.ActualWidth)
+                return;
+
+            var frameworkElement = e.OriginalSource as FrameworkElement;
+            var item = frameworkElement?.DataContext as GanttChartItem;
+
+            if (highlightedItem != null)
+            {
+                SetIsSelected(highlightedItem, false);
+                highlightedItem = null;
+            }
+
+            if (item == null)
+                return;
+
+            highlightedItem = item;
+            SetIsSelected(highlightedItem, true);
         }
 
         // Control area commands.
@@ -264,8 +302,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
                 return;
             }
             items.Reverse();
-            // If you have many items, you may use BeginInit and EndInit to avoid intermediate user interface updates.
-            // GanttChartDataGrid.BeginInit();
+            var removableItems = new List<GanttChartItem>();
             foreach (GanttChartItem item in items)
             {
                 if (item.HasChildren)
@@ -273,9 +310,13 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
                     MessageBox.Show(string.Format("Cannot delete {0} because it has child items; remove its child items first.", item), "Information", MessageBoxButton.OK);
                     continue;
                 }
-                GanttChartDataGrid.Items.Remove(item);
+                removableItems.Add(item);
             }
-            // GanttChartDataGrid.EndInit();
+            if (removableItems.Count == 0)
+                return;
+
+            foreach (var item in removableItems)
+                GanttChartDataGrid.Items.Remove(item);
         }
         private void IncreaseIndentationButton_Click(object sender, RoutedEventArgs e)
         {

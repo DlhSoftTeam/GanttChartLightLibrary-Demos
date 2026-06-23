@@ -7,7 +7,7 @@
     </ResourceDictionary.MergedDictionaries>
     <Style x:Key="LocalColumnHeaderStyle" TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle2}">
         <Setter Property="Background" Value="#111111"/>
-        <Setter Property="BorderBrush" Value="Silver"/>
+        <Setter Property="BorderBrush" Value="#E4EBF2"/>
     </Style>
     <Style x:Key="LocalRowStyle" TargetType="DataGridRow" BasedOn="{StaticResource RowStyle2}">
         <Setter Property="Foreground" Value="#eeeeee"/>
@@ -107,3 +107,4 @@
     <Style TargetType="pdpcc:PertChartView" BasedOn="{StaticResource PertChartViewTemplates2}"/>
     <Style TargetType="pdpcc:NetworkDiagramView" BasedOn="{StaticResource NetworkDiagramViewTemplates2}"/>
 </ResourceDictionary>
+

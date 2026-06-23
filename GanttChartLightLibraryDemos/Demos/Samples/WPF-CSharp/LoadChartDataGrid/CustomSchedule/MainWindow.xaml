@@ -8,8 +8,14 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="AppResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <DataTemplate x:Key="ScaleHeaderContentTemplate">
-                <ContentControl Content="{Binding}" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="2" IsTabStop="False"/>
+            <DataTemplate x:Key="CustomScaleHeaderContentTemplate">
+                <Border Background="Transparent" MinWidth="48">
+                    <TextBlock Text="{Binding}"
+                               Margin="6,0"
+                               VerticalAlignment="Center"
+                               TextAlignment="Left"
+                               FontWeight="SemiBold"/>
+                </Border>
             </DataTemplate>
         </ResourceDictionary>
     </Window.Resources>
@@ -21,10 +27,10 @@
             <!-- Set Scales collection to specify the headers to be displayed in the chart. -->
             <pdgcc:LoadChartDataGrid.Scales>
                 <pdgcc:ScaleCollection>
-                    <pdgcc:Scale ScaleType="Months" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
-                    <pdgcc:Scale ScaleType="Weeks" HeaderHeight="0" BorderBrush="Silver" BorderThickness="0,0,0.35,0"/>
-                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayLeadingZero" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,0.15,0"/>
-                    <pdgcc:Scale ScaleType="Hours" HeaderContentFormat="HourLeadingZero" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                    <pdgcc:Scale ScaleType="Months" HeaderBorderBrush="#E4EBF2" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource CustomScaleHeaderContentTemplate}" BorderBrush="#E4EBF2" BorderThickness="0,0,1,0"/>
+                    <pdgcc:Scale ScaleType="Weeks" HeaderHeight="0" BorderBrush="#E4EBF2" BorderThickness="0,0,0.35,0"/>
+                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayLeadingZero" HeaderBorderBrush="#E4EBF2" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource CustomScaleHeaderContentTemplate}" BorderBrush="#E4EBF2" BorderThickness="0,0,0.15,0"/>
+                    <pdgcc:Scale ScaleType="Hours" HeaderContentFormat="HourLeadingZero" HeaderBorderBrush="#E4EBF2" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource CustomScaleHeaderContentTemplate}"/>
                 </pdgcc:ScaleCollection>
             </pdgcc:LoadChartDataGrid.Scales>
             <pdgcc:LoadChartDataGrid.Items>
@@ -46,3 +52,12 @@
         </pdgcc:LoadChartDataGrid>
     </DockPanel>
 </Window>
+
+
+
+
+
+
+
+
+

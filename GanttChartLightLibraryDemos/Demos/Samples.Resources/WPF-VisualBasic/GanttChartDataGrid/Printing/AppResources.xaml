@@ -236,7 +236,7 @@
         <Setter Property="Foreground" Value="#373737"/>
         <Setter Property="HorizontalGridLinesBrush" Value="Silver"/>
         <Setter Property="VerticalGridLinesBrush" Value="Silver"/>
-        <Setter Property="BorderBrush" Value="Silver"/>
+        <Setter Property="BorderBrush" Value="#E4EBF2"/>
         <Setter Property="RowHeight" Value="30"/>
         <Setter Property="RowBackground" Value="#fff"/>
         <Setter Property="AlternatingRowBackground" Value="#f9f9f9"/>
@@ -249,7 +249,7 @@
         <Setter Property="BorderThickness" Value="0,0,1,1"/>
         <Setter Property="Padding" Value="4"/>
         <Setter Property="Background" Value="#efefef"/>
-        <Setter Property="BorderBrush" Value="Silver"/>
+        <Setter Property="BorderBrush" Value="#E4EBF2"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundBlue}"/>
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="FontWeight" Value="DemiBold"/>

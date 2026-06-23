@@ -14,8 +14,14 @@
             <!-- Converter for date and time and numeric day string values. -->
             <local:NumericDayStringConverter x:Key="NumericDayStringConverter"/>
             <DataTemplate x:Key="ScaleHeaderContentTemplate">
-                <ContentControl Content="{Binding}" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="2" IsTabStop="False"/>
-            </DataTemplate>
+    <Border Background="Transparent" MinWidth="48">
+        <TextBlock Text="{Binding}"
+                   Margin="8,0"
+                   VerticalAlignment="Center"
+                   TextAlignment="Left"
+                   FontWeight="SemiBold"/>
+    </Border>
+</DataTemplate>
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
@@ -36,8 +42,8 @@
             <pdgcc:GanttChartDataGrid.Scales>
                 <!-- Set the scales collection in order to set ScaleType and/or HeaderContentFormat to Custom and be able to set time intervals and header string values manually from their IntervalProvider and HeaderContentProvider properties (see code behind). -->
                 <pdgcc:ScaleCollection>
-                    <pdgcc:Scale ScaleType="Custom" HeaderContentFormat="Custom" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
-                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="Custom" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                    <pdgcc:Scale ScaleType="Custom" HeaderContentFormat="Custom" HeaderBorderBrush="#E4EBF2" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="#E4EBF2" BorderThickness="0,0,1,0"/>
+                    <pdgcc:Scale ScaleType="Days" HeaderContentFormat="Custom" HeaderBorderBrush="#E4EBF2" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
                 </pdgcc:ScaleCollection>
             </pdgcc:GanttChartDataGrid.Scales>
             <pdgcc:GanttChartDataGrid.Items>
@@ -53,3 +59,4 @@
         </pdgcc:GanttChartDataGrid>
     </DockPanel>
 </Window>
+

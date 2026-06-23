@@ -8,20 +8,26 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="AppResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <DataTemplate x:Key="ScaleHeaderContentTemplate">
-                <ContentControl Content="{Binding}" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="2" IsTabStop="False"/>
+            <DataTemplate x:Key="CustomScaleHeaderContentTemplate">
+                <Border Background="Transparent" MinWidth="48">
+                    <TextBlock Text="{Binding}"
+                               Margin="6,0"
+                               VerticalAlignment="Center"
+                               TextAlignment="Left"
+                               FontWeight="SemiBold"/>
+                </Border>
             </DataTemplate>
             <pdgcc:ScaleCollection x:Key="WeeksScales">
-                <pdgcc:Scale ScaleType="Weeks" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
-                <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayOfWeekInitial" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                <pdgcc:Scale ScaleType="Weeks" HeaderBorderBrush="#E4EBF2" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource CustomScaleHeaderContentTemplate}" BorderBrush="#E4EBF2" BorderThickness="0,0,1,0"/>
+                <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayOfWeekInitial" HeaderBorderBrush="#E4EBF2" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource CustomScaleHeaderContentTemplate}"/>
             </pdgcc:ScaleCollection>
             <pdgcc:ScaleCollection x:Key="MonthsScales">
-                <pdgcc:Scale ScaleType="Months" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
-                <pdgcc:Scale ScaleType="Weeks" HeaderContentFormat="Day" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                <pdgcc:Scale ScaleType="Months" HeaderBorderBrush="#E4EBF2" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource CustomScaleHeaderContentTemplate}" BorderBrush="#E4EBF2" BorderThickness="0,0,1,0"/>
+                <pdgcc:Scale ScaleType="Weeks" HeaderContentFormat="Day" HeaderBorderBrush="#E4EBF2" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource CustomScaleHeaderContentTemplate}"/>
             </pdgcc:ScaleCollection>
             <pdgcc:ScaleCollection x:Key="YearsScales">
-                <pdgcc:Scale ScaleType="Years" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
-                <pdgcc:Scale ScaleType="Months" HeaderContentFormat="Month" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+                <pdgcc:Scale ScaleType="Years" HeaderBorderBrush="#E4EBF2" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource CustomScaleHeaderContentTemplate}" BorderBrush="#E4EBF2" BorderThickness="0,0,1,0"/>
+                <pdgcc:Scale ScaleType="Months" HeaderContentFormat="Month" HeaderBorderBrush="#E4EBF2" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource CustomScaleHeaderContentTemplate}"/>
             </pdgcc:ScaleCollection>
             <LinearGradientBrush x:Key="CustomStandardBarFill" StartPoint="0.5,0" EndPoint="0.5,1">
                 <LinearGradientBrush.GradientStops>
@@ -112,3 +118,12 @@
         </pdgcc:GanttChartView>
     </DockPanel>
 </Window>
+
+
+
+
+
+
+
+
+

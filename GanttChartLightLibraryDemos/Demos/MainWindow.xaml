@@ -21,7 +21,7 @@
             <EventSetter Event="RequestNavigate" Handler="Hyperlink_RequestNavigate"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="#66B3FF"/>
+                    <Setter Property="Foreground" Value="#7BA6EC"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -83,13 +83,13 @@
         </Style>
         <Style TargetType="TabItem">
             <Setter Property="Foreground" Value="#4c4c4c"/>
-            <Setter Property="Background" Value="#EEF4F8"/>
+            <Setter Property="Background" Value="#F2F6FC"/>
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
             <Setter Property="VerticalContentAlignment" Value="Stretch"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TabItem">
-                        <Border Name="Border" BorderThickness="1" BorderBrush="#D2DDE7" Background="{TemplateBinding Background}" CornerRadius="7" Padding="3" Margin="4,4,2,2">
+                        <Border Name="Border" BorderThickness="1" BorderBrush="#D3DFF1" Background="{TemplateBinding Background}" CornerRadius="7" Padding="3" Margin="4,4,2,2">
                             <Grid>
                                 <TextBlock Name="Text" Text="{Binding Header, RelativeSource={RelativeSource TemplatedParent}}" 
                                     Margin="3,1" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"
@@ -98,8 +98,8 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="Border" Property="BorderBrush" Value="#2E7FC8"/>
-                                <Setter TargetName="Border" Property="Background" Value="#3A8FD8"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#5D8DE0"/>
+                                <Setter TargetName="Border" Property="Background" Value="#5E8CDE"/>
                                 <Setter TargetName="Text" Property="TextElement.Foreground" Value="White"/>
                             </Trigger>
                             <MultiDataTrigger>
@@ -107,8 +107,8 @@
                                     <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True"/>
                                     <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="False"/>
                                 </MultiDataTrigger.Conditions>
-                                <Setter TargetName="Border" Property="Background" Value="#E7F1FA"/>
-                                <Setter TargetName="Border" Property="BorderBrush" Value="#C2D5E8"/>
+                                <Setter TargetName="Border" Property="Background" Value="#F0F5FD"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#D5E0F1"/>
                             </MultiDataTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -162,12 +162,12 @@
                             <StackPanel Orientation="Horizontal" IsItemsHost="True"/>
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
-                    <ListBoxItem Content="Run" Foreground="#2E7FC8" Margin="20,0" Style="{StaticResource RunListBoxItemStyle}"/>
+                    <ListBoxItem Content="Run" Foreground="#5D8DE0" Margin="20,0" Style="{StaticResource RunListBoxItemStyle}"/>
                     <ListBoxItem Content="Common.xaml" Tag="Themes/Common.xaml" Style="{StaticResource ThemeListBoxItemStyle}"/>
                     <ListBoxItem Content="{Binding SelectedItem.Tag, ElementName=ThemeComboBox, Converter={StaticResource FileNameConverter}, ConverterParameter=.xaml}" Tag="{Binding SelectedItem.Tag, ElementName=ThemeComboBox, Converter={StaticResource FileNameConverter}, ConverterParameter=Themes/*.xaml}" Style="{StaticResource ThemeListBoxItemStyle}"/>
                 </ListBox>
                 <Button Name="GetZipButton" Content=".ZIP" Click="GetZipButton_Click"/>
-        <ComboBox Name="ThemeComboBox" Foreground="#2E7FC8" SelectionChanged="ThemeComboBox_SelectionChanged">
+        <ComboBox Name="ThemeComboBox" Foreground="#5D8DE0" SelectionChanged="ThemeComboBox_SelectionChanged">
             <ComboBox.Style>
                 <Style TargetType="ComboBox" BasedOn="{StaticResource {x:Type ComboBox}}">
                     <Style.Triggers>
@@ -192,9 +192,10 @@
                         </Style>
                 </ComboBox.Resources>
                     <ComboBoxItem Content="Default" Tag="Default"/>
-                    <ComboBoxItem Content="Generic-bright" Tag="Generic-bright" IsSelected="True"/>
+                    <ComboBoxItem Content="Coastal Blue" Tag="Coastal-blue" IsSelected="True"/>
+                    <ComboBoxItem Content="Generic-bright" Tag="Generic-bright"/>
                     <ComboBoxItem Content="Generic-blue" Tag="Generic-blue"/>
-                    <ComboBoxItem Content="DlhSoft-gray" Tag="DlhSoft-gray"/>
+                    <ComboBoxItem Content="DlhSoft" Tag="DlhSoft"/>
                     <ComboBoxItem Content="Purple-green" Tag="Purple-green"/>
                     <ComboBoxItem Content="Steel-blue" Tag="Steel-blue"/>
                     <ComboBoxItem Content="Dark-black" Tag="Dark-black"/>
@@ -207,10 +208,7 @@
                     <ComboBoxItem Content="Light-blue" Tag="Light-blue"/>
                     <ComboBoxItem Content="Yellow-green" Tag="Yellow-green"/>
                     <ComboBoxItem Content="Green-blue" Tag="Green-blue"/>
-                    <ComboBoxItem Content="Default-2010" Tag="Default-2010"/>
-                    <ComboBoxItem Content="Generic-bright-2016" Tag="Generic-bright-2016"/>
-                    <ComboBoxItem Content="Generic-blue-2016" Tag="Generic-blue-2016"/>
-                </ComboBox>
+</ComboBox>
                 <ComboBox Name="TechnologyComboBox" HorizontalContentAlignment="Right" SelectionChanged="TechnologyComboBox_SelectionChanged">
                 <ComboBoxItem Content="WPF – C#" Tag="WPF-CSharp" IsSelected="True"/>
                 <ComboBoxItem Content="WPF – VB.NET" Tag="WPF-VisualBasic"/>
@@ -218,7 +216,7 @@
         </StackPanel>
         </Viewbox>
         </Border>
-        <Border BorderBrush="#ccc" BorderThickness="0,1,0,0">
+        <Border BorderBrush="#E4EBF2" BorderThickness="0,1,0,0">
             <DockPanel>
                 <Grid DockPanel.Dock="Left">
                     <Grid.ColumnDefinitions>
@@ -227,21 +225,21 @@
                         <ColumnDefinition Width="3.5*"/>
                     </Grid.ColumnDefinitions>
                     <DockPanel Grid.Column="0">
-                        <Border DockPanel.Dock="Top" Margin="8,8,8,6" Background="#FAFCFE" BorderBrush="#D7E1EA" BorderThickness="1" CornerRadius="4">
+                        <Border DockPanel.Dock="Top" Margin="4,8,0,6" Background="#FAFCFE" BorderBrush="#D7E1EA" BorderThickness="1" CornerRadius="4">
                         <TextBox Name="TreeViewSearchTextBox" Text="Search..." Padding="10,8" Margin="0" Background="Transparent" Foreground="Gray" BorderThickness="0"
                                  GotKeyboardFocus="TreeViewSearchTextBox_GotKeyboardFocus" LostKeyboardFocus="TreeViewSearchTextBox_LostKeyboardFocus"
                                  TextChanged="TreeViewSearchTextBox_TextChanged"/>
                         </Border>
-                <TabControl x:Name="TabControl" TabStripPlacement="Bottom" SelectionChanged="TabControl_SelectionChanged">
+                <TabControl x:Name="TabControl" TabStripPlacement="Bottom" Margin="0,0,0,0" SelectionChanged="TabControl_SelectionChanged">
                     <TabControl.Resources>
                         <Style TargetType="ListBox">
-                            <Setter Property="Margin" Value="8,0,8,-1"/>
+                            <Setter Property="Margin" Value="0,0,0,-1"/>
                             <Setter Property="Background" Value="Transparent"/>
                             <Setter Property="BorderThickness" Value="0"/>
                         </Style>
                         <Style TargetType="ListBoxItem">
                             <Setter Property="Margin" Value="0,2"/>
-                            <Setter Property="Padding" Value="12,8"/>
+                            <Setter Property="Padding" Value="8,8"/>
                             <Setter Property="Foreground" Value="#243444"/>
                             <Setter Property="Background" Value="Transparent"/>
                             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -253,16 +251,16 @@
                                         </Border>
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsSelected" Value="True">
-                                                <Setter TargetName="ItemBorder" Property="Background" Value="#DCEBF8"/>
-                                                <Setter TargetName="ItemBorder" Property="BorderBrush" Value="#7FB2DD"/>
+                                                <Setter TargetName="ItemBorder" Property="Background" Value="#EEF4FC"/>
+                                                <Setter TargetName="ItemBorder" Property="BorderBrush" Value="#CFDAEA"/>
                                             </Trigger>
                                             <MultiTrigger>
                                                 <MultiTrigger.Conditions>
                                                     <Condition Property="IsMouseOver" Value="True"/>
                                                     <Condition Property="IsSelected" Value="False"/>
                                                 </MultiTrigger.Conditions>
-                                                <Setter TargetName="ItemBorder" Property="Background" Value="#F4F8FC"/>
-                                                <Setter TargetName="ItemBorder" Property="BorderBrush" Value="#E1EAF2"/>
+                                                <Setter TargetName="ItemBorder" Property="Background" Value="#F7FAFD"/>
+                                                <Setter TargetName="ItemBorder" Property="BorderBrush" Value="#E2EAF5"/>
                                             </MultiTrigger>
                                         </ControlTemplate.Triggers>
                                     </ControlTemplate>
@@ -277,8 +275,8 @@
                     </TabControl.Resources>
                 </TabControl>
                     </DockPanel>
-                    <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Stretch" Background="Transparent"/>
-                    <Border Grid.Column="2" BorderThickness="1,0,0,0" BorderBrush="#ccc">
+                    <GridSplitter Grid.Column="1" Width="3" HorizontalAlignment="Stretch" Background="Transparent"/>
+                    <Border Grid.Column="2" BorderThickness="1,0,0,0" BorderBrush="#E4EBF2">
                         <Grid>
                             <ContentPresenter Name="ContentPresenter"/>
                             <TextBox Name="ContentTextBox" IsReadOnly="True" FontFamily="Courier New" 
@@ -292,3 +290,14 @@
         </Border>
     </DockPanel>
 </Window>
+
+
+
+
+
+
+
+
+
+
+
