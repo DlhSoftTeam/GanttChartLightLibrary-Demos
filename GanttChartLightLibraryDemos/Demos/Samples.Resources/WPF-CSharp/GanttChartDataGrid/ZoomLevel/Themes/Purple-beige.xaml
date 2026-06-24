@@ -6,24 +6,24 @@
         <ResourceDictionary Source="Common.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <SolidColorBrush x:Key="ThemeStandardBarFill" Color="#D4C6DC"/>
-    <SolidColorBrush x:Key="ThemeStandardBarStroke" Color="#8D6FA1"/>
-    <SolidColorBrush x:Key="ThemeCompletedBarFill" Color="#B9D4A8"/>
-    <SolidColorBrush x:Key="ThemeCompletedBarStroke" Color="#7FA463"/>
-    <SolidColorBrush x:Key="ThemeHeaderBrush" Color="#F8F5F0"/>
-    <SolidColorBrush x:Key="ThemeHeaderTextBrush" Color="#4B4052"/>
-    <SolidColorBrush x:Key="ThemeNonworkingBrush" Color="#F5F1EA"/>
-    <SolidColorBrush x:Key="ThemeAltBrush" Color="#66FBF8F3"/>
-    <SolidColorBrush x:Key="ThemeSelectionBrush" Color="#EFE8F4"/>
-    <SolidColorBrush x:Key="ThemeSelectionTextBrush" Color="#473C4F"/>
-    <SolidColorBrush x:Key="ThemeMilestoneBrush" Color="#C99665"/>
-    <SolidColorBrush x:Key="ThemeDependencyBrush" Color="#B8A7C3"/>
+    <SolidColorBrush x:Key="ThemeStandardBarFill" Color="#DED2E8"/>
+    <SolidColorBrush x:Key="ThemeStandardBarStroke" Color="#A188B3"/>
+    <SolidColorBrush x:Key="ThemeCompletedBarFill" Color="#E9D8BD"/>
+    <SolidColorBrush x:Key="ThemeCompletedBarStroke" Color="#C5A678"/>
+    <SolidColorBrush x:Key="ThemeHeaderBrush" Color="#F5EFE7"/>
+    <SolidColorBrush x:Key="ThemeHeaderTextBrush" Color="#504258"/>
+    <SolidColorBrush x:Key="ThemeNonworkingBrush" Color="#F7F2EA"/>
+    <SolidColorBrush x:Key="ThemeAltBrush" Color="#66FCF8F3"/>
+    <SolidColorBrush x:Key="ThemeSelectionBrush" Color="#F1EAF5"/>
+    <SolidColorBrush x:Key="ThemeSelectionTextBrush" Color="#4C3F54"/>
+    <SolidColorBrush x:Key="ThemeMilestoneBrush" Color="#D19A68"/>
+    <SolidColorBrush x:Key="ThemeDependencyBrush" Color="#C2B0CC"/>
     <SolidColorBrush x:Key="ThemeCurrentLineBrush" Color="#E16A77"/>
-    <SolidColorBrush x:Key="ThemeGridLineBrush" Color="#E8DED1"/>
-    <SolidColorBrush x:Key="ThemeLoadBrush" Color="#B9D4A8"/>
+    <SolidColorBrush x:Key="ThemeGridLineBrush" Color="#E7DCCE"/>
+    <SolidColorBrush x:Key="ThemeLoadBrush" Color="#E9D8BD"/>
     <LinearGradientBrush x:Key="ThemeSummaryBarFill" StartPoint="0.5,0" EndPoint="0.5,1">
-        <GradientStop Color="#8E8680" Offset="0"/>
-        <GradientStop Color="#726B66" Offset="1"/>
+        <GradientStop Color="#7D7183" Offset="0"/>
+        <GradientStop Color="#655A6C" Offset="1"/>
     </LinearGradientBrush>
 
     <Style x:Key="ThemeColumnHeaderStyle" TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle2}">
@@ -61,9 +61,9 @@
         <Setter Property="StandardBarFill" Value="{StaticResource ThemeStandardBarFill}"/>
         <Setter Property="StandardCompletedBarStroke" Value="{StaticResource ThemeCompletedBarStroke}"/>
         <Setter Property="StandardCompletedBarFill" Value="{StaticResource ThemeCompletedBarFill}"/>
-        <Setter Property="SummaryBarStroke" Value="#726B66"/>
+        <Setter Property="SummaryBarStroke" Value="#655A6C"/>
         <Setter Property="SummaryBarFill" Value="{StaticResource ThemeSummaryBarFill}"/>
-        <Setter Property="SummaryCompletedBarFill" Value="#8E8680"/>
+        <Setter Property="SummaryCompletedBarFill" Value="#7D7183"/>
         <Setter Property="MilestoneBarFill" Value="{StaticResource ThemeMilestoneBrush}"/>
         <Setter Property="MilestoneBarStroke" Value="{StaticResource ThemeStandardBarStroke}"/>
         <Setter Property="DependencyLineStroke" Value="{StaticResource ThemeDependencyBrush}"/>
@@ -71,8 +71,8 @@
 
     <Style TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource GanttChartDataGridTemplates2}">
         <Style.Resources>
-            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#EFE8F4"/>
-            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#473C4F"/>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#F1EAF5"/>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#4C3F54"/>
         </Style.Resources>
         <Setter Property="HeaderBackground" Value="{StaticResource ThemeHeaderBrush}"/>
         <Setter Property="ColumnHeaderStyle" Value="{StaticResource ThemeColumnHeaderStyle}"/>
@@ -86,9 +86,9 @@
         <Setter Property="StandardBarFill" Value="{StaticResource ThemeStandardBarFill}"/>
         <Setter Property="StandardCompletedBarStroke" Value="{StaticResource ThemeCompletedBarStroke}"/>
         <Setter Property="StandardCompletedBarFill" Value="{StaticResource ThemeCompletedBarFill}"/>
-        <Setter Property="SummaryBarStroke" Value="#726B66"/>
+        <Setter Property="SummaryBarStroke" Value="#655A6C"/>
         <Setter Property="SummaryBarFill" Value="{StaticResource ThemeSummaryBarFill}"/>
-        <Setter Property="SummaryCompletedBarFill" Value="#8E8680"/>
+        <Setter Property="SummaryCompletedBarFill" Value="#7D7183"/>
         <Setter Property="MilestoneBarFill" Value="{StaticResource ThemeMilestoneBrush}"/>
         <Setter Property="MilestoneBarStroke" Value="{StaticResource ThemeStandardBarStroke}"/>
         <Setter Property="DependencyLineStroke" Value="{StaticResource ThemeDependencyBrush}"/>
@@ -109,8 +109,8 @@
 
     <Style TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource ScheduleChartDataGridTemplates2}">
         <Style.Resources>
-            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#EFE8F4"/>
-            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#473C4F"/>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#F1EAF5"/>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#4C3F54"/>
         </Style.Resources>
         <Setter Property="HeaderBackground" Value="{StaticResource ThemeHeaderBrush}"/>
         <Setter Property="ColumnHeaderStyle" Value="{StaticResource ThemeColumnHeaderStyle}"/>
@@ -140,8 +140,8 @@
 
     <Style TargetType="pdgcc:LoadChartDataGrid" BasedOn="{StaticResource LoadChartDataGridTemplates2}">
         <Style.Resources>
-            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#EFE8F4"/>
-            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#473C4F"/>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#F1EAF5"/>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#4C3F54"/>
         </Style.Resources>
         <Setter Property="HeaderBackground" Value="{StaticResource ThemeHeaderBrush}"/>
         <Setter Property="ColumnHeaderStyle" Value="{StaticResource ThemeColumnHeaderStyle}"/>

@@ -2,13 +2,16 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
                     xmlns:pdpcc="clr-namespace:DlhSoft.Windows.Controls.Pert;assembly=DlhSoft.ProjectData.PertChart.LightWPF.Controls">
+    <SolidColorBrush x:Key="ThemeTaskNoteBrush" Color="#7C8EA0"/>
+    <SolidColorBrush x:Key="GridTaskIconBrush" Color="#64748B"/>
+    <SolidColorBrush x:Key="GridTaskIconActiveBrush" Color="#64748B"/>
     <!-- 2016 -->
     <DataTemplate x:Key="ScaleHeaderContentTemplate">
         <ContentControl Content="{Binding}" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="2" IsTabStop="False"/>
     </DataTemplate>
     <pdgcc:ScaleCollection x:Key="Scales">
-        <pdgcc:Scale ScaleType="Weeks" HeaderBorderBrush="#E4EBF2" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="#E4EBF2" BorderThickness="0,0,1,0"/>
-        <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayOfWeekInitial" HeaderBorderBrush="#E4EBF2" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
+        <pdgcc:Scale ScaleType="Weeks" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}" BorderBrush="Silver" BorderThickness="0,0,1,0"/>
+        <pdgcc:Scale ScaleType="Days" HeaderContentFormat="DayOfWeekInitial" HeaderBorderBrush="Silver" HeaderBorderThickness="0,0,1,1" HeaderContentTemplate="{StaticResource ScaleHeaderContentTemplate}"/>
     </pdgcc:ScaleCollection>
     <LinearGradientBrush x:Key="SummaryBarFill" StartPoint="0.5,0" EndPoint="0.5,1">
         <LinearGradientBrush.GradientStops>
@@ -19,7 +22,7 @@
     </LinearGradientBrush>
     <Style x:Key="ColumnHeaderStyle" TargetType="DataGridColumnHeader">
         <Setter Property="Background" Value="#f0f0f0"/>
-        <Setter Property="BorderBrush" Value="#E4EBF2"/>
+        <Setter Property="BorderBrush" Value="Silver"/>
         <Setter Property="BorderThickness" Value="0,0,1,1"/>
         <Setter Property="Padding" Value="4"/>
     </Style>
@@ -28,7 +31,6 @@
     </Style>
     <Style x:Key="GanttChartViewTemplates" TargetType="pdgcc:GanttChartView" BasedOn="{StaticResource {x:Type pdgcc:GanttChartView}}">
         <Setter Property="FontSize" Value="16"/>
-        <Setter Property="BorderBrush" Value="#D6DEE7"/>
         <Setter Property="HeaderHeight" Value="56"/>
         <Setter Property="ScaleHeaderHeight" Value="28"/>
         <Setter Property="HeaderBackground" Value="#f0f0f0"/>
@@ -50,7 +52,6 @@
     </Style>
     <Style x:Key="GanttChartDataGridTemplates" TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:GanttChartDataGrid}}">
         <Setter Property="FontSize" Value="16"/>
-        <Setter Property="BorderBrush" Value="#D6DEE7"/>
         <Setter Property="HeaderHeight" Value="56"/>
         <Setter Property="ScaleHeaderHeight" Value="28"/>
         <Setter Property="HeaderBackground" Value="#f0f0f0"/>
@@ -74,7 +75,6 @@
     </Style>
     <Style x:Key="ScheduleChartViewTemplates" TargetType="pdgcc:ScheduleChartView" BasedOn="{StaticResource {x:Type pdgcc:ScheduleChartView}}">
         <Setter Property="FontSize" Value="16"/>
-        <Setter Property="BorderBrush" Value="#D6DEE7"/>
         <Setter Property="HeaderHeight" Value="56"/>
         <Setter Property="ScaleHeaderHeight" Value="28"/>
         <Setter Property="HeaderBackground" Value="#f0f0f0"/>
@@ -94,7 +94,6 @@
     </Style>
     <Style x:Key="ScheduleChartDataGridTemplates" TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:ScheduleChartDataGrid}}">
         <Setter Property="FontSize" Value="16"/>
-        <Setter Property="BorderBrush" Value="#D6DEE7"/>
         <Setter Property="HeaderHeight" Value="56"/>
         <Setter Property="ScaleHeaderHeight" Value="28"/>
         <Setter Property="HeaderBackground" Value="#f0f0f0"/>
@@ -116,7 +115,6 @@
     </Style>
     <Style x:Key="LoadChartViewTemplates" TargetType="pdgcc:LoadChartView" BasedOn="{StaticResource {x:Type pdgcc:LoadChartView}}">
         <Setter Property="FontSize" Value="16"/>
-        <Setter Property="BorderBrush" Value="#D6DEE7"/>
         <Setter Property="HeaderHeight" Value="56"/>
         <Setter Property="ScaleHeaderHeight" Value="28"/>
         <Setter Property="HeaderBackground" Value="#f0f0f0"/>
@@ -131,7 +129,6 @@
     </Style>
     <Style x:Key="LoadChartDataGridTemplates" TargetType="pdgcc:LoadChartDataGrid" BasedOn="{StaticResource {x:Type pdgcc:LoadChartDataGrid}}">
         <Setter Property="FontSize" Value="16"/>
-        <Setter Property="BorderBrush" Value="#D6DEE7"/>
         <Setter Property="HeaderHeight" Value="56"/>
         <Setter Property="ScaleHeaderHeight" Value="28"/>
         <Setter Property="HeaderBackground" Value="#f0f0f0"/>
@@ -148,7 +145,6 @@
     </Style>
     <Style x:Key="PertChartViewTemplates" TargetType="pdpcc:PertChartView" BasedOn="{StaticResource {x:Type pdpcc:PertChartView}}">
         <Setter Property="FontSize" Value="16"/>
-        <Setter Property="BorderBrush" Value="#D6DEE7"/>
         <Setter Property="ItemWidth" Value="45"/>
         <Setter Property="ShapeWidth" Value="37"/>
         <Setter Property="ItemHeight" Value="45"/>
@@ -160,7 +156,6 @@
     </Style>
     <Style x:Key="NetworkDiagramViewTemplates" TargetType="pdpcc:NetworkDiagramView" BasedOn="{StaticResource {x:Type pdpcc:NetworkDiagramView}}">
         <Setter Property="FontSize" Value="16"/>
-        <Setter Property="BorderBrush" Value="#D6DEE7"/>
         <Setter Property="ItemWidth" Value="320"/>
         <Setter Property="ShapeWidth" Value="312"/>
         <Setter Property="ItemHeight" Value="140"/>
@@ -174,7 +169,7 @@
     </DataTemplate>
     <Style x:Key="ColumnHeaderStyle2" TargetType="DataGridColumnHeader">
         <Setter Property="Background" Value="#fefefe"/>
-        <Setter Property="BorderBrush" Value="#E4EBF2"/>
+        <Setter Property="BorderBrush" Value="Silver"/>
         <Setter Property="Foreground" Value="#444"/>
         <Setter Property="BorderThickness" Value="0,0,1,1"/>
         <Setter Property="Padding" Value="4"/>
@@ -209,11 +204,12 @@
         </Setter>
     </Style>
     <Style x:Key="CellStyle2" TargetType="DataGridCell">
+        <Setter Property="Padding" Value="4,0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="DataGridCell">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
+                        <ContentPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -327,5 +323,3 @@
         <Setter Property="ShapeHeight" Value="100"/>
     </Style>
 </ResourceDictionary>
-
-

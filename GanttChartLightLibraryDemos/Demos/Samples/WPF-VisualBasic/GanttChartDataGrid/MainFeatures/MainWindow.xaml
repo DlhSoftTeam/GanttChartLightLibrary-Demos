@@ -272,7 +272,24 @@
                             <DataTemplate>
                                 <Grid>
                                     <!-- Display an icon to represent the task item. -->
-                                    <Image Source="Images/Task.Icon.png" Width="16" Height="16"/>
+                                    <Rectangle Width="16" Height="16">
+                                        <Rectangle.Style>
+                                            <Style TargetType="Rectangle">
+                                                <Setter Property="Fill" Value="{DynamicResource GridTaskIconBrush}"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}" Value="True">
+                                                        <Setter Property="Fill" Value="{DynamicResource GridTaskIconActiveBrush}"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}" Value="True">
+                                                        <Setter Property="Fill" Value="{DynamicResource GridTaskIconActiveBrush}"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Rectangle.Style>
+                                        <Rectangle.OpacityMask>
+                                            <ImageBrush ImageSource="Images/Task.Icon.png"/>
+                                        </Rectangle.OpacityMask>
+                                    </Rectangle>
                                     <!-- Optionally, use a DragTaskThumb object with Role set to UpdateIndex to allow moving the task item in the hierarchy using drag and drop operations. -->
                                     <!-- Optionally, specify true for RoleParameter property of DragTaskThumb object to further encapsulate children when moving the task item in the hierarchy. -->
                                     <pdgcc:DragTaskThumb Role="UpdateIndex"/>

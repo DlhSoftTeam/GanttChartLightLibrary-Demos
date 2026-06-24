@@ -49,8 +49,7 @@
         <GradientStop Color="#74808D" Offset="0"/>
         <GradientStop Color="#5E6875" Offset="1"/>
     </LinearGradientBrush>
-
-    <Style x:Key="ThemeColumnHeaderStyle" TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle2}">
+<Style x:Key="ThemeColumnHeaderStyle" TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle2}">
         <Setter Property="Background" Value="{StaticResource ThemeHeaderBrush}"/>
         <Setter Property="Foreground" Value="{StaticResource ThemeHeaderTextBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource ThemeGridLineBrush}"/>

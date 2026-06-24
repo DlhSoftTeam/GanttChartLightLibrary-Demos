@@ -1,4 +1,4 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
                     xmlns:pdpcc="clr-namespace:DlhSoft.Windows.Controls.Pert;assembly=DlhSoft.ProjectData.PertChart.LightWPF.Controls">
@@ -12,8 +12,8 @@
     <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}" Color="#1F3346"/>
 
 
-    <SolidColorBrush x:Key="ThemeStandardBarFill" Color="#4682B4"/>
-    <SolidColorBrush x:Key="ThemeStandardBarStroke" Color="#3B6F9B"/>
+    <SolidColorBrush x:Key="ThemeStandardBarFill" Color="#78ACD2"/>
+    <SolidColorBrush x:Key="ThemeStandardBarStroke" Color="#5188B2"/>
     <SolidColorBrush x:Key="ThemeCompletedBarFill" Color="#CFE3F2"/>
     <SolidColorBrush x:Key="ThemeCompletedBarStroke" Color="#9EBFD6"/>
     <SolidColorBrush x:Key="ThemeHeaderBrush" Color="#F0F4F8"/>
@@ -28,7 +28,7 @@
     <SolidColorBrush x:Key="ThemeDependencyBrush" Color="#B97435"/>
     <SolidColorBrush x:Key="ThemeCurrentLineBrush" Color="#CD853F"/>
     <SolidColorBrush x:Key="ThemeGridLineBrush" Color="#D5E0E8"/>
-    <SolidColorBrush x:Key="ThemeLoadBrush" Color="#4682B4"/>
+    <SolidColorBrush x:Key="ThemeLoadBrush" Color="#78ACD2"/>
     <LinearGradientBrush x:Key="ThemeSummaryBarFill" StartPoint="0.5,0" EndPoint="0.5,1">
         <GradientStop Color="#97A6B3" Offset="0"/>
         <GradientStop Color="#748392" Offset="1"/>

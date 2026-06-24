@@ -6,11 +6,11 @@
         <ResourceDictionary Source="Common.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <SolidColorBrush x:Key="ThemeStandardBarFill" Color="#B9E7E1"/>
-    <SolidColorBrush x:Key="ThemeStandardBarStroke" Color="#5DBCB2"/>
+    <SolidColorBrush x:Key="ThemeStandardBarFill" Color="#D5F1ED"/>
+    <SolidColorBrush x:Key="ThemeStandardBarStroke" Color="#7AC9C0"/>
     <SolidColorBrush x:Key="ThemeCompletedBarFill" Color="#A9DCCB"/>
     <SolidColorBrush x:Key="ThemeCompletedBarStroke" Color="#70B79D"/>
-    <SolidColorBrush x:Key="ThemeHeaderBrush" Color="#F2F8F7"/>
+    <SolidColorBrush x:Key="ThemeHeaderBrush" Color="#F2F5F5"/>
     <SolidColorBrush x:Key="ThemeHeaderTextBrush" Color="#314C4A"/>
     <SolidColorBrush x:Key="ThemeNonworkingBrush" Color="#EFF7F5"/>
     <SolidColorBrush x:Key="ThemeAltBrush" Color="#66F8FBFA"/>

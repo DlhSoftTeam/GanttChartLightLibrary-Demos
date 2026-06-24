@@ -1,0 +1,50 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
+                    xmlns:pdpcc="clr-namespace:DlhSoft.Windows.Controls.Pert;assembly=DlhSoft.ProjectData.PertChart.LightWPF.Controls">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Common.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    <Style TargetType="pdgcc:GanttChartView" BasedOn="{StaticResource GanttChartViewTemplates}">
+        <Setter Property="StandardBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardBarFill" Value="White"/>
+        <Setter Property="StandardCompletedBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardCompletedBarFill" Value="#005c9e"/>
+        <Setter Property="MilestoneBarFill" Value="#e31d3b"/>
+        <Setter Property="MilestoneBarStroke" Value="#005c9e"/>
+    </Style>
+    <Style TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource GanttChartDataGridTemplates}">
+        <Setter Property="StandardBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardBarFill" Value="White"/>
+        <Setter Property="StandardCompletedBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardCompletedBarFill" Value="#005c9e"/>
+        <Setter Property="MilestoneBarFill" Value="#e31d3b"/>
+        <Setter Property="MilestoneBarStroke" Value="#005c9e"/>
+    </Style>
+    <Style TargetType="pdgcc:ScheduleChartView" BasedOn="{StaticResource ScheduleChartViewTemplates}">
+        <Setter Property="StandardBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardBarFill" Value="White"/>
+        <Setter Property="StandardCompletedBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardCompletedBarFill" Value="#005c9e"/>
+        <Setter Property="MilestoneBarFill" Value="#e31d3b"/>
+        <Setter Property="MilestoneBarStroke" Value="#005c9e"/>
+    </Style>
+    <Style TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource ScheduleChartDataGridTemplates}">
+        <Setter Property="StandardBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardBarFill" Value="White"/>
+        <Setter Property="StandardCompletedBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardCompletedBarFill" Value="#005c9e"/>
+        <Setter Property="MilestoneBarFill" Value="#e31d3b"/>
+        <Setter Property="MilestoneBarStroke" Value="#005c9e"/>
+    </Style>
+    <Style TargetType="pdgcc:LoadChartView" BasedOn="{StaticResource LoadChartViewTemplates}">
+        <Setter Property="NormalAllocationBarFill" Value="#005c9e"/>
+        <Setter Property="UnderAllocationBarFill" Value="#005c9e"/>
+    </Style>
+    <Style TargetType="pdgcc:LoadChartDataGrid" BasedOn="{StaticResource LoadChartDataGridTemplates}">
+        <Setter Property="NormalAllocationBarFill" Value="#005c9e"/>
+        <Setter Property="UnderAllocationBarFill" Value="#005c9e"/>
+    </Style>
+    <Style TargetType="pdpcc:PertChartView" BasedOn="{StaticResource PertChartViewTemplates}"/>
+    <Style TargetType="pdpcc:NetworkDiagramView" BasedOn="{StaticResource NetworkDiagramViewTemplates}"/>
+</ResourceDictionary>

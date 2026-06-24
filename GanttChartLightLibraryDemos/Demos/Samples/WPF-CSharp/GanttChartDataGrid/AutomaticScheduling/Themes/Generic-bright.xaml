@@ -5,154 +5,46 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Common.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    <SolidColorBrush x:Key="ThemeStandardBarFill" Color="#FFFFFF"/>
-    <SolidColorBrush x:Key="ThemeStandardBarStroke" Color="#365F9E"/>
-    <SolidColorBrush x:Key="ThemeCompletedBarFill" Color="#3E66A6"/>
-    <SolidColorBrush x:Key="ThemeCompletedBarStroke" Color="#365F9E"/>
-    <SolidColorBrush x:Key="ThemeHeaderBrush" Color="#FAFBFC"/>
-    <SolidColorBrush x:Key="ThemeHeaderTextBrush" Color="#26394E"/>
-    <SolidColorBrush x:Key="ThemeNonworkingBrush" Color="#F5F6F8"/>
-    <SolidColorBrush x:Key="ThemeAltBrush" Color="#66F8FAFC"/>
-    <SolidColorBrush x:Key="ThemeSelectionBrush" Color="#EAF1FA"/>
-    <SolidColorBrush x:Key="ThemeSelectionTextBrush" Color="#26394E"/>
-    <SolidColorBrush x:Key="ThemeMilestoneBrush" Color="#C92D4A"/>
-    <SolidColorBrush x:Key="ThemeDependencyBrush" Color="#9CB3D0"/>
-    <SolidColorBrush x:Key="ThemeCurrentLineBrush" Color="#E95368"/>
-    <SolidColorBrush x:Key="ThemeGridLineBrush" Color="#E5EAF0"/>
-    <SolidColorBrush x:Key="ThemeLoadBrush" Color="#3E66A6"/>
-    <LinearGradientBrush x:Key="ThemeSummaryBarFill" StartPoint="0.5,0" EndPoint="0.5,1">
-        <GradientStop Color="#73808E" Offset="0"/>
-        <GradientStop Color="#64707E" Offset="1"/>
-    </LinearGradientBrush>
-<Style x:Key="ThemeColumnHeaderStyle" TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle2}">
-        <Setter Property="Background" Value="{StaticResource ThemeHeaderBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource ThemeHeaderTextBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource ThemeGridLineBrush}"/>
-        <Setter Property="FontWeight" Value="SemiBold"/>
-    </Style>
-
-    <Style x:Key="ThemeRowStyle" TargetType="DataGridRow" BasedOn="{StaticResource RowStyle2}">
-        <Setter Property="Foreground" Value="{StaticResource ThemeSelectionTextBrush}"/>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource ThemeSelectionBrush}"/>
-                <Setter Property="Foreground" Value="{StaticResource ThemeSelectionTextBrush}"/>
-            </Trigger>
-            <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="{StaticResource ThemeSelectionBrush}"/>
-                <Setter Property="Foreground" Value="{StaticResource ThemeSelectionTextBrush}"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <Style x:Key="ThemeCellStyle" TargetType="DataGridCell" BasedOn="{StaticResource CellStyle2}">
-        <Setter Property="Foreground" Value="{StaticResource ThemeSelectionTextBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource ThemeGridLineBrush}"/>
-    </Style>
-
     <Style TargetType="pdgcc:GanttChartView" BasedOn="{StaticResource GanttChartViewTemplates2}">
-        <Setter Property="HeaderBackground" Value="{StaticResource ThemeHeaderBrush}"/>
-        <Setter Property="NonworkingTimeBackground" Value="{StaticResource ThemeNonworkingBrush}"/>
-        <Setter Property="AlternatingItemBackground" Value="{StaticResource ThemeAltBrush}"/>
-        <Setter Property="CurrentTimeLineStroke" Value="{StaticResource ThemeCurrentLineBrush}"/>
-        <Setter Property="StandardBarStroke" Value="{StaticResource ThemeStandardBarStroke}"/>
-        <Setter Property="StandardBarFill" Value="{StaticResource ThemeStandardBarFill}"/>
-        <Setter Property="StandardCompletedBarStroke" Value="{StaticResource ThemeCompletedBarStroke}"/>
-        <Setter Property="StandardCompletedBarFill" Value="{StaticResource ThemeCompletedBarFill}"/>
-        <Setter Property="SummaryBarStroke" Value="#6F7A86"/>
-        <Setter Property="SummaryBarFill" Value="{StaticResource ThemeSummaryBarFill}"/>
-        <Setter Property="SummaryCompletedBarFill" Value="#87919C"/>
-        <Setter Property="MilestoneBarFill" Value="{StaticResource ThemeMilestoneBrush}"/>
-        <Setter Property="MilestoneBarStroke" Value="{StaticResource ThemeStandardBarStroke}"/>
-        <Setter Property="DependencyLineStroke" Value="{StaticResource ThemeDependencyBrush}"/>
+        <Setter Property="StandardBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardBarFill" Value="White"/>
+        <Setter Property="StandardCompletedBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardCompletedBarFill" Value="#005c9e"/>
+        <Setter Property="MilestoneBarFill" Value="#e31d3b"/>
+        <Setter Property="MilestoneBarStroke" Value="#005c9e"/>
     </Style>
-
     <Style TargetType="pdgcc:GanttChartDataGrid" BasedOn="{StaticResource GanttChartDataGridTemplates2}">
-        <Style.Resources>
-            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#E7F1FB"/>
-            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#30465B"/>
-        </Style.Resources>
-        <Setter Property="HeaderBackground" Value="{StaticResource ThemeHeaderBrush}"/>
-        <Setter Property="ColumnHeaderStyle" Value="{StaticResource ThemeColumnHeaderStyle}"/>
-        <Setter Property="RowStyle" Value="{StaticResource ThemeRowStyle}"/>
-        <Setter Property="CellStyle" Value="{StaticResource ThemeCellStyle}"/>
-        <Setter Property="AlternatingRowBackground" Value="{StaticResource ThemeAltBrush}"/>
-        <Setter Property="AlternatingItemBackground" Value="{StaticResource ThemeAltBrush}"/>
-        <Setter Property="NonworkingTimeBackground" Value="{StaticResource ThemeNonworkingBrush}"/>
-        <Setter Property="CurrentTimeLineStroke" Value="{StaticResource ThemeCurrentLineBrush}"/>
-        <Setter Property="StandardBarStroke" Value="{StaticResource ThemeStandardBarStroke}"/>
-        <Setter Property="StandardBarFill" Value="{StaticResource ThemeStandardBarFill}"/>
-        <Setter Property="StandardCompletedBarStroke" Value="{StaticResource ThemeCompletedBarStroke}"/>
-        <Setter Property="StandardCompletedBarFill" Value="{StaticResource ThemeCompletedBarFill}"/>
-        <Setter Property="SummaryBarStroke" Value="#6F7A86"/>
-        <Setter Property="SummaryBarFill" Value="{StaticResource ThemeSummaryBarFill}"/>
-        <Setter Property="SummaryCompletedBarFill" Value="#87919C"/>
-        <Setter Property="MilestoneBarFill" Value="{StaticResource ThemeMilestoneBrush}"/>
-        <Setter Property="MilestoneBarStroke" Value="{StaticResource ThemeStandardBarStroke}"/>
-        <Setter Property="DependencyLineStroke" Value="{StaticResource ThemeDependencyBrush}"/>
+        <Setter Property="StandardBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardBarFill" Value="White"/>
+        <Setter Property="StandardCompletedBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardCompletedBarFill" Value="#005c9e"/>
+        <Setter Property="MilestoneBarFill" Value="#e31d3b"/>
+        <Setter Property="MilestoneBarStroke" Value="#005c9e"/>
     </Style>
-
     <Style TargetType="pdgcc:ScheduleChartView" BasedOn="{StaticResource ScheduleChartViewTemplates2}">
-        <Setter Property="HeaderBackground" Value="{StaticResource ThemeHeaderBrush}"/>
-        <Setter Property="NonworkingTimeBackground" Value="{StaticResource ThemeNonworkingBrush}"/>
-        <Setter Property="CurrentTimeLineStroke" Value="{StaticResource ThemeCurrentLineBrush}"/>
-        <Setter Property="StandardBarStroke" Value="{StaticResource ThemeStandardBarStroke}"/>
-        <Setter Property="StandardBarFill" Value="{StaticResource ThemeStandardBarFill}"/>
-        <Setter Property="StandardCompletedBarStroke" Value="{StaticResource ThemeCompletedBarStroke}"/>
-        <Setter Property="StandardCompletedBarFill" Value="{StaticResource ThemeCompletedBarFill}"/>
-        <Setter Property="MilestoneBarFill" Value="{StaticResource ThemeMilestoneBrush}"/>
-        <Setter Property="MilestoneBarStroke" Value="{StaticResource ThemeStandardBarStroke}"/>
-        <Setter Property="DependencyLineStroke" Value="{StaticResource ThemeDependencyBrush}"/>
+        <Setter Property="StandardBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardBarFill" Value="White"/>
+        <Setter Property="StandardCompletedBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardCompletedBarFill" Value="#005c9e"/>
+        <Setter Property="MilestoneBarFill" Value="#e31d3b"/>
+        <Setter Property="MilestoneBarStroke" Value="#005c9e"/>
     </Style>
-
     <Style TargetType="pdgcc:ScheduleChartDataGrid" BasedOn="{StaticResource ScheduleChartDataGridTemplates2}">
-        <Style.Resources>
-            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#E7F1FB"/>
-            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#30465B"/>
-        </Style.Resources>
-        <Setter Property="HeaderBackground" Value="{StaticResource ThemeHeaderBrush}"/>
-        <Setter Property="ColumnHeaderStyle" Value="{StaticResource ThemeColumnHeaderStyle}"/>
-        <Setter Property="RowStyle" Value="{StaticResource ThemeRowStyle}"/>
-        <Setter Property="CellStyle" Value="{StaticResource ThemeCellStyle}"/>
-        <Setter Property="AlternatingRowBackground" Value="{StaticResource ThemeAltBrush}"/>
-        <Setter Property="AlternatingItemBackground" Value="{StaticResource ThemeAltBrush}"/>
-        <Setter Property="NonworkingTimeBackground" Value="{StaticResource ThemeNonworkingBrush}"/>
-        <Setter Property="CurrentTimeLineStroke" Value="{StaticResource ThemeCurrentLineBrush}"/>
-        <Setter Property="StandardBarStroke" Value="{StaticResource ThemeStandardBarStroke}"/>
-        <Setter Property="StandardBarFill" Value="{StaticResource ThemeStandardBarFill}"/>
-        <Setter Property="StandardCompletedBarStroke" Value="{StaticResource ThemeCompletedBarStroke}"/>
-        <Setter Property="StandardCompletedBarFill" Value="{StaticResource ThemeCompletedBarFill}"/>
-        <Setter Property="MilestoneBarFill" Value="{StaticResource ThemeMilestoneBrush}"/>
-        <Setter Property="MilestoneBarStroke" Value="{StaticResource ThemeStandardBarStroke}"/>
-        <Setter Property="DependencyLineStroke" Value="{StaticResource ThemeDependencyBrush}"/>
+        <Setter Property="StandardBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardBarFill" Value="White"/>
+        <Setter Property="StandardCompletedBarStroke" Value="#005c9e"/>
+        <Setter Property="StandardCompletedBarFill" Value="#005c9e"/>
+        <Setter Property="MilestoneBarFill" Value="#e31d3b"/>
+        <Setter Property="MilestoneBarStroke" Value="#005c9e"/>
     </Style>
-
     <Style TargetType="pdgcc:LoadChartView" BasedOn="{StaticResource LoadChartViewTemplates2}">
-        <Setter Property="HeaderBackground" Value="{StaticResource ThemeHeaderBrush}"/>
-        <Setter Property="NonworkingTimeBackground" Value="{StaticResource ThemeNonworkingBrush}"/>
-        <Setter Property="AlternatingItemBackground" Value="{StaticResource ThemeAltBrush}"/>
-        <Setter Property="CurrentTimeLineStroke" Value="{StaticResource ThemeCurrentLineBrush}"/>
-        <Setter Property="NormalAllocationBarFill" Value="{StaticResource ThemeLoadBrush}"/>
-        <Setter Property="UnderAllocationBarFill" Value="{StaticResource ThemeLoadBrush}"/>
+        <Setter Property="NormalAllocationBarFill" Value="#005c9e"/>
+        <Setter Property="UnderAllocationBarFill" Value="#005c9e"/>
     </Style>
-
     <Style TargetType="pdgcc:LoadChartDataGrid" BasedOn="{StaticResource LoadChartDataGridTemplates2}">
-        <Style.Resources>
-            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#E7F1FB"/>
-            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#30465B"/>
-        </Style.Resources>
-        <Setter Property="HeaderBackground" Value="{StaticResource ThemeHeaderBrush}"/>
-        <Setter Property="ColumnHeaderStyle" Value="{StaticResource ThemeColumnHeaderStyle}"/>
-        <Setter Property="RowStyle" Value="{StaticResource ThemeRowStyle}"/>
-        <Setter Property="CellStyle" Value="{StaticResource ThemeCellStyle}"/>
-        <Setter Property="AlternatingRowBackground" Value="{StaticResource ThemeAltBrush}"/>
-        <Setter Property="AlternatingItemBackground" Value="{StaticResource ThemeAltBrush}"/>
-        <Setter Property="NonworkingTimeBackground" Value="{StaticResource ThemeNonworkingBrush}"/>
-        <Setter Property="CurrentTimeLineStroke" Value="{StaticResource ThemeCurrentLineBrush}"/>
-        <Setter Property="NormalAllocationBarFill" Value="{StaticResource ThemeLoadBrush}"/>
-        <Setter Property="UnderAllocationBarFill" Value="{StaticResource ThemeLoadBrush}"/>
+        <Setter Property="NormalAllocationBarFill" Value="#005c9e"/>
+        <Setter Property="UnderAllocationBarFill" Value="#005c9e"/>
     </Style>
-
     <Style TargetType="pdpcc:PertChartView" BasedOn="{StaticResource PertChartViewTemplates2}"/>
     <Style TargetType="pdpcc:NetworkDiagramView" BasedOn="{StaticResource NetworkDiagramViewTemplates2}"/>
 </ResourceDictionary>

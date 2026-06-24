@@ -235,8 +235,42 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
         }
 
         private GanttChartItem highlightedItem;
+        private DataTemplate taskToolTipTemplate;
+        private bool isCompletionThumbDragging;
+
+        private void CompletionThumb_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!isCompletionThumbDragging)
+                taskToolTipTemplate = GanttChartDataGrid.ToolTipTemplate;
+
+            isCompletionThumbDragging = true;
+            GanttChartDataGrid.ToolTipTemplate = Resources["CompletionOnlyToolTipTemplate"] as DataTemplate;
+        }
+
+        private void CompletionThumb_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            RestoreTaskToolTipTemplate();
+        }
+
+        private void CompletionThumb_LostMouseCapture(object sender, MouseEventArgs e)
+        {
+            RestoreTaskToolTipTemplate();
+        }
+
+        private void RestoreTaskToolTipTemplate()
+        {
+            if (!isCompletionThumbDragging)
+                return;
+
+            isCompletionThumbDragging = false;
+            if (taskToolTipTemplate != null)
+                GanttChartDataGrid.ToolTipTemplate = taskToolTipTemplate;
+        }
+
         private void GanttChartDataGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            RestoreTaskToolTipTemplate();
+
             Point controlPosition = e.GetPosition(GanttChartDataGrid);
             if (controlPosition.X < GanttChartDataGrid.ActualWidth - GanttChartDataGrid.GanttChartView.ActualWidth)
                 return;

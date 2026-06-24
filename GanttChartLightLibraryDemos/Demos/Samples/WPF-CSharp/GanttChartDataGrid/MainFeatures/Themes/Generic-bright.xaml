@@ -20,6 +20,8 @@
     <SolidColorBrush x:Key="ThemeCurrentLineBrush" Color="#E95368"/>
     <SolidColorBrush x:Key="ThemeGridLineBrush" Color="#E5EAF0"/>
     <SolidColorBrush x:Key="ThemeLoadBrush" Color="#3E66A6"/>
+    <SolidColorBrush x:Key="ThemeBarTextBrush" Color="#385067"/>
+    <SolidColorBrush x:Key="ThemeTaskNoteBrush" Color="#C6A45B"/>
     <LinearGradientBrush x:Key="ThemeSummaryBarFill" StartPoint="0.5,0" EndPoint="0.5,1">
         <GradientStop Color="#73808E" Offset="0"/>
         <GradientStop Color="#64707E" Offset="1"/>

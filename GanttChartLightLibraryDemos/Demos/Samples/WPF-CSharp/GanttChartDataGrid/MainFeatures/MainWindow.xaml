@@ -81,6 +81,12 @@
                 <Setter Property="Foreground" Value="#314254"/>
                 <Setter Property="Margin" Value="0,2,0,2"/>
             </Style>
+            <DataTemplate x:Key="CompletionOnlyToolTipTemplate">
+                <TextBlock Text="{Binding Completion, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%}"
+                           FontSize="16"
+                           FontWeight="SemiBold"
+                           Foreground="#314254"/>
+            </DataTemplate>
             <!-- Assignable resources are set in code behind. -->
         </ResourceDictionary>
     </Window.Resources>
@@ -304,9 +310,9 @@
                                     </Style>
                                 </Rectangle.Style>
                             </Rectangle>
-                            <Rectangle x:Name="HoveredTaskRectangle" Fill="#BEE7F3FF" RadiusX="{Binding GanttChartView.StandardBarCornerRadius}" RadiusY="{Binding GanttChartView.StandardBarCornerRadius}" Margin="-5" Visibility="Collapsed">
+                            <Rectangle x:Name="HoveredTaskRectangle" Fill="#8AA8D5F2" RadiusX="{Binding GanttChartView.StandardBarCornerRadius}" RadiusY="{Binding GanttChartView.StandardBarCornerRadius}" Margin="-3" Visibility="Collapsed">
                                 <Rectangle.Effect>
-                                    <DropShadowEffect BlurRadius="16" Direction="270" Opacity="0.22" ShadowDepth="0" Color="#6CA9D6"/>
+                                    <DropShadowEffect BlurRadius="12" Direction="270" Opacity="0.34" ShadowDepth="0" Color="#2477B3"/>
                                 </Rectangle.Effect>
                             </Rectangle>
                             <Border Background="{Binding (pdgcc:GanttChartView.StandardBarFill)}" CornerRadius="{Binding GanttChartView.StandardBarCornerRadius}" BorderBrush="{Binding (pdgcc:GanttChartView.StandardBarStroke)}" BorderThickness="{Binding GanttChartView.StandardBarStrokeThickness}"/>
@@ -316,7 +322,7 @@
                         </Grid>
                         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Visibility="{Binding GanttChartView.TaskCompletedEffortVisibility}" VerticalAlignment="Center">
                             <Rectangle Fill="{Binding (pdgcc:GanttChartView.StandardCompletedBarFill)}" Height="{Binding GanttChartView.CompletedBarHeight}" IsHitTestVisible="False" RadiusY="{Binding GanttChartView.StandardCompletedBarCornerRadius}" RadiusX="{Binding GanttChartView.StandardCompletedBarCornerRadius}" Stroke="{Binding (pdgcc:GanttChartView.StandardCompletedBarStroke)}" StrokeThickness="{Binding GanttChartView.StandardCompletedBarStrokeThickness}" VerticalAlignment="Center" Width="{Binding ComputedCompletedBarWidth}" Opacity="0.78"/>
-                            <pdgcc:DragTaskThumb Height="{Binding GanttChartView.BarHeight}" IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskCompletionThumbEnabled}" Role="UpdateCompletedFinish" Visibility="{Binding GanttChartView.ThumbVisibility}" Width="8">
+                            <pdgcc:DragTaskThumb Height="{Binding GanttChartView.BarHeight}" IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskCompletionThumbEnabled}" Role="UpdateCompletedFinish" Visibility="{Binding GanttChartView.ThumbVisibility}" Width="8" PreviewMouseLeftButtonDown="CompletionThumb_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="CompletionThumb_PreviewMouseLeftButtonUp" LostMouseCapture="CompletionThumb_LostMouseCapture">
                                 <pdgcc:DragTaskThumb.ToolTip>
                                     <Binding Path="Completion" Converter="{StaticResource NumberStringConverter}" ConverterParameter="0.##%"/>
                                 </pdgcc:DragTaskThumb.ToolTip>
@@ -326,7 +332,7 @@
                             <TextBlock Text="{Binding Content, Mode=TwoWay}" FontFamily="Segoe UI" FontSize="11" FontWeight="Medium" Padding="1" Foreground="#385067" TextTrimming="CharacterEllipsis" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Grid>
                         <Canvas>
-                            <TextBlock Canvas.Top="18" Text="{Binding Note}" FontFamily="Segoe UI" FontStyle="Italic" FontSize="10" Foreground="#7C8EA0"/>
+                            <TextBlock Canvas.Top="18" Text="{Binding Note}" FontFamily="Segoe UI" FontStyle="Italic" FontSize="10" Foreground="{DynamicResource ThemeTaskNoteBrush}"/>
                         </Canvas>
                     </Grid>
                     <DataTemplate.Triggers>
@@ -387,7 +393,24 @@
                             <DataTemplate>
                                 <Grid>
                                     <!-- Display an icon to represent the task item. -->
-                                    <Image Source="Images/Task.Icon.png" Width="16" Height="16"/>
+                                    <Rectangle Width="16" Height="16">
+                                        <Rectangle.Style>
+                                            <Style TargetType="Rectangle">
+                                                <Setter Property="Fill" Value="{DynamicResource GridTaskIconBrush}"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}" Value="True">
+                                                        <Setter Property="Fill" Value="{DynamicResource GridTaskIconActiveBrush}"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}" Value="True">
+                                                        <Setter Property="Fill" Value="{DynamicResource GridTaskIconActiveBrush}"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Rectangle.Style>
+                                        <Rectangle.OpacityMask>
+                                            <ImageBrush ImageSource="Images/Task.Icon.png"/>
+                                        </Rectangle.OpacityMask>
+                                    </Rectangle>
                                     <!-- Optionally, use a DragTaskThumb object with Role set to UpdateIndex to allow moving the task item in the hierarchy using drag and drop operations. -->
                                     <!-- Optionally, specify true for RoleParameter property of DragTaskThumb object to further encapsulate children when moving the task item in the hierarchy. -->
                                     <pdgcc:DragTaskThumb Role="UpdateIndex"/>

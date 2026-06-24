@@ -6,8 +6,8 @@
         <ResourceDictionary Source="Common.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <SolidColorBrush x:Key="ThemeAccentBrush" Color="#A7C4DF"/>
-    <SolidColorBrush x:Key="ThemeAccentBorderBrush" Color="#7EA2C2"/>
+    <SolidColorBrush x:Key="ThemeAccentBrush" Color="#D6E5F2"/>
+    <SolidColorBrush x:Key="ThemeAccentBorderBrush" Color="#A4BED4"/>
     <SolidColorBrush x:Key="ThemeCompletedBrush" Color="#C7D3DE"/>
     <SolidColorBrush x:Key="ThemeCompletedBorderBrush" Color="#9EB0C1"/>
     <SolidColorBrush x:Key="ThemeHeaderBrush" Color="#F5F7FA"/>
@@ -146,8 +146,8 @@
         <Setter Property="HeaderBackground" Value="{StaticResource ThemeHeaderBrush}"/>
         <Setter Property="NonworkingTimeBackground" Value="{StaticResource ThemeNonworkingBrush}"/>
         <Setter Property="CurrentTimeLineStroke" Value="{StaticResource ThemeCurrentLineBrush}"/>
-        <Setter Property="NormalAllocationBarFill" Value="#A7C4DF"/>
-        <Setter Property="UnderAllocationBarFill" Value="#A7C4DF"/>
+        <Setter Property="NormalAllocationBarFill" Value="#D6E5F2"/>
+        <Setter Property="UnderAllocationBarFill" Value="#D6E5F2"/>
         <Setter Property="AlternatingItemBackground" Value="{StaticResource ThemeAltBrush}"/>
     </Style>
 
@@ -161,8 +161,8 @@
         <Setter Property="AlternatingItemBackground" Value="{StaticResource ThemeAltBrush}"/>
         <Setter Property="NonworkingTimeBackground" Value="{StaticResource ThemeNonworkingBrush}"/>
         <Setter Property="CurrentTimeLineStroke" Value="{StaticResource ThemeCurrentLineBrush}"/>
-        <Setter Property="NormalAllocationBarFill" Value="#A7C4DF"/>
-        <Setter Property="UnderAllocationBarFill" Value="#A7C4DF"/>
+        <Setter Property="NormalAllocationBarFill" Value="#D6E5F2"/>
+        <Setter Property="UnderAllocationBarFill" Value="#D6E5F2"/>
     </Style>
 
     <Style TargetType="pdgcc:GanttChartView" BasedOn="{StaticResource ThemeGanttChartViewStyle}"/>

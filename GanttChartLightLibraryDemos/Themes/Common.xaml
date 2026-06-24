@@ -2,6 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
                     xmlns:pdpcc="clr-namespace:DlhSoft.Windows.Controls.Pert;assembly=DlhSoft.ProjectData.PertChart.LightWPF.Controls">
+    <SolidColorBrush x:Key="ThemeTaskNoteBrush" Color="#7C8EA0"/>
+    <SolidColorBrush x:Key="GridTaskIconBrush" Color="#64748B"/>
+    <SolidColorBrush x:Key="GridTaskIconActiveBrush" Color="#64748B"/>
     <!-- 2016 -->
     <DataTemplate x:Key="ScaleHeaderContentTemplate">
         <ContentControl Content="{Binding}" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="2" IsTabStop="False"/>
@@ -201,11 +204,12 @@
         </Setter>
     </Style>
     <Style x:Key="CellStyle2" TargetType="DataGridCell">
+        <Setter Property="Padding" Value="4,0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="DataGridCell">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
+                        <ContentPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
