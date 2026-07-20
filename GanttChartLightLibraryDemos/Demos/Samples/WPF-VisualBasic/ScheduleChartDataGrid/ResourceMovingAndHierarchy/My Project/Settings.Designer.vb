@@ -62,9 +62,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.Demos.WPF.VisualBasic.ScheduleChartDataGrid.ResourceMovingAndResourceMovingAndHierarchy.MySettings
+        Friend ReadOnly Property Settings() As Global.Demos.WPF.VisualBasic.ScheduleChartDataGrid.ResourceMovingAndHierarchy.MySettings
             Get
-                Return Global.Demos.WPF.VisualBasic.ScheduleChartDataGrid.ResourceMovingAndResourceMovingAndHierarchy.MySettings.Default
+                Return Global.Demos.WPF.VisualBasic.ScheduleChartDataGrid.ResourceMovingAndHierarchy.MySettings.Default
             End Get
         End Property
     End Module

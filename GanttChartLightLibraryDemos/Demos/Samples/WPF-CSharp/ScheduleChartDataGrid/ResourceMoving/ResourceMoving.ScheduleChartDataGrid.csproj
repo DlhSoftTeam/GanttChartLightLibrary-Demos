@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6971F199-A0D7-44C4-9CF1-9911EFF4C8C0}</ProjectGuid>
+    <ProjectGuid>{66998378-C2F2-413E-B858-E8FF5982B522}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Demos.WPF.CSharp.ScheduleChartDataGrid.ResourceMoving</RootNamespace>

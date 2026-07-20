@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C71D02A0-37C1-46E6-8D3C-87108B227A06}</ProjectGuid>
+    <ProjectGuid>{213DF4E3-C438-4B17-9C83-63E543983ED6}</ProjectGuid>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>Demos.WPF.VisualBasic.ScheduleChartDataGrid.ResourceMovingAndResourceMovingAndHierarchy</RootNamespace>
-    <AssemblyName>Demos.WPF.VisualBasic.ScheduleChartDataGrid.ResourceMovingAndResourceMovingAndHierarchy</AssemblyName>
+    <RootNamespace>Demos.WPF.VisualBasic.ScheduleChartDataGrid.ResourceMovingAndHierarchy</RootNamespace>
+    <AssemblyName>Demos.WPF.VisualBasic.ScheduleChartDataGrid.ResourceMovingAndHierarchy</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MyType>Custom</MyType>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -23,7 +23,7 @@
     <IncrementalBuild>true</IncrementalBuild>
     <OutputPath>..\..\..\bin\RMHVBLib\Debug\</OutputPath>
     <IntermediateOutputPath>..\..\..\obj\RMHVBLib\Debug\</IntermediateOutputPath>
-    <DocumentationFile>Demos.WPF.VisualBasic.ScheduleChartDataGrid.ResourceMovingAndResourceMovingAndHierarchy.xml</DocumentationFile>
+    <DocumentationFile>Demos.WPF.VisualBasic.ScheduleChartDataGrid.ResourceMovingAndHierarchy.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -36,7 +36,7 @@
     <Optimize>true</Optimize>
     <OutputPath>..\..\..\bin\RMHVBLib\Release\</OutputPath>
     <IntermediateOutputPath>..\..\..\obj\RMHVBLib\Release\</IntermediateOutputPath>
-    <DocumentationFile>Demos.WPF.VisualBasic.ScheduleChartDataGrid.ResourceMovingAndResourceMovingAndHierarchy.xml</DocumentationFile>
+    <DocumentationFile>Demos.WPF.VisualBasic.ScheduleChartDataGrid.ResourceMovingAndHierarchy.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup>

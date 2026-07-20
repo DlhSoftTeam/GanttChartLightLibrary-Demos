@@ -2,7 +2,7 @@ using System;
 using System.Windows;
 using DlhSoft.Windows.Controls;
 
-namespace Demos.WPF.CSharp.ScheduleChartDataGrid.ResourceMovingAndHierarchy
+namespace Demos.WPF.CSharp.ScheduleChartDataGrid.ResourceMoving
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -244,6 +244,19 @@
     <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\Hierarchy\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Resource>
+
+    <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\ResourceMoving\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\ResourceMoving\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\ResourceMovingAndHierarchy\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\ResourceMovingAndHierarchy\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\MainFeatures\AppResources.xaml">
       <SubType>Designer</SubType>
     </Resource>
@@ -952,6 +965,19 @@
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\AppResources.xaml">
       <SubType>Designer</SubType>
     </Resource>
+
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\ResourceMoving\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\ResourceMoving\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\ResourceMovingAndHierarchy\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\ResourceMovingAndHierarchy\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Resource>
@@ -1179,6 +1205,9 @@
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\CustomSchedule\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\MainWindow.xaml.cs" />
+
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\ResourceMoving\MainWindow.xaml.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\ResourceMovingAndHierarchy\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\CustomResourceItem.cs" />
@@ -1581,6 +1610,15 @@
       <Project>{6971f199-a0d7-44c4-9cf1-9911eff4c8c0}</Project>
       <Name>Hierarchy.ScheduleChartDataGrid</Name>
     </ProjectReference>
+
+    <ProjectReference Include="Samples\WPF-CSharp\ScheduleChartDataGrid\ResourceMoving\ResourceMoving.ScheduleChartDataGrid.csproj">
+      <Project>{66998378-C2F2-413E-B858-E8FF5982B522}</Project>
+      <Name>ResourceMoving.ScheduleChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-CSharp\ScheduleChartDataGrid\ResourceMovingAndHierarchy\ResourceMovingAndHierarchy.ScheduleChartDataGrid.csproj">
+      <Project>{B2C5A1ED-B6E6-43E1-BD37-F08267261390}</Project>
+      <Name>ResourceMovingAndHierarchy.ScheduleChartDataGrid</Name>
+    </ProjectReference>
     <ProjectReference Include="Samples\WPF-CSharp\ScheduleChartDataGrid\MainFeatures\MainFeatures.ScheduleChartDataGrid.csproj">
       <Project>{db09445f-94fd-4eba-8d89-718a9b8c50ea}</Project>
       <Name>MainFeatures.ScheduleChartDataGrid</Name>
@@ -1873,6 +1911,15 @@
       <Project>{c71d02a0-37c1-46e6-8d3c-87108b227a06}</Project>
       <Name>Hierarchy.VisualBasic.ScheduleChartDataGrid</Name>
     </ProjectReference>
+
+    <ProjectReference Include="Samples\WPF-VisualBasic\ScheduleChartDataGrid\ResourceMoving\ResourceMoving.VisualBasic.ScheduleChartDataGrid.vbproj">
+      <Project>{08E44BB1-0EBD-45E6-82FC-0C68DFB6DFA0}</Project>
+      <Name>ResourceMoving.VisualBasic.ScheduleChartDataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="Samples\WPF-VisualBasic\ScheduleChartDataGrid\ResourceMovingAndHierarchy\ResourceMovingAndHierarchy.VisualBasic.ScheduleChartDataGrid.vbproj">
+      <Project>{213DF4E3-C438-4B17-9C83-63E543983ED6}</Project>
+      <Name>ResourceMovingAndHierarchy.VisualBasic.ScheduleChartDataGrid</Name>
+    </ProjectReference>
     <ProjectReference Include="Samples\WPF-VisualBasic\ScheduleChartDataGrid\MainFeatures\MainFeatures.VisualBasic.ScheduleChartDataGrid.vbproj">
       <Project>{e5c78d51-2436-4ff8-b556-2598bd0bdd45}</Project>
       <Name>MainFeatures.VisualBasic.ScheduleChartDataGrid</Name>
@@ -2130,6 +2177,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\Hierarchy\MainWindow.xaml.vb" />
+
+    <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\ResourceMoving\MainWindow.xaml.vb" />
+    <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\ResourceMovingAndHierarchy\MainWindow.xaml.vb" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\GanttChartIntegration\MainWindow.xaml.vb" />

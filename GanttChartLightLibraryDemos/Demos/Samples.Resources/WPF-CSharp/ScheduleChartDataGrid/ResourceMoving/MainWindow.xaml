@@ -1,11 +1,11 @@
-<Window x:Class="Demos.WPF.CSharp.ScheduleChartDataGrid.ResourceMovingAndHierarchy.MainWindow"
+<Window x:Class="Demos.WPF.CSharp.ScheduleChartDataGrid.ResourceMoving.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
         xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
         xmlns:pdgccConverters="clr-namespace:DlhSoft.Windows.Converters;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
-        xmlns:local="clr-namespace:Demos.WPF.CSharp.ScheduleChartDataGrid.ResourceMovingAndHierarchy"
-        Title="ScheduleChartDataGrid ResourceMovingAndHierarchy Sample" Width="800" Height="600">
+        xmlns:local="clr-namespace:Demos.WPF.CSharp.ScheduleChartDataGrid.ResourceMoving"
+        Title="ScheduleChartDataGrid ResourceMoving Sample" Width="800" Height="600">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
