@@ -3,55 +3,291 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
         xmlns:pdgccConverters="clr-namespace:DlhSoft.Windows.Converters;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
-        Title="Item editor" SizeToContent="WidthAndHeight" WindowStyle="ToolWindow" WindowStartupLocation="CenterOwner">
+        Title="Edit task" Width="720" Height="620" MinWidth="608" MinHeight="480" ResizeMode="CanResize"
+        WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+        FontFamily="Segoe UI" FontSize="13" Foreground="#243449" Background="#F4F7FB">
     <Window.Resources>
+        <pdgccConverters:DurationStringConverter x:Key="DurationStringConverter"/>
         <pdgccConverters:NumberStringConverter x:Key="NumberStringConverter"/>
         <pdgccConverters:FinishDateConverter x:Key="FinishDateConverter"/>
-        <!-- Assignable resources are set in code behind. -->
+        <Style x:Key="FieldLabel" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#53647A"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="0,0,0,4"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Padding" Value="8,5"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#CDD7E3"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Style.Triggers>
+                <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                    <Setter Property="BorderBrush" Value="#2878C8"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="MinHeight" Value="30"/>
+            <Setter Property="Padding" Value="5,1"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#CDD7E3"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TabItem">
+            <Setter Property="Padding" Value="16,7"/>
+            <Setter Property="Foreground" Value="#607188"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Border x:Name="TabBorder" Background="Transparent" BorderBrush="Transparent" BorderThickness="0,0,0,2" Padding="{TemplateBinding Padding}" Margin="0,0,16,0">
+                            <ContentPresenter ContentSource="Header" RecognizesAccessKey="True" HorizontalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="TabBorder" Property="Background" Value="#EAF1FA"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Foreground" Value="#216DB5"/>
+                                <Setter TargetName="TabBorder" Property="BorderBrush" Value="#2878C8"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="TabBorder" Property="Background" Value="#EAF1FA"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="MinRowHeight" Value="42"/>
+            <Setter Property="ColumnHeaderHeight" Value="42"/>
+            <Setter Property="AlternatingRowBackground" Value="#F7F9FC"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#E8EDF4"/>
+            <Setter Property="BorderBrush" Value="#DCE4EE"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+        </Style>
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#EDF2F8"/>
+            <Setter Property="Foreground" Value="#53647A"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="Padding" Value="10,10"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="BorderBrush" Value="#DCE4EE"/>
+        </Style>
+        <Style TargetType="DataGridCell">
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="Padding" Value="10,9"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="DataGridCell">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="True"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="Background" Value="#2878C8"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="24,10"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" CornerRadius="6" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#2067AF"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#19548F"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="BorderBrush" Value="#163F6B"/>
+                                <Setter TargetName="ButtonBorder" Property="BorderThickness" Value="2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
-    <Grid Margin="4">
+    <Grid Margin="16">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TabControl Width="260" Height="220">
+        <StackPanel Margin="0,0,0,10">
+            <TextBlock Text="Task details" FontSize="22" FontWeight="SemiBold"/>
+            <TextBlock Text="Manage the schedule, progress and assignments." Foreground="#607188" Margin="0,4,0,0"/>
+        </StackPanel>
+        <TabControl x:Name="EditorTabs" Grid.Row="1" Background="Transparent" BorderThickness="0" Padding="0,8,0,0">
             <TabItem Header="Definition">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Task: " VerticalAlignment="Center" Margin="2"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Content, Mode=TwoWay}" VerticalAlignment="Center" Margin="2"/>
-                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Start: " VerticalAlignment="Center" Margin="2"/>
-                    <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding Start, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" VerticalAlignment="Center" Margin="2"/>
-                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Finish: " VerticalAlignment="Center" Margin="2"/>
-                    <DatePicker Grid.Row="2" Grid.Column="1" SelectedDate="{Binding Finish, Mode=TwoWay, Converter={StaticResource FinishDateConverter}}" IsEnabled="{Binding IsLeaf}" VerticalAlignment="Center" Margin="2"/>
-                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Is milestone: " VerticalAlignment="Center" Margin="2"/>
-                    <CheckBox Grid.Row="3" Grid.Column="1" IsChecked="{Binding IsMilestone, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" VerticalAlignment="Center" Margin="2"/>
-                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Completion: " VerticalAlignment="Center" Margin="2"/>
-                    <Slider Grid.Row="4" Grid.Column="1" Minimum="0" Maximum="1" SmallChange="0.25" LargeChange="0.5" Value="{Binding Completion, Mode=TwoWay}" ToolTipService.ToolTip="{Binding Completion, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%}" IsEnabled="{Binding IsLeaf}" VerticalAlignment="Center" Margin="2"/>
-                    <TextBlock Grid.Row="5" Grid.Column="0" Text="Estimated start: " VerticalAlignment="Center" Margin="2"/>
-                    <DatePicker Grid.Row="5" Grid.Column="1" SelectedDate="{Binding BaselineStart, Mode=TwoWay}" VerticalAlignment="Center" Margin="2"/>
-                    <TextBlock Grid.Row="6" Grid.Column="0" Text="Estimated finish: " VerticalAlignment="Center" Margin="2"/>
-                    <DatePicker Grid.Row="6" Grid.Column="1" SelectedDate="{Binding BaselineFinish, Mode=TwoWay, Converter={StaticResource FinishDateConverter}}" VerticalAlignment="Center" Margin="2"/>
+                <ScrollViewer x:Name="DefinitionScrollViewer" VerticalScrollBarVisibility="Auto">
+                <Border Background="White" BorderBrush="#E0E7F0" BorderThickness="1" CornerRadius="8" Padding="12">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="96"/>
+                                <ColumnDefinition Width="16"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="16"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <TextBlock Text="Grid position" Style="{StaticResource FieldLabel}"/>
+                                <TextBox Text="{Binding IndexString, Mode=OneWay}" IsReadOnly="True" Background="#F4F7FB" AutomationProperties.Name="Grid position"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <StackPanel.Style>
+                                    <Style TargetType="StackPanel">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Parent}" Value="{x:Null}">
+                                                <Setter Property="Grid.ColumnSpan" Value="3"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Style>
+                                <TextBlock Text="Task name" Style="{StaticResource FieldLabel}"/>
+                                <TextBox Text="{Binding Content, Mode=TwoWay}" AutomationProperties.Name="Task name"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="4">
+                                <StackPanel.Style>
+                                    <Style TargetType="StackPanel">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Parent}" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Style>
+                                <TextBlock Text="Parent task" Style="{StaticResource FieldLabel}"/>
+                                <TextBox Text="{Binding Parent.Content, Mode=OneWay}" IsReadOnly="True" Background="#F4F7FB" AutomationProperties.Name="Parent task"/>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Margin="0,10,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="16"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <TextBlock Text="Start" Style="{StaticResource FieldLabel}"/>
+                                <DatePicker SelectedDate="{Binding Start, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" AutomationProperties.Name="Start"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Text="Finish" Style="{StaticResource FieldLabel}"/>
+                                <DatePicker SelectedDate="{Binding Finish, Mode=TwoWay, Converter={StaticResource FinishDateConverter}}" IsEnabled="{Binding IsLeaf}" AutomationProperties.Name="Finish"/>
+                            </StackPanel>
+                        </Grid>
+                        <CheckBox Content="Mark as milestone" IsChecked="{Binding IsMilestone, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" Margin="0,10,0,0" VerticalContentAlignment="Center"/>
+                        <Border Background="#F4F7FB" CornerRadius="6" Padding="8" Margin="0,10,0,0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="24"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <DockPanel Margin="0,0,0,6">
+                                    <TextBox DockPanel.Dock="Right" Width="90" Padding="8,3" Text="{Binding Completion, Mode=TwoWay, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%, ValidatesOnExceptions=True}" IsReadOnly="{Binding HasChildren}" AutomationProperties.Name="Completion percentage"/>
+                                    <TextBlock Text="Completion" FontWeight="SemiBold"/>
+                                </DockPanel>
+                                <Slider Minimum="0" Maximum="1" SmallChange="0.01" LargeChange="0.1" Value="{Binding Completion, Mode=TwoWay}" ToolTipService.ToolTip="{Binding Completion, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%}" IsEnabled="{Binding IsLeaf}" AutomationProperties.Name="Completion"/>
+                            </StackPanel>
+                            <CheckBox Grid.Column="2" Content="Completed" IsChecked="{Binding IsCompleted, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                        <UniformGrid Columns="3" Margin="0,10,0,0">
+                            <StackPanel Margin="0,0,12,0">
+                                <TextBlock Text="Effort (hours)" Style="{StaticResource FieldLabel}"/>
+                                <TextBox IsReadOnly="{Binding HasChildren}" Text="{Binding TotalEffort, Mode=TwoWay, Converter={StaticResource DurationStringConverter}, ConverterParameter=0.##h, ValidatesOnExceptions=True}"/>
+                            </StackPanel>
+                            <StackPanel Margin="0,0,12,0">
+                                <TextBlock Text="Duration (8-hour days)" Style="{StaticResource FieldLabel}"/>
+                                <TextBox IsReadOnly="{Binding HasChildren}" Text="{Binding Duration, Mode=TwoWay, Converter={StaticResource DurationStringConverter}, ConverterParameter=0.##d/8, ValidatesOnExceptions=True}"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock Text="Task cost" Style="{StaticResource FieldLabel}"/>
+                                <TextBox Text="{Binding Cost, Mode=TwoWay, Converter={StaticResource NumberStringConverter}, ConverterParameter=$0.##, ValidatesOnExceptions=True}"/>
+                            </StackPanel>
+                        </UniformGrid>
+                        <TextBlock Text="BASELINE" Foreground="#607188" FontSize="11" FontWeight="SemiBold" Margin="0,12,0,6"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="16"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="16"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <TextBlock Text="Estimated start" Style="{StaticResource FieldLabel}"/>
+                                <DatePicker SelectedDate="{Binding BaselineStart, Mode=TwoWay}" AutomationProperties.Name="Estimated start"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Text="Estimated finish" Style="{StaticResource FieldLabel}"/>
+                                <DatePicker SelectedDate="{Binding BaselineFinish, Mode=TwoWay, Converter={StaticResource FinishDateConverter}}" AutomationProperties.Name="Estimated finish"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="4">
+                                <TextBlock Text="Estimated duration (hours)" Style="{StaticResource FieldLabel}"/>
+                                <TextBox IsReadOnly="{Binding HasChildren}" Text="{Binding BaselineEffort, Mode=TwoWay, Converter={StaticResource DurationStringConverter}, ConverterParameter=0.##h, ValidatesOnExceptions=True}"/>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Dependencies">
+                <Grid Margin="0,8,0,0">
+                    <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+                    <TextBlock Text="Dependencies are checked when you choose a task or change a relation. Schedule changes require confirmation; declining removes the dependency. Lag is in working hours." TextWrapping="Wrap" Margin="0,0,0,12" Foreground="#607188"/>
+                    <DataGrid x:Name="DependenciesGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" HeadersVisibility="Column" RowHeaderWidth="0" SelectionMode="Single" GridLinesVisibility="Horizontal" Background="White">
+                        <DataGrid.Columns>
+                            <DataGridComboBoxColumn x:Name="DirectionColumn" Header="Relation" SelectedItemBinding="{Binding Direction, UpdateSourceTrigger=PropertyChanged}" Width="125"/>
+                            <DataGridComboBoxColumn x:Name="RelatedTaskColumn" Header="Task" SelectedValueBinding="{Binding Task, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Item" DisplayMemberPath="Label" Width="*"/>
+                            <DataGridComboBoxColumn x:Name="DependencyTypeColumn" Header="Type" SelectedItemBinding="{Binding Type, UpdateSourceTrigger=PropertyChanged}" Width="130"/>
+                            <DataGridTextColumn Header="Lag (hours)" Binding="{Binding LagHours, ValidatesOnExceptions=True}" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,14,0,0">
+                        <Button Content="Add dependency" Click="AddDependency_Click" Padding="14,8" Margin="0,0,10,0"/>
+                        <Button Content="Remove selected" Click="RemoveDependency_Click" Padding="14,8" Margin="0,0,10,0"/>
+                    </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem Header="Assignments">
-                <pdgcc:AssignmentListBox AvailableItemsSource="{Binding AssignableResources, RelativeSource={RelativeSource AncestorType=Window}}" SelectedContent="{Binding AssignmentsContent, Mode=TwoWay}"/>
-                <!-- Alternatively you may use a simple ListBox with single selection mode instead as indicated in the next line of markup. -->
-                <!-- <ListBox ItemsSource="{Binding AssignableResources, RelativeSource={RelativeSource AncestorType=Window}}" SelectedItem="{Binding AssignmentsContent, Mode=TwoWay}" SelectionMode="Single"/> -->
+                <Grid Margin="0,8,0,0">
+                    <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+                    <TextBlock Text="Select resources and enter allocation percentages (100% = one unit). Type and cost are read-only." TextWrapping="Wrap" Margin="0,0,0,12" Foreground="#607188"/>
+                    <DataGrid x:Name="AssignmentsGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" HeadersVisibility="Column" RowHeaderWidth="0" GridLinesVisibility="Horizontal" Background="White">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="Assigned" Binding="{Binding Assigned}" Width="90"/>
+                            <DataGridTextColumn Header="Resource name" Binding="{Binding Name}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Allocation (%)" Binding="{Binding AllocationPercent, ValidatesOnExceptions=True}" Width="125"/>
+                            <DataGridTextColumn Header="Resource type" Binding="{Binding ResourceType}" IsReadOnly="True" Width="130"/>
+                            <DataGridTextColumn Header="Cost" Binding="{Binding Cost, StringFormat={}{0:0.00}}" IsReadOnly="True" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <StackPanel Grid.Row="2" Margin="0,14,0,0">
+                        <TextBlock Text="Cost = allocation × (usage rate + working hours × hourly rate). Uses the same cost units as the grid." TextWrapping="Wrap" Foreground="#607188" Margin="0,0,0,10"/>
+                        <Button Content="Apply assignments" Click="ApplyAssignments_Click" Padding="14,8" HorizontalAlignment="Right"/>
+                    </StackPanel>
+                </Grid>
             </TabItem>
         </TabControl>
-        <Button x:Name="CloseButton" Grid.Row="1" Content="Close" Width="75" HorizontalAlignment="Right" Margin="0,4,0,0" IsDefault="True" Click="CloseButton_Click"/>
+        <DockPanel Grid.Row="2" Margin="0,10,0,0" LastChildFill="False">
+            <Button x:Name="CloseButton" DockPanel.Dock="Right" Content="Close" MinWidth="100" Style="{StaticResource PrimaryButton}" IsDefault="True" Click="CloseButton_Click"/>
+            <TextBlock Text="Task and dependency changes apply directly; assignments use Apply." Foreground="#607188" FontSize="12" VerticalAlignment="Center"/>
+        </DockPanel>
     </Grid>
 </Window>

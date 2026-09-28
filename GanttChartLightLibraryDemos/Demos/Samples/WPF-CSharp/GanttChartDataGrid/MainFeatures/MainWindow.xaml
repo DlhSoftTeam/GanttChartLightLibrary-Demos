@@ -35,12 +35,12 @@
             </pdgcc:ScaleCollection>
             <LinearGradientBrush x:Key="CustomStandardBarFill" StartPoint="0.5,0" EndPoint="0.5,1">
                 <LinearGradientBrush.GradientStops>
-                    <GradientStop Color="Transparent" Offset="0"/>
-                    <GradientStop Color="Tomato" Offset="0.25"/>
-                    <GradientStop Color="DarkRed" Offset="1"/>
+                    <GradientStop Color="#99db281c" Offset="0"/>
+                    <GradientStop Color="#99fd2e1b" Offset="0.25"/>
+                    <GradientStop Color="#999b2a01" Offset="1"/>
                 </LinearGradientBrush.GradientStops>
             </LinearGradientBrush>
-            <SolidColorBrush x:Key="CustomStandardBarStroke" Color="DarkRed"/>
+            <SolidColorBrush x:Key="CustomStandardBarStroke" Color="#99db281c"/>
             <pdgccConverters:NumberStringConverter x:Key="NumberStringConverter"/>
             <DataTemplate x:Key="PertChartPredecessorToolTipTemplate">
                 <StackPanel>
@@ -83,7 +83,6 @@
             </Style>
             <DataTemplate x:Key="CompletionOnlyToolTipTemplate">
                 <TextBlock Text="{Binding Completion, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%}"
-                           FontSize="16"
                            FontWeight="SemiBold"
                            Foreground="#314254"/>
             </DataTemplate>
@@ -290,7 +289,7 @@
         <!-- Optionally, set AreSummaryRowsBold to true to automatically set FontWeight property values of summary grid rows to Bold. -->
         <!-- Optionally, set AreTaskDependencyConstraintsDisabledWhileDragging to true to improve performance when AreTaskDependencyConstraintsEnabled would be set to true. -->
         <!-- Optionally, set IsMouseWheelZoomEnabledUpdatingScales and/or IsFittingToTimelinePageEnabledUpdatingScales to true to automatically update scales based on the actual zoom level of the chart. -->
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" IsUndoEnabled="True" AreSummaryRowsBold="False" AreTaskDependencyConstraintsDisabledWhileDragging="True" IsMouseWheelZoomEnabledUpdatingScales="True" IsFittingToTimelinePageEnabledUpdatingScales="True" PreviewMouseLeftButtonUp="GanttChartDataGrid_MouseLeftButtonUp">
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" IsUndoEnabled="True" AreSummaryRowsBold="False" AreTaskDependencyConstraintsDisabledWhileDragging="True" IsMouseWheelZoomEnabledUpdatingScales="True" IsFittingToTimelinePageEnabledUpdatingScales="True">
             <FrameworkElement.Resources>
                 <Style TargetType="ToolTip" BasedOn="{StaticResource ModernToolTipStyle}"/>
             </FrameworkElement.Resources>
@@ -322,10 +321,13 @@
                         </Grid>
                         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Visibility="{Binding GanttChartView.TaskCompletedEffortVisibility}" VerticalAlignment="Center">
                             <Rectangle Fill="{Binding (pdgcc:GanttChartView.StandardCompletedBarFill)}" Height="{Binding GanttChartView.CompletedBarHeight}" IsHitTestVisible="False" RadiusY="{Binding GanttChartView.StandardCompletedBarCornerRadius}" RadiusX="{Binding GanttChartView.StandardCompletedBarCornerRadius}" Stroke="{Binding (pdgcc:GanttChartView.StandardCompletedBarStroke)}" StrokeThickness="{Binding GanttChartView.StandardCompletedBarStrokeThickness}" VerticalAlignment="Center" Width="{Binding ComputedCompletedBarWidth}" Opacity="0.78"/>
-                            <pdgcc:DragTaskThumb Height="{Binding GanttChartView.BarHeight}" IsHitTestVisible="{Binding IsBarThumbHitTestVisible}" IsEnabled="{Binding GanttChartView.IsTaskCompletionThumbEnabled}" Role="UpdateCompletedFinish" Visibility="{Binding GanttChartView.ThumbVisibility}" Width="8" PreviewMouseLeftButtonDown="CompletionThumb_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="CompletionThumb_PreviewMouseLeftButtonUp" LostMouseCapture="CompletionThumb_LostMouseCapture">
-                                <pdgcc:DragTaskThumb.ToolTip>
-                                    <Binding Path="Completion" Converter="{StaticResource NumberStringConverter}" ConverterParameter="0.##%"/>
-                                </pdgcc:DragTaskThumb.ToolTip>
+                            <pdgcc:DragTaskThumb Height="{Binding GanttChartView.BarHeight}" Width="8" Role="UpdateCompletedFinish" Visibility="{Binding GanttChartView.ThumbVisibility}" IsEnabled="{Binding GanttChartView.IsTaskCompletionThumbEnabled}" IsHitTestVisible="{Binding IsBarThumbHitTestVisible}">
+                                <ToolTipService.ToolTip>
+                                <!--<pdgcc:DragTaskThumb.ToolTip>-->
+                                    <ToolTip Content="{Binding Completion, Converter={StaticResource NumberStringConverter}, ConverterParameter=0.##%}"/>
+                                    <!--<Binding Path="Completion" Converter="{StaticResource NumberStringConverter}" ConverterParameter="0.##%"/>-->
+                                <!--</pdgcc:DragTaskThumb.ToolTip>-->
+                                 </ToolTipService.ToolTip>
                             </pdgcc:DragTaskThumb>
                         </StackPanel>
                         <Grid Margin="6,0" IsHitTestVisible="False">

@@ -300,7 +300,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
                 MessageBox.Show("Cannot edit as the selection is empty; you should select an item first.", "Information", MessageBoxButton.OK);
                 return;
             }
-            EditItemDialog editItemDialog = new EditItemDialog { Owner = Application.Current.MainWindow, DataContext = selectedItem, AssignableResources = GanttChartDataGrid.AssignableResources };
+            EditItemDialog editItemDialog = new EditItemDialog { Owner = Application.Current.MainWindow, DataContext = selectedItem, Chart = GanttChartDataGrid, AssignableResources = GanttChartDataGrid.AssignableResources };
             editItemDialog.ShowDialog();
         }
         private void AddNewButton_Click(object sender, RoutedEventArgs e)
