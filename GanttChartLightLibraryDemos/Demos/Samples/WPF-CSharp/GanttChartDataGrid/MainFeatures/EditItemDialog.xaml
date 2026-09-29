@@ -6,8 +6,9 @@
         xmlns:pdgccConverters="clr-namespace:DlhSoft.Windows.Converters;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
         Title="Edit task" Width="720" Height="620" MinWidth="608" MinHeight="480" ResizeMode="CanResize"
         WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
-        FontFamily="Segoe UI" FontSize="13" Foreground="#243449" Background="#F4F7FB">
+        FontFamily="Segoe UI" FontSize="13" Foreground="{DynamicResource EditorFieldTextBrush}" Background="#F4F7FB">
     <Window.Resources>
+        <SolidColorBrush x:Key="EditorFieldTextBrush" Color="#53647A"/>
         <pdgccConverters:DurationStringConverter x:Key="DurationStringConverter"/>
         <pdgccConverters:NumberStringConverter x:Key="NumberStringConverter"/>
         <pdgccConverters:FinishDateConverter x:Key="FinishDateConverter"/>
@@ -16,7 +17,33 @@
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Margin" Value="0,0,0,4"/>
         </Style>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="{StaticResource EditorFieldTextBrush}"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Foreground" Value="{StaticResource EditorFieldTextBrush}"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Foreground" Value="{StaticResource EditorFieldTextBrush}"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+        <Style x:Key="GridComboDisplay" TargetType="ComboBox" BasedOn="{x:Static DataGridComboBoxColumn.DefaultElementStyle}">
+            <Setter Property="Foreground" Value="{Binding Foreground, RelativeSource={RelativeSource AncestorType=DataGridCell}}"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+        <Style x:Key="GridComboEdit" TargetType="ComboBox" BasedOn="{x:Static DataGridComboBoxColumn.DefaultEditingElementStyle}">
+            <Setter Property="Foreground" Value="{StaticResource EditorFieldTextBrush}"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+        <Style TargetType="CheckBox">
+            <Setter Property="Foreground" Value="{StaticResource EditorFieldTextBrush}"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
         <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="{StaticResource EditorFieldTextBrush}"/>
+            <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="Padding" Value="8,5"/>
             <Setter Property="Background" Value="White"/>
             <Setter Property="BorderBrush" Value="#CDD7E3"/>
@@ -62,6 +89,13 @@
             </Setter>
         </Style>
         <Style TargetType="DataGrid">
+            <Style.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#E6F1FB"/>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#274766"/>
+                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#E6F1FB"/>
+                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}" Color="#274766"/>
+            </Style.Resources>
+            <Setter Property="Foreground" Value="{StaticResource EditorFieldTextBrush}"/>
             <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="MinRowHeight" Value="42"/>
             <Setter Property="ColumnHeaderHeight" Value="42"/>
@@ -80,6 +114,9 @@
             <Setter Property="BorderBrush" Value="#DCE4EE"/>
         </Style>
         <Style TargetType="DataGridCell">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="{StaticResource EditorFieldTextBrush}"/>
             <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="Padding" Value="10,9"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -92,9 +129,14 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
         <Style x:Key="PrimaryButton" TargetType="Button">
-            <Setter Property="Background" Value="#2878C8"/>
+            <Setter Property="Background" Value="#5D7FAF"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Padding" Value="24,10"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
@@ -106,13 +148,13 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="ButtonBorder" Property="Background" Value="#2067AF"/>
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#5575A3"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="ButtonBorder" Property="Background" Value="#19548F"/>
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#4F6F9C"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="True">
-                                <Setter TargetName="ButtonBorder" Property="BorderBrush" Value="#163F6B"/>
+                                <Setter TargetName="ButtonBorder" Property="BorderBrush" Value="#CADDEE"/>
                                 <Setter TargetName="ButtonBorder" Property="BorderThickness" Value="2"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
@@ -129,7 +171,7 @@
         </Grid.RowDefinitions>
         <StackPanel Margin="0,0,0,10">
             <TextBlock Text="Task details" FontSize="22" FontWeight="SemiBold"/>
-            <TextBlock Text="Manage the schedule, progress and assignments." Foreground="#607188" Margin="0,4,0,0"/>
+            <TextBlock Text="Manage the schedule, progress and assignments." Foreground="#607188" FontWeight="Normal" Margin="0,4,0,0"/>
         </StackPanel>
         <TabControl x:Name="EditorTabs" Grid.Row="1" Background="Transparent" BorderThickness="0" Padding="0,8,0,0">
             <TabItem Header="Definition">
@@ -251,12 +293,12 @@
             <TabItem Header="Dependencies">
                 <Grid Margin="0,8,0,0">
                     <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-                    <TextBlock Text="Dependencies are checked when you choose a task or change a relation. Schedule changes require confirmation; declining removes the dependency. Lag is in working hours." TextWrapping="Wrap" Margin="0,0,0,12" Foreground="#607188"/>
+                    <TextBlock Text="Dependencies are checked when you choose a task or change a relation. Schedule changes require confirmation; declining removes the dependency. Lag is in working hours." TextWrapping="Wrap" Margin="0,0,0,12" Foreground="#607188" FontWeight="Normal"/>
                     <DataGrid x:Name="DependenciesGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" HeadersVisibility="Column" RowHeaderWidth="0" SelectionMode="Single" GridLinesVisibility="Horizontal" Background="White">
                         <DataGrid.Columns>
-                            <DataGridComboBoxColumn x:Name="DirectionColumn" Header="Relation" SelectedItemBinding="{Binding Direction, UpdateSourceTrigger=PropertyChanged}" Width="125"/>
-                            <DataGridComboBoxColumn x:Name="RelatedTaskColumn" Header="Task" SelectedValueBinding="{Binding Task, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Item" DisplayMemberPath="Label" Width="*"/>
-                            <DataGridComboBoxColumn x:Name="DependencyTypeColumn" Header="Type" SelectedItemBinding="{Binding Type, UpdateSourceTrigger=PropertyChanged}" Width="130"/>
+                            <DataGridComboBoxColumn ElementStyle="{StaticResource GridComboDisplay}" EditingElementStyle="{StaticResource GridComboEdit}" x:Name="DirectionColumn" Header="Relation" SelectedItemBinding="{Binding Direction, UpdateSourceTrigger=PropertyChanged}" Width="125"/>
+                            <DataGridComboBoxColumn ElementStyle="{StaticResource GridComboDisplay}" EditingElementStyle="{StaticResource GridComboEdit}" x:Name="RelatedTaskColumn" Header="Task" SelectedValueBinding="{Binding Task, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Item" DisplayMemberPath="Label" Width="*"/>
+                            <DataGridComboBoxColumn ElementStyle="{StaticResource GridComboDisplay}" EditingElementStyle="{StaticResource GridComboEdit}" x:Name="DependencyTypeColumn" Header="Type" SelectedItemBinding="{Binding Type, UpdateSourceTrigger=PropertyChanged}" Width="130"/>
                             <DataGridTextColumn Header="Lag (hours)" Binding="{Binding LagHours, ValidatesOnExceptions=True}" Width="100"/>
                         </DataGrid.Columns>
                     </DataGrid>
@@ -269,7 +311,7 @@
             <TabItem Header="Assignments">
                 <Grid Margin="0,8,0,0">
                     <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-                    <TextBlock Text="Select resources and enter allocation percentages (100% = one unit). Type and cost are read-only." TextWrapping="Wrap" Margin="0,0,0,12" Foreground="#607188"/>
+                    <TextBlock Text="Select resources and enter allocation percentages (100% = one unit). Type and cost are read-only." TextWrapping="Wrap" Margin="0,0,0,12" Foreground="#607188" FontWeight="Normal"/>
                     <DataGrid x:Name="AssignmentsGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" HeadersVisibility="Column" RowHeaderWidth="0" GridLinesVisibility="Horizontal" Background="White">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Header="Assigned" Binding="{Binding Assigned}" Width="90"/>
@@ -280,7 +322,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <StackPanel Grid.Row="2" Margin="0,14,0,0">
-                        <TextBlock Text="Cost = allocation × (usage rate + working hours × hourly rate). Uses the same cost units as the grid." TextWrapping="Wrap" Foreground="#607188" Margin="0,0,0,10"/>
+                        <TextBlock Text="Cost = allocation × (usage rate + working hours × hourly rate). Uses the same cost units as the grid." TextWrapping="Wrap" Foreground="#607188" FontWeight="Normal" Margin="0,0,0,10"/>
                         <Button Content="Apply assignments" Click="ApplyAssignments_Click" Padding="14,8" HorizontalAlignment="Right"/>
                     </StackPanel>
                 </Grid>
