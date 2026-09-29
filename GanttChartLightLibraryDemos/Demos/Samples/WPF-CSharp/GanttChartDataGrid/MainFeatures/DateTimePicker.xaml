@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures.DateTimePicker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:local="clr-namespace:Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="Root" FontSize="11" MinHeight="30">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="CalendarTextBrush" Color="#243449"/>
+        <SolidColorBrush x:Key="CalendarSelectionBrush" Color="#DDECF9"/>
+        <SolidColorBrush x:Key="CalendarTodayBrush" Color="#6485C5"/>
+        <Style x:Key="TimeSelector" TargetType="ComboBox">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="CalendarButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#243449"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Surface" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Surface" Property="Background" Value="#DDECF9"/></Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Surface" Property="BorderBrush" Value="#397FC5"/></Trigger>
+                            <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.4"/></Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Border Background="#fafafa" BorderBrush="#dce2e8" BorderThickness="1" CornerRadius="3" Padding="4,1">
+            <DockPanel>
+                <Button x:Name="PickerButton" Click="PickerButton_Click" DockPanel.Dock="Right" Width="22" Height="22" Margin="4,0,0,0"
+                              Background="#efefef" BorderBrush="LightGray" Foreground="#3d80ca" ToolTip="Choose date and time"
+                              AutomationProperties.Name="Choose date and time">
+                    <Viewbox Width="14" Height="14" IsHitTestVisible="False">
+                        <Canvas Width="16" Height="16">
+                            <Rectangle Canvas.Left="1" Canvas.Top="3" Width="14" Height="12" RadiusX="1" RadiusY="1" Stroke="#3d80ca" StrokeThickness="1.3" Fill="White"/>
+                            <Path Data="M 1,6 L 15,6 M 5,1 L 5,4 M 11,1 L 11,4" Stroke="#3d80ca" StrokeThickness="1.5"/>
+                            <Path Data="M 4,9 L 6,9 M 8,9 L 10,9 M 4,12 L 6,12 M 8,12 L 10,12" Stroke="#3d80ca" StrokeThickness="1.5"/>
+                        </Canvas>
+                    </Viewbox>
+                </Button>
+                <TextBlock Text="{Binding SelectedDateTime, ElementName=Root, StringFormat='{}{0:dd.MM.yyyy HH:mm}', ConverterCulture=en-GB}"
+                           VerticalAlignment="Center"/>
+            </DockPanel>
+        </Border>
+        <local:DateTimePopup x:Name="PickerPopup" Placement="Bottom"
+               StaysOpen="False"
+               AllowsTransparency="True" Opened="PickerPopup_Opened" Closed="PickerPopup_Closed">
+            <Border Background="#fefefe" BorderBrush="#6485c5" BorderThickness="1" CornerRadius="8" Padding="6" Width="240" PreviewKeyDown="PickerPopup_PreviewKeyDown">
+                <StackPanel>
+                    <TextBlock Text="Date and time" FontSize="12" FontWeight="SemiBold" Foreground="#3d80ca" Margin="4,2,4,4"/>
+                    <Grid Margin="0,0,0,4">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="28"/><ColumnDefinition Width="*"/><ColumnDefinition Width="28"/></Grid.ColumnDefinitions>
+                        <Button x:Name="PreviousMonthButton" Style="{StaticResource CalendarButton}" Padding="0" Height="26" Background="Transparent" BorderThickness="0" Click="PreviousMonth_Click" AutomationProperties.Name="Previous month">
+                            <Path Data="M 6,0 L 0,5 L 6,10" Width="6" Height="10" Stretch="Fill" Stroke="#243449" StrokeThickness="1.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False"/>
+                        </Button>
+                        <Button x:Name="MonthHeading" Style="{StaticResource CalendarButton}" Grid.Column="1" FontSize="13" FontWeight="SemiBold" Foreground="#0078D4" Background="Transparent" BorderThickness="0" Padding="4,4" Click="MonthHeading_Click" AutomationProperties.Name="Choose month and year"/>
+                        <Button x:Name="NextMonthButton" Style="{StaticResource CalendarButton}" Grid.Column="2" Padding="0" Height="26" Background="Transparent" BorderThickness="0" Click="NextMonth_Click" AutomationProperties.Name="Next month">
+                            <Path Data="M 0,0 L 6,5 L 0,10" Width="6" Height="10" Stretch="Fill" Stroke="#243449" StrokeThickness="1.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False"/>
+                        </Button>
+                    </Grid>
+                    <Grid>
+                        <StackPanel x:Name="DaysPanel">
+                            <UniformGrid x:Name="WeekdayLabels" Columns="7" Margin="0,0,0,2"/>
+                            <UniformGrid x:Name="DayButtons" Columns="7" Rows="6"/>
+                        </StackPanel>
+                        <Border x:Name="MonthMenu" Visibility="Collapsed" Background="#FAFAFA" BorderBrush="#C8CDD3" BorderThickness="1" Padding="4">
+                            <StackPanel>
+                                <Button Content="‹ Previous year" Click="PreviousYear_Click" Background="Transparent" BorderThickness="0" Padding="4,4"/>
+                                <StackPanel x:Name="NearbyMonths"/>
+                                <Button Content="Next year ›" Click="NextYear_Click" Background="Transparent" BorderThickness="0" Padding="4,4"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,3">
+                        <StackPanel>
+                            <TextBlock Text="Hour" HorizontalAlignment="Center" Foreground="Gray" Margin="0,0,0,4"/>
+                            <ComboBox x:Name="HourSelector" Style="{StaticResource TimeSelector}" Width="56" Height="24" AutomationProperties.Name="Hour"/>
+                        </StackPanel>
+                        <TextBlock Text=":" VerticalAlignment="Bottom" Height="24" TextAlignment="Center" Padding="0,4,0,0" Margin="8,0"/>
+                        <StackPanel>
+                            <TextBlock Text="Minute" HorizontalAlignment="Center" Foreground="Gray" Margin="0,0,0,4"/>
+                            <ComboBox x:Name="MinuteSelector" Style="{StaticResource TimeSelector}" Width="56" Height="24" AutomationProperties.Name="Minute"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,4,0,0">
+                        <Button Content="Cancel" Padding="8,2" Click="CancelButton_Click"/>
+                        <Button Content="Apply" Margin="6,0,0,0" Padding="8,2" Background="#e8f0fa" BorderBrush="#6485c5" Foreground="#3d80ca" Click="ApplyButton_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </local:DateTimePopup>
+    </Grid>
+</UserControl>

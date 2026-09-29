@@ -1,5 +1,6 @@
 ﻿<Window x:Class="Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures.EditItemDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:local="clr-namespace:Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
         xmlns:pdgccConverters="clr-namespace:DlhSoft.Windows.Converters;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
@@ -182,11 +183,11 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel>
                                 <TextBlock Text="Start" Style="{StaticResource FieldLabel}"/>
-                                <DatePicker SelectedDate="{Binding Start, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" AutomationProperties.Name="Start"/>
+                                <local:DateTimePicker SelectedDateTime="{Binding Start, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" AutomationProperties.Name="Start"/>
                             </StackPanel>
                             <StackPanel Grid.Column="2">
                                 <TextBlock Text="Finish" Style="{StaticResource FieldLabel}"/>
-                                <DatePicker SelectedDate="{Binding Finish, Mode=TwoWay, Converter={StaticResource FinishDateConverter}}" IsEnabled="{Binding IsLeaf}" AutomationProperties.Name="Finish"/>
+                                <local:DateTimePicker SelectedDateTime="{Binding Finish, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" AutomationProperties.Name="Finish"/>
                             </StackPanel>
                         </Grid>
                         <CheckBox Content="Mark as milestone" IsChecked="{Binding IsMilestone, Mode=TwoWay}" IsEnabled="{Binding IsLeaf}" Margin="0,10,0,0" VerticalContentAlignment="Center"/>
@@ -232,11 +233,11 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel>
                                 <TextBlock Text="Estimated start" Style="{StaticResource FieldLabel}"/>
-                                <DatePicker SelectedDate="{Binding BaselineStart, Mode=TwoWay}" AutomationProperties.Name="Estimated start"/>
+                                <local:DateTimePicker SelectedDateTime="{Binding BaselineStart, Mode=TwoWay}" AutomationProperties.Name="Estimated start"/>
                             </StackPanel>
                             <StackPanel Grid.Column="2">
                                 <TextBlock Text="Estimated finish" Style="{StaticResource FieldLabel}"/>
-                                <DatePicker SelectedDate="{Binding BaselineFinish, Mode=TwoWay, Converter={StaticResource FinishDateConverter}}" AutomationProperties.Name="Estimated finish"/>
+                                <local:DateTimePicker SelectedDateTime="{Binding BaselineFinish, Mode=TwoWay}" AutomationProperties.Name="Estimated finish"/>
                             </StackPanel>
                             <StackPanel Grid.Column="4">
                                 <TextBlock Text="Estimated duration (hours)" Style="{StaticResource FieldLabel}"/>
