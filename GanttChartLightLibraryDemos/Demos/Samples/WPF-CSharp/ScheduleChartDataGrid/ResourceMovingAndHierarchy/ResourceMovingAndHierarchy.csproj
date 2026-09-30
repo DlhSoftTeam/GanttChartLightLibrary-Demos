@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B2C5A1ED-B6E6-43E1-BD37-F08267261390}</ProjectGuid>
+    <ProjectGuid>{E546A7E5-673C-4C3E-80EE-3CB048F8FBCD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Demos.WPF.CSharp.ScheduleChartDataGrid.ResourceMovingAndHierarchy</RootNamespace>
@@ -65,6 +65,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomGanttChartItem.cs" />
+    <Compile Include="CustomScheduleChartItem.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -99,7 +101,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-<Page Include="Themes\DlhSoft.xaml">
+    <Page Include="Themes\DlhSoft.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -158,6 +160,37 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\Licenses.licx" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AddNew.png" />
+    <Resource Include="Images\Albert.png" />
+    <Resource Include="Images\Copy.png" />
+    <Resource Include="Images\DecreaseTimelinePage.png" />
+    <Resource Include="Images\Delete.png" />
+    <Resource Include="Images\Denis.png" />
+    <Resource Include="Images\Diane.png" />
+    <Resource Include="Images\ExportImage.png" />
+    <Resource Include="Images\Flag.png" />
+    <Resource Include="Images\IncreaseTimelinePage.png" />
+    <Resource Include="Images\InsertNew.png" />
+    <Resource Include="Images\Jane.png" />
+    <Resource Include="Images\Johanna.png" />
+    <Resource Include="Images\Paste.png" />
+    <Resource Include="Images\People.png" />
+    <Resource Include="Images\Person.png" />
+    <Resource Include="Images\Print.png" />
+    <Resource Include="Images\Redo.png" />
+    <Resource Include="Images\ReOrder.png" />
+    <Resource Include="Images\ResourceAdd.png" />
+    <Resource Include="Images\ResourceDelete.png" />
+    <Resource Include="Images\SetColor.png" />
+    <Resource Include="Images\ShowWeekends.png" />
+    <Resource Include="Images\Steven.png" />
+    <Resource Include="Images\Tyson.png" />
+    <Resource Include="Images\Undo.png" />
+    <Resource Include="Images\Victor.png" />
+    <Resource Include="Images\WorkOnWeekends.png" />
+    <Resource Include="Images\ZoomIn.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -167,5 +200,3 @@
   </Target>
   -->
 </Project>
-
-

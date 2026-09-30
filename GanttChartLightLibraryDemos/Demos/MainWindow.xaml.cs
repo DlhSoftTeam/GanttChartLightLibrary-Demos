@@ -525,6 +525,9 @@ namespace Demos
                 case "ScheduleChartDataGrid":
                     switch (feature)
                     {
+                        case "ResourceMovingAndHierarchy":
+                            fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml" + (!isVisualBasic ? ".cs" : ".vb"), "CustomGanttChartItem" + (!isVisualBasic ? ".cs" : ".vb"), "CustomScheduleChartItem" + (!isVisualBasic ? ".cs" : ".vb") };
+                            break;
                         case "MainFeatures":
                             fileItems = new[] { "MainWindow.xaml", "MainWindow.xaml" + (!isVisualBasic ? ".cs" : ".vb"), "CustomGanttChartItem" + (!isVisualBasic ? ".cs" : ".vb") };
                             break;

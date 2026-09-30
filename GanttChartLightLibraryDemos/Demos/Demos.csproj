@@ -1205,6 +1205,8 @@
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\Hierarchy\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\ResourceMoving\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\ResourceMovingAndHierarchy\MainWindow.xaml.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\ResourceMovingAndHierarchy\CustomGanttChartItem.cs" />
+    <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\ResourceMovingAndHierarchy\CustomScheduleChartItem.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MouseEventHandling\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\MultipleLinesPerRow\MainWindow.xaml.cs" />
     <Resource Include="Samples.Resources\WPF-CSharp\ScheduleChartDataGrid\DataBinding\CustomResourceItem.cs" />
@@ -2174,6 +2176,8 @@
     <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\Hierarchy\MainWindow.xaml.vb" />
     <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\ResourceMoving\MainWindow.xaml.vb" />
     <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\ResourceMovingAndHierarchy\MainWindow.xaml.vb" />
+    <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\ResourceMovingAndHierarchy\CustomGanttChartItem.vb" />
+    <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\ResourceMovingAndHierarchy\CustomScheduleChartItem.vb" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Samples.Resources\WPF-VisualBasic\ScheduleChartDataGrid\GanttChartIntegration\MainWindow.xaml.vb" />

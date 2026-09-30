@@ -56,6 +56,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomGanttChartItem.cs" />
+    <Compile Include="CustomScheduleChartItem.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -145,6 +147,37 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AddNew.png" />
+    <Resource Include="Images\Albert.png" />
+    <Resource Include="Images\Copy.png" />
+    <Resource Include="Images\DecreaseTimelinePage.png" />
+    <Resource Include="Images\Delete.png" />
+    <Resource Include="Images\Denis.png" />
+    <Resource Include="Images\Diane.png" />
+    <Resource Include="Images\ExportImage.png" />
+    <Resource Include="Images\Flag.png" />
+    <Resource Include="Images\IncreaseTimelinePage.png" />
+    <Resource Include="Images\InsertNew.png" />
+    <Resource Include="Images\Jane.png" />
+    <Resource Include="Images\Johanna.png" />
+    <Resource Include="Images\Paste.png" />
+    <Resource Include="Images\People.png" />
+    <Resource Include="Images\Person.png" />
+    <Resource Include="Images\Print.png" />
+    <Resource Include="Images\Redo.png" />
+    <Resource Include="Images\ReOrder.png" />
+    <Resource Include="Images\ResourceAdd.png" />
+    <Resource Include="Images\ResourceDelete.png" />
+    <Resource Include="Images\SetColor.png" />
+    <Resource Include="Images\ShowWeekends.png" />
+    <Resource Include="Images\Steven.png" />
+    <Resource Include="Images\Tyson.png" />
+    <Resource Include="Images\Undo.png" />
+    <Resource Include="Images\Victor.png" />
+    <Resource Include="Images\WorkOnWeekends.png" />
+    <Resource Include="Images\ZoomIn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

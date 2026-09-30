@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{213DF4E3-C438-4B17-9C83-63E543983ED6}</ProjectGuid>
+    <ProjectGuid>{26585461-D8A8-4022-A8E0-FF4268185715}</ProjectGuid>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Demos.WPF.VisualBasic.ScheduleChartDataGrid.ResourceMovingAndHierarchy</RootNamespace>
@@ -94,6 +94,8 @@
       <DependentUpon>Application.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CustomGanttChartItem.vb" />
+    <Compile Include="CustomScheduleChartItem.vb" />
     <Compile Include="MainWindow.xaml.vb">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>
@@ -220,6 +222,37 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AddNew.png" />
+    <Resource Include="Images\Albert.png" />
+    <Resource Include="Images\Copy.png" />
+    <Resource Include="Images\DecreaseTimelinePage.png" />
+    <Resource Include="Images\Delete.png" />
+    <Resource Include="Images\Denis.png" />
+    <Resource Include="Images\Diane.png" />
+    <Resource Include="Images\ExportImage.png" />
+    <Resource Include="Images\Flag.png" />
+    <Resource Include="Images\IncreaseTimelinePage.png" />
+    <Resource Include="Images\InsertNew.png" />
+    <Resource Include="Images\Jane.png" />
+    <Resource Include="Images\Johanna.png" />
+    <Resource Include="Images\Paste.png" />
+    <Resource Include="Images\People.png" />
+    <Resource Include="Images\Person.png" />
+    <Resource Include="Images\Print.png" />
+    <Resource Include="Images\Redo.png" />
+    <Resource Include="Images\ReOrder.png" />
+    <Resource Include="Images\ResourceAdd.png" />
+    <Resource Include="Images\ResourceDelete.png" />
+    <Resource Include="Images\SetColor.png" />
+    <Resource Include="Images\ShowWeekends.png" />
+    <Resource Include="Images\Steven.png" />
+    <Resource Include="Images\Tyson.png" />
+    <Resource Include="Images\Undo.png" />
+    <Resource Include="Images\Victor.png" />
+    <Resource Include="Images\WorkOnWeekends.png" />
+    <Resource Include="Images\ZoomIn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
