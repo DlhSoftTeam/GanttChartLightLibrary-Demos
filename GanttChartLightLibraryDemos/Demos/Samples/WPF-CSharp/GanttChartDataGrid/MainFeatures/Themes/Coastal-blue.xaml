@@ -28,11 +28,7 @@
         <GradientStop Color="#5575A3" Offset="1"/>
     </LinearGradientBrush>
 
-    <DataTemplate x:Key="AssignmentsTemplate2">
-        <ContentControl Content="{Binding AssignmentsContent}" Foreground="{StaticResource ModernGridForegroundBrush}" IsHitTestVisible="False" IsTabStop="False"/>
-    </DataTemplate>
-
-        <DataTemplate x:Key="ModernScaleHeaderContentTemplate">
+    <DataTemplate x:Key="ModernScaleHeaderContentTemplate">
         <Grid Height="{Binding RelativeSource={RelativeSource AncestorType=ContentPresenter}, Path=ActualHeight}" Background="Transparent">
             <TextBlock Text="{Binding}"
                        Margin="8,0"

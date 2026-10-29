@@ -164,8 +164,39 @@
         <Setter Property="DependencyLineStroke" Value="#8abbed"/>
     </Style>
     <!-- New -->
+    <pdgcc:ResourceAssignmentsConverter x:Key="ResourceAssignmentsConverter"/>
+    <DataTemplate x:Key="ResourceAssignmentTemplate">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding Separator}" VerticalAlignment="Center"/>
+            <Image x:Name="ResourceImage" Source="{Binding ImageSource}" ToolTip="{Binding ToolTip}" Width="20" Height="20" Margin="0,0,2,0">
+                <Image.Clip>
+                    <EllipseGeometry Center="10,10" RadiusX="10" RadiusY="10" />
+                </Image.Clip>
+            </Image>
+            <TextBlock Text="{Binding Content}" VerticalAlignment="Center"/>
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding ImageSource}" Value="{x:Null}">
+                <Setter TargetName="ResourceImage" Property="Visibility" Value="Collapsed"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
     <DataTemplate x:Key="AssignmentsTemplate2">
-        <ContentControl Content="{Binding AssignmentsContent}" Foreground="Black" IsHitTestVisible="False" IsTabStop="False"/>
+        <ItemsControl ItemTemplate="{StaticResource ResourceAssignmentTemplate}" IsHitTestVisible="{Binding GanttChartView.DisplayAssignedResourceImagesOnly}" IsTabStop="False">
+            <ItemsControl.ItemsSource>
+                <MultiBinding Converter="{StaticResource ResourceAssignmentsConverter}">
+                    <Binding Path="AssignmentsContent"/>
+                    <Binding Path="GanttChartView.ResourceImages"/>
+                    <Binding Path="GanttChartView.DisplayAssignedResourceImagesOnly"/>
+                    <Binding Path="GanttChartView.DefaultAssignedResourceImageSource"/>
+                </MultiBinding>
+            </ItemsControl.ItemsSource>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
     </DataTemplate>
     <Style x:Key="ColumnHeaderStyle2" TargetType="DataGridColumnHeader">
         <Setter Property="Background" Value="#fefefe"/>

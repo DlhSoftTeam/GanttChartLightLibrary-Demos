@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,61 +28,168 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
         public MainWindow()
         {
             InitializeComponent();
+            string applicationName = GetType().Namespace;
             GanttChartDataGrid.PreparingCellForEdit += GanttChartDataGrid_PreparingCellForEdit;
 
-            GanttChartItem item0 = GanttChartDataGrid.Items[0];
+            DateTime monthStart = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
 
-            GanttChartItem item1 = GanttChartDataGrid.Items[1];
-            item1.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
-            item1.Finish = DateTime.Today.Add(TimeSpan.Parse("16:00:00"));
-            item1.CompletedFinish = DateTime.Today.Add(TimeSpan.Parse("12:00:00"));
-            item1.AssignmentsContent = "Resource 1";
+            GanttChartItem itemPlanning = GanttChartDataGrid.Items[0];
 
-            GanttChartItem item2 = GanttChartDataGrid.Items[2];
-            item2.Start = DateTime.Today.AddDays(1).Add(TimeSpan.Parse("08:00:00"));
-            item2.Finish = DateTime.Today.AddDays(2).Add(TimeSpan.Parse("16:00:00"));
-            // Important note: CompletedFinish value defaults to DateTime.Today, therefore you should always set it to a Start (or a value between Start and Finish) when you initialize a past task item! In this example we don't set it as the task is in the future.
-            item2.AssignmentsContent = "Resource 1, Resource 2";
-            item2.Predecessors.Add(new PredecessorItem { Item = item1 });
+            GanttChartItem itemAnalysis = GanttChartDataGrid.Items[1];
+            itemAnalysis.Start = monthStart.AddHours(8);
+            itemAnalysis.Finish = monthStart.AddDays(3).AddHours(16);
+            itemAnalysis.CompletedFinish = itemAnalysis.Start;
+            itemAnalysis.AssignmentsContent = "Clarissa Candelaria [50%]";
 
-            GanttChartItem item3 = GanttChartDataGrid.Items[3];
-            item3.Predecessors.Add(new PredecessorItem { Item = item0, DependencyType = DependencyType.StartStart });
+            GanttChartItem itemRequirements = GanttChartDataGrid.Items[2];
+            itemRequirements.Start = monthStart.AddHours(8);
+            itemRequirements.Finish = monthStart.AddDays(4).AddHours(16);
+            itemRequirements.CompletedFinish = itemRequirements.Start;
+            itemRequirements.AssignmentsContent = "Clarissa Candelaria [50%], Tyson Lamberson";
 
-            GanttChartItem item4 = GanttChartDataGrid.Items[4];
-            item4.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
-            item4.Finish = DateTime.Today.AddDays(2).Add(TimeSpan.Parse("12:00:00"));
+            GanttChartItem itemReview = GanttChartDataGrid.Items[3];
+            itemReview.Start = monthStart.AddDays(5).AddHours(16);
+            itemReview.CompletedFinish = itemReview.Start;
+            itemReview.AssignmentsContent = "Clarissa Candelaria";
 
-            GanttChartItem item6 = GanttChartDataGrid.Items[6];
-            item6.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
-            item6.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
-            item6.BaselineStart = item6.Start;
-            item6.BaselineFinish = item6.Finish;
+            GanttChartItem itemArhitecture = GanttChartDataGrid.Items[4];
+            itemArhitecture.Start = monthStart.AddDays(3).AddHours(8);
+            itemArhitecture.Finish = monthStart.AddDays(6).AddHours(12);
+            itemArhitecture.CompletedFinish = itemArhitecture.Start;
+            itemArhitecture.AssignmentsContent = "Steven Rush [50%], Meeting room";
 
-            GanttChartItem item7 = GanttChartDataGrid.Items[7];
-            item7.Start = DateTime.Today.AddDays(4);
-            item7.IsMilestone = true;
-            item7.Predecessors.Add(new PredecessorItem { Item = item4 });
-            item7.Predecessors.Add(new PredecessorItem { Item = item6 });
-            item7.BaselineStart = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
+            GanttChartItem itemDesign = GanttChartDataGrid.Items[5];
+            itemDesign.Start = monthStart.AddDays(5).AddHours(10);
+            itemDesign.Finish = monthStart.AddDays(8).AddHours(12);
+            itemDesign.CompletedFinish = itemDesign.Start;
+            itemDesign.AssignmentsContent = "Steven Rush [50%]";
 
-            GanttChartItem item8 = GanttChartDataGrid.Items[8];
-            item8.Start = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
-            item8.Finish = DateTime.Today.AddDays(6).Add(TimeSpan.Parse("14:00:00"));
-            item8.AssignmentsContent = "Resource 1 [50%], Resource 2 [75%]";
-            item8.BaselineStart = DateTime.Today.Add(TimeSpan.Parse("12:00:00"));
-            item8.BaselineFinish = DateTime.Today.AddDays(4).Add(TimeSpan.Parse("14:00:00"));
+            GanttChartItem itemDevelopment = GanttChartDataGrid.Items[6];
 
-            GanttChartItem item9 = GanttChartDataGrid.Items[9];
-            item9.Start = DateTime.Today.AddDays(6).Add(TimeSpan.Parse("08:00:00"));
-            item9.Finish = DateTime.Today.AddDays(6).Add(TimeSpan.Parse("16:00:00"));
-            item9.AssignmentsContent = "Resource 1";
-            item9.BaselineStart = DateTime.Today.AddDays(4).Add(TimeSpan.Parse("12:00:00"));
-            item9.BaselineFinish = DateTime.Today.AddDays(6).Add(TimeSpan.Parse("16:00:00"));
+            GanttChartItem itemStartdevelopment = GanttChartDataGrid.Items[7];
+            itemStartdevelopment.Start = monthStart.AddHours(8);
+            itemStartdevelopment.CompletedFinish = itemStartdevelopment.Start;
+            itemStartdevelopment.AssignmentsContent = "Steven Rush";
 
-            GanttChartItem item10 = GanttChartDataGrid.Items[10];
-            item10.Start = DateTime.Today.AddDays(7).Add(TimeSpan.Parse("08:00:00"));
-            item10.Finish = DateTime.Today.AddDays(28).Add(TimeSpan.Parse("16:00:00"));
-            item10.Predecessors.Add(new PredecessorItem { Item = item9 });
+            GanttChartItem itemDatetimes = GanttChartDataGrid.Items[8];
+            itemDatetimes.Start = monthStart.AddDays(3).AddHours(8);
+            itemDatetimes.Finish = monthStart.AddDays(6).AddHours(12);
+            itemDatetimes.CompletedFinish = monthStart.AddDays(4).AddHours(12);
+            itemDatetimes.AssignmentsContent = "Joanna Mcamis";
+
+            GanttChartItem itemSchedules = GanttChartDataGrid.Items[9];
+            itemSchedules.Start = monthStart.AddDays(3).AddHours(8);
+            itemSchedules.Finish = monthStart.AddDays(6).AddHours(12);
+            itemSchedules.CompletedFinish = monthStart.AddDays(4).AddHours(12);
+            itemSchedules.AssignmentsContent = "Clarissa Candelaria";
+
+            GanttChartItem itemAutomationtestingfunctions = GanttChartDataGrid.Items[10];
+            itemAutomationtestingfunctions.Start = monthStart.AddDays(3).AddHours(8);
+            itemAutomationtestingfunctions.Finish = monthStart.AddDays(11).AddHours(12);
+            itemAutomationtestingfunctions.CompletedFinish = itemAutomationtestingfunctions.Start;
+            itemAutomationtestingfunctions.AssignmentsContent = "Tyson Lamberson [50%]";
+
+            GanttChartItem itemChart = GanttChartDataGrid.Items[11];
+
+            GanttChartItem itemBars = GanttChartDataGrid.Items[12];
+            itemBars.Start = monthStart.AddDays(1).AddHours(8);
+            itemBars.Finish = monthStart.AddDays(4).AddHours(16);
+            itemBars.CompletedFinish = monthStart.AddDays(6).AddHours(16);
+            itemBars.AssignmentsContent = "Clarissa Candelaria [50%]";
+
+            GanttChartItem itemSummarybars = GanttChartDataGrid.Items[13];
+            itemSummarybars.Start = monthStart.AddDays(5).AddHours(8);
+            itemSummarybars.Finish = monthStart.AddDays(8).AddHours(16);
+            itemSummarybars.CompletedFinish = itemSummarybars.Start;
+            itemSummarybars.AssignmentsContent = "Steven Rush [50%]";
+
+            GanttChartItem itemChartReview = GanttChartDataGrid.Items[14];
+            itemChartReview.Start = monthStart.AddDays(8).AddHours(16);
+            itemChartReview.CompletedFinish = itemChartReview.Start;
+
+            GanttChartItem itemLinks = GanttChartDataGrid.Items[15];
+            itemLinks.Start = monthStart.AddDays(6).AddHours(8);
+            itemLinks.Finish = monthStart.AddDays(9).AddHours(16);
+            itemLinks.CompletedFinish = itemLinks.Start;
+            itemLinks.AssignmentsContent = "Steven Rush [50%]";
+
+            GanttChartItem itemDiagramfunctions = GanttChartDataGrid.Items[16];
+            itemDiagramfunctions.Start = monthStart.AddDays(4).AddHours(8);
+            itemDiagramfunctions.Finish = monthStart.AddDays(7).AddHours(12);
+            itemDiagramfunctions.CompletedFinish = itemDiagramfunctions.Start;
+            itemDiagramfunctions.AssignmentsContent = "Tyson Lamberson [50%]";
+
+            GanttChartItem itemQualityassurance = GanttChartDataGrid.Items[17];
+            itemQualityassurance.Start = monthStart.AddDays(1).AddHours(8);
+            itemQualityassurance.Finish = monthStart.AddDays(16).AddHours(16);
+            itemQualityassurance.CompletedFinish = itemQualityassurance.Start;
+            itemQualityassurance.AssignmentsContent = "Denis Kaelin, Printer";
+
+            GanttChartItem itemProjectdelivery = GanttChartDataGrid.Items[18];
+            itemProjectdelivery.Start = monthStart.AddDays(9).AddHours(8);
+            itemProjectdelivery.Finish = monthStart.AddDays(11).AddHours(12);
+            itemProjectdelivery.CompletedFinish = itemProjectdelivery.Start;
+            itemProjectdelivery.AssignmentsContent = "Clarissa Candelaria, Meeting room";
+
+            GanttChartItem itemMaintenance = GanttChartDataGrid.Items[19];
+            itemMaintenance.Start = monthStart.AddDays(11).AddHours(12);
+            itemMaintenance.Finish = monthStart.AddDays(17).AddHours(12);
+            itemMaintenance.CompletedFinish = itemMaintenance.Start;
+
+            GanttChartItem itemMarketing = GanttChartDataGrid.Items[20];
+            itemMarketing.Start = monthStart.AddDays(9).AddHours(12);
+            itemMarketing.Finish = monthStart.AddDays(14).AddHours(12);
+            itemMarketing.CompletedFinish = itemMarketing.Start;
+
+            GanttChartItem itemPreparations = GanttChartDataGrid.Items[21];
+            itemPreparations.Start = monthStart.AddDays(9).AddHours(8);
+            itemPreparations.CompletedFinish = itemPreparations.Start;
+            itemPreparations.AssignmentsContent = "Joanna Mcamis, Alicia Rock";
+
+            GanttChartItem itemColors = GanttChartDataGrid.Items[22];
+            itemColors.Start = monthStart.AddDays(10).AddHours(8);
+            itemColors.Finish = monthStart.AddDays(13).AddHours(12);
+            itemColors.CompletedFinish = itemColors.Start;
+            itemColors.AssignmentsContent = "Joanna Mcamis [25%]";
+
+            GanttChartItem itemLogo = GanttChartDataGrid.Items[23];
+            itemLogo.Start = monthStart.AddDays(10).AddHours(8);
+            itemLogo.Finish = monthStart.AddDays(13).AddHours(12);
+            itemLogo.CompletedFinish = itemLogo.Start;
+            itemLogo.AssignmentsContent = "Alicia Rock [25%]";
+
+            GanttChartItem itemSamplesapp = GanttChartDataGrid.Items[24];
+            itemSamplesapp.Start = monthStart.AddDays(10).AddHours(8);
+            itemSamplesapp.Finish = monthStart.AddDays(15).AddHours(12);
+            itemSamplesapp.CompletedFinish = itemSamplesapp.Start;
+            itemSamplesapp.AssignmentsContent = "Clarissa Candelaria";
+
+            GanttChartItem itemScreenshots = GanttChartDataGrid.Items[25];
+            itemScreenshots.Start = monthStart.AddDays(11).AddHours(8);
+            itemScreenshots.Finish = monthStart.AddDays(14).AddHours(16);
+            itemScreenshots.CompletedFinish = itemScreenshots.Start;
+            itemScreenshots.AssignmentsContent = "Joanna Mcamis";
+
+            GanttChartItem itemVideos = GanttChartDataGrid.Items[26];
+            itemVideos.Start = monthStart.AddDays(14).AddHours(8);
+            itemVideos.Finish = monthStart.AddDays(17).AddHours(16);
+            itemVideos.CompletedFinish = itemVideos.Start;
+            itemVideos.AssignmentsContent = "Alicia Rock [50%]";
+
+            itemDevelopment.Predecessors.Add(new PredecessorItem { Item = itemPlanning, DependencyType = DependencyType.StartStart });
+            itemArhitecture.Predecessors.Add(new PredecessorItem { Item = itemRequirements, Lag = TimeSpan.FromHours(2) });
+            itemDatetimes.Predecessors.Add(new PredecessorItem { Item = itemArhitecture });
+            itemDatetimes.Predecessors.Add(new PredecessorItem { Item = itemDesign });
+            itemAutomationtestingfunctions.Predecessors.Add(new PredecessorItem { Item = itemSchedules });
+
+            // Initialize baselines for the tasks used by the baseline display example.
+            itemStartdevelopment.BaselineStart = itemStartdevelopment.Start;
+            itemDatetimes.BaselineStart = itemDatetimes.Start;
+            itemDatetimes.BaselineFinish = itemDatetimes.Finish;
+            itemSchedules.BaselineStart = itemSchedules.Start;
+            itemSchedules.BaselineFinish = itemSchedules.Finish;
+            itemAutomationtestingfunctions.BaselineStart = itemAutomationtestingfunctions.Start;
+            itemAutomationtestingfunctions.BaselineFinish = itemAutomationtestingfunctions.Finish;
 
             // You may uncomment the next lines of code to set default schedule and timeline visibility settings for the Gantt Chart.
             // // Working week: between Tuesday and Saturday.
@@ -114,8 +221,8 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             // // Alternatively, add working day time breaks using AddWorkingDayTimeBreak or AddWorkingDayTimeBreaks methods.
             // GanttChartDataGrid.AddWorkingDayTimeBreak(TimeOfDay.Parse("11:30"), TimeOfDay.Parse("12:30"));
 
-            // You may uncomment the next lines of code to set specific schedule settings for Task 3.
-            // item8.Schedule = new Schedule(
+            // You may uncomment the next lines of code to set specific schedule settings for Schedules.
+            // itemSchedules.Schedule = new Schedule(
             //    DayOfWeek.Sunday, DayOfWeek.Thursday, // Working week: between Sunday and Thursday.
             //    TimeSpan.Parse("10:00:00"), TimeSpan.Parse("14:00:00"), // Working day: between 10 AM and 2 PM.
             //    new TimeInterval[] { // Optionally, generic nonworking intervals.
@@ -137,20 +244,7 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             // GanttChartDataGrid.IsIndividualItemNonworkingTimeHighlighted = true;
 
             // Optionally, disable auto-scheduling for individual items (i.e. turn on manual scheduling) by setting item.AreDependencyConstraintsEnabled = false (overriding component.AreTaskDependencyConstraintsEnabled == true).
-            // item2.AreDependencyConstraintsEnabled = false;
-
-            for (int i = 6; i <= 25; i++)
-            {
-                GanttChartDataGrid.Items.Add(
-                    new GanttChartItem
-                    {
-                        Content = "Task " + i,
-                        Indentation = i % 3 == 0 ? 0 : 1,
-                        Start = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8),
-                        Finish = DateTime.Today.AddDays((i <= 8 ? (i - 4) * 3 + (i > 8 ? 6 : 1) : i - 2) + 1),
-                        CompletedFinish = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 3 : i - 8).AddDays(i % 6 == 1 ? 3 : 0)
-                    });
-            }
+            // itemRequirements.AreDependencyConstraintsEnabled = false;
 
             // You may uncomment the next lines of code to test the component performance:
             // for (int i = 26; i <= 4096; i++)
@@ -165,30 +259,41 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures
             // }
 
             // Optionally, define assignable resources.
-            GanttChartDataGrid.AssignableResources = new ObservableCollection<string> { "Resource 1", "Resource 2", "Resource 3", 
-                                                                                        "Material 1", "Material 2" };
+            GanttChartDataGrid.AssignableResources = new ObservableCollection<string> { "Clarissa Candelaria", "Tyson Lamberson", "Steven Rush", 
+                                                                                        "Joanna Mcamis", "Denis Kaelin", "Alicia Rock", "Meeting room", "Printer" };
+            // Optionally, display only images for assigned resources, instead of images and names (names are displayed as tooltips).
+            //GanttChartDataGrid.DisplayAssignedResourceImagesOnly = true;
+            GanttChartDataGrid.ResourceImages = new Dictionary<string, ImageSource>
+            {
+                { "Clarissa Candelaria", new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Clarissa.png", applicationName), UriKind.Absolute)) },
+                { "Tyson Lamberson", new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Tyson.png", applicationName), UriKind.Absolute)) },
+                { "Steven Rush", new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Steven.png", applicationName), UriKind.Absolute)) },
+                { "Joanna Mcamis", new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Joanna.png", applicationName), UriKind.Absolute)) },
+                { "Denis Kaelin", new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Denis.png", applicationName), UriKind.Absolute)) },
+                { "Alicia Rock", new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Alicia.png", applicationName), UriKind.Absolute)) },
+                { "Meeting room", new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/MeetingRoom.png", applicationName), UriKind.Absolute)) },
+                { "Printer", new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Printer.png", applicationName), UriKind.Absolute)) }
+            };
 
             // Optionally, define the quantity values to consider when leveling resources, indicating maximum material amounts available for use at the same time.
-            GanttChartDataGrid.ResourceQuantities = new Dictionary<string, double> { { "Material 1", 4 }, { "Material 2", double.PositiveInfinity } };
-            item4.AssignmentsContent = "Material 1 [300%]";
-            item6.AssignmentsContent = "Material 1 [250%], Material 2";
+            GanttChartDataGrid.ResourceQuantities = new Dictionary<string, double> { { "Meeting room", 4 }, { "Printer", double.PositiveInfinity } };
 
             // Optionally, define task and resource costs.
             // GanttChartDataGrid.TaskInitiationCost = 5;
-            item4.ExecutionCost = 50;
+            itemArhitecture.ExecutionCost = 50;
             // GanttChartDataGrid.DefaultResourceUsageCost = 1;
-            // GanttChartDataGrid.SpecificResourceUsageCosts = new Dictionary<string, double> { { "Resource 1", 2 }, { "Material 1", 7 } };
+            // GanttChartDataGrid.SpecificResourceUsageCosts = new Dictionary<string, double> { { "Clarissa Candelaria", 2 }, { "Meeting room", 7 } };
             GanttChartDataGrid.DefaultResourceHourCost = 10;
-            GanttChartDataGrid.SpecificResourceHourCosts = new Dictionary<string, double> { { "Resource 1", 20 }, { "Material 2", 0.5 } };
+            GanttChartDataGrid.SpecificResourceHourCosts = new Dictionary<string, double> { { "Clarissa Candelaria", 20 }, { "Printer", 0.5 } };
 
             // Optionally, set HasFixedEffort to automatically update item assignment allocation units rather than effort upon duration changes.
-            // item6.HasFixedEffort = true;
+            // itemStartdevelopment.HasFixedEffort = true;
 
             // Optionally, set RequiresMinSchedulingBreaks to ensure specific items are scheduled with the minimum possible number of nonworking time breaks (e.g. nights, weekends).
-            // item6.RequiresMinSchedulingBreaks = true;
+            // itemStartdevelopment.RequiresMinSchedulingBreaks = true;
 
             // Optionally, set LevelingPrority values to be considered upon leveling resources (default is zero).
-            // item6.LevelingPriority = 1000;
+            // itemStartdevelopment.LevelingPriority = 1000;
 
             // Optionally, set AreHierarchyConstraintsEnabled to false to increase performance when you perform hierarchy validation in your application.
             GanttChartDataGrid.AreHierarchyConstraintsEnabled = false;

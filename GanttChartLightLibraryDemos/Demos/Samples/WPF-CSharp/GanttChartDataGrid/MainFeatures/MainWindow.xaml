@@ -1,4 +1,4 @@
-﻿<Window x:Class="Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures.MainWindow"
+<Window x:Class="Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Demos.WPF.CSharp.GanttChartDataGrid.MainFeatures"
@@ -375,17 +375,33 @@
             <pdgcc:GanttChartDataGrid.Items>
                 <!-- Some item properties are set in code behind. -->
                 <!-- Alternatively, you may data bind items to your custom data source using a preconfigured pdgcc:TaskItemsConverter instance. -->
-                <pdgcc:GanttChartItem Content="Task 1"/>
-                <pdgcc:GanttChartItem Content="Task 1.1" Indentation="1"/>
-                <pdgcc:GanttChartItem Content="Task 1.2" Indentation="1"/>
-                <pdgcc:GanttChartItem Content="Task 2"/>
-                <pdgcc:GanttChartItem Content="Task 2.1" Indentation="1"/>
-                <pdgcc:GanttChartItem Content="Task 2.2" Indentation="1"/>
-                <pdgcc:GanttChartItem Content="Task 2.2.1" Indentation="2"/>
-                <pdgcc:GanttChartItem Content="Task 2.2.2" Indentation="2"/>
-                <pdgcc:GanttChartItem Content="Task 3"/>
-                <pdgcc:GanttChartItem Content="Task 4"/>
-                <pdgcc:GanttChartItem Content="Task 5"/>
+                <pdgcc:GanttChartItem Content="Planning" IsExpanded="False"/>
+                <pdgcc:GanttChartItem Content="Analysis" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Requirements" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Review" Indentation="1" IsMilestone="True"/>
+                <pdgcc:GanttChartItem Content="Arhitecture" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Design" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Development" IsExpanded="True"/>
+                <pdgcc:GanttChartItem Content="Start development" Indentation="1" IsMilestone="True"/>
+                <pdgcc:GanttChartItem Content="Date-times" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Schedules" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Automation testing functions" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Chart" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Bars" Indentation="2"/>
+                <pdgcc:GanttChartItem Content="Summary bars" Indentation="2"/>
+                <pdgcc:GanttChartItem Content="Review" Indentation="2" IsMilestone="True"/>
+                <pdgcc:GanttChartItem Content="Links" Indentation="2"/>
+                <pdgcc:GanttChartItem Content="Diagram functions" Indentation="2"/>
+                <pdgcc:GanttChartItem Content="Quality assurance"/>
+                <pdgcc:GanttChartItem Content="Project delivery"/>
+                <pdgcc:GanttChartItem Content="Maintenance"/>
+                <pdgcc:GanttChartItem Content="Marketing"/>
+                <pdgcc:GanttChartItem Content="Preparations" Indentation="1" IsMilestone="True"/>
+                <pdgcc:GanttChartItem Content="Colors" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Logo" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Samples app" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Screenshots" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Videos" Indentation="1"/>
             </pdgcc:GanttChartDataGrid.Items>
             <!-- Optionally, set up grid columns. -->
             <pdgcc:GanttChartDataGrid.Columns>
