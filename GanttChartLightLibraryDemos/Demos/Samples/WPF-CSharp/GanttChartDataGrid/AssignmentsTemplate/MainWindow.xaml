@@ -1,37 +1,62 @@
-﻿<Window x:Class="Demos.WPF.CSharp.GanttChartDataGrid.AssignmentsTemplate.MainWindow"
+<Window x:Class="Demos.WPF.CSharp.GanttChartDataGrid.AssignmentsTemplate.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:hdc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.HierarchicalData.LightWPF.Controls"
         xmlns:pdgcc="clr-namespace:DlhSoft.Windows.Controls;assembly=DlhSoft.ProjectData.GanttChart.LightWPF.Controls"
-        xmlns:local="clr-namespace:Demos.WPF.CSharp.GanttChartDataGrid.AssignmentsTemplate"
         Title="GanttChartDataGrid Assignments Template Sample" Width="800" Height="600">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="AppResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <pdgcc:ResourceAssignmentsConverter x:Key="ResourceAssignmentsConverter"/>
+            <DataTemplate x:Key="ResourceAssignmentTemplate">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Separator}" VerticalAlignment="Center"/>
+                    <Image x:Name="ResourceImage" Source="{Binding ImageSource}" ToolTip="{Binding ToolTip}" Width="20" Height="20" Margin="0,0,2,0">
+                        <Image.Clip>
+                            <EllipseGeometry Center="10,10" RadiusX="10" RadiusY="10" />
+                        </Image.Clip>
+                    </Image>
+                    <TextBlock Text="{Binding Content}" VerticalAlignment="Center"/>
+                </StackPanel>
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding ImageSource}" Value="{x:Null}">
+                        <Setter TargetName="ResourceImage" Property="Visibility" Value="Collapsed"/>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+            <DataTemplate x:Key="AssignmentsTemplate">
+                <ItemsControl ItemTemplate="{StaticResource ResourceAssignmentTemplate}" IsHitTestVisible="{Binding GanttChartView.DisplayAssignedResourceImagesOnly}" IsTabStop="False">
+                    <ItemsControl.ItemsSource>
+                        <MultiBinding Converter="{StaticResource ResourceAssignmentsConverter}">
+                            <Binding Path="AssignmentsContent"/>
+                            <Binding Path="GanttChartView.ResourceImages"/>
+                            <Binding Path="GanttChartView.DisplayAssignedResourceImagesOnly"/>
+                            <Binding Path="GanttChartView.DefaultAssignedResourceImageSource"/>
+                        </MultiBinding>
+                    </ItemsControl.ItemsSource>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </DataTemplate>
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
-        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid">
-            <pdgcc:GanttChartDataGrid.AssignmentsTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="{Binding AssignmentsIconSource}" IsHitTestVisible="False" Width="16" Height="16"/>
-                        <TextBlock Text="{Binding AssignmentsContent, Mode=TwoWay}" Foreground="Gray"/>
-                    </StackPanel>
-                </DataTemplate>
-            </pdgcc:GanttChartDataGrid.AssignmentsTemplate>
+        <pdgcc:GanttChartDataGrid x:Name="GanttChartDataGrid" AssignmentsTemplate="{StaticResource AssignmentsTemplate}">
             <pdgcc:GanttChartDataGrid.Items>
-                <!-- Some item properties are set in code behind. -->
-                <local:CustomGanttChartItem Content="Task 1"/>
-                <local:CustomGanttChartItem Content="Task 1.1" Indentation="1"/>
-                <local:CustomGanttChartItem Content="Task 1.2" Indentation="1"/>
-                <local:CustomGanttChartItem Content="Task 2"/>
-                <local:CustomGanttChartItem Content="Task 2.1" Indentation="1"/>
-                <local:CustomGanttChartItem Content="Task 2.2" Indentation="1"/>
-                <local:CustomGanttChartItem Content="Task 2.2.1" Indentation="2"/>
-                <local:CustomGanttChartItem Content="Task 2.2.2" Indentation="2"/>
+                <!-- Task dates, assignments, and dependencies are initialized in code behind. -->
+                <pdgcc:GanttChartItem Content="Planning"/>
+                <pdgcc:GanttChartItem Content="Requirements" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Interface design" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Development"/>
+                <pdgcc:GanttChartItem Content="Implementation" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Testing" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Documentation" Indentation="1"/>
+                <pdgcc:GanttChartItem Content="Release review" Indentation="1" IsMilestone="True"/>
             </pdgcc:GanttChartDataGrid.Items>
         </pdgcc:GanttChartDataGrid>
     </DockPanel>

@@ -1,7 +1,10 @@
-﻿using System;
+using System;
 using System.Windows;
 using DlhSoft.Windows.Controls;
 using System.Windows.Media.Imaging;
+using System.Windows.Media;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Demos.WPF.CSharp.GanttChartDataGrid.AssignmentsTemplate
 {
@@ -14,62 +17,65 @@ namespace Demos.WPF.CSharp.GanttChartDataGrid.AssignmentsTemplate
         {
             InitializeComponent();
 
-            string applicationName = GetType().Namespace;
+            string applicationName = GetType().Assembly.GetName().Name;
 
-            CustomGanttChartItem item0 = GanttChartDataGrid.Items[0] as CustomGanttChartItem;
-
-            CustomGanttChartItem item1 = GanttChartDataGrid.Items[1] as CustomGanttChartItem;
-            item1.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
-            item1.Finish = DateTime.Today.Add(TimeSpan.Parse("16:00:00"));
-            item1.CompletedFinish = DateTime.Today.Add(TimeSpan.Parse("12:00:00"));
-            item1.AssignmentsIconSource = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Person 1.png", applicationName), UriKind.Absolute));
-            item1.AssignmentsContent = "Resource 1";
-
-            CustomGanttChartItem item2 = GanttChartDataGrid.Items[2] as CustomGanttChartItem;
-            item2.Start = DateTime.Today.AddDays(1).Add(TimeSpan.Parse("08:00:00"));
-            item2.Finish = DateTime.Today.AddDays(2).Add(TimeSpan.Parse("16:00:00"));
-            item2.AssignmentsIconSource = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Persons.png", applicationName), UriKind.Absolute));
-            item2.AssignmentsContent = "Resource 1, Resource 2";
-            item2.Predecessors.Add(new PredecessorItem { Item = item1 });
-
-            CustomGanttChartItem item3 = GanttChartDataGrid.Items[3] as CustomGanttChartItem;
-            item3.Predecessors.Add(new PredecessorItem { Item = item0, DependencyType = DependencyType.StartStart });
-
-            CustomGanttChartItem item4 = GanttChartDataGrid.Items[4] as CustomGanttChartItem;
-            item4.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
-            item4.Finish = DateTime.Today.AddDays(2).Add(TimeSpan.Parse("12:00:00"));
-            item4.AssignmentsIconSource = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Person 2.png", applicationName), UriKind.Absolute));
-            item4.AssignmentsContent = "Resource 2";
-
-            CustomGanttChartItem item6 = GanttChartDataGrid.Items[6] as CustomGanttChartItem;
-            item6.Start = DateTime.Today.Add(TimeSpan.Parse("08:00:00"));
-            item6.Finish = DateTime.Today.AddDays(3).Add(TimeSpan.Parse("12:00:00"));
-            item6.AssignmentsIconSource = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Person 1.png", applicationName), UriKind.Absolute));
-            item6.AssignmentsContent = "Resource 1";
-
-            CustomGanttChartItem item7 = GanttChartDataGrid.Items[7] as CustomGanttChartItem;
-            item7.Start = DateTime.Today.AddDays(4);
-            item7.IsMilestone = true;
-            item7.AssignmentsIconSource = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Person 2.png", applicationName), UriKind.Absolute));
-            item7.AssignmentsContent = "Resource 2";
-            item7.Predecessors.Add(new PredecessorItem { Item = item4 });
-            item7.Predecessors.Add(new PredecessorItem { Item = item6 });
-
-            for (int i = 3; i <= 25; i++)
+            // Associate each resource with a portrait used by the assignment template.
+            GanttChartDataGrid.AssignableResources = new ObservableCollection<string>
             {
-                GanttChartDataGrid.Items.Add(
-                    new CustomGanttChartItem
-                    {
-                        Content = "Task " + i,
-                        Indentation = i % 3 == 0 ? 0 : 1,
-                        Start = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 2 : i - 8),
-                        Finish = DateTime.Today.AddDays((i <= 8 ? (i - 4) * 2 + (i > 8 ? 6 : 1) : i - 2) + 2),
-                        CompletedFinish = DateTime.Today.AddDays(i <= 8 ? (i - 4) * 2 : i - 8).AddDays(i % 6 == 4 ? 3 : 0),
-                        AssignmentsIconSource = new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Person {1}.png", applicationName, 1 + i % 2), UriKind.Absolute))
-                    });
-            }
-        }
+                "Clarissa Candelaria", "Steven Rush", "Tyson Lamberson", "Joanna Mcamis"
+            };
+            GanttChartDataGrid.ResourceImages = new Dictionary<string, ImageSource>
+            {
+                { "Clarissa Candelaria", new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Clarissa.png", applicationName), UriKind.Absolute)) },
+                { "Steven Rush", new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Steven.png", applicationName), UriKind.Absolute)) },
+                { "Tyson Lamberson", new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Tyson.png", applicationName), UriKind.Absolute)) },
+                { "Joanna Mcamis", new BitmapImage(new Uri(string.Format("pack://application:,,,/{0};component/Images/Joanna.png", applicationName), UriKind.Absolute)) }
+            };
+            // Set this property to false to display resource names beside the portraits.
+            // In image-only mode, tooltips show resource names and allocation percentages.
+            GanttChartDataGrid.DisplayAssignedResourceImagesOnly = true;
 
+            GanttChartItem itemRequirements = GanttChartDataGrid.Items[1];
+            itemRequirements.Start = DateTime.Today.AddHours(8);
+            itemRequirements.Finish = DateTime.Today.AddDays(3).AddHours(16);
+            itemRequirements.CompletedFinish = DateTime.Today.AddHours(12);
+            itemRequirements.AssignmentsContent = "Clarissa Candelaria, Steven Rush [50%]";
+
+            GanttChartItem itemInterfaceDesign = GanttChartDataGrid.Items[2];
+            itemInterfaceDesign.Start = DateTime.Today.AddDays(2).AddHours(8);
+            itemInterfaceDesign.Finish = DateTime.Today.AddDays(5).AddHours(16);
+            itemInterfaceDesign.CompletedFinish = itemInterfaceDesign.Start;
+            itemInterfaceDesign.AssignmentsContent = "Steven Rush";
+            itemInterfaceDesign.Predecessors.Add(new PredecessorItem { Item = itemRequirements });
+
+            GanttChartItem itemImplementation = GanttChartDataGrid.Items[4];
+            itemImplementation.Start = DateTime.Today.AddDays(4).AddHours(8);
+            itemImplementation.Finish = DateTime.Today.AddDays(8).AddHours(16);
+            itemImplementation.CompletedFinish = itemImplementation.Start;
+            itemImplementation.AssignmentsContent = "Clarissa Candelaria, Steven Rush [50%]";
+            itemImplementation.Predecessors.Add(new PredecessorItem { Item = itemInterfaceDesign });
+
+            GanttChartItem itemTesting = GanttChartDataGrid.Items[5];
+            itemTesting.Start = DateTime.Today.AddDays(8).AddHours(8);
+            itemTesting.Finish = DateTime.Today.AddDays(12).AddHours(16);
+            itemTesting.CompletedFinish = itemTesting.Start;
+            itemTesting.AssignmentsContent = "Tyson Lamberson";
+            itemTesting.Predecessors.Add(new PredecessorItem { Item = itemImplementation });
+
+            GanttChartItem itemDocumentation = GanttChartDataGrid.Items[6];
+            itemDocumentation.Start = DateTime.Today.AddDays(4).AddHours(8);
+            itemDocumentation.Finish = DateTime.Today.AddDays(8).AddHours(16);
+            itemDocumentation.CompletedFinish = itemDocumentation.Start;
+            itemDocumentation.AssignmentsContent = "Joanna Mcamis [50%]";
+            itemDocumentation.Predecessors.Add(new PredecessorItem { Item = itemInterfaceDesign });
+
+            GanttChartItem itemReleaseReview = GanttChartDataGrid.Items[7];
+            itemReleaseReview.Start = DateTime.Today.AddDays(10).AddHours(16);
+            itemReleaseReview.CompletedFinish = itemReleaseReview.Start;
+            itemReleaseReview.AssignmentsContent = "Clarissa Candelaria, Tyson Lamberson, Joanna Mcamis";
+            itemReleaseReview.Predecessors.Add(new PredecessorItem { Item = itemTesting });
+            itemReleaseReview.Predecessors.Add(new PredecessorItem { Item = itemDocumentation });
+        }
         private string theme = "Generic-bright";
         public MainWindow(string theme) : this()
         {
